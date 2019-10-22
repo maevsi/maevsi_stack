@@ -1,0 +1,19 @@
+[req]
+prompt             = no
+string_mask        = default
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+x509_extensions    = x509_ext
+
+[req_distinguished_name]
+countryName = de
+organizationName = Development
+commonName = localhost
+
+[x509_ext]
+keyUsage=critical,digitalSignature,keyEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = [project-name].test
+DNS.2 = [sub].[project-name].test

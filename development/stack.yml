@@ -1,0 +1,4 @@
+services:
+  [project_name]:
+    image: "[project_owner]/[project_name]"
+version: "3"
