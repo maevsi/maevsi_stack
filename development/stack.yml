@@ -1,4 +1,122 @@
+secrets:
+  portainer_admin-password:
+    file: ./secrets/portainer/admin-password.secret
+  postgres_db:
+    file: ./secrets/postgres/db.secret
+  postgres_password:
+    file: ./secrets/postgres/password.secret
+  postgres_user:
+    file: ./secrets/postgres/user.secret
 services:
-  [project_name]:
-    image: "[project_owner]/[project_name]"
-version: "3"
+  adminer:
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.frontend.auth.basic=${STACK_AUTH_BASIC}
+      - traefik.frontend.rule=Host:adminer.${STACK_DOMAIN}
+      - traefik.port=8080
+    image: adminer:4.7.4-standalone@sha256:e1f8116c0bb6ad870f1ec3f0411d6c5640a89985ed54e00c817f29f34bcc59f8
+  maevsi:
+    command: gridsome develop --port 80
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:${STACK_DOMAIN},www.${STACK_DOMAIN}
+      - traefik.port=80
+    image: dargmuesli/maevsi:dev
+    volumes:
+    - ../../maevsi/:/app/
+  postgraphile:
+    command: --schema maevsi --cors --watch
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:postgraphile.${STACK_DOMAIN}
+      - traefik.port=5000
+    environment:
+      PGDATABASE: maevsi
+      PGHOST: postgres
+      PGPASSWORD: postgres
+      PGUSER: postgres
+    image: graphile/postgraphile:v4.4.4@sha256:c33b0f801f042f6e38eb20cafadfe0009ec43b5a074e571f49d8beb2d2a24f59
+    secrets:
+    - postgres_db
+    - postgres_password
+    - postgres_user
+  portainer:
+    command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:portainer.${STACK_DOMAIN}
+      - traefik.port=9000
+      mode: replicated
+      placement:
+        constraints: [node.role == manager]
+      replicas: 1
+    image: portainer/portainer:1.22.1@sha256:9ed57167da4dda987d63730f7dd89111ac2ef52a2734b5ff4ec2d31efcd9597f
+    secrets:
+    - portainer_admin-password
+    volumes:
+    - portainer_data:/data
+  portainer-agent:
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.platform.os == linux]
+    environment:
+      AGENT_CLUSTER_ADDR: tasks.portainer-agent
+    image: portainer/agent:1.5.1@sha256:6e1a21dddb13a89310576716f85c174c8b0fbc1d733e2bcaad87a3fdee4b8b14
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/lib/docker/volumes:/var/lib/docker/volumes
+  postgres:
+    environment:
+      POSTGRES_DB_FILE: /run/secrets/postgres_db
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_USER_FILE: /run/secrets/postgres_user
+    image: postgres:12.0-alpine@sha256:55ce4ed5ea366bfe9bd141b85608eb62a9f26f524ce0d095fb4c0a3ee50228cd
+    secrets:
+    - postgres_db
+    - postgres_password
+    - postgres_user
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+  traefik:
+    command:
+    - --api
+    - --defaultentrypoints=http,https
+    - --docker
+    - --docker.domain=${STACK_DOMAIN}
+    - --docker.exposedByDefault=false
+    - --docker.swarmMode=true
+    - --entryPoints=Name:http Address::80 Redirect.EntryPoint:https
+    - --entryPoints=Name:https Address::443 TLS:/etc/traefik/acme/maevsi.crt,/etc/traefik/acme/maevsi.key
+      Compress:true
+    - --insecureSkipVerify=true
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:traefik.${STACK_DOMAIN}
+      - traefik.port=8080
+      mode: global
+      placement:
+        constraints:
+        - node.role == manager
+    image: traefik:1.7.18-alpine@sha256:9efd64c4c9d090840987eec6d6d97da2de88ac214c7d9e393d1e4ccafea777fe
+    ports:
+    - mode: host
+      protocol: tcp
+      published: 80
+      target: 80
+    - mode: host
+      protocol: tcp
+      published: 443
+      target: 443
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./certificates/:/etc/traefik/acme/
+version: "3.7"
+volumes:
+  portainer_data: {}
+  postgres-data: {}

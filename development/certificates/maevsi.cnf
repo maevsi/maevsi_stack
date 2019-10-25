@@ -15,5 +15,9 @@ keyUsage=critical,digitalSignature,keyEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = [project-name].test
-DNS.2 = [sub].[project-name].test
+DNS.1 = maevsi.test
+DNS.2 = adminer.maevsi.test
+DNS.3 = portainer.maevsi.test
+DNS.4 = postgraphile.maevsi.test
+DNS.5 = traefik.maevsi.test
+DNS.6 = www.maevsi.test
