@@ -17,13 +17,14 @@ services:
       - traefik.port=8080
     image: adminer:4.7.4-standalone@sha256:e1f8116c0bb6ad870f1ec3f0411d6c5640a89985ed54e00c817f29f34bcc59f8
   maevsi:
-    command: gridsome develop --port 80
+    command: gridsome develop
     deploy:
       labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:${STACK_DOMAIN},www.${STACK_DOMAIN}
-      - traefik.port=80
+      - traefik.port=8080
     image: dargmuesli/maevsi:dev
+    user: node:node
     volumes:
     - ../../maevsi/:/app/
   postgraphile:
