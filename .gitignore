@@ -4,6 +4,6 @@
 *.csr
 *.env
 *.key
-!*.README
+!README.md
 !*.template
 production/stack.yml
