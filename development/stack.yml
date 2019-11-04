@@ -15,7 +15,7 @@ services:
       - traefik.frontend.auth.basic=${STACK_AUTH_BASIC}
       - traefik.frontend.rule=Host:adminer.${STACK_DOMAIN}
       - traefik.port=8080
-    image: adminer:4.7.4-standalone@sha256:e1f8116c0bb6ad870f1ec3f0411d6c5640a89985ed54e00c817f29f34bcc59f8
+    image: adminer:4.7.4-standalone@sha256:4ca2a6eb39e94af14d317232e86855c8fc442c3d5332fab9ce70d0bc3b112d65
   maevsi:
     command: gridsome develop
     deploy:
