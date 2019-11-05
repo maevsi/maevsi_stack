@@ -1,0 +1,16 @@
+{
+  "automerge": true,
+  "automergeType": "branch",
+  "docker-compose": {
+    "fileMatch": ["(^|/)(stack|production)[^/]*\\.ya?ml$"]
+  },
+  "extends": [
+    "config:base",
+    "default:automergeBranchPush",
+    "default:automergeDigest",
+    "docker:enableMajor"
+  ],
+  "major": {
+    "automerge": false
+  }
+}
