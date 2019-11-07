@@ -57,8 +57,8 @@ services:
     environment:
       # For other providers see:
       # https://docs.traefik.io/configuration/acme/#provider
-      CF_DNS_API_TOKEN: /run/secrets/traefik_cf-dns-api-token
-      CF_DNS_API_TOKEN: /run/secrets/traefik_cf-zone-api-token
+      CF_DNS_API_TOKEN_FILE: /run/secrets/traefik_cf-dns-api-token
+      CF_ZONE_API_TOKEN_FILE: /run/secrets/traefik_cf-zone-api-token
     secrets:
     - traefik_cf-dns-api-token
     - traefik_cf-zone-api-token
