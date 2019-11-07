@@ -34,7 +34,7 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: prodrigestivill/postgres-backup-local:11-alpine
+    image: prodrigestivill/postgres-backup-local:12-alpine@sha256:b02a430e5f71d2a71f85a3c00217ea4717e67860dc27c8e8da13e28addad80a7
     secrets:
     - postgres-backup_db
     - postgres_password
@@ -63,7 +63,7 @@ services:
     # - traefik_cf-api-email
     # - traefik_cf-api-key
   traefik_certs-dumper:
-    image: ldez/traefik-certs-dumper:v2.4.0
+    image: ldez/traefik-certs-dumper:v2.6.0@sha256:f786bbf5b21fcd68f4103c9807657a44fc74aeec16fc4702e4c947fb1050fa7d
     command:
     - file
     - --clean=false
