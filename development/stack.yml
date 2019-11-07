@@ -134,7 +134,7 @@ services:
       target: 443
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ./certificates/:/etc/traefik/acme/:ro
+    - ./certificates/:/etc/traefik/acme/
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
 version: "3.7"
 volumes:
