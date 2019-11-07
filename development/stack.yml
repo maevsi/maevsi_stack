@@ -93,7 +93,7 @@ services:
     - postgres_password
     - postgres_user
     volumes:
-    - postgres-data:/var/lib/postgresql/data
+    - postgres_data:/var/lib/postgresql/data
   traefik:
     command:
       - --api=true
@@ -139,4 +139,4 @@ services:
 version: "3.7"
 volumes:
   portainer_data: {}
-  postgres-data: {}
+  postgres_data: {}
