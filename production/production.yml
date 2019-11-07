@@ -1,13 +1,33 @@
 secrets:
   postgres-backup_db:
     external: true
-  traefik_cf-api-email:
-    external: true
-  traefik_cf-api-key:
-    external: true
+  # traefik_cf-api-email:
+  #   external: true
+  # traefik_cf-api-key:
+  #   external: true
 services:
+  adminer:
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.adminer-secure.middlewares=auth
+      - traefik.http.routers.adminer-secure.tls.certresolver=default
   maevsi:
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.maevsi-secure.tls.certresolver=default
     image: dargmuesli/maevsi:0.0.0
+  postgraphile:
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.postgraphile-secure.tls.certresolver=default
+  portainer:
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.portainer-secure.tls.certresolver=default
   postgres_backup:
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres-backup_db
@@ -25,20 +45,23 @@ services:
   traefik:
     command:
     - (( prepend ))
-    - --acme.acmeLogging=true
-    - --acme.dnsChallenge.provider=${STACK_ACME_PROVIDER}
-    - --acme.domains=${STACK_DOMAIN},adminer.${STACK_DOMAIN},companion.${STACK_DOMAIN},postgraphile.${STACK_DOMAIN},traefik.${STACK_DOMAIN},tusd.${STACK_DOMAIN},www.${STACK_DOMAIN}
-    - --acme.email=${STACK_ACME_EMAIL}
-    - --acme.entrypoint=https
-    - --acme.storage=/etc/traefik/acme/acme.json
-    environment:
-      # For other providers see:
-      # https://docs.traefik.io/configuration/acme/#provider
-      CF_API_EMAIL_FILE: /run/secrets/traefik_cf-api-email
-      CF_API_KEY_FILE: /run/secrets/traefik_cf-api-key
-    secrets:
-    - traefik_cf-api-email
-    - traefik_cf-api-key
+    - --certificatesResolvers.default.acme.email=${STACK_ACME_EMAIL}
+    - --certificatesResolvers.default.acme.storage=/etc/traefik/acme/acme.json
+    - --certificatesResolvers.default.acme.httpChallenge.entryPoint=web
+    #- --acme.dnsChallenge.provider=${STACK_ACME_PROVIDER}
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.traefik-secure.middlewares=auth
+      - traefik.http.routers.traefik-secure.tls.certresolver=default
+    # environment:
+    #   # For other providers see:
+    #   # https://docs.traefik.io/configuration/acme/#provider
+    #   CF_API_EMAIL_FILE: /run/secrets/traefik_cf-api-email
+    #   CF_API_KEY_FILE: /run/secrets/traefik_cf-api-key
+    # secrets:
+    # - traefik_cf-api-email
+    # - traefik_cf-api-key
   traefik_certs-dumper:
     image: ldez/traefik-certs-dumper:v2.4.0
     command:

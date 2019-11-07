@@ -12,17 +12,22 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.frontend.auth.basic=${STACK_AUTH_BASIC}
-      - traefik.frontend.rule=Host:adminer.${STACK_DOMAIN}
-      - traefik.port=8080
+      - traefik.http.routers.adminer.middlewares=redirectscheme
+      - traefik.http.routers.adminer.rule=Host(`adminer.${STACK_DOMAIN}`)
+      - traefik.http.routers.adminer-secure.rule=Host(`adminer.${STACK_DOMAIN}`)
+      - traefik.http.routers.adminer-secure.tls.options=mintls13@file
+      - traefik.http.services.adminer.loadbalancer.server.port=8080
     image: adminer:4.7.4-standalone@sha256:4ca2a6eb39e94af14d317232e86855c8fc442c3d5332fab9ce70d0bc3b112d65
   maevsi:
     command: gridsome develop
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:${STACK_DOMAIN},www.${STACK_DOMAIN}
-      - traefik.port=8080
+      - traefik.http.routers.maevsi.middlewares=redirectscheme
+      - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.http.routers.maevsi-secure.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.http.routers.maevsi-secure.tls.options=mintls13@file
+      - traefik.http.services.maevsi.loadbalancer.server.port=8080
     image: dargmuesli/maevsi:dev
     user: node:node
     volumes:
@@ -32,8 +37,11 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:postgraphile.${STACK_DOMAIN}
-      - traefik.port=5000
+      - traefik.http.routers.postgraphile.middlewares=redirectscheme
+      - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
+      - traefik.http.routers.postgraphile-secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
+      - traefik.http.routers.postgraphile-secure.tls.options=mintls13@file
+      - traefik.http.services.postgraphile.loadbalancer.server.port=5000
     environment:
       PGDATABASE: maevsi
       PGHOST: postgres
@@ -49,8 +57,11 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:portainer.${STACK_DOMAIN}
-      - traefik.port=9000
+      - traefik.http.routers.portainer.middlewares=redirectscheme
+      - traefik.http.routers.portainer.rule=Host(`portainer.${STACK_DOMAIN}`)
+      - traefik.http.routers.portainer-secure.rule=Host(`portainer.${STACK_DOMAIN}`)
+      - traefik.http.routers.portainer-secure.tls.options=mintls13@file
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
       mode: replicated
       placement:
         constraints: [node.role == manager]
@@ -85,26 +96,33 @@ services:
     - postgres-data:/var/lib/postgresql/data
   traefik:
     command:
-    - --api
-    - --defaultentrypoints=http,https
-    - --docker
-    - --docker.domain=${STACK_DOMAIN}
-    - --docker.exposedByDefault=false
-    - --docker.swarmMode=true
-    - --entryPoints=Name:http Address::80 Redirect.EntryPoint:https
-    - --entryPoints=Name:https Address::443 TLS:/etc/traefik/acme/maevsi.crt,/etc/traefik/acme/maevsi.key
-      Compress:true
-    - --insecureSkipVerify=true
+      - --api=true
+      - --entryPoints.web.address=:80
+      - --entryPoints.web-secure.address=:443
+      - --providers.docker=true
+      - --providers.docker.endpoint=unix:///var/run/docker.sock
+      - --providers.docker.exposedByDefault=false
+      - --providers.docker.swarmMode=true
+      - --providers.file.filename=/dynamic.yml
+      - --providers.file.watch=true
+      - --providers.docker.exposedByDefault=false
+      - --log.level=DEBUG
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:traefik.${STACK_DOMAIN}
-      - traefik.port=8080
+      - traefik.http.middlewares.auth.basicauth.users=${AUTH_BASIC}
+      - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
+      - traefik.http.routers.traefik.middlewares=redirectscheme
+      - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
+      - traefik.http.routers.traefik-secure.rule=Host(`traefik.${STACK_DOMAIN}`)
+      - traefik.http.routers.traefik-secure.service=api@internal
+      - traefik.http.routers.traefik-secure.tls.options=mintls13@file
+      - traefik.http.services.traefik.loadbalancer.server.port=8080
       mode: global
       placement:
         constraints:
         - node.role == manager
-    image: traefik:1.7.18-alpine@sha256:9efd64c4c9d090840987eec6d6d97da2de88ac214c7d9e393d1e4ccafea777fe
+    image: traefik:v2.0.4@sha256:b1ec4ff7894929afd3760c5ab7505669d28c21759234ba171011fbfe37359341
     ports:
     - mode: host
       protocol: tcp
@@ -116,7 +134,8 @@ services:
       target: 443
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ./certificates/:/etc/traefik/acme/
+    - ./certificates/:/etc/traefik/acme/:ro
+    - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro
 version: "3.7"
 volumes:
   portainer_data: {}
