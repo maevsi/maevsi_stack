@@ -51,7 +51,7 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.middlewares.auth.basicauth.users=${AUTH_BASIC}
+      - traefik.http.middlewares.auth.basicauth.users=${STACK_AUTH_BASIC}
       - traefik.http.routers.traefik-secure.middlewares=auth
       - traefik.http.routers.traefik-secure.tls.certresolver=default
     environment:
