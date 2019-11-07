@@ -77,6 +77,6 @@ services:
       STACK_DOMAIN: ${STACK_DOMAIN}
     volumes:
     - acme_data:/etc/traefik/acme/
-    - ./configurations/traefik_certs-dumper_post-hook:/mnt/traefik_certs-dumper/post-hook
+    - ./configurations/traefik_certs-dumper/post-hook:/mnt/traefik_certs-dumper/post-hook
 volumes:
   acme_data: {}
