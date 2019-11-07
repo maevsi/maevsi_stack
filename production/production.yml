@@ -3,6 +3,8 @@ secrets:
     external: true
   traefik_cf-dns-api-token:
     external: true
+  traefik_cf-zone-api-token:
+    external: true
 services:
   adminer:
     deploy:
@@ -56,8 +58,10 @@ services:
       # For other providers see:
       # https://docs.traefik.io/configuration/acme/#provider
       CF_DNS_API_TOKEN: /run/secrets/traefik_cf-dns-api-token
+      CF_DNS_API_TOKEN: /run/secrets/traefik_cf-zone-api-token
     secrets:
     - traefik_cf-dns-api-token
+    - traefik_cf-zone-api-token
   traefik_certs-dumper:
     image: ldez/traefik-certs-dumper:v2.6.0@sha256:f786bbf5b21fcd68f4103c9807657a44fc74aeec16fc4702e4c947fb1050fa7d
     command:
