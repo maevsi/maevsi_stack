@@ -110,7 +110,6 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.middlewares.auth.basicauth.users=${AUTH_BASIC}
       - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
       - traefik.http.routers.traefik.middlewares=redirectscheme
       - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
