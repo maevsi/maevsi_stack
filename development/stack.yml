@@ -135,7 +135,7 @@ services:
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./certificates/:/etc/traefik/acme/:ro
-    - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro
+    - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
 version: "3.7"
 volumes:
   portainer_data: {}
