@@ -1,14 +1,17 @@
 {
   "automerge": true,
   "automergeType": "branch",
+  "docker": {
+    "major": {
+      "enabled": true
+    },
+    "pinDigests": true
+  },
   "docker-compose": {
     "fileMatch": ["(^|/)(stack|production)[^/]*\\.ya?ml$"]
   },
   "extends": [
-    "config:base",
-    "default:automergeBranchPush",
-    "default:automergeDigest",
-    "docker:enableMajor"
+    "config:base"
   ],
   "major": {
     "automerge": false
