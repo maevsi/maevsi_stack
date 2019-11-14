@@ -10,24 +10,24 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.adminer-secure.middlewares=auth
-      - traefik.http.routers.adminer-secure.tls.certresolver=default
+      - traefik.http.routers.adminer_secure.middlewares=auth
+      - traefik.http.routers.adminer_secure.tls.certresolver=default
   maevsi:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.maevsi-secure.tls.certresolver=default
+      - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: dargmuesli/maevsi:0.0.0
   postgraphile:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.postgraphile-secure.tls.certresolver=default
+      - traefik.http.routers.postgraphile_secure.tls.certresolver=default
   portainer:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.portainer-secure.tls.certresolver=default
+      - traefik.http.routers.portainer_secure.tls.certresolver=default
   postgres_backup:
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres-backup_db
@@ -52,8 +52,8 @@ services:
       labels:
       - (( append ))
       - traefik.http.middlewares.auth.basicauth.users=${STACK_AUTH_BASIC}
-      - traefik.http.routers.traefik-secure.middlewares=auth
-      - traefik.http.routers.traefik-secure.tls.certresolver=default
+      - traefik.http.routers.traefik_secure.middlewares=auth
+      - traefik.http.routers.traefik_secure.tls.certresolver=default
     environment:
       # For other providers see:
       # https://docs.traefik.io/configuration/acme/#provider

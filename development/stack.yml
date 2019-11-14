@@ -14,8 +14,8 @@ services:
       - traefik.enable=true
       - traefik.http.routers.adminer.middlewares=redirectscheme
       - traefik.http.routers.adminer.rule=Host(`adminer.${STACK_DOMAIN}`)
-      - traefik.http.routers.adminer-secure.rule=Host(`adminer.${STACK_DOMAIN}`)
-      - traefik.http.routers.adminer-secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
+      - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.adminer.loadbalancer.server.port=8080
     image: adminer:4.7.4-standalone@sha256:4ca2a6eb39e94af14d317232e86855c8fc442c3d5332fab9ce70d0bc3b112d65
     volumes:
@@ -27,8 +27,8 @@ services:
       - traefik.enable=true
       - traefik.http.routers.maevsi.middlewares=redirectscheme
       - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi-secure.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi-secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.maevsi.loadbalancer.server.port=8080
     image: dargmuesli/maevsi:dev
     user: node:node
@@ -41,8 +41,8 @@ services:
       - traefik.enable=true
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile-secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile-secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
+      - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
     environment:
       PGDATABASE: maevsi
@@ -61,8 +61,8 @@ services:
       - traefik.enable=true
       - traefik.http.routers.portainer.middlewares=redirectscheme
       - traefik.http.routers.portainer.rule=Host(`portainer.${STACK_DOMAIN}`)
-      - traefik.http.routers.portainer-secure.rule=Host(`portainer.${STACK_DOMAIN}`)
-      - traefik.http.routers.portainer-secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.portainer_secure.rule=Host(`portainer.${STACK_DOMAIN}`)
+      - traefik.http.routers.portainer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.portainer.loadbalancer.server.port=9000
       mode: replicated
       placement:
@@ -113,9 +113,9 @@ services:
       - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
       - traefik.http.routers.traefik.middlewares=redirectscheme
       - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
-      - traefik.http.routers.traefik-secure.rule=Host(`traefik.${STACK_DOMAIN}`)
-      - traefik.http.routers.traefik-secure.service=api@internal
-      - traefik.http.routers.traefik-secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.traefik_secure.rule=Host(`traefik.${STACK_DOMAIN}`)
+      - traefik.http.routers.traefik_secure.service=api@internal
+      - traefik.http.routers.traefik_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.traefik.loadbalancer.server.port=8080
       mode: global
       placement:
