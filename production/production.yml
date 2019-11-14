@@ -41,7 +41,7 @@ services:
     - postgres_user
     volumes:
     - postgres_data:/var/lib/postgresql/data/
-    - ../production/backup/postgres/:/backups/
+    - ../production/backups/postgres/:/backups/
   traefik:
     command:
     - (( prepend ))
