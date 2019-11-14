@@ -18,6 +18,8 @@ services:
       - traefik.http.routers.adminer-secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.adminer.loadbalancer.server.port=8080
     image: adminer:4.7.4-standalone@sha256:4ca2a6eb39e94af14d317232e86855c8fc442c3d5332fab9ce70d0bc3b112d65
+    volumes:
+    - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   maevsi:
     command: gridsome develop
     deploy:
