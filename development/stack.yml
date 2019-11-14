@@ -105,8 +105,6 @@ services:
       - --providers.docker.swarmMode=true
       - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
       - --providers.file.watch=true #DARGSTACK-REMOVE
-      - --providers.docker.exposedByDefault=false
-      - --log.level=DEBUG
     deploy:
       labels:
       - traefik.enable=true
