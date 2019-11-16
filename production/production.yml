@@ -55,8 +55,6 @@ services:
       - traefik.http.routers.traefik_secure.middlewares=auth
       - traefik.http.routers.traefik_secure.tls.certresolver=default
     environment:
-      # For other providers see:
-      # https://docs.traefik.io/configuration/acme/#provider
       CF_DNS_API_TOKEN_FILE: /run/secrets/traefik_cf-dns-api-token
       CF_ZONE_API_TOKEN_FILE: /run/secrets/traefik_cf-zone-api-token
     secrets:
