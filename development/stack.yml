@@ -99,6 +99,7 @@ services:
     - postgres_password
     - postgres_user
     volumes:
+    - /var/run/postgresql/:/var/run/postgresql/ #DARGSTACK-REMOVE
     - postgres_data:/var/lib/postgresql/data
   traefik:
     command:
