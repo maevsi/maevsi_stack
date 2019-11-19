@@ -1,4 +1,6 @@
 secrets:
+  maevsi_sqitch-target:
+    file: ./secrets/maevsi/sqitch-target.secret
   portainer_admin-password:
     file: ./secrets/portainer/admin-password.secret
   postgres_db:
@@ -30,9 +32,12 @@ services:
       - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.maevsi.loadbalancer.server.port=8080
     image: dargmuesli/maevsi:dev
+    secrets:
+    - maevsi_sqitch-target
     user: node:node
     volumes:
-    - ../../maevsi/:/app/
+    - ../../maevsi/gridsome/:/srv/app/
+    - ../../maevsi/sqitch/:/srv/sqitch/
   postgraphile:
     command: --schema maevsi --cors --watch
     deploy:
