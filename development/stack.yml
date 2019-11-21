@@ -85,8 +85,8 @@ services:
     environment:
       PGDATABASE: maevsi
       PGHOST: postgres
-      PGPASSWORD: postgres
-      PGUSER: postgres
+      PGPASSWORD: postgraphile
+      PGUSER: maevsi_postgraphile
     image: graphile/postgraphile:v4.4.4@sha256:c33b0f801f042f6e38eb20cafadfe0009ec43b5a074e571f49d8beb2d2a24f59
     secrets:
     - postgres_db
