@@ -7,6 +7,8 @@ secrets:
     file: ./secrets/postgres/db.secret
   postgres_password:
     file: ./secrets/postgres/password.secret
+  postgres_role_maevsi-postgraphile:
+    file: ./secrets/postgres/role_maevsi-postgraphile.secret
   postgres_user:
     file: ./secrets/postgres/user.secret
 services:
@@ -92,11 +94,13 @@ services:
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_ROLE_MAEVSI-POSTGRAPHILE_FILE: /run/secrets/postgres_role_maevsi-postgraphile
       POSTGRES_USER_FILE: /run/secrets/postgres_user
     image: postgres:12.0-alpine@sha256:55ce4ed5ea366bfe9bd141b85608eb62a9f26f524ce0d095fb4c0a3ee50228cd
     secrets:
     - postgres_db
     - postgres_password
+    - postgres_role_maevsi-postgraphile
     - postgres_user
     volumes:
     - /var/run/postgresql/:/var/run/postgresql/ #DARGSTACK-REMOVE
