@@ -40,6 +40,38 @@ services:
     volumes:
     - ../../maevsi/gridsome/:/srv/app/
     - ../../maevsi/sqitch/:/srv/sqitch/
+  portainer:
+    command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.portainer.middlewares=redirectscheme
+      - traefik.http.routers.portainer.rule=Host(`portainer.${STACK_DOMAIN}`)
+      - traefik.http.routers.portainer_secure.rule=Host(`portainer.${STACK_DOMAIN}`)
+      - traefik.http.routers.portainer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
+      mode: replicated
+      placement:
+        constraints:
+        - node.role == manager
+      replicas: 1
+    image: portainer/portainer:1.22.1@sha256:9ed57167da4dda987d63730f7dd89111ac2ef52a2734b5ff4ec2d31efcd9597f
+    secrets:
+    - portainer_admin-password
+    volumes:
+    - portainer_data:/data
+  portainer-agent:
+    deploy:
+      mode: global
+      placement:
+        constraints:
+        - node.platform.os == linux
+    environment:
+      AGENT_CLUSTER_ADDR: tasks.portainer-agent
+    image: portainer/agent:1.5.1@sha256:6e1a21dddb13a89310576716f85c174c8b0fbc1d733e2bcaad87a3fdee4b8b14
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgraphile:
     command: --schema maevsi --cors --watch
     deploy:
@@ -60,36 +92,6 @@ services:
     - postgres_db
     - postgres_password
     - postgres_user
-  portainer:
-    command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
-    deploy:
-      labels:
-      - traefik.enable=true
-      - traefik.http.routers.portainer.middlewares=redirectscheme
-      - traefik.http.routers.portainer.rule=Host(`portainer.${STACK_DOMAIN}`)
-      - traefik.http.routers.portainer_secure.rule=Host(`portainer.${STACK_DOMAIN}`)
-      - traefik.http.routers.portainer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.portainer.loadbalancer.server.port=9000
-      mode: replicated
-      placement:
-        constraints: [node.role == manager]
-      replicas: 1
-    image: portainer/portainer:1.22.1@sha256:9ed57167da4dda987d63730f7dd89111ac2ef52a2734b5ff4ec2d31efcd9597f
-    secrets:
-    - portainer_admin-password
-    volumes:
-    - portainer_data:/data
-  portainer-agent:
-    deploy:
-      mode: global
-      placement:
-        constraints: [node.platform.os == linux]
-    environment:
-      AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:1.5.1@sha256:6e1a21dddb13a89310576716f85c174c8b0fbc1d733e2bcaad87a3fdee4b8b14
-    volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgres:
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
@@ -107,15 +109,15 @@ services:
     - postgres_data:/var/lib/postgresql/data
   traefik:
     command:
-      - --api=true
-      - --entryPoints.web.address=:80
-      - --entryPoints.web-secure.address=:443
-      - --providers.docker=true
-      - --providers.docker.endpoint=unix:///var/run/docker.sock
-      - --providers.docker.exposedByDefault=false
-      - --providers.docker.swarmMode=true
-      - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
-      - --providers.file.watch=true #DARGSTACK-REMOVE
+    - --api=true
+    - --entryPoints.web.address=:80
+    - --entryPoints.web-secure.address=:443
+    - --providers.docker=true
+    - --providers.docker.endpoint=unix:///var/run/docker.sock
+    - --providers.docker.exposedByDefault=false
+    - --providers.docker.swarmMode=true
+    - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
+    - --providers.file.watch=true #DARGSTACK-REMOVE
     deploy:
       labels:
       - traefik.enable=true
