@@ -73,7 +73,7 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgraphile:
-    command: --schema maevsi --cors --watch
+    command: --cors --schema maevsi --token maevsi.jwt --watch
     deploy:
       labels:
       - traefik.enable=true
