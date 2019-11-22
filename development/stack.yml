@@ -73,7 +73,7 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgraphile:
-    command: --cors --schema maevsi --token maevsi.jwt --watch
+    command: --cors --default-role maevsi_anonymous --jwt-secret ${POSTGRAPHILE_JWT_SECRET} --jwt-token-identifier maevsi.jwt --owner-connection ${POSTGRAPHILE_OWNER_CONNECTION} --schema maevsi --watch
     deploy:
       labels:
       - traefik.enable=true
@@ -83,10 +83,10 @@ services:
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
     environment:
-      PGDATABASE: maevsi
+      PGDATABASE: ${POSTGRAPHILE_PGDATABASE}
       PGHOST: postgres
-      PGPASSWORD: postgraphile
-      PGUSER: maevsi_postgraphile
+      PGPASSWORD: ${POSTGRAPHILE_PGPASSWORD}
+      PGUSER: ${POSTGRAPHILE_PGUSER}
     image: graphile/postgraphile:v4.4.4@sha256:c33b0f801f042f6e38eb20cafadfe0009ec43b5a074e571f49d8beb2d2a24f59
     secrets:
     - postgres_db
