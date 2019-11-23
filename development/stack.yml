@@ -87,7 +87,7 @@ services:
       PGHOST: postgres
       PGPASSWORD: ${POSTGRAPHILE_PGPASSWORD}
       PGUSER: ${POSTGRAPHILE_PGUSER}
-    image: graphile/postgraphile:v4.4.4@sha256:c33b0f801f042f6e38eb20cafadfe0009ec43b5a074e571f49d8beb2d2a24f59
+    image: graphile/postgraphile:v4.5.0@sha256:0137f8d3f20ef8913ed60e69065d4eaf5d915f69581bd9eaca2282ef8396f5ef
     secrets:
     - postgres_db
     - postgres_password
