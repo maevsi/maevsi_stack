@@ -28,9 +28,10 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.routers.maevsi.middlewares=redirectscheme
-      - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.http.routers.maevsi.middlewares=redirectregex,redirectscheme
+      - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.http.routers.maevsi_secure.middlewares=redirectregex
+      - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.maevsi.loadbalancer.server.port=8080
     image: dargmuesli/maevsi:dev
@@ -121,6 +122,8 @@ services:
     deploy:
       labels:
       - traefik.enable=true
+      - traefik.http.middlewares.redirectregex.redirectregex.regex=^https?:\/\/(www\.)?${STACK_DOMAIN}\/(.*)
+      - traefik.http.middlewares.redirectregex.redirectregex.replacement=https://alpha.${STACK_DOMAIN}/$${2}
       - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
       - traefik.http.routers.traefik.middlewares=redirectscheme
       - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
