@@ -34,6 +34,8 @@ services:
       - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.maevsi.loadbalancer.server.port=8080
+    environment:
+      GRIDSOME_STACK_DOMAIN: ${STACK_DOMAIN}
     image: dargmuesli/maevsi:dev
     secrets:
     - maevsi_sqitch-target
