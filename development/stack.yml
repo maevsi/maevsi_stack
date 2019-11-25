@@ -76,12 +76,13 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgraphile:
-    command: --cors --default-role maevsi_anonymous --jwt-secret ${POSTGRAPHILE_JWT_SECRET} --jwt-token-identifier maevsi.jwt --owner-connection ${POSTGRAPHILE_OWNER_CONNECTION} --schema maevsi --watch
+    command: --default-role maevsi_anonymous --jwt-secret ${POSTGRAPHILE_JWT_SECRET} --jwt-token-identifier maevsi.jwt --owner-connection ${POSTGRAPHILE_OWNER_CONNECTION} --schema maevsi --watch
     deploy:
       labels:
       - traefik.enable=true
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
+      - traefik.http.routers.postgraphile_secure.middlewares=header_cors
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
@@ -124,6 +125,8 @@ services:
     deploy:
       labels:
       - traefik.enable=true
+      - traefik.http.middlewares.header_cors.headers.accessControlAllowHeaders=authorization,content-type
+      - traefik.http.middlewares.header_cors.headers.accessControlAllowOrigin=*
       - traefik.http.middlewares.redirectregex_alpha.redirectregex.regex=^https?:\/\/(www\.)?${STACK_DOMAIN}\/(.*)
       - traefik.http.middlewares.redirectregex_alpha.redirectregex.replacement=https://alpha.${STACK_DOMAIN}/$${2}
       - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
