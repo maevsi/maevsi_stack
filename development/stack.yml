@@ -7,7 +7,7 @@ secrets:
     file: ./secrets/postgres/db.secret
   postgres_password:
     file: ./secrets/postgres/password.secret
-  postgres_role_maevsi-postgraphile:
+  postgres_role_maevsi-postgraphile_password:
     file: ./secrets/postgres/role_maevsi-postgraphile.secret
   postgres_user:
     file: ./secrets/postgres/user.secret
@@ -39,6 +39,7 @@ services:
     image: dargmuesli/maevsi:dev
     secrets:
     - maevsi_sqitch-target
+    - postgres_role_maevsi-postgraphile_password
     user: node:node
     volumes:
     - ../../maevsi/gridsome/:/srv/app/
@@ -100,13 +101,11 @@ services:
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
-      POSTGRES_ROLE_MAEVSI-POSTGRAPHILE_FILE: /run/secrets/postgres_role_maevsi-postgraphile
       POSTGRES_USER_FILE: /run/secrets/postgres_user
     image: postgres:12.1-alpine@sha256:2f0ef60e0c005b23f03e898f12d29f8d4567d10febba914df1d66b668c0dde94
     secrets:
     - postgres_db
     - postgres_password
-    - postgres_role_maevsi-postgraphile
     - postgres_user
     volumes:
     - /var/run/postgresql/:/var/run/postgresql/ #DARGSTACK-REMOVE

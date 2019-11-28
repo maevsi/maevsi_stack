@@ -28,7 +28,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
 - ### `postgres_password`:
   The database's password.
 
-- ### `postgres_role_maevsi-postgraphile`:
+- ### `postgres_role_maevsi-postgraphile_password`:
   The `maevsi_postgraphile` database role's password.
 
 - ### `postgres_user`:
