@@ -18,6 +18,7 @@ services:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: dargmuesli/maevsi:0.0.0
+    volumes: (( prune ))
   portainer:
     deploy:
       labels:
