@@ -36,7 +36,7 @@ services:
       - traefik.http.services.maevsi.loadbalancer.server.port=8080
     environment:
       GRIDSOME_STACK_DOMAIN: ${STACK_DOMAIN}
-    image: dargmuesli/maevsi:dev
+    image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
     - postgres_role_maevsi-postgraphile_password
