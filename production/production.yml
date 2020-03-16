@@ -74,7 +74,7 @@ services:
     - --watch
     environment:
       STACK_DOMAIN: ${STACK_DOMAIN}
-    image: ldez/traefik-certs-dumper:v2.6.0@sha256:f786bbf5b21fcd68f4103c9807657a44fc74aeec16fc4702e4c947fb1050fa7d
+    image: ldez/traefik-certs-dumper:v2.7.0@sha256:63614a85fe984b62716c638bca1a0a837e86f7249ef3c0e7f9db8a1fed743c96
     volumes:
     - acme_data:/etc/traefik/acme/
 volumes:
