@@ -11,6 +11,10 @@ secrets:
     file: ./secrets/postgres/role_maevsi-postgraphile_password.secret
   postgres_user:
     file: ./secrets/postgres/user.secret
+  rabbitmq_password:
+    file: ./secrets/rabbitmq/password.secret
+  rabbitmq_user:
+    file: ./secrets/rabbitmq/user.secret
 services:
   adminer:
     deploy:
@@ -110,6 +114,25 @@ services:
     volumes:
     - /var/run/postgresql/:/var/run/postgresql/ #DARGSTACK-REMOVE
     - postgres_data:/var/lib/postgresql/data
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
+      RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.rabbitmq.middlewares=redirectscheme
+      - traefik.http.routers.rabbitmq.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
+      - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
+      - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    hostname: rabbitmq
+    image: rabbitmq:3.8.3-management-alpine@sha256:3459d0c7968053ee6e556a823c7eb3c13ac706ff1ce461dd62d259d74379cb87
+    secrets:
+    - rabbitmq_password
+    - rabbitmq_user
+    volumes:
+    - rabbitmq_data:/var/lib/rabbitmq
   traefik:
     command:
     - --api=true
@@ -157,3 +180,4 @@ version: "3.7"
 volumes:
   portainer_data: {}
   postgres_data: {}
+  rabbitmq_data: {}
