@@ -1,7 +1,0 @@
-install:
-- |
-    mkdir ~/scripts/
-    wget "https://raw.githubusercontent.com/dargmuesli/dargstack/master/dargstack" -O ~/scripts/dargstack
-    chmod +x ~/scripts/dargstack
-script:
-- ~/scripts/dargstack derive
