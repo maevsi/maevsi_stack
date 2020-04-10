@@ -116,6 +116,7 @@ services:
     - postgres_data:/var/lib/postgresql/data
   rabbitmq:
     environment:
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
       RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
       RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
     deploy:
@@ -132,6 +133,7 @@ services:
     - rabbitmq_password
     - rabbitmq_user
     volumes:
+    - ../production/configurations/rabbitmq/:/etc/rabbitmq/
     - rabbitmq_data:/var/lib/rabbitmq
   traefik:
     command:
