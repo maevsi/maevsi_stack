@@ -1,6 +1,10 @@
 secrets:
   maevsi_sqitch-target:
     file: ./secrets/maevsi/sqitch-target.secret
+  pg-amqp-bridge_amqp-uri:
+    file: ./secrets/pg-amqp-bridge/amqp-uri.secret
+  pg-amqp-bridge_postgresql-uri:
+    file: ./secrets/pg-amqp-bridge/postgresql-uri.secret
   portainer_admin-password:
     file: ./secrets/portainer/admin-password.secret
   postgres_db:
@@ -48,6 +52,18 @@ services:
     volumes:
     - ../../maevsi/gridsome/:/srv/app/
     - ../../maevsi/sqitch/:/srv/sqitch/
+  pg-amqp-bridge:
+    environment:
+      AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
+      BRIDGE_CHANNELS: message_queue:message_queue
+      DELIVERY_MODE: PERSISTENT
+      POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
+      RUST_LOG: info
+    # image: subzerocloud/pg-amqp-bridge:0.0.6@sha256:233d1f0b83a4926f69bc34739e692010f44308ed00957b8340337602471b87e6
+    image: dargmuesli/pg-amqp-bridge:dev
+    secrets:
+    - pg-amqp-bridge_amqp-uri
+    - pg-amqp-bridge_postgresql-uri
   portainer:
     command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
     deploy:
