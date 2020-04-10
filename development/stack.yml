@@ -19,6 +19,8 @@ secrets:
     file: ./secrets/rabbitmq/password.secret
   rabbitmq_user:
     file: ./secrets/rabbitmq/user.secret
+  stomper_aws:
+    file: ./secrets/stomper/aws.secret
 services:
   adminer:
     deploy:
@@ -151,6 +153,17 @@ services:
     volumes:
     - ../production/configurations/rabbitmq/:/etc/rabbitmq/
     - rabbitmq_data:/var/lib/rabbitmq
+  stomper:
+    environment:
+      RABBITMQ_PASS_FILE: /run/secrets/rabbitmq_password
+      RABBITMQ_USER_FILE: /run/secrets/rabbitmq_user
+    image: dargmuesli/stomper:dev
+    secrets:
+    - rabbitmq_password
+    - rabbitmq_user
+    - stomper_aws
+    volumes:
+    - ../../stomper/:/srv/app/
   traefik:
     command:
     - --api=true
