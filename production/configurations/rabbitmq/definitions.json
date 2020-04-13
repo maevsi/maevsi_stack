@@ -1,7 +1,16 @@
 {
     "queues": [
         {
-            "name": "message_queue",
+            "name": "account_register",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-type": "classic"
+            }
+        },
+        {
+            "name": "invite",
             "vhost": "/",
             "durable": true,
             "auto_delete": false,

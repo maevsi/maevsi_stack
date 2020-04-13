@@ -57,7 +57,7 @@ services:
   pg-amqp-bridge:
     environment:
       AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
-      BRIDGE_CHANNELS: message_queue:message_queue
+      BRIDGE_CHANNELS: account_register:account_register,invite:invite
       DELIVERY_MODE: PERSISTENT
       POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
       RUST_LOG: info
