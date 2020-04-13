@@ -146,7 +146,7 @@ services:
       - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
     hostname: rabbitmq
-    image: rabbitmq:3.8.3-management-alpine@sha256:3459d0c7968053ee6e556a823c7eb3c13ac706ff1ce461dd62d259d74379cb87
+    image: rabbitmq:3.8.3-management-alpine@sha256:337041b665907a2cfb523fcda69a2438ccae2745e9a97d0f41ab0b6b6610a1ac
     secrets:
     - rabbitmq_password
     - rabbitmq_user
