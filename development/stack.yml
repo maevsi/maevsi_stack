@@ -45,7 +45,7 @@ services:
       - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.maevsi.loadbalancer.server.port=8080
     environment:
-      GRIDSOME_STACK_DOMAIN: ${STACK_DOMAIN}
+      STACK_DOMAIN: ${STACK_DOMAIN}
     image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
