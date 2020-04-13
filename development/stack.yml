@@ -157,6 +157,7 @@ services:
     environment:
       RABBITMQ_PASS_FILE: /run/secrets/rabbitmq_password
       RABBITMQ_USER_FILE: /run/secrets/rabbitmq_user
+      STACK_DOMAIN: ${STACK_DOMAIN}
     image: dargmuesli/stomper:dev
     secrets:
     - rabbitmq_password
