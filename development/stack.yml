@@ -1,6 +1,10 @@
 secrets:
   maevsi_sqitch-target:
     file: ./secrets/maevsi/sqitch-target.secret
+  pg-amqp-bridge_amqp-uri:
+    file: ./secrets/pg-amqp-bridge/amqp-uri.secret
+  pg-amqp-bridge_postgresql-uri:
+    file: ./secrets/pg-amqp-bridge/postgresql-uri.secret
   portainer_admin-password:
     file: ./secrets/portainer/admin-password.secret
   postgres_db:
@@ -11,6 +15,12 @@ secrets:
     file: ./secrets/postgres/role_maevsi-postgraphile_password.secret
   postgres_user:
     file: ./secrets/postgres/user.secret
+  rabbitmq_password:
+    file: ./secrets/rabbitmq/password.secret
+  rabbitmq_user:
+    file: ./secrets/rabbitmq/user.secret
+  stomper_aws:
+    file: ./secrets/stomper/aws.secret
 services:
   adminer:
     deploy:
@@ -44,6 +54,18 @@ services:
     volumes:
     - ../../maevsi/gridsome/:/srv/app/
     - ../../maevsi/sqitch/:/srv/sqitch/
+  pg-amqp-bridge:
+    environment:
+      AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
+      BRIDGE_CHANNELS: account_register:account_register,invite:invite
+      DELIVERY_MODE: PERSISTENT
+      POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
+      RUST_LOG: info
+    # image: subzerocloud/pg-amqp-bridge:0.0.6@sha256:233d1f0b83a4926f69bc34739e692010f44308ed00957b8340337602471b87e6
+    image: dargmuesli/pg-amqp-bridge:dev
+    secrets:
+    - pg-amqp-bridge_amqp-uri
+    - pg-amqp-bridge_postgresql-uri
   portainer:
     command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
     deploy:
@@ -110,6 +132,38 @@ services:
     volumes:
     - /var/run/postgresql/:/var/run/postgresql/ #DARGSTACK-REMOVE
     - postgres_data:/var/lib/postgresql/data
+  rabbitmq:
+    environment:
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
+      RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
+      RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.rabbitmq.middlewares=redirectscheme
+      - traefik.http.routers.rabbitmq.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
+      - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
+      - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    hostname: rabbitmq
+    image: rabbitmq:3.8.3-management-alpine@sha256:3459d0c7968053ee6e556a823c7eb3c13ac706ff1ce461dd62d259d74379cb87
+    secrets:
+    - rabbitmq_password
+    - rabbitmq_user
+    volumes:
+    - ../production/configurations/rabbitmq/:/etc/rabbitmq/
+    - rabbitmq_data:/var/lib/rabbitmq
+  stomper:
+    environment:
+      RABBITMQ_PASS_FILE: /run/secrets/rabbitmq_password
+      RABBITMQ_USER_FILE: /run/secrets/rabbitmq_user
+    image: dargmuesli/stomper:dev
+    secrets:
+    - rabbitmq_password
+    - rabbitmq_user
+    - stomper_aws
+    volumes:
+    - ../../stomper/:/srv/app/
   traefik:
     command:
     - --api=true
@@ -157,3 +211,4 @@ version: "3.7"
 volumes:
   portainer_data: {}
   postgres_data: {}
+  rabbitmq_data: {}
