@@ -21,6 +21,8 @@ secrets:
     file: ./secrets/rabbitmq/user.secret
   stomper_aws:
     file: ./secrets/stomper/aws.secret
+  tusd_aws:
+    file: ./secrets/tusd/aws.secret
 services:
   adminer:
     deploy:
@@ -207,6 +209,22 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./certificates/:/etc/traefik/acme/
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
+  tusd:
+    command: -behind-proxy -max-size ${TUSD_MAX_SIZE} -s3-bucket ${TUSD_S3_BUCKET} -s3-endpoint ${TUSD_S3_ENDPOINT}
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.tusd.middlewares=redirectscheme
+      - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
+      - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`)
+      - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.services.tusd.loadbalancer.server.port=1080
+    environment:
+      AWS_REGION: ${TUSD_AWS_REGION}
+    image: tusproject/tusd:v1.1.0@sha256:c39a7d51dd1bfdc198c59761d99686d90cf18b12d9256672835a023cc56a7a64
+    secrets:
+      - source: tusd_aws
+        target: /home/tusd/.aws/credentials
 version: "3.7"
 volumes:
   portainer_data: {}
