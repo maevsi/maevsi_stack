@@ -175,6 +175,7 @@ services:
     - --providers.docker.swarmMode=true
     - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
     - --providers.file.watch=true #DARGSTACK-REMOVE
+    - --log.level=DEBUG #DARGSTACK-REMOVE
     deploy:
       labels:
       - traefik.enable=true
