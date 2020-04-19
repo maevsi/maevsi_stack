@@ -1,3 +1,6 @@
+configs:
+  postgraphile_rc:
+    file: ./configurations/postgraphile/.postgraphilerc.js
 secrets:
   maevsi_sqitch-target:
     file: ./secrets/maevsi/sqitch-target.secret
@@ -7,6 +10,12 @@ secrets:
     file: ./secrets/pg-amqp-bridge/postgresql-uri.secret
   portainer_admin-password:
     file: ./secrets/portainer/admin-password.secret
+  postgraphile_connection:
+    file: ./secrets/postgraphile/connection.secret
+  postgraphile_jwt-secret:
+    file: ./secrets/postgraphile/jwt-secret.secret
+  postgraphile_owner-connection:
+    file: ./secrets/postgraphile/owner-connection.secret
   postgres_db:
     file: ./secrets/postgres/db.secret
   postgres_password:
@@ -100,7 +109,9 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgraphile:
-    command: --default-role maevsi_anonymous --jwt-secret ${POSTGRAPHILE_JWT_SECRET} --jwt-token-identifier maevsi.jwt --owner-connection ${POSTGRAPHILE_OWNER_CONNECTION} --schema maevsi --watch
+    configs:
+      - source: postgraphile_rc
+        target: /postgraphile/.postgraphilerc.js
     deploy:
       labels:
       - traefik.enable=true
@@ -117,9 +128,9 @@ services:
       PGUSER: ${POSTGRAPHILE_PGUSER}
     image: graphile/postgraphile:v4.6.0@sha256:393a54d52a418d20b0d13d02a465972fff56f4225bf7502bfc26babf8af8fb65
     secrets:
-    - postgres_db
-    - postgres_password
-    - postgres_user
+    - postgraphile_connection
+    - postgraphile_jwt-secret
+    - postgraphile_owner-connection
   postgres:
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
