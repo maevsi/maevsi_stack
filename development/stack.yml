@@ -132,6 +132,7 @@ services:
     - postgraphile_jwt-secret
     - postgraphile_owner-connection
   postgres:
+    command: -c 'maevsi.stack_domain=${STACK_DOMAIN}'
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
