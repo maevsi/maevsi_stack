@@ -222,7 +222,7 @@ services:
     - ./certificates/:/etc/traefik/acme/
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
   tusd:
-    command: -behind-proxy -max-size ${TUSD_MAX_SIZE} -s3-bucket ${TUSD_S3_BUCKET} -s3-endpoint ${TUSD_S3_ENDPOINT}
+    command: -behind-proxy --hooks-enabled-events pre-create,post-finish --hooks-http http://maevsi:8080/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${TUSD_S3_BUCKET} -s3-endpoint ${TUSD_S3_ENDPOINT}
     deploy:
       labels:
       - traefik.enable=true
