@@ -22,6 +22,8 @@ secrets:
     file: ./secrets/postgres/password.secret
   postgres_role_maevsi-postgraphile_password:
     file: ./secrets/postgres/role_maevsi-postgraphile_password.secret
+  postgres_role_maevsi-tusd_password:
+    file: ./secrets/postgres/role_maevsi-tusd_password.secret
   postgres_user:
     file: ./secrets/postgres/user.secret
   rabbitmq_password:
@@ -60,7 +62,9 @@ services:
     image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
+    - postgres_db
     - postgres_role_maevsi-postgraphile_password
+    - postgres_role_maevsi-tusd_password
     user: node:node
     volumes:
     - ../../maevsi/gridsome/:/srv/app/
