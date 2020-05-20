@@ -62,6 +62,7 @@ services:
     image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
+    - postgraphile_jwt-secret
     - postgres_db
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-tusd_password
@@ -233,7 +234,7 @@ services:
       - traefik.enable=true
       - traefik.http.routers.tusd.middlewares=redirectscheme
       - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
-      - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`)
+      - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && Method(`GET`, `HEAD`, `OPTIONS`, `POST`, `PUT`, `PATCH`)
       - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.tusd.loadbalancer.server.port=1080
     environment:
