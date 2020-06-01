@@ -126,11 +126,6 @@ services:
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
-    environment:
-      PGDATABASE: ${POSTGRAPHILE_PGDATABASE}
-      PGHOST: postgres
-      PGPASSWORD: ${POSTGRAPHILE_PGPASSWORD}
-      PGUSER: ${POSTGRAPHILE_PGUSER}
     image: graphile/postgraphile:v4.6.0@sha256:393a54d52a418d20b0d13d02a465972fff56f4225bf7502bfc26babf8af8fb65
     secrets:
     - postgraphile_connection
