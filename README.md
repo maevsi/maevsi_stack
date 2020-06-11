@@ -1,103 +1,194 @@
-# maevsi Stack
+# maevsi_stack
+
 
 The Docker stack configuration for [maev.si](https://maev.si/).
 
 This project is deployed in accordance to the [DargStack template](https://github.com/dargmuesli/dargstack_template/) to make deployment a breeze. It is closely related to [maevsi's source code](https://github.com/maevsi/maevsi/).
 
-
 ## Table of Contents
-1. **[Secrets](#secrets)**
-1. **[Services](#services)**
-1. **[Volumes](#volumes)**
 
 
-## Secrets
+ 1. [configs](#configs)
+    
+ 2. [secrets](#secrets)
+    
+ 3. [services](#services)
+    
+ 4. [volumes](#volumes)
+    
 
-- ### `maevsi_sqitch-target`:
-  The data base change management application's database connection string.
-
-- ### `portainer_admin-password`:
-  The container manager's admin password.
-
-- ### `postgres-backup_db`: ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-  The database's name.
-
-- ### `postgres_db`:
-  The database's name.
-
-- ### `postgres_password`:
-  The database's password.
-
-- ### `postgres_role_maevsi-postgraphile_password`:
-  The `maevsi_postgraphile` database role's password.
-
-- ### `postgres_user`:
-  The database's default user.
-
-- ### `traefik_cf-dns-api-token`: ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-  The DNS provider's DNS API token.
-
-- ### `traefik_cf-zone-api-token`: ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-  The DNS provider's zone API token.
+## configs
 
 
-## Services
+ - ### `postgraphile_rc`
+    
+    The GraphQL API's configuration file.
+    
 
-- ### `adminer`
-
-  You can access the database's frontend at [adminer.maevsi.test](https://adminer.maevsi.test/).
-  This information is required for login:
-
-  |          |                     |
-  | -------- | ------------------- |
-  | System   | PostgreSQL          |
-  | Server   | postgres            |
-  | Username | [postgres_user]     |
-  | Password | [postgres_password] |
-  | Database | [postgres_db]       |
-
-  Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
-
-- ### `maevsi`
-
-  You can access the main project at [maevsi.test](https://maevsi.test/).
-
-- ### `portainer`
-
-  You can access the container manager's frontend at [portainer.maevsi.test](https://portainer.maevsi.test).
-
-- ### `portainer-agent`
-
-  You cannot access the container manager's agent directly.
-
-- ### `postgraphile`
-
-  You can access the GraphQL API for the PostgreSQL database at [postgraphile.maevsi.test](https://postgraphile.maevsi.test/).
-
-- ### `postgres`
-
-  You can access the database via `adminer`.
-
-- ### `postgres_backup` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-
-  You cannot access the database backup directly.
-
-- ### `traefik`
-
-  You can access the reverse proxy's dashboard at [traefik.maevsi.test](https://traefik.maevsi.test/).
-
-- ### `traefik_certs-dumper` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-
-  You cannot access the reverse proxy's certificate helper directly.
+## secrets
 
 
-## Volumes
+ - ### `maevsi_sqitch-target`
+    
+    The database change management application's database connection string.
+    
+ - ### `pg-amqp-bridge_amqp-uri`
+    
+    The database-to-AMQP bridge's AMQP URI.
+    
+ - ### `pg-amqp-bridge_postgresql-uri`
+    
+    The database-to-AMQP bridge's database URI.
+    
+ - ### `portainer_admin-password`
+    
+    The container manager's admin password.
+    
+ - ### `postgraphile_connection`
+    
+    The GraphQL API's database URI.
+    
+ - ### `postgraphile_jwt-secret`
+    
+    The GraphQL API's JWT secret.
+    
+ - ### `postgraphile_owner-connection`
+    
+    The GraphQL API's database owner URI.
+    
+ - ### `postgres-backup_db` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    The database's name.
+    
+ - ### `postgres_db`
+    
+    The database's name.
+    
+ - ### `postgres_password`
+    
+    The database's password.
+    
+ - ### `postgres_role_maevsi-postgraphile_password`
+    
+    The `maevsi_postgraphile` database role's password.
+    
+ - ### `postgres_role_maevsi-tusd_password`
+    
+    The `tusd` database role's password.
+    
+ - ### `postgres_user`
+    
+    The database's default user.
+    
+ - ### `rabbitmq_password`
+    
+    The message queue's login password.
+    
+ - ### `rabbitmq_user`
+    
+    The message queue's login username.
+    
+ - ### `stomper_aws`
+    
+    The email service's AWS credentials file.
+    
+ - ### `traefik_cf-dns-api-token` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    The DNS provider's DNS API token.
+    
+ - ### `traefik_cf-zone-api-token` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    The DNS provider's zone API token.
+    
+ - ### `tusd_aws`
+    
+    The upload service's s3 credentials file.
+    
 
-- ### `acme_data` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-  The reverse proxy's certificate data.
+## services
 
-- ### `portainer_data`
-  The container manager's data.
 
-- ### `postgres_data`
-  The database's data.
+ - ### `adminer`
+    
+    You can access the database's frontend at [adminer.maevsi.test](https://adminer.maevsi.test/).
+    This information is required for login:
+    
+    |          |                     |
+    | -------- | ------------------- |
+    | System   | PostgreSQL          |
+    | Server   | postgres            |
+    | Username | [postgres_user]     |
+    | Password | [postgres_password] |
+    | Database | [postgres_db]       |
+    
+    Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
+    
+ - ### `maevsi`
+    
+    You can access the main project at [maevsi.test](https://maevsi.test/).
+    
+ - ### `pg-amqp-bridge`
+    
+    You cannot access the database-to-AMQP bridge directly.
+    
+ - ### `portainer`
+    
+    You can access the container manager's frontend at [portainer.maevsi.test](https://portainer.maevsi.test/).
+    
+ - ### `portainer-agent`
+    
+    You cannot access the container manager's agent directly.
+    
+ - ### `postgraphile`
+    
+    You can access the GraphQL API for the PostgreSQL database at [postgraphile.maevsi.test](https://postgraphile.maevsi.test/).
+    
+ - ### `postgres`
+    
+    You can access the database via `adminer`.
+    
+ - ### `postgres_backup` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    You cannot access the database backup directly.
+    
+ - ### `rabbitmq`
+    
+    You can access the message queue at [rabbitmq.maevsi.test](https://rabbitmq.maevsi.test/).
+    
+ - ### `stomper`
+    
+    You cannot access the email service directly.
+    
+ - ### `traefik`
+    
+    You can access the reverse proxy's dashboard at [traefik.maevsi.test](https://traefik.maevsi.test/).
+    
+ - ### `traefik_certs-dumper` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    You cannot access the reverse proxy's certificate helper directly.
+    
+ - ### `tusd`
+    
+    You can access the upload service at [tusd.maevsi.test](https://tusd.maevsi.test/).
+    
+
+## volumes
+
+
+ - ### `acme_data` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    The reverse proxy's certificate data.
+    
+ - ### `portainer_data`
+    
+    The container manager's data.
+    
+ - ### `postgres_data`
+    
+    The database's data.
+    
+ - ### `rabbitmq_data`
+    
+    The message queue's data.
+    
+

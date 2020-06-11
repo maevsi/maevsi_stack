@@ -1,9 +1,12 @@
 secrets:
   postgres-backup_db:
+  # The database's name.
     external: true
   traefik_cf-dns-api-token:
+  # The DNS provider's DNS API token.
     external: true
   traefik_cf-zone-api-token:
+  # The DNS provider's zone API token.
     external: true
 services:
   adminer:
@@ -31,6 +34,7 @@ services:
       - (( append ))
       - traefik.http.routers.postgraphile_secure.tls.certresolver=default
   postgres_backup:
+  # You cannot access the database backup directly.
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres-backup_db
       POSTGRES_HOST: postgres
@@ -63,6 +67,7 @@ services:
     - traefik_cf-dns-api-token
     - traefik_cf-zone-api-token
   traefik_certs-dumper:
+  # You cannot access the reverse proxy's certificate helper directly.
     command:
     - file
     - --clean=false
@@ -78,4 +83,6 @@ services:
     volumes:
     - acme_data:/etc/traefik/acme/
 volumes:
-  acme_data: {}
+  acme_data:
+  # The reverse proxy's certificate data.
+    {}
