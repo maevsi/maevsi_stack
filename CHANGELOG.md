@@ -1,3 +1,10 @@
+## [0.3.2](https://github.com/maevsi/maevsi_stack/compare/0.3.1...0.3.2) (2020-09-28)
+
+
+### Bug Fixes
+
+* **rabbitmq:** add certresolver ([f7d83d4](https://github.com/maevsi/maevsi_stack/commit/f7d83d4588da3c6a9aa6e0125b6a313b8f241a39))
+
 ## [0.3.1](https://github.com/maevsi/maevsi_stack/compare/0.3.0...0.3.1) (2020-09-28)
 
 
