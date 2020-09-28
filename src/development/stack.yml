@@ -6,7 +6,7 @@
 configs:
   postgraphile_rc:
   # The GraphQL API's configuration file.
-    file: ./configurations/postgraphile/.postgraphilerc.js
+    file: ../production/configurations/postgraphile/.postgraphilerc.js
 secrets:
   maevsi_sqitch-target:
   # The database change management application's database connection string.
