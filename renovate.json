@@ -11,7 +11,9 @@
     "fileMatch": ["(^|/)(stack|production)[^/]*\\.ya?ml$"]
   },
   "extends": [
-    "config:base"
+    "config:base",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)"
   ],
   "major": {
     "automerge": false

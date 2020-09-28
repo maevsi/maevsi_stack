@@ -1,0 +1,21 @@
+{
+  "name": "maevsi_stack",
+  "private": true,
+  "version": "0.1.0",
+  "scheduleVersion": "0.1.0",
+  "description": "DargStack configuration for maevsi.",
+  "repository": "https://github.com/maevsi/maevsi_stack.git",
+  "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
+  "license": "CC BY-NC-SA 4.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "husky": "4.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
