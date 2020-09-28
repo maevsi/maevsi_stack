@@ -1,3 +1,10 @@
+## [0.3.1](https://github.com/maevsi/maevsi_stack/compare/0.3.0...0.3.1) (2020-09-28)
+
+
+### Bug Fixes
+
+* **maevsi, stomper:** correct hashes ([62db415](https://github.com/maevsi/maevsi_stack/commit/62db41513295976deea6a4ccc96eac0b61ee8483))
+
 # [0.3.0](https://github.com/maevsi/maevsi_stack/compare/0.2.1...0.3.0) (2020-09-28)
 
 
