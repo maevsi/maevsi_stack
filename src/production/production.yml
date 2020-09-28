@@ -48,6 +48,11 @@ services:
     volumes:
     - postgres_data:/var/lib/postgresql/data/
     - ../production/backups/postgres/:/backups/
+  rabbitmq:
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   stomper:
     image: maevsi/stomper:0.1.0@sha256:8f1f4b0e1c4c08a0e391083fa1e8ca7ded28e25d0976d9c676078b46954aae94
     volumes: (( prune ))
