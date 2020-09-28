@@ -1,3 +1,10 @@
+## [0.2.1](https://github.com/maevsi/maevsi_stack/compare/0.2.0...0.2.1) (2020-09-28)
+
+
+### Bug Fixes
+
+* **postgraphile:** move configuration to production ([b8181de](https://github.com/maevsi/maevsi_stack/commit/b8181de951065c54da6bb7f3c8c11d7cb8b096b5))
+
 # [0.2.0](https://github.com/maevsi/maevsi_stack/compare/0.1.0...0.2.0) (2020-09-28)
 
 
