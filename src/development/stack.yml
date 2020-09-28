@@ -187,10 +187,6 @@ services:
     - postgres_data:/var/lib/postgresql/data
   rabbitmq:
   # You can access the message queue at [rabbitmq.maevsi.test](https://rabbitmq.maevsi.test/).
-    environment:
-      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
-      RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
-      RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
     deploy:
       labels:
       - traefik.enable=true
@@ -199,6 +195,10 @@ services:
       - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
       - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+    environment:
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
+      RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
+      RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
     hostname: rabbitmq
     image: rabbitmq:3.8.9-management-alpine@sha256:44d06f26a7994c210a605c88fdc29725071fe5a93be1c97a7538bbf7ec2fd17e
     secrets:
