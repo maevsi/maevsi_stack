@@ -1,3 +1,11 @@
+# [0.3.0](https://github.com/maevsi/maevsi_stack/compare/0.2.1...0.3.0) (2020-09-28)
+
+
+### Features
+
+* **maevsi:** 0.1.0 ([53cc709](https://github.com/maevsi/maevsi_stack/commit/53cc7090a25dd320ac63d7aa6ad3cd872397dbde))
+* **stomper:** 0.1.0 ([e1ef78a](https://github.com/maevsi/maevsi_stack/commit/e1ef78a24ce87441d608d0b7c5b5b0ff4402aa87))
+
 ## [0.2.1](https://github.com/maevsi/maevsi_stack/compare/0.2.0...0.2.1) (2020-09-28)
 
 
