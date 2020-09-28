@@ -12,6 +12,6 @@ jobs:
     - name: dargstack derive
       run: |
         mkdir ~/scripts/
-        wget "https://raw.githubusercontent.com/dargmuesli/dargstack/master/dargstack" -O ~/scripts/dargstack
+        wget "https://raw.githubusercontent.com/dargmuesli/dargstack/master/src/dargstack" -O ~/scripts/dargstack
         chmod +x ~/scripts/dargstack
         ~/scripts/dargstack derive
