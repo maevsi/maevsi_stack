@@ -103,8 +103,8 @@ services:
     - postgres_role_maevsi-tusd_password
     user: node:node
     volumes:
-    - ../../maevsi/gridsome/:/srv/app/
-    - ../../maevsi/sqitch/:/srv/sqitch/
+    - ../../../maevsi/gridsome/:/srv/app/
+    - ../../../maevsi/sqitch/:/srv/sqitch/
   pg-amqp-bridge:
   # You cannot access the database-to-AMQP bridge directly.
     environment:
@@ -218,7 +218,7 @@ services:
     - rabbitmq_user
     - stomper_aws
     volumes:
-    - ../../stomper/:/srv/app/
+    - ../../../stomper/:/srv/app/
   traefik:
   # You can access the reverse proxy's dashboard at [traefik.maevsi.test](https://traefik.maevsi.test/).
     command:
