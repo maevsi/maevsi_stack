@@ -199,7 +199,6 @@ services:
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
       RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
       RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
-    hostname: rabbitmq
     image: rabbitmq:3.8.9-management-alpine@sha256:44d06f26a7994c210a605c88fdc29725071fe5a93be1c97a7538bbf7ec2fd17e
     secrets:
     - rabbitmq_password
