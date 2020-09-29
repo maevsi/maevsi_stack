@@ -1,3 +1,10 @@
+## [0.3.4](https://github.com/maevsi/maevsi_stack/compare/0.3.3...0.3.4) (2020-09-29)
+
+
+### Bug Fixes
+
+* **maevsi:** 0.1.2 ([66496af](https://github.com/maevsi/maevsi_stack/commit/66496af49d6ab99bfc2a36c34fae624659c447fa))
+
 ## [0.3.3](https://github.com/maevsi/maevsi_stack/compare/0.3.2...0.3.3) (2020-09-29)
 
 
