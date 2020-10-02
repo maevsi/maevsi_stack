@@ -90,6 +90,7 @@ services:
     image: ldez/traefik-certs-dumper:v2.7.0@sha256:63614a85fe984b62716c638bca1a0a837e86f7249ef3c0e7f9db8a1fed743c96
     volumes:
     - acme_data:/etc/traefik/acme/
+version: "3.7"
 volumes:
   acme_data:
   # The reverse proxy's certificate data.
