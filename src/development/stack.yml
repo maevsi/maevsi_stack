@@ -91,9 +91,9 @@ services:
       - traefik.http.routers.maevsi_secure.middlewares=redirectregex_alpha
       - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.maevsi.loadbalancer.server.port=8080
-    environment: # Must be prefixed by "GRIDSOME_" (https://gridsome.org/docs/environment-variables/#usage-in-the-browser)
-      GRIDSOME_STACK_DOMAIN: ${STACK_DOMAIN}
+      - traefik.http.services.maevsi.loadbalancer.server.port=3000
+    environment: # Must be prefixed by "NUXT_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
+      NUXT_STACK_DOMAIN: ${STACK_DOMAIN}
     image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
@@ -103,7 +103,7 @@ services:
     - postgres_role_maevsi-tusd_password
     user: node:node
     volumes:
-    - ../../../maevsi/gridsome/:/srv/app/
+    - ../../../maevsi/nuxt/:/srv/app/
     - ../../../maevsi/sqitch/:/srv/sqitch/
   pg-amqp-bridge:
   # You cannot access the database-to-AMQP bridge directly.
