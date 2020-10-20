@@ -1,3 +1,15 @@
+# [0.4.0](https://github.com/maevsi/maevsi_stack/compare/0.3.7...0.4.0) (2020-10-20)
+
+
+### Bug Fixes
+
+* **tusd:** correct maevsi's port ([af8fac9](https://github.com/maevsi/maevsi_stack/commit/af8fac9f55976e455a3a45acfea95268af676416))
+
+
+### Features
+
+* **maevsi:** migrate to nuxt ([a5c8b9b](https://github.com/maevsi/maevsi_stack/commit/a5c8b9bd025c5a1df70ebc2b1535cda29d0f13d0))
+
 ## [0.3.7](https://github.com/maevsi/maevsi_stack/compare/0.3.6...0.3.7) (2020-10-19)
 
 
