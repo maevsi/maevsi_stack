@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/maevsi/maevsi_stack/compare/0.4.0...0.4.1) (2020-10-20)
+
+
+### Bug Fixes
+
+* **deps:** bump stefanzweifel/git-auto-commit-action ([313be59](https://github.com/maevsi/maevsi_stack/commit/313be59cd68af93ea833e9190c87a2378a095180))
+* **deps:** bump WyriHaximus/github-action-get-previous-tag ([61d02c8](https://github.com/maevsi/maevsi_stack/commit/61d02c8f541d1ae7cd027174b77b510792c2c169))
+* **deps:** bump WyriHaximus/github-action-next-semvers from v1.0 to v1 ([4617b90](https://github.com/maevsi/maevsi_stack/commit/4617b90bdc9f1ed2a4061e6e758b9869de5aed5e))
+
 # [0.4.0](https://github.com/maevsi/maevsi_stack/compare/0.3.7...0.4.0) (2020-10-20)
 
 
