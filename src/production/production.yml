@@ -20,7 +20,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: maevsi/maevsi:0.4.0@sha256:f0ffb9d63260ca8f1386af5a3155f17932f773563b53eda7fdca77c3b01427e5
+    image: maevsi/maevsi:0.4.1@sha256:6dad220c1bb26067e4614eb28255c207c8df0c762fedc106374db8051b2c329e
     user: (( prune ))
     volumes: (( prune ))
   portainer:
