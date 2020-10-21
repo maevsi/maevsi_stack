@@ -86,7 +86,7 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.routers.maevsi.middlewares=redirectregex_alpha,redirectscheme
+      - traefik.http.routers.maevsi.middlewares=redirectscheme,redirectregex_alpha
       - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_secure.middlewares=redirectregex_alpha
       - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
