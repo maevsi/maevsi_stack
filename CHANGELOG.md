@@ -1,3 +1,10 @@
+## [0.4.7](https://github.com/maevsi/maevsi_stack/compare/0.4.6...0.4.7) (2020-10-21)
+
+
+### Bug Fixes
+
+* **maevsi:** correct environment variable name ([abab4b6](https://github.com/maevsi/maevsi_stack/commit/abab4b6fa41a24b40c286aa3c54f0b6f838b8d54))
+
 ## [0.4.6](https://github.com/maevsi/maevsi_stack/compare/0.4.5...0.4.6) (2020-10-21)
 
 
