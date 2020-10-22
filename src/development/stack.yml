@@ -92,6 +92,7 @@ services:
       - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
+      replicas: 2
     environment: # Must be prefixed by "NUXT_ENV_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
       NUXT_ENV_STACK_DOMAIN: ${STACK_DOMAIN}
     image: maevsi/maevsi:dev
@@ -107,6 +108,8 @@ services:
     - ../../../maevsi/sqitch/:/srv/sqitch/
   pg-amqp-bridge:
   # You cannot access the database-to-AMQP bridge directly.
+    deploy:
+      replicas: 2
     environment:
       AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
       BRIDGE_CHANNELS: account_register:account_register,invite:invite
@@ -165,6 +168,7 @@ services:
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
+      replicas: 2
     image: graphile/postgraphile:v4.9.1@sha256:4428bb47f331f19c84bdddf2c9ff921a552a234398b765b843e305ff30dea298
     secrets:
     - postgraphile_connection
@@ -173,6 +177,8 @@ services:
   postgres:
   # You can access the database via `adminer`.
     command: -c 'maevsi.stack_domain=${STACK_DOMAIN}'
+    deploy:
+      replicas: 2
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
@@ -195,6 +201,7 @@ services:
       - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
       - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+      replicas: 2
     environment:
       RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
       RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
@@ -208,6 +215,8 @@ services:
     - rabbitmq_data:/var/lib/rabbitmq
   stomper:
   # You cannot access the email service directly.
+    deploy:
+      replicas: 2
     environment:
       RABBITMQ_PASS_FILE: /run/secrets/rabbitmq_password
       RABBITMQ_USER_FILE: /run/secrets/rabbitmq_user
@@ -275,6 +284,7 @@ services:
       - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && Method(`GET`, `HEAD`, `OPTIONS`, `POST`, `PUT`, `PATCH`)
       - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.tusd.loadbalancer.server.port=1080
+      replicas: 2
     environment:
       AWS_REGION: ${TUSD_AWS_REGION}
     image: tusproject/tusd:v1.4.0@sha256:25b8bd7f36ff065fcdae73300192ce4ae99502a0b53a422a1ab3304405379e98
