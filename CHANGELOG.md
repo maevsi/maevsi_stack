@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/maevsi/maevsi_stack/compare/0.4.7...0.5.0) (2020-10-22)
+
+
+### Features
+
+* use 2 replicas ([ca2679f](https://github.com/maevsi/maevsi_stack/commit/ca2679fc2d21baaa19f68615bcc059ae4ca0dd96))
+
 ## [0.4.7](https://github.com/maevsi/maevsi_stack/compare/0.4.6...0.4.7) (2020-10-21)
 
 
