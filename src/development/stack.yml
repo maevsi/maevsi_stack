@@ -193,6 +193,7 @@ services:
     - postgres_data:/var/lib/postgresql/data
   rabbitmq:
   # You can access the message queue at [rabbitmq.maevsi.test](https://rabbitmq.maevsi.test/).
+    command: /parallel_commands 'rabbitmq-server' 'rabbitmqctl --timeout 300 await_startup && rabbitmqctl import_definitions /definitions.json'
     deploy:
       labels:
       - traefik.enable=true
@@ -202,8 +203,8 @@ services:
       - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
       replicas: 2
+    entrypoint: /entrypoint.sh
     environment:
-      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq
       RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
       RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
     image: rabbitmq:3.8.9-management-alpine@sha256:cc0ba129dc59cd8cfd79cf8d5129f81db5609b8ffe32369d91951b3edd271557
@@ -211,7 +212,10 @@ services:
     - rabbitmq_password
     - rabbitmq_user
     volumes:
-    - ../production/configurations/rabbitmq/:/etc/rabbitmq/
+    - ../production/configurations/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json
+    - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+    - ../production/configurations/rabbitmq/entrypoint.sh:/entrypoint.sh
+    - ../production/configurations/rabbitmq/parallel_commands:/parallel_commands
     - rabbitmq_data:/var/lib/rabbitmq
   stomper:
   # You cannot access the email service directly.
