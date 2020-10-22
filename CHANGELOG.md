@@ -1,3 +1,10 @@
+## [0.5.2](https://github.com/maevsi/maevsi_stack/compare/0.5.1...0.5.2) (2020-10-22)
+
+
+### Bug Fixes
+
+* **rabbitmq:** late import definitions ([386b05e](https://github.com/maevsi/maevsi_stack/commit/386b05e7b626004bd7c4732f1252e30e3697c975))
+
 ## [0.5.1](https://github.com/maevsi/maevsi_stack/compare/0.5.0...0.5.1) (2020-10-22)
 
 
