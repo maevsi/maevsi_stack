@@ -169,7 +169,7 @@ services:
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
       replicas: 2
-    image: graphile/postgraphile:v4.9.1@sha256:4428bb47f331f19c84bdddf2c9ff921a552a234398b765b843e305ff30dea298
+    image: graphile/postgraphile:v4.9.2@sha256:0d93853a9e16249fd35a29e34052db5e07dd6e59133d29c8fca212cc47c07ebc
     secrets:
     - postgraphile_connection
     - postgraphile_jwt-secret
