@@ -20,9 +20,13 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
+      replicas: 2
     image: maevsi/maevsi:0.4.6@sha256:74d089d35332b176419847b94f2f40a67bf67ad82cf0d262ef25d225d6482eb3
     user: (( prune ))
     volumes: (( prune ))
+  pg-amqp-bridge:
+    deploy:
+      replicas: 2
   portainer:
     deploy:
       labels:
@@ -33,6 +37,10 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.postgraphile_secure.tls.certresolver=default
+      replicas: 2
+  postgres:
+    deploy:
+      replicas: 2
   postgres_backup:
   # You cannot access the database backup directly.
     environment:
@@ -53,7 +61,10 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
+      replicas: 2
   stomper:
+    deploy:
+      replicas: 2
     image: maevsi/stomper:0.1.3@sha256:07aebe74b08b75e5cea399b0f9e6ca118541330f0bb0433a87dd14b0b9b57dbc
     volumes: (( prune ))
   traefik:
@@ -90,6 +101,9 @@ services:
     image: ldez/traefik-certs-dumper:v2.7.0@sha256:63614a85fe984b62716c638bca1a0a837e86f7249ef3c0e7f9db8a1fed743c96
     volumes:
     - acme_data:/etc/traefik/acme/
+  tusd:
+    deploy:
+      replicas: 2
 version: "3.7"
 volumes:
   acme_data:
