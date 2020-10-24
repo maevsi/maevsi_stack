@@ -1,3 +1,11 @@
+# [0.6.0](https://github.com/maevsi/maevsi_stack/compare/0.5.2...0.6.0) (2020-10-24)
+
+
+### Features
+
+* **maevsi:** set "CONSOLA_LEVEL" environment variable ([ab61466](https://github.com/maevsi/maevsi_stack/commit/ab6146623325a85d6046022dfa930b91a392450f))
+* **postgres:** set "jwt_expiry_duration" setting ([1902f9c](https://github.com/maevsi/maevsi_stack/commit/1902f9cae86aeacf7062c85960e7da34efde4bd0))
+
 ## [0.5.2](https://github.com/maevsi/maevsi_stack/compare/0.5.1...0.5.2) (2020-10-22)
 
 
