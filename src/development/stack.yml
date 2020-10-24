@@ -92,8 +92,9 @@ services:
       - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
-    environment: # Must be prefixed by "NUXT_ENV_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
-      NUXT_ENV_STACK_DOMAIN: ${STACK_DOMAIN}
+    environment:
+      CONSOLA_LEVEL: 4 # debug
+      NUXT_ENV_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_ENV_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
     image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
