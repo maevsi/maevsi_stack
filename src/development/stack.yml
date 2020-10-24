@@ -172,7 +172,7 @@ services:
     - postgraphile_owner-connection
   postgres:
   # You can access the database via `adminer`.
-    command: -c 'maevsi.stack_domain=${STACK_DOMAIN}'
+    command: -c maevsi.jwt_expiry_duration='15 minutes'
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
