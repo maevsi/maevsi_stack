@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/maevsi/maevsi_stack/compare/0.6.0...0.7.0) (2020-10-25)
+
+
+### Features
+
+* **postgres:** set jwt expiry time to one month ([1974c86](https://github.com/maevsi/maevsi_stack/commit/1974c86776c5aa6fd608f35dc3b97f48b5fc2cd5))
+
 # [0.6.0](https://github.com/maevsi/maevsi_stack/compare/0.5.2...0.6.0) (2020-10-24)
 
 
