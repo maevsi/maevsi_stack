@@ -21,7 +21,7 @@ services:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
       replicas: 2
-    image: maevsi/maevsi:0.7.0@sha256:949076faec39460176b04d7e70af4e9c4200ce92e3052af2f6df04bdbbbece4b
+    image: maevsi/maevsi:0.8.0@sha256:9272e477fc4e8613e39b37b97d93502f16f6daadfd2ae9b03d8a2a018d43e53f
     user: (( prune ))
     volumes: (( prune ))
   pg-amqp-bridge:
