@@ -1,3 +1,10 @@
+## [0.7.2](https://github.com/maevsi/maevsi_stack/compare/0.7.1...0.7.2) (2020-10-31)
+
+
+### Bug Fixes
+
+* **postgres:** scale down to one replica ([df97fab](https://github.com/maevsi/maevsi_stack/commit/df97fab1f6deccd367b6a8429a92793ea3f2f672))
+
 ## [0.7.1](https://github.com/maevsi/maevsi_stack/compare/0.7.0...0.7.1) (2020-10-26)
 
 
