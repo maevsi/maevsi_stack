@@ -38,9 +38,6 @@ services:
       - (( append ))
       - traefik.http.routers.postgraphile_secure.tls.certresolver=default
       replicas: 2
-  postgres:
-    deploy:
-      replicas: 2
   postgres_backup:
   # You cannot access the database backup directly.
     environment:
