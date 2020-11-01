@@ -100,6 +100,9 @@ services:
     - acme_data:/etc/traefik/acme/
   tusd:
     deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.tusd_secure.tls.certresolver=default
       replicas: 2
 version: "3.7"
 volumes:
