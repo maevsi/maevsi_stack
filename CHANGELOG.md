@@ -1,3 +1,10 @@
+## [0.7.3](https://github.com/maevsi/maevsi_stack/compare/0.7.2...0.7.3) (2020-11-01)
+
+
+### Bug Fixes
+
+* **tusd:** add missing certificate resolver ([8d68424](https://github.com/maevsi/maevsi_stack/commit/8d684248a93d3e28968b0668e87bd9aa97ccbdf1))
+
 ## [0.7.2](https://github.com/maevsi/maevsi_stack/compare/0.7.1...0.7.2) (2020-10-31)
 
 
