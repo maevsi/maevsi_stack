@@ -62,7 +62,7 @@ services:
   stomper:
     deploy:
       replicas: 2
-    image: maevsi/stomper:0.2.0@sha256:806184aeb625b7192036ea2109b1469c167262c9d466aac0203951dd6f308d3d
+    image: maevsi/stomper:0.3.0@sha256:e9e5c735195349aeb2289b407cf3a7fc041f5bee72bceda83d180c6646b7a61c
     volumes: (( prune ))
   traefik:
     command:
