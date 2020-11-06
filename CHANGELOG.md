@@ -1,3 +1,10 @@
+## [0.7.5](https://github.com/maevsi/maevsi_stack/compare/0.7.4...0.7.5) (2020-11-06)
+
+
+### Bug Fixes
+
+* remove all multiple replicas ([d58c31d](https://github.com/maevsi/maevsi_stack/commit/d58c31d7051cf0d19e56a814035029095055c80a))
+
 ## [0.7.4](https://github.com/maevsi/maevsi_stack/compare/0.7.3...0.7.4) (2020-11-02)
 
 
