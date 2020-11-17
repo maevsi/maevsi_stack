@@ -1,6 +1,15 @@
 {
     "queues": [
         {
+            "name": "account_password_reset_request",
+            "vhost": "/",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {
+                "x-queue-type": "classic"
+            }
+        },
+        {
             "name": "account_register",
             "vhost": "/",
             "durable": true,
