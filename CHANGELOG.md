@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/maevsi/maevsi_stack/compare/0.7.8...0.8.0) (2020-11-17)
+
+
+### Features
+
+* add `account_password_reset_request` message queue ([3eade80](https://github.com/maevsi/maevsi_stack/commit/3eade8044a1e31aa21ec257005601288d6069509))
+
 ## [0.7.8](https://github.com/maevsi/maevsi_stack/compare/0.7.7...0.7.8) (2020-11-15)
 
 
