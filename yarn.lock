@@ -381,14 +381,14 @@ dargs@^7.0.0:
   resolved "https://registry.yarnpkg.com/dargs/-/dargs-7.0.0.tgz#04015c41de0bcb69ec84050f3d9be0caf8d6d5cc"
   integrity sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==
 
-dargstack_rgen@0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.6.3.tgz#beeb5d734b51703a447a53eb397d70ec0078fe8e"
-  integrity sha512-k8f1dW1jxDJms14CPi7+pFBtHK5UTRp6QcGnCfERDxtSl7nF1/BSr/tu+4cD8lMoHP0hZDWYObJxoUkI3rEL/A==
+dargstack_rgen@0.6.4:
+  version "0.6.4"
+  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.6.4.tgz#f4eb735e35a2b5a20381cf513845cabb319c946f"
+  integrity sha512-OUGUbJpRYbVhm+tEZ0GY8zw7tO7Qw7vgEBY7odpRp4qDgQcD8zG7dLa0NbHBZCwtZFpJOl4J5thqC8LO/nGZ1A==
   dependencies:
     deepmerge "4.2.2"
     diff "5.0.0"
-    json2md "1.9.0"
+    json2md "1.9.1"
     yaml "1.10.0"
     yargs "16.1.1"
 
@@ -616,10 +616,10 @@ json-parse-even-better-errors@^2.3.0:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
   integrity sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==
 
-json2md@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/json2md/-/json2md-1.9.0.tgz#40c5ab743ceab8aae0b6d2b4d8db1b957dcccb75"
-  integrity sha512-Jnq079Uw0Rhu+sQHkTDASVuu6tFolhYkVmULLaBPQj2a2lfgkc4lgZ6gu6CQa0xX028aJ3V7HjDRQFiuB0BymA==
+json2md@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/json2md/-/json2md-1.9.1.tgz#d9117fbe0aec8656c936edcc36a251b6e2a7a017"
+  integrity sha512-vfeMh6/fGDQCzEqb6j/vxm0CCs4xxaDAFKkSwJVCZT4ofQ7f9vumFPYoRJaJj56UuCu8i+kr96gkg6e4DNYwCg==
   dependencies:
     indento "^1.1.7"
 
