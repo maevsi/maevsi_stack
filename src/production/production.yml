@@ -54,7 +54,7 @@ services:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   stomper:
-    image: maevsi/stomper:0.4.1@sha256:81ae4ceec730086ebdf637abce0228bdd11c7297106d3e47ced480aaf74a117d
+    image: maevsi/stomper:0.4.2@sha256:b0e5789d9c39a77ff96ac8eb116012871817c71e359eb7d9decacd72dbd34e37
     volumes: (( prune ))
   traefik:
     command:
