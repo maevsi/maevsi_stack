@@ -381,16 +381,16 @@ dargs@^7.0.0:
   resolved "https://registry.yarnpkg.com/dargs/-/dargs-7.0.0.tgz#04015c41de0bcb69ec84050f3d9be0caf8d6d5cc"
   integrity sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==
 
-dargstack_rgen@0.6.4:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.6.4.tgz#f4eb735e35a2b5a20381cf513845cabb319c946f"
-  integrity sha512-OUGUbJpRYbVhm+tEZ0GY8zw7tO7Qw7vgEBY7odpRp4qDgQcD8zG7dLa0NbHBZCwtZFpJOl4J5thqC8LO/nGZ1A==
+dargstack_rgen@0.6.5:
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.6.5.tgz#9eb6d99618d3a38e98716acf062584459aa8613c"
+  integrity sha512-W18ki60Z01kVn4WZOIADJKQ7euj+8GAMmd+7gbJj0+ylmMYHfSErAId6oHm/ZZL88n1p1daEOIPCtBo7mXrzMQ==
   dependencies:
     deepmerge "4.2.2"
     diff "5.0.0"
     json2md "1.9.1"
     yaml "1.10.0"
-    yargs "16.1.1"
+    yargs "16.2.0"
 
 decamelize-keys@^1.1.0:
   version "1.1.0"
@@ -1178,10 +1178,10 @@ yargs-parser@^20.2.2:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.3.tgz#92419ba867b858c868acf8bae9bf74af0dd0ce26"
   integrity sha512-emOFRT9WVHw03QSvN5qor9QQT9+sw5vwxfYweivSMHTcAXPefwVae2FjO7JJjj8hCE4CzPOPeFM83VwT29HCww==
 
-yargs@16.1.1:
-  version "16.1.1"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.1.1.tgz#5a4a095bd1ca806b0a50d0c03611d38034d219a1"
-  integrity sha512-hAD1RcFP/wfgfxgMVswPE+z3tlPFtxG8/yWUrG2i17sTWGCGqWnxKcLTF4cUKDUK8fzokwsmO9H0TDkRbMHy8w==
+yargs@16.2.0:
+  version "16.2.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
+  integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"
