@@ -1,3 +1,10 @@
+## [0.8.8](https://github.com/maevsi/maevsi_stack/compare/0.8.7...0.8.8) (2020-12-07)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([9ad47f0](https://github.com/maevsi/maevsi_stack/commit/9ad47f0db757a3e4cbcc257177c06d8cd36aeba4))
+
 ## [0.8.7](https://github.com/maevsi/maevsi_stack/compare/0.8.6...0.8.7) (2020-12-06)
 
 
