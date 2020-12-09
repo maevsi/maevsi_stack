@@ -1,3 +1,10 @@
+# [0.9.0](https://github.com/maevsi/maevsi_stack/compare/0.8.8...0.9.0) (2020-12-09)
+
+
+### Features
+
+* **traefik:** add pilot token ([bb5479f](https://github.com/maevsi/maevsi_stack/commit/bb5479fe493540c90ffec04c03c68b2a46a3fee2))
+
 ## [0.8.8](https://github.com/maevsi/maevsi_stack/compare/0.8.7...0.8.8) (2020-12-07)
 
 
