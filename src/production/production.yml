@@ -59,7 +59,7 @@ services:
       - (( append ))
       - traefik.http.routers.stomper_secure.middlewares=auth
       - traefik.http.routers.stomper_secure.tls.certresolver=default
-    image: maevsi/stomper:0.6.0@sha256:3758e8cfec6595eb5caab9b76e9777b7fdc92b8626e9a69641d0b496f8c41991
+    image: maevsi/stomper:0.6.1@sha256:b40738c5cc3d7212b277ec37c0f9ba1fb3f049ea9efe81dbdccbcebf87bf7455
     volumes: (( prune ))
   traefik:
     command:
