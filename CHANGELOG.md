@@ -1,3 +1,10 @@
+# [0.11.0](https://github.com/maevsi/maevsi_stack/compare/0.10.1...0.11.0) (2020-12-27)
+
+
+### Features
+
+* **stomper:** use SMTP secret instead of AWS SES ([45b0b4c](https://github.com/maevsi/maevsi_stack/commit/45b0b4cda5aa988bc259c3b9fb27cd895e4fc85f))
+
 ## [0.10.1](https://github.com/maevsi/maevsi_stack/compare/0.10.0...0.10.1) (2020-12-27)
 
 
