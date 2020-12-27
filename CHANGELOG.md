@@ -1,3 +1,10 @@
+## [0.11.5](https://github.com/maevsi/maevsi_stack/compare/0.11.4...0.11.5) (2020-12-27)
+
+
+### Bug Fixes
+
+* **stomper:** remove auth middleware ([bc5f023](https://github.com/maevsi/maevsi_stack/commit/bc5f02372eb4b8e48fc83a42571d59fae22a58a1))
+
 ## [0.11.4](https://github.com/maevsi/maevsi_stack/compare/0.11.3...0.11.4) (2020-12-27)
 
 
