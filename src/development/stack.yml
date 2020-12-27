@@ -94,6 +94,9 @@ services:
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
     environment:
       CONSOLA_LEVEL: 4 # debug
+      GOOGLE_ADSENSE_ID: ${GOOGLE_ADSENSE_ID}
+      GOOGLE_ANALYTICS_DOMAIN: ${GOOGLE_ANALYTICS_DOMAIN}
+      GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
       NUXT_ENV_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_ENV_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
     image: maevsi/maevsi:dev
     secrets:
