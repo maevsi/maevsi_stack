@@ -57,7 +57,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.stomper_secure.middlewares=auth
       - traefik.http.routers.stomper_secure.tls.certresolver=default
     image: maevsi/stomper:0.6.3@sha256:e5297d06f586edd9f8db647211eb6f9558a51dc28da7ec312843991d97e9f3b9
     volumes: (( prune ))
