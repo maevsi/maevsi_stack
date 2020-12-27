@@ -1,3 +1,11 @@
+# [0.10.0](https://github.com/maevsi/maevsi_stack/compare/0.9.0...0.10.0) (2020-12-27)
+
+
+### Features
+
+* **maevsi:** add google environment variables ([3941d09](https://github.com/maevsi/maevsi_stack/commit/3941d09a66f84e563aa810d77217d1e6ec241dec))
+* **postgraphile:** don't ignore RBAC ([f25c099](https://github.com/maevsi/maevsi_stack/commit/f25c099a9fb0f81e8e866d591924cf32a0762a6d))
+
 # [0.9.0](https://github.com/maevsi/maevsi_stack/compare/0.8.8...0.9.0) (2020-12-09)
 
 
