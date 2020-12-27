@@ -50,9 +50,9 @@ secrets:
   rabbitmq_user:
   # The message queue's login username.
     file: ./secrets/rabbitmq/user.secret
-  stomper_aws:
-  # The email service's AWS credentials file.
-    file: ./secrets/stomper/aws.secret
+  stomper_nodemailer-transporter:
+  # The email service's SMTP configuration.
+    file: ./secrets/stomper/nodemailer-transporter.secret
   tusd_aws:
   # The upload service's s3 credentials file.
     file: ./secrets/tusd/aws.secret
@@ -224,7 +224,7 @@ services:
     secrets:
     - rabbitmq_password
     - rabbitmq_user
-    - stomper_aws
+    - stomper_nodemailer-transporter
     volumes:
     - ../../../stomper/:/srv/app/
   traefik:

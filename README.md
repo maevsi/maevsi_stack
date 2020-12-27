@@ -88,9 +88,9 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The message queue's login username.
     
- - ### `stomper_aws`
+ - ### `stomper_nodemailer-transporter`
     
-    The email service's AWS credentials file.
+    The email service's SMTP configuration.
     
  - ### `traefik_cf-dns-api-token` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
