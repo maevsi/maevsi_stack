@@ -1,3 +1,10 @@
+## [0.11.6](https://github.com/maevsi/maevsi_stack/compare/0.11.5...0.11.6) (2020-12-29)
+
+
+### Bug Fixes
+
+* **postgres:** set sysctl tcp keepalive time from default 7200 to 600 ([9abd0f8](https://github.com/maevsi/maevsi_stack/commit/9abd0f8581170168b66ffd5cb525948bfa0fbe84))
+
 ## [0.11.5](https://github.com/maevsi/maevsi_stack/compare/0.11.4...0.11.5) (2020-12-27)
 
 
