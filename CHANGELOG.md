@@ -1,3 +1,11 @@
+# [0.12.0](https://github.com/maevsi/maevsi_stack/compare/0.11.8...0.12.0) (2021-01-17)
+
+
+### Features
+
+* **pg-amqp-bridge:** add secret template content ([86ff56a](https://github.com/maevsi/maevsi_stack/commit/86ff56a50245af4778ae702a17faa0c7e3bc6704))
+* **postgraphile:** enable enhanced graphiql ([8f9df65](https://github.com/maevsi/maevsi_stack/commit/8f9df655a33c96f6f988ff2fa2fd686632ae93bf))
+
 ## [0.11.8](https://github.com/maevsi/maevsi_stack/compare/0.11.7...0.11.8) (2021-01-13)
 
 
