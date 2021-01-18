@@ -1,3 +1,10 @@
+# [0.13.0](https://github.com/maevsi/maevsi_stack/compare/0.12.0...0.13.0) (2021-01-18)
+
+
+### Features
+
+* **rabbitmq:** rename "invite" to "invitation" ([4dc1e49](https://github.com/maevsi/maevsi_stack/commit/4dc1e49c5036123791255c030096f372fc160e9f))
+
 # [0.12.0](https://github.com/maevsi/maevsi_stack/compare/0.11.8...0.12.0) (2021-01-17)
 
 
