@@ -1,3 +1,10 @@
+# [0.14.0](https://github.com/maevsi/maevsi_stack/compare/0.13.0...0.14.0) (2021-01-20)
+
+
+### Features
+
+* **stomper:** add postgres role ([1a28a25](https://github.com/maevsi/maevsi_stack/commit/1a28a25918bab228ca02ba6abc428dc3e0308d82))
+
 # [0.13.0](https://github.com/maevsi/maevsi_stack/compare/0.12.0...0.13.0) (2021-01-18)
 
 
