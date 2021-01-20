@@ -1,3 +1,10 @@
+# [0.15.0](https://github.com/maevsi/maevsi_stack/compare/0.14.0...0.15.0) (2021-01-20)
+
+
+### Features
+
+* **postgres:** upgrade to 13.1-alpine ([8f9b791](https://github.com/maevsi/maevsi_stack/commit/8f9b79163ac6a925de403ddc17ccc84e3976567e))
+
 # [0.14.0](https://github.com/maevsi/maevsi_stack/compare/0.13.0...0.14.0) (2021-01-20)
 
 
