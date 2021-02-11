@@ -302,7 +302,7 @@ services:
       - traefik.http.services.tusd.loadbalancer.server.port=1080
     environment:
       AWS_REGION: ${TUSD_AWS_REGION}
-    image: tusproject/tusd:v1.5.0@sha256:17d45f6360fe113baf199c9e308c29232a7b82c47fb13137ba47b7461fadc745
+    image: tusproject/tusd:v1.5.1@sha256:b0f7dcea4d906656517e80e56be5e08ba392538b582c2920016cd507505bf2f9
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
