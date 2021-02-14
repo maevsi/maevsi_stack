@@ -1,3 +1,10 @@
+## [0.15.1](https://github.com/maevsi/maevsi_stack/compare/0.15.0...0.15.1) (2021-02-14)
+
+
+### Bug Fixes
+
+* **postgres:** add more tcp keepalive settings ([05e66f1](https://github.com/maevsi/maevsi_stack/commit/05e66f19a0b6a3330d1b0e7c8a4bf85ca0e9823f))
+
 # [0.15.0](https://github.com/maevsi/maevsi_stack/compare/0.14.0...0.15.0) (2021-01-20)
 
 
