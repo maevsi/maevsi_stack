@@ -10,7 +10,7 @@
             }
         },
         {
-            "name": "account_register",
+            "name": "account_registration",
             "vhost": "/",
             "durable": true,
             "auto_delete": false,
