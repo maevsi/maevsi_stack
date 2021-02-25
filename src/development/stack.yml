@@ -117,7 +117,7 @@ services:
   # You cannot access the database-to-AMQP bridge directly.
     environment:
       AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
-      BRIDGE_CHANNELS: account_password_reset_request:account_password_reset_request,account_register:account_register,invitation:invitation
+      BRIDGE_CHANNELS: account_password_reset_request:account_password_reset_request,account_registration:account_registration,invitation:invitation
       DELIVERY_MODE: PERSISTENT
       POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
       RUST_LOG: info
