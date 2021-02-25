@@ -238,6 +238,8 @@ services:
       RABBITMQ_USER_FILE: /run/secrets/rabbitmq_user
       STACK_DOMAIN: ${STACK_DOMAIN}
     image: maevsi/stomper:dev
+    # ports:
+    # - 9229:9229
     secrets:
     - rabbitmq_password
     - rabbitmq_user
