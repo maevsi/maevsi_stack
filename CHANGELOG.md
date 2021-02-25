@@ -1,3 +1,10 @@
+# [0.16.0](https://github.com/maevsi/maevsi_stack/compare/0.15.3...0.16.0) (2021-02-25)
+
+
+### Features
+
+* rename registration ([df41cd7](https://github.com/maevsi/maevsi_stack/commit/df41cd79be36cd8a5489c93ed8ff9ad6f14b5fe8))
+
 ## [0.15.3](https://github.com/maevsi/maevsi_stack/compare/0.15.2...0.15.3) (2021-02-25)
 
 
