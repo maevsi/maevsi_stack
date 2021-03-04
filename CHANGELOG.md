@@ -1,3 +1,10 @@
+## [0.17.1](https://github.com/maevsi/maevsi_stack/compare/0.17.0...0.17.1) (2021-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/stomper docker tag to v0.12.1 ([65c8bb8](https://github.com/maevsi/maevsi_stack/commit/65c8bb86111cb5ef29a59394d19c885abdf0c3bc))
+
 # [0.17.0](https://github.com/maevsi/maevsi_stack/compare/0.16.0...0.17.0) (2021-03-04)
 
 
