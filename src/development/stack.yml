@@ -246,6 +246,7 @@ services:
     - postgres_db
     - postgres_role_maevsi-stomper_password
     - stomper_nodemailer-transporter
+    user: 1000:1000
     volumes:
     - ../../../stomper/:/srv/app/
   traefik:
