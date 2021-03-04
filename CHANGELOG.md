@@ -1,3 +1,10 @@
+# [0.17.0](https://github.com/maevsi/maevsi_stack/compare/0.16.0...0.17.0) (2021-03-04)
+
+
+### Features
+
+* **stomper:** add user ([3ea3fc0](https://github.com/maevsi/maevsi_stack/commit/3ea3fc06e3c2600219e0626cd8cbab46ca3ece11))
+
 # [0.16.0](https://github.com/maevsi/maevsi_stack/compare/0.15.3...0.16.0) (2021-02-25)
 
 
