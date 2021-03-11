@@ -19,7 +19,7 @@
             }
         },
         {
-            "name": "invitation",
+            "name": "event_invitation",
             "vhost": "/",
             "durable": true,
             "auto_delete": false,
