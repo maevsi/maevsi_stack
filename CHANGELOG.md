@@ -1,3 +1,10 @@
+# [0.18.0](https://github.com/maevsi/maevsi_stack/compare/0.17.1...0.18.0) (2021-03-11)
+
+
+### Features
+
+* **rabbitmq:** rename event invitation channel ([dc2a3e2](https://github.com/maevsi/maevsi_stack/commit/dc2a3e24211b6070e85f82f7d8b53e6c69169a6a))
+
 ## [0.17.1](https://github.com/maevsi/maevsi_stack/compare/0.17.0...0.17.1) (2021-03-04)
 
 
