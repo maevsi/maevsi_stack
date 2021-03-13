@@ -1,3 +1,10 @@
+# [0.19.0](https://github.com/maevsi/maevsi_stack/compare/0.18.1...0.19.0) (2021-03-13)
+
+
+### Features
+
+* **stomper:** set consola debug level environment variable ([350ba18](https://github.com/maevsi/maevsi_stack/commit/350ba18fab29077ce6a333664c59f6be0d061c06))
+
 ## [0.18.1](https://github.com/maevsi/maevsi_stack/compare/0.18.0...0.18.1) (2021-03-12)
 
 
