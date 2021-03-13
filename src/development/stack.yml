@@ -234,6 +234,7 @@ services:
       - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.stomper.loadbalancer.server.port=3000
     environment:
+      CONSOLA_LEVEL: 4 # debug
       RABBITMQ_PASS_FILE: /run/secrets/rabbitmq_password
       RABBITMQ_USER_FILE: /run/secrets/rabbitmq_user
       STACK_DOMAIN: ${STACK_DOMAIN}
