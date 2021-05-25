@@ -1,21 +1,5 @@
 {
-  "automerge": true,
-  "automergeType": "branch",
-  "docker": {
-    "major": {
-      "enabled": true
-    },
-    "pinDigests": true
-  },
-  "docker-compose": {
-    "fileMatch": ["(^|/)(stack|production)[^/]*\\.ya?ml$"]
-  },
   "extends": [
-    "config:base",
-    ":semanticCommits",
-    ":semanticCommitTypeAll(chore)"
-  ],
-  "major": {
-    "automerge": false
-  }
+    "github>dargmuesli/renovate-config"
+  ]
 }
