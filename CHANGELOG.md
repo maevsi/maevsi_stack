@@ -1,3 +1,10 @@
+## [0.19.10](https://github.com/maevsi/maevsi_stack/compare/0.19.9...0.19.10) (2021-06-24)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([3beabd2](https://github.com/maevsi/maevsi_stack/commit/3beabd2af87091af9c9c2ee39063fce3225053b9))
+
 ## [0.19.9](https://github.com/maevsi/maevsi_stack/compare/0.19.8...0.19.9) (2021-06-21)
 
 
