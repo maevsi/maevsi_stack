@@ -58,7 +58,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.stomper_secure.tls.certresolver=default
-    image: maevsi/stomper:0.18.4@sha256:8c406f0086d894b20f235f3cd76f47fd27c8641ec134738b737594ba7cb302bf
+    image: maevsi/stomper:0.18.4@sha256:83c8b5afeee21d58aef2160767b21c9645036a4ab4745a4f8bf29ae7cce73701
     user: (( prune ))
     volumes: (( prune ))
   traefik:
