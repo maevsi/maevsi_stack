@@ -268,7 +268,7 @@ services:
       labels:
       - traefik.enable=true
       - traefik.http.middlewares.header_cors.headers.accessControlAllowHeaders=authorization,content-type
-      - traefik.http.middlewares.header_cors.headers.accessControlAllowOrigin=*
+      - traefik.http.middlewares.header_cors.headers.accessControlAllowOriginList=*
       - traefik.http.middlewares.redirectregex_alpha.redirectregex.regex=^https?:\/\/(www\.)?${STACK_DOMAIN}\/(.*)
       - traefik.http.middlewares.redirectregex_alpha.redirectregex.replacement=https://alpha.${STACK_DOMAIN}/$${2}
       - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
