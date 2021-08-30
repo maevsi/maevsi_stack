@@ -1,3 +1,10 @@
+## [0.19.21](https://github.com/maevsi/maevsi_stack/compare/0.19.20...0.19.21) (2021-08-30)
+
+
+### Bug Fixes
+
+* **traefik:** use access control allow origin list ([b6af373](https://github.com/maevsi/maevsi_stack/commit/b6af373f067338a75cc6f4a353581286c77a00be))
+
 ## [0.19.20](https://github.com/maevsi/maevsi_stack/compare/0.19.19...0.19.20) (2021-08-09)
 
 
