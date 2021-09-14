@@ -1,3 +1,10 @@
+# [0.20.0](https://github.com/maevsi/maevsi_stack/compare/0.19.21...0.20.0) (2021-09-14)
+
+
+### Features
+
+* **jobber:** add backup task ([188b4fa](https://github.com/maevsi/maevsi_stack/commit/188b4fa70bfb9d9754524e9899336fa4b1997751))
+
 ## [0.19.21](https://github.com/maevsi/maevsi_stack/compare/0.19.20...0.19.21) (2021-08-30)
 
 
