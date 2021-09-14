@@ -276,7 +276,6 @@ services:
     - --api=true
     - --entryPoints.web.address=:80
     - --entryPoints.web-secure.address=:443
-    - --pilot.token=${TRAEFIK_PILOT_TOKEN}
     - --providers.docker=true
     - --providers.docker.endpoint=unix:///var/run/docker.sock
     - --providers.docker.exposedByDefault=false
