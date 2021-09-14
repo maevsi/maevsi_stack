@@ -8,6 +8,12 @@ configs:
   # The GraphQL API's configuration file.
     file: ../production/configurations/postgraphile/.postgraphilerc.js
 secrets:
+  jobber_aws-bucket:
+  # The job scheduler's AWS bucket name.
+    file: ./secrets/jobber/aws-bucket.secret
+  jobber_aws-credentials:
+  # The job scheduler's AWS credentials.
+    file: ./secrets/jobber/aws-credentials.secret
   maevsi_sqitch-target:
   # The database change management application's database connection string.
     file: ./secrets/maevsi/sqitch-target.secret
@@ -84,6 +90,20 @@ services:
     image: adminer:4.8.1-standalone@sha256:9d187c3025d03c033dcc71e3a284fee53be88cc4c0356a19242758bc80cab673
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
+  jobber:
+  # You cannot access the jobber via a web interface.
+    environment:
+      AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
+    image: dargmuesli/jobber-aws-msmtp:1.1.0@sha256:c639b07265f45b7c8881b3a021336086d1d61ecd0db7268f90a9cfdca70557f3
+    secrets:
+    - jobber_aws-bucket
+    - jobber_aws-credentials
+    volumes:
+      - ../production/backups/postgres/:/backups/
+      - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
+      - ../production/configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
+      - ../production/secrets/jobber/aliases:/etc/aliases:ro
+      - ../production/secrets/jobber/msmtprc:/etc/msmtprc:ro
   maevsi:
   # You can access the main project at [maevsi.test](https://maevsi.test/).
     deploy:
