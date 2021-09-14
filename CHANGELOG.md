@@ -1,3 +1,15 @@
+# [0.21.0](https://github.com/maevsi/maevsi_stack/compare/0.20.1...0.21.0) (2021-09-14)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi docker tag to v0.99.3 ([fb016ce](https://github.com/maevsi/maevsi_stack/commit/fb016ce1bb1a50bab15db2f786bf72f9e654317b))
+
+
+### Features
+
+* **traefik:** move token to production ([8e8cdcc](https://github.com/maevsi/maevsi_stack/commit/8e8cdcca93c9311227a1da35f5a269ea6c9fe74a))
+
 ## [0.20.1](https://github.com/maevsi/maevsi_stack/compare/0.20.0...0.20.1) (2021-09-14)
 
 
