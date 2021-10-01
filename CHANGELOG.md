@@ -1,3 +1,10 @@
+# [0.22.0](https://github.com/maevsi/maevsi_stack/compare/0.21.0...0.22.0) (2021-10-01)
+
+
+### Features
+
+* **deps:** update postgres docker tag to v14 ([2501913](https://github.com/maevsi/maevsi_stack/commit/2501913b8a9ff3462361276fa780866983184dd0))
+
 # [0.21.0](https://github.com/maevsi/maevsi_stack/compare/0.20.1...0.21.0) (2021-09-14)
 
 
