@@ -2,7 +2,7 @@
   "name": "maevsi_stack",
   "private": true,
   "version": "0.22.0",
-  "scheduleVersion": "0.19.20",
+  "scheduleVersion": "0.22.1",
   "description": "DargStack configuration for maevsi.",
   "repository": "https://github.com/maevsi/maevsi_stack.git",
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
