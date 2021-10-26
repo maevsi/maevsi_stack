@@ -28,6 +28,14 @@ This project is deployed in accordance to the [DargStack template](https://githu
 ## secrets
 
 
+ - ### `jobber_aws-bucket`
+    
+    The job scheduler's AWS bucket name.
+    
+ - ### `jobber_aws-credentials`
+    
+    The job scheduler's AWS credentials.
+    
  - ### `maevsi_sqitch-target`
     
     The database change management application's database connection string.
@@ -126,6 +134,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     | Database | [postgres_db]       |
     
     Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
+    
+ - ### `jobber`
+    
+    You cannot access the jobber via a web interface.
     
  - ### `maevsi`
     
