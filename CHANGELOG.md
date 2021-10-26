@@ -1,3 +1,10 @@
+# [0.23.0](https://github.com/maevsi/maevsi_stack/compare/0.22.1...0.23.0) (2021-10-26)
+
+
+### Features
+
+* **secrets:** add development secrets ([1b1d3db](https://github.com/maevsi/maevsi_stack/commit/1b1d3db9b5ba3d2d0dd5361de7de1da11f8b91f2))
+
 ## [0.22.1](https://github.com/maevsi/maevsi_stack/compare/0.22.0...0.22.1) (2021-10-15)
 
 
