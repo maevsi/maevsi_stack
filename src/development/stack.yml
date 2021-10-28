@@ -129,6 +129,33 @@ services:
     volumes:
     - ../../../maevsi/nuxt/:/srv/app/
     - ../../../maevsi/sqitch/:/srv/sqitch/
+  minio: #DARGSTACK-REMOVE
+  # You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
+  # You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
+    entrypoint: /patched-entrypoint.sh #DARGSTACK-REMOVE
+    command: server /data --console-address ":9001" #DARGSTACK-REMOVE
+    deploy: #DARGSTACK-REMOVE
+      labels: #DARGSTACK-REMOVE
+        - traefik.enable=true #DARGSTACK-REMOVE
+        # Minio Console
+        - traefik.http.routers.minio.rule=Host(`minio.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
+        - traefik.http.routers.minio.tls=true #DARGSTACK-REMOVE
+        - traefik.http.routers.minio.service=minio_service #DARGSTACK-REMOVE
+        - traefik.http.services.minio_service.loadbalancer.server.port=9001 #DARGSTACK-REMOVE
+        - traefik.http.services.minio_service.loadbalancer.passhostheader=true #DARGSTACK-REMOVE
+        # Minio itself
+        - traefik.http.routers.s3.rule=Host(`s3.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
+        - traefik.http.routers.s3.tls=true #DARGSTACK-REMOVE
+        - traefik.http.routers.s3.service=s3_service #DARGSTACK-REMOVE
+        - traefik.http.services.s3_service.loadbalancer.server.port=9000 #DARGSTACK-REMOVE
+        - traefik.http.services.s3_service.loadbalancer.passhostheader=true #DARGSTACK-REMOVE
+    image: minio/minio@sha256:946dd92a19c190ac1b665576c62c4f65c97b6dc723fa679c8544340d53a6db5f #DARGSTACK-REMOVE
+    volumes: #DARGSTACK-REMOVE
+      - minio_data:/data #DARGSTACK-REMOVE
+      - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh #DARGSTACK-REMOVE
+    environment: #DARGSTACK-REMOVE
+      MINIO_ROOT_PASSWORD: s3password #DARGSTACK-REMOVE
+      MINIO_ROOT_USER: s3user #DARGSTACK-REMOVE
   pg-amqp-bridge:
   # You cannot access the database-to-AMQP bridge directly.
     environment:
@@ -239,35 +266,6 @@ services:
     - ../production/configurations/rabbitmq/entrypoint.sh:/entrypoint.sh
     - ../production/configurations/rabbitmq/parallel_commands:/parallel_commands
     - rabbitmq_data:/var/lib/rabbitmq
-  s3: #DARGSTACK-REMOVE
-  # You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
-  # You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
-    entrypoint: /patched-entrypoint.sh
-    command: server /data --console-address ":9001"
-    deploy:
-      labels:
-        - traefik.enable=true
-        # Minio Console
-        - traefik.http.routers.minio.rule=Host(`minio.${STACK_DOMAIN}`)
-        - traefik.http.routers.minio.tls=true
-        - traefik.http.routers.minio.tls.certresolver=resolver
-        - traefik.http.routers.minio.service=minioService
-        - traefik.http.services.minioService.loadbalancer.server.port=9001
-        - traefik.http.services.minioService.loadbalancer.passhostheader=true
-        # Minio itself
-        - traefik.http.routers.s3.rule=Host(`s3.${STACK_DOMAIN}`)
-        - traefik.http.routers.s3.tls=true
-        - traefik.http.routers.s3.tls.certresolver=resolver
-        - traefik.http.routers.s3.service=s3service
-        - traefik.http.services.s3service.loadbalancer.server.port=9000
-        - traefik.http.services.s3service.loadbalancer.passhostheader=true
-    image: minio/minio@sha256:946dd92a19c190ac1b665576c62c4f65c97b6dc723fa679c8544340d53a6db5f
-    volumes:
-      - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh
-      - minio_data:/data
-    environment:
-      MINIO_ROOT_USER: ${S3_ACCESS_KEY}
-      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY}
   stomper:
   # You cannot access the email service directly.
     deploy:
@@ -342,7 +340,7 @@ services:
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
   tusd:
   # You can access the upload service at [tusd.maevsi.test](https://tusd.maevsi.test/).
-    command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http http://maevsi:3000/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_BUCKET} -s3-endpoint ${S3_ENDPOINT}
+    command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http http://maevsi:3000/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_TUSD_BUCKET} -s3-endpoint ${S3_TUSD_ENDPOINT}
     deploy:
       labels:
       - traefik.enable=true
@@ -352,16 +350,16 @@ services:
       - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.tusd.loadbalancer.server.port=1080
     environment:
-      AWS_REGION: ${TUSD_AWS_REGION}
+      AWS_REGION: ${S3_TUSD_REGION}
     image: tusproject/tusd:v1.7.3@sha256:a7898ea4d6589add5917c92bb11c28637799461238edd713e81600708b2626aa
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
 version: "3.7"
 volumes:
-  minio_data:
+  minio_data: # DARGSTACK-REMOVE
   # The s3 server's data.
-    {}
+    {} # DARGSTACK-REMOVE
   portainer_data:
   # The container manager's data.
     {}
