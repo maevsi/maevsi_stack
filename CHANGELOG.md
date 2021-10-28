@@ -1,3 +1,22 @@
+# [0.24.0](https://github.com/maevsi/maevsi_stack/compare/0.23.0...0.24.0) (2021-10-28)
+
+
+### Bug Fixes
+
+* **entrypoint:** create second bucket ([8c7b464](https://github.com/maevsi/maevsi_stack/commit/8c7b4647111cfbc90c6e24b0e92b35dac16eceb5))
+* implement requested fixes ([66467f6](https://github.com/maevsi/maevsi_stack/commit/66467f69f5a1aa8dc1c453cdceda3229daf63756))
+* **minio:** correct s3 endpoint hostname ([7c5861c](https://github.com/maevsi/maevsi_stack/commit/7c5861c1017c400f5e2273966bfaf4674b6dc003))
+* **minio:** correct traefik configuration ([e436b5c](https://github.com/maevsi/maevsi_stack/commit/e436b5cf781861328e416d8e8e34ef538972b03e))
+* **minio:** make entrypoint executable ([db57b9b](https://github.com/maevsi/maevsi_stack/commit/db57b9b3ba224b5633588df1cdff0090a8f06d55))
+
+
+### Features
+
+* Add minio to developmentstack to provide s3 service ([b588e9d](https://github.com/maevsi/maevsi_stack/commit/b588e9db55b17e87098e6b9888ecac8fd753bf43))
+* **jobber:** remove bucket name secret ([ec68d10](https://github.com/maevsi/maevsi_stack/commit/ec68d10b347354bc596d422f5001541eac680439))
+* **minio:** ensure maevsi-backup is present ([ab3a86f](https://github.com/maevsi/maevsi_stack/commit/ab3a86ff18933e0609ec6d9e531bb55371744786))
+* **secrets:** Add development secrets for s3 to version control ([2853f7c](https://github.com/maevsi/maevsi_stack/commit/2853f7c6fbbb922ab542b7418cda3c808b4643c2))
+
 # [0.23.0](https://github.com/maevsi/maevsi_stack/compare/0.22.1...0.23.0) (2021-10-26)
 
 
