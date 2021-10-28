@@ -91,7 +91,7 @@ services:
   # You cannot access the jobber via a web interface.
     environment:
       AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
-    image: dargmuesli/jobber-aws-msmtp:1.1.0@sha256:c639b07265f45b7c8881b3a021336086d1d61ecd0db7268f90a9cfdca70557f3
+    image: dargmuesli/jobber-aws-msmtp:1.2.0@sha256:e36a57f62f399897199068c2cbb9d2d356818b7c3f96993357a3e06f66d92e48
     secrets:
     - jobber_aws-credentials
     volumes:
