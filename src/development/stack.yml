@@ -335,6 +335,7 @@ services:
   s3:  #DARGSTACK-REMOVE
   # You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
   # You can access s3 api service at [s3.maevsi.test](https://s3.maevsi.test/), if you want to access via cli from outside the stack
+    entrypoint: /patched-entrypoint.sh
     command: server /data --console-address ":9001"
     deploy:
       labels:
@@ -355,6 +356,7 @@ services:
         - traefik.http.services.s3Service.loadbalancer.passhostheader=true
     image: minio/minio@sha256:946dd92a19c190ac1b665576c62c4f65c97b6dc723fa679c8544340d53a6db5f
     volumes:
+      - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh
       - minio_data:/data
     environment:
       MINIO_ROOT_USER: s3user # ${S3_ACCESS_KEY}
