@@ -28,10 +28,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
 ## secrets
 
 
- - ### `jobber_aws-bucket`
-    
-    The job scheduler's AWS bucket name.
-    
  - ### `jobber_aws-credentials`
     
     The job scheduler's AWS credentials.
@@ -143,6 +139,11 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the main project at [maevsi.test](https://maevsi.test/).
     
+ - ### `minio`
+    
+    You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
+    You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
+    
  - ### `pg-amqp-bridge`
     
     You cannot access the database-to-AMQP bridge directly.
@@ -194,6 +195,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `acme_data` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
     The reverse proxy's certificate data.
+    
+ - ### `minio_data`
+    
+    The s3 server's data.
     
  - ### `portainer_data`
     
