@@ -100,8 +100,8 @@ services:
     - jobber_aws-credentials
     volumes:
       - ../production/backups/postgres/:/backups/
-      - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
-      - ../production/configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
+      - ../development/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
+      - ../development/configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
       - ../production/secrets/jobber/aliases:/etc/aliases:ro
       - ../production/secrets/jobber/msmtprc:/etc/msmtprc:ro
   maevsi:
@@ -317,7 +317,7 @@ services:
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
   tusd:
   # You can access the upload service at [tusd.maevsi.test](https://tusd.maevsi.test/).
-    command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http http://maevsi:3000/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${TUSD_S3_BUCKET} -s3-endpoint ${TUSD_S3_ENDPOINT}
+    command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http http://maevsi:3000/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_BUCKET} -s3-endpoint ${S3_ENDPOINT}
     deploy:
       labels:
       - traefik.enable=true
@@ -332,6 +332,33 @@ services:
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
+  s3:  #DARGSTACK-REMOVE
+  # You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
+  # You can access s3 api service at [s3.maevsi.test](https://s3.maevsi.test/), if you want to access via cli from outside the stack
+    command: server /data --console-address ":9001"
+    deploy:
+      labels:
+        - traefik.enable=true
+        # Minio Console
+        - traefik.http.routers.minio.rule=Host(`minio.${STACK_DOMAIN}`)
+        - traefik.http.routers.minio.tls=true
+        - traefik.http.routers.minio.tls.certresolver=resolver
+        - traefik.http.routers.minio.service=minioService
+        - traefik.http.services.minioService.loadbalancer.server.port=9001
+        - traefik.http.services.minioService.loadbalancer.passhostheader=true
+        # Minio itself
+        - traefik.http.routers.s3.rule=Host(`s3.${STACK_DOMAIN}`)
+        - traefik.http.routers.s3.tls=true
+        - traefik.http.routers.s3.tls.certresolver=resolver
+        - traefik.http.routers.s3.service=s3Service
+        - traefik.http.services.s3Service.loadbalancer.server.port=9000
+        - traefik.http.services.s3Service.loadbalancer.passhostheader=true
+    image: minio/minio@sha256:946dd92a19c190ac1b665576c62c4f65c97b6dc723fa679c8544340d53a6db5f
+    volumes:
+      - minio_data:/data
+    environment:
+      MINIO_ROOT_USER: s3user # ${S3_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: s3password # ${S3_SECRET_KEY}
 version: "3.7"
 volumes:
   portainer_data:
@@ -342,4 +369,7 @@ volumes:
     {}
   rabbitmq_data:
   # The message queue's data.
+    {}
+  minio_data:
+  # The s3 server data
     {}
