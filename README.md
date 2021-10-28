@@ -171,6 +171,11 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the message queue at [rabbitmq.maevsi.test](https://rabbitmq.maevsi.test/).
     
+ - ### `s3`
+    
+    You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
+    You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
+    
  - ### `stomper`
     
     You cannot access the email service directly.
@@ -194,6 +199,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `acme_data` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
     The reverse proxy's certificate data.
+    
+ - ### `minio_data`
+    
+    The s3 server's data.
     
  - ### `portainer_data`
     
