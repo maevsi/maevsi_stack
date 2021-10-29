@@ -1,3 +1,10 @@
+# [0.25.0](https://github.com/maevsi/maevsi_stack/compare/0.24.0...0.25.0) (2021-10-29)
+
+
+### Features
+
+* **portainer:** upgrade to v2.9.2 ([aa6dcec](https://github.com/maevsi/maevsi_stack/commit/aa6dcec7f6ed8c7783f271d50ad6c3b2fb61fe34))
+
 # [0.24.0](https://github.com/maevsi/maevsi_stack/compare/0.23.0...0.24.0) (2021-10-28)
 
 
