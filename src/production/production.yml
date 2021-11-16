@@ -15,6 +15,10 @@ services:
       - (( append ))
       - traefik.http.routers.adminer_secure.middlewares=auth
       - traefik.http.routers.adminer_secure.tls.certresolver=default
+  jobber:
+    volumes:
+      - (( append ))
+      - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro #DARGSTACK-REMOVE
   maevsi:
     deploy:
       labels:
