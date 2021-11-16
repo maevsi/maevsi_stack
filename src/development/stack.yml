@@ -96,8 +96,8 @@ services:
     - jobber_aws-credentials
     volumes:
       - ../production/backups/postgres/:/backups/
-      - ../development/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
       - ../development/configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
+      - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
       - ../production/secrets/jobber/aliases:/etc/aliases:ro
       - ../production/secrets/jobber/msmtprc:/etc/msmtprc:ro
   maevsi:
