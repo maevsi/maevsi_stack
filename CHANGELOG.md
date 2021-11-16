@@ -1,3 +1,10 @@
+## [0.25.2](https://github.com/maevsi/maevsi_stack/compare/0.25.1...0.25.2) (2021-11-16)
+
+
+### Bug Fixes
+
+* **jobber:** use production configuration ([d485d8a](https://github.com/maevsi/maevsi_stack/commit/d485d8a53ac7dd09965080b090cea1c94ab8cd0d))
+
 ## [0.25.1](https://github.com/maevsi/maevsi_stack/compare/0.25.0...0.25.1) (2021-11-16)
 
 
