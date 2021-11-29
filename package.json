@@ -11,7 +11,7 @@
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
-    "dargstack_rgen": "0.6.36",
+    "dargstack_rgen": "0.6.37",
     "husky": "7.0.4",
     "shx": "0.3.3"
   },
