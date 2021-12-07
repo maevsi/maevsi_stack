@@ -1,3 +1,10 @@
+## [0.25.12](https://github.com/maevsi/maevsi_stack/compare/0.25.11...0.25.12) (2021-12-07)
+
+
+### Bug Fixes
+
+* **maevsi:** add host environment variable ([a5f75e4](https://github.com/maevsi/maevsi_stack/commit/a5f75e42478148420877f27482a929dbb36ad362))
+
 ## [0.25.11](https://github.com/maevsi/maevsi_stack/compare/0.25.10...0.25.11) (2021-12-07)
 
 
