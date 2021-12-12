@@ -99,7 +99,7 @@ services:
     - --watch
     environment:
       STACK_DOMAIN: ${STACK_DOMAIN}
-    image: ldez/traefik-certs-dumper:v2.7.4@sha256:a56e96221153e24301263e16de278657204e9c5aff5bf1be0d55575619fd42f0
+    image: ldez/traefik-certs-dumper:v2.8.1@sha256:2734462fc8290feab0e34a00d5f3e4992ba74f8e3712d74efff7ae703d0e7e87
     volumes:
     - acme_data:/etc/traefik/acme/
   tusd:
