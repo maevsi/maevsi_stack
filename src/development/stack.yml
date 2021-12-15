@@ -262,7 +262,7 @@ services:
     environment:
       RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
       RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
-    image: rabbitmq:3.9.11-management-alpine@sha256:ba8e6da92062a0bc350f8b1fd699c76bd4e4edb9af7b95e5bcc4c6e29c615074
+    image: rabbitmq:3.9.11-management-alpine@sha256:0a741d10ddae74aadc772da136c8030776792a70263431d20a6160afe200f8d1
     secrets:
     - rabbitmq_password
     - rabbitmq_user
