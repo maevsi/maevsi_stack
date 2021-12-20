@@ -222,7 +222,7 @@ services:
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
-    image: graphile/postgraphile:v4.12.3@sha256:d404e7a265516eeee34467325e897ffd53f9b5a46d9ded049350bc0f54201530
+    image: graphile/postgraphile:4.12.8@sha256:d4558048e8e52ea01fc137341a71ddf3924b6fe4f71633115c62b3e0d6251d74
     secrets:
     - postgraphile_connection
     - postgraphile_jwt-secret
