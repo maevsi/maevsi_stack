@@ -9,7 +9,7 @@
   "license": "CC BY-NC-SA 4.0",
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "16.0.1",
+    "@commitlint/cli": "16.0.2",
     "@commitlint/config-conventional": "16.0.0",
     "dargstack_rgen": "0.6.39",
     "husky": "7.0.4",
