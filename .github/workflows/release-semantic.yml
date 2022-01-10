@@ -1,12 +1,13 @@
-name: CI
+name: 'Release: Semantic'
 
-on: [push]
+on:
+  push:
+    branches: [master]
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
     - name: dargstack derive
@@ -15,3 +16,9 @@ jobs:
         wget "https://raw.githubusercontent.com/dargmuesli/dargstack/master/src/dargstack" -O ~/scripts/dargstack
         chmod +x ~/scripts/dargstack
         ~/scripts/dargstack derive
+  release-semantic:
+    needs: build
+    name: Semantic Release
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.2.1
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
