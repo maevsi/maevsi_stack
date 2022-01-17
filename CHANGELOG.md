@@ -1,3 +1,10 @@
+## [0.25.21](https://github.com/maevsi/maevsi_stack/compare/0.25.20...0.25.21) (2022-01-17)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([f5a4a0e](https://github.com/maevsi/maevsi_stack/commit/f5a4a0e8ad732f3fd09aa00586002d54ce129219))
+
 ## [0.25.20](https://github.com/maevsi/maevsi_stack/compare/0.25.19...0.25.20) (2021-12-23)
 
 
