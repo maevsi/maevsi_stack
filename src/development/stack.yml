@@ -98,8 +98,8 @@ services:
       - ../production/backups/postgres/:/backups/
       - ../development/configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro #DARGSTACK-REMOVE
       - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
-      - ../production/secrets/jobber/aliases:/etc/aliases:ro
-      - ../production/secrets/jobber/msmtprc:/etc/msmtprc:ro
+      - ../production/secrets/jobber/aliases.secret:/etc/aliases:ro
+      - ../production/secrets/jobber/msmtprc.secret:/etc/msmtprc:ro
   maevsi:
   # You can access the main project at [maevsi.test](https://maevsi.test/).
     deploy:
