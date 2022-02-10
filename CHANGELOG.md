@@ -1,3 +1,11 @@
+## [0.25.23](https://github.com/maevsi/maevsi_stack/compare/0.25.22...0.25.23) (2022-02-10)
+
+
+### Bug Fixes
+
+* **jobber:** rename secrets ([5212ece](https://github.com/maevsi/maevsi_stack/commit/5212ece3576527b779701be16982236a10d74c8a))
+* **tusd:** correct hook endpoint ([5fb6248](https://github.com/maevsi/maevsi_stack/commit/5fb624887e566911d2d9b196c32d4d519c9bdad3))
+
 ## [0.25.22](https://github.com/maevsi/maevsi_stack/compare/0.25.21...0.25.22) (2022-01-31)
 
 
