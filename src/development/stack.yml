@@ -330,7 +330,7 @@ services:
       placement:
         constraints:
         - node.role == manager
-    image: traefik:v2.6.1@sha256:e88f389b79b2c287650d11751e3375ece8c5e21bd77100a22e7d0ded2a457d6f
+    image: traefik:v2.6.1@sha256:23d51d26395256453c0f46d2cee18e89ed57571aaffa4690a083c590718e7e8a
     ports:
     - mode: host
       protocol: tcp
