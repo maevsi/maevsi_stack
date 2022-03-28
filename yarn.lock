@@ -451,10 +451,10 @@ dargs@^7.0.0:
   resolved "https://registry.yarnpkg.com/dargs/-/dargs-7.0.0.tgz#04015c41de0bcb69ec84050f3d9be0caf8d6d5cc"
   integrity sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==
 
-dargstack_rgen@0.6.47:
-  version "0.6.47"
-  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.6.47.tgz#d1993b9275fce3d1efdfe5ee54972e9b19f6bf5b"
-  integrity sha512-yzmeCQCMfVL0RTMb8OeTRRHItRp7WrepRq4dJoIpBGs3n+y/D3mKH32IZjf/xl8KQjBS6+XUvjEC+4SmGraP5g==
+dargstack_rgen@0.6.48:
+  version "0.6.48"
+  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.6.48.tgz#98f8e8d673eda720bddbf4c393c65109faeccb05"
+  integrity sha512-DmrsQOIVi0Lod68BoO0YwsfEIZaiJZMm69b//LlTmd1h12TVI4TYiPQxuRgI3cHqMv0xfESZ2IIkFV2nfXndTQ==
   dependencies:
     deepmerge "4.2.2"
     diff "5.0.0"
