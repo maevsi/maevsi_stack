@@ -234,7 +234,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: postgres:14.2-alpine@sha256:a61f92508f5a83a12419171e9446bab762c73e68f49ae3e63593a43e7a1d7f11
+    image: postgres:14.2-alpine@sha256:b62797756ca37cebdf08aa391b9826b74410a26a252580bd9d8deabc08e602d1
     secrets:
     - postgres_db
     - postgres_password
