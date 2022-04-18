@@ -1,5 +1,5 @@
 #!/bin/sh
-THIS=$(dirname $(readlink -f "$0"))
+THIS=$(dirname "$(readlink -f "$0")")
 NAME=maevsi
 
 mkcert \
