@@ -170,7 +170,7 @@ services:
       DELIVERY_MODE: PERSISTENT
       POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
       RUST_LOG: info
-    image: subzerocloud/pg-amqp-bridge:0.0.8@sha256:9b3fee42443881b45dffbb687a29d9c59b1d76dffe2bb458046600fa0548ce75
+    image: dargmuesli/pg-amqp-bridge:0.0.8@sha256:11332841c98058fa7b362fe74dc47854132f42776e8f7c95381c656671f58fb0
     secrets:
     - pg-amqp-bridge_amqp-uri
     - pg-amqp-bridge_postgresql-uri
