@@ -1,3 +1,10 @@
+## [0.25.32](https://github.com/maevsi/maevsi_stack/compare/0.25.31...0.25.32) (2022-05-02)
+
+
+### Bug Fixes
+
+* **pg-amqp-bridge:** use fork ([aa3697d](https://github.com/maevsi/maevsi_stack/commit/aa3697d43c69f7d9f916f5fa7a02de86f0d214fe))
+
 ## [0.25.31](https://github.com/maevsi/maevsi_stack/compare/0.25.30...0.25.31) (2022-05-02)
 
 
