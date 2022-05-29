@@ -139,7 +139,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the main project at [maevsi.test](https://maevsi.test/).
     
- - ### `minio`
+ - ### `minio` ![development](https://img.shields.io/badge/-development-informational.svg?style=flat-square)
     
     You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
     You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
@@ -196,7 +196,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The reverse proxy's certificate data.
     
- - ### `minio_data`
+ - ### `minio_data` ![development](https://img.shields.io/badge/-development-informational.svg?style=flat-square)
     
     The s3 server's data.
     
