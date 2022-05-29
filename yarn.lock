@@ -465,13 +465,13 @@ dargs@^7.0.0:
   resolved "https://registry.yarnpkg.com/dargs/-/dargs-7.0.0.tgz#04015c41de0bcb69ec84050f3d9be0caf8d6d5cc"
   integrity sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==
 
-dargstack_rgen@0.6.55:
-  version "0.6.55"
-  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.6.55.tgz#79abf21194648de3cdb608edc54de9170aeddf39"
-  integrity sha512-U9mrCQDqHkK7Uy2c+gT7ixEnHKpgVDKLE0/LJyqsK4cCatM4FG+4RJzJBkNJQiSUtSf7pQt/15JTAeys4AF5QA==
+dargstack_rgen@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/dargstack_rgen/-/dargstack_rgen-0.7.0.tgz#6cc426bb0669ede566851eca215bf2a1bfd26d66"
+  integrity sha512-Wsq6ffUOLxSZDbhYwRRaL4gRZCz/zRfbXcz/N7AfoXXn3ZIxgfcXqiGwWyiHxuWdqLPyR1rNO6hhvgDX6GtBBg==
   dependencies:
     deepmerge "4.2.2"
-    diff "5.0.0"
+    diff "5.1.0"
     json2md "1.12.0"
     yaml "2.1.0"
     yargs "17.5.1"
@@ -494,10 +494,10 @@ deepmerge@4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
-diff@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/diff/-/diff-5.0.0.tgz#7ed6ad76d859d030787ec35855f5b1daf31d852b"
-  integrity sha512-/VTCrvm5Z0JGty/BWHljh+BAiw3IK+2j87NGMu8Nwc/f48WoDAC395uomO9ZD117ZOBaHmkX1oyLvkVM/aIT3w==
+diff@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-5.1.0.tgz#bc52d298c5ea8df9194800224445ed43ffc87e40"
+  integrity sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==
 
 diff@^4.0.1:
   version "4.0.2"
