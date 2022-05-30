@@ -1,3 +1,10 @@
+# [0.26.0](https://github.com/maevsi/maevsi_stack/compare/0.25.36...0.26.0) (2022-05-30)
+
+
+### Features
+
+* **postgraphile:** use RS256 ([b3d4247](https://github.com/maevsi/maevsi_stack/commit/b3d424770921106124d994162763981ae8423e83)), closes [#14](https://github.com/maevsi/maevsi_stack/issues/14)
+
 ## [0.25.36](https://github.com/maevsi/maevsi_stack/compare/0.25.35...0.25.36) (2022-05-30)
 
 
