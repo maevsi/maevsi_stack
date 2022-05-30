@@ -4,6 +4,9 @@
 # https://github.com/maevsi/maevsi/
 ---
 configs:
+  postgraphile_public-key:
+  # The GraphQL API's JWT public key file.
+    file: ./configurations/postgraphile/jwtRS256.key.pub
   postgraphile_rc:
   # The GraphQL API's configuration file.
     file: ../production/configurations/postgraphile/.postgraphilerc.js
@@ -102,6 +105,9 @@ services:
       - ../production/secrets/jobber/msmtprc.secret:/etc/msmtprc:ro
   maevsi:
   # You can access the main project at [maevsi.test](https://maevsi.test/).
+    configs:
+      - source: postgraphile_public-key
+        target: /run/config/postgraphile_jwt-public-key
     deploy:
       labels:
       - traefik.enable=true
@@ -117,10 +123,12 @@ services:
       GOOGLE_ANALYTICS_DOMAIN: ${GOOGLE_ANALYTICS_DOMAIN}
       GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
       NUXT_ENV_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_ENV_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
+      POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
+      POSTGRES_DB_FILE: /run/secrets/postgres_db
+      POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
     image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
-    - postgraphile_jwt-secret
     - postgres_db
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
@@ -211,6 +219,8 @@ services:
   postgraphile:
   # You can access the GraphQL API for the PostgreSQL database at [postgraphile.maevsi.test](https://postgraphile.maevsi.test/).
     configs:
+      - source: postgraphile_public-key
+        target: /run/config/postgraphile_jwt-public-key
       - source: postgraphile_rc
         target: /postgraphile/.postgraphilerc.js
     deploy:
@@ -222,6 +232,11 @@ services:
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
+    environment:
+      POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
+      POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
+      POSTGRAPHILE_JWT_SECRET_KEY_FILE: /run/secrets/postgraphile_jwt-secret
+      POSTGRAPHILE_OWNER_CONNECTION_FILE: /run/secrets/postgraphile_owner-connection
     image: graphile/postgraphile:4.12.11@sha256:038ae2c2d0b907ea01e7db499c3acb7c2c9339d55fc357bc380f21b7cba27c6e
     secrets:
     - postgraphile_connection

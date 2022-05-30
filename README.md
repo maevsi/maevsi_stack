@@ -20,6 +20,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
 ## configs
 
 
+ - ### `postgraphile_public-key`
+    
+    The GraphQL API's JWT public key file.
+    
  - ### `postgraphile_rc`
     
     The GraphQL API's configuration file.
