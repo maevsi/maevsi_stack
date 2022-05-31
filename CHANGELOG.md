@@ -1,3 +1,10 @@
+# [0.27.0](https://github.com/maevsi/maevsi_stack/compare/0.26.0...0.27.0) (2022-05-31)
+
+
+### Features
+
+* **postgraphile:** pass on error codes ([17d57bf](https://github.com/maevsi/maevsi_stack/commit/17d57bf3180d382bfa8ee4cabb1c1d853a6aa8e7))
+
 # [0.26.0](https://github.com/maevsi/maevsi_stack/compare/0.25.36...0.26.0) (2022-05-30)
 
 
