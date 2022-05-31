@@ -6,6 +6,7 @@ module.exports = {
         defaultRole: 'maevsi_anonymous',
         dynamicJson: true,
         enhanceGraphiql: true,
+        extendedErrors: ['errcode'],
         host: '0.0.0.0',
         ignoreRBAC: false,
         jwtPublicKey: fs.readFileSync(process.env.POSTGRAPHILE_JWT_PUBLIC_KEY_FILE, 'utf8'),
