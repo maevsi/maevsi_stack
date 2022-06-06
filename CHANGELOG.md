@@ -1,3 +1,10 @@
+## [0.27.2](https://github.com/maevsi/maevsi_stack/compare/0.27.1...0.27.2) (2022-06-06)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/stomper to v0.21.1 ([0400ec6](https://github.com/maevsi/maevsi_stack/commit/0400ec6a333cbbcf97af785a0d71bdb711a714de))
+
 ## [0.27.1](https://github.com/maevsi/maevsi_stack/compare/0.27.0...0.27.1) (2022-06-06)
 
 
