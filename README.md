@@ -92,13 +92,9 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The database's default user.
     
- - ### `rabbitmq_password`
+ - ### `rabbitmq_definitions`
     
-    The message queue's login password.
-    
- - ### `rabbitmq_user`
-    
-    The message queue's login username.
+    The message queue's configuration.
     
  - ### `stomper_nodemailer-transporter`
     

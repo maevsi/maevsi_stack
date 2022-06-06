@@ -53,12 +53,9 @@ secrets:
   postgres_user:
   # The database's default user.
     file: ./secrets/postgres/user.secret
-  rabbitmq_password:
-  # The message queue's login password.
-    file: ./secrets/rabbitmq/password.secret
-  rabbitmq_user:
-  # The message queue's login username.
-    file: ./secrets/rabbitmq/user.secret
+  rabbitmq_definitions:
+  # The message queue's configuration.
+    file: ./secrets/rabbitmq/definitions.json.secret
   stomper_nodemailer-transporter:
   # The email service's SMTP configuration.
     file: ./secrets/stomper/nodemailer-transporter.secret
@@ -264,7 +261,6 @@ services:
     - postgres_data:/var/lib/postgresql/data
   rabbitmq:
   # You can access the message queue at [rabbitmq.maevsi.test](https://rabbitmq.maevsi.test/).
-    command: /parallel_commands 'rabbitmq-server' 'rabbitmqctl --timeout 300 await_startup && rabbitmqctl import_definitions /definitions.json'
     deploy:
       labels:
       - traefik.enable=true
@@ -273,19 +269,13 @@ services:
       - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
       - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
-    entrypoint: /entrypoint.sh
-    environment:
-      RABBITMQ_DEFAULT_PASS_FILE: /run/secrets/rabbitmq_password
-      RABBITMQ_DEFAULT_USER_FILE: /run/secrets/rabbitmq_user
     image: rabbitmq:3.10.5-management-alpine@sha256:d7cba637a4ec5c8251f30514f792612ded4e7defac1202c6a8ecbdd730e9b0cd
     secrets:
-    - rabbitmq_password
-    - rabbitmq_user
+    - source: rabbitmq_definitions
+      target: /etc/rabbitmq/definitions.json
     volumes:
-    - ../production/configurations/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json
     - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
-    - ../production/configurations/rabbitmq/entrypoint.sh:/entrypoint.sh
-    - ../production/configurations/rabbitmq/parallel_commands:/parallel_commands
+    - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
     - rabbitmq_data:/var/lib/rabbitmq
   stomper:
   # You cannot access the email service directly.
@@ -299,15 +289,13 @@ services:
       - traefik.http.services.stomper.loadbalancer.server.port=3000
     environment:
       CONSOLA_LEVEL: 4 # debug
-      RABBITMQ_PASS_FILE: /run/secrets/rabbitmq_password
-      RABBITMQ_USER_FILE: /run/secrets/rabbitmq_user
+      RABBITMQ_DEFINITIONS_FILE: /run/secrets/rabbitmq_definitions
       STACK_DOMAIN: ${STACK_DOMAIN}
     image: maevsi/stomper:dev
     # ports:
     # - 9229:9229
     secrets:
-    - rabbitmq_password
-    - rabbitmq_user
+    - rabbitmq_definitions
     - postgres_db
     - postgres_role_maevsi-stomper_password
     - stomper_nodemailer-transporter
