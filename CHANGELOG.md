@@ -1,3 +1,15 @@
+# [0.28.0](https://github.com/maevsi/maevsi_stack/compare/0.27.2...0.28.0) (2022-06-06)
+
+
+### Bug Fixes
+
+* **rabbitmq:** add vhost to definition ([b82cf5d](https://github.com/maevsi/maevsi_stack/commit/b82cf5d9294ef83895726ef3090fe896b1fc7417))
+
+
+### Features
+
+* **rabbitmq:** use definitions as secret ([9b4a89c](https://github.com/maevsi/maevsi_stack/commit/9b4a89c97072f4f5e39a04e18b5bba3b8f94e5e6))
+
 ## [0.27.2](https://github.com/maevsi/maevsi_stack/compare/0.27.1...0.27.2) (2022-06-06)
 
 
