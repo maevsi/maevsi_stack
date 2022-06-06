@@ -1,3 +1,10 @@
+## [0.28.1](https://github.com/maevsi/maevsi_stack/compare/0.28.0...0.28.1) (2022-06-06)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi action to v0.130.0 ([16027c5](https://github.com/maevsi/maevsi_stack/commit/16027c5e4635ab57e0b074392f01d4365d9506e4))
+
 # [0.28.0](https://github.com/maevsi/maevsi_stack/compare/0.27.2...0.28.0) (2022-06-06)
 
 
