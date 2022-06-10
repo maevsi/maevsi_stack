@@ -26,7 +26,7 @@ services:
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
     environment:
       HOST: 0.0.0.0
-    image: maevsi/maevsi:0.130.2@sha256:ae38506b8c1916222a8d1879dad8185fa8910d53b0309c97b12d4adc1067971b
+    image: maevsi/maevsi:0.132.0@sha256:cde948129dc2708a587af71ce7dbe31934c9329986a6a3b8a9acf833c7fdb3fc
     user: (( prune ))
     volumes: (( prune ))
   portainer:
