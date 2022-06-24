@@ -26,7 +26,7 @@ services:
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
     environment:
       HOST: 0.0.0.0
-    image: maevsi/maevsi:0.132.0@sha256:cde948129dc2708a587af71ce7dbe31934c9329986a6a3b8a9acf833c7fdb3fc
+    image: maevsi/maevsi:0.132.1@sha256:bd58d24930cd2544e00b1239cb591afbd4d94be973b7ac7ba24b4d817cc90545
     user: (( prune ))
     volumes: (( prune ))
   portainer:
@@ -64,7 +64,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.stomper_secure.tls.certresolver=default
-    image: maevsi/stomper:0.22.0@sha256:21293e8c15c86b4ce7e84e9bdccce1b03324a88d2ca55a2b1507e9ab7141637f
+    image: maevsi/stomper:0.22.2@sha256:d233845327f07fe0c7b0adfc0425da436a4c5cffc8cd9e3aca53537dbadc6fd8
     user: (( prune ))
     volumes: (( prune ))
   traefik:
