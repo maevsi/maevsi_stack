@@ -91,7 +91,7 @@ services:
   # You cannot access the jobber via a web interface.
     environment:
       AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
-    image: dargmuesli/jobber-aws-msmtp:1.2.4@sha256:40e1b96bd55b7202e93e703233d97b9191afaec8f9e7cc9c2b123a46d9c01978
+    image: dargmuesli/jobber-aws-msmtp:1.2.5@sha256:71019d2f58a0ecc5d8b5f78865c00acf23b3243bf8fc7792fcb7f18e5a42744e
     secrets:
     - jobber_aws-credentials
     volumes:
@@ -195,7 +195,7 @@ services:
         constraints:
         - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.13.1-alpine@sha256:1ee2bbe595de12b65670ec12e519c277b706fe8edacc7d7bae55795f90e69765
+    image: portainer/portainer-ce:2.14.0-alpine@sha256:55ad9f0a10d674954f16a5407149bfbee0c79ffa97474f644dd913d65f614745
     secrets:
     - portainer_admin-password
     volumes:
@@ -209,7 +209,7 @@ services:
         - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.13.1@sha256:03b7af9006987b97109bc0d295a9cef160f506fd4519b84d7aedd53c2e649e3e
+    image: portainer/agent:2.14.0@sha256:8440499b6e1cda88442cf6c58c7fb6bad317708b796a747604ce76f65cc788ba
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -333,7 +333,7 @@ services:
       placement:
         constraints:
         - node.role == manager
-    image: traefik:v2.7.1@sha256:fdff55caa91ac7ff217ff03b93f3673844b3b88ad993e023ab43f6004021697c
+    image: traefik:v2.8.0@sha256:e2ba68ab66797f6a89b49e389d9d77bfd7118bd07f17daa2042c03861d8d2ace
     ports:
     - mode: host
       protocol: tcp
