@@ -1,3 +1,10 @@
+## [0.28.7](https://github.com/maevsi/maevsi_stack/compare/0.28.6...0.28.7) (2022-07-05)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi to v0.134.1 ([d1f6da4](https://github.com/maevsi/maevsi_stack/commit/d1f6da4db6429d6c37fdfff8c8785209c52dffe7))
+
 ## [0.28.6](https://github.com/maevsi/maevsi_stack/compare/0.28.5...0.28.6) (2022-07-04)
 
 
