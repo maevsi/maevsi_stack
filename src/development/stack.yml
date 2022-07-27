@@ -132,6 +132,7 @@ services:
     - postgres_role_maevsi-tusd_password
     user: node:node
     volumes:
+    - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
     - ../../../maevsi/nuxt/:/srv/app/
     - ../../../maevsi/sqitch/:/srv/sqitch/
   minio: #DARGSTACK-REMOVE
