@@ -1,3 +1,10 @@
+# [0.29.0](https://github.com/maevsi/maevsi_stack/compare/0.28.14...0.29.0) (2022-07-27)
+
+
+### Features
+
+* **maevsi:** add pnpm store mount ([2cf078d](https://github.com/maevsi/maevsi_stack/commit/2cf078d6cfaad5a637b63898b5abb7f0fe4f7755))
+
 ## [0.28.14](https://github.com/maevsi/maevsi_stack/compare/0.28.13...0.28.14) (2022-07-25)
 
 
