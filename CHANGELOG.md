@@ -1,3 +1,10 @@
+## [0.29.4](https://github.com/maevsi/maevsi_stack/compare/0.29.3...0.29.4) (2022-08-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency maevsi/maevsi to v0.141.0 ([d78b9a9](https://github.com/maevsi/maevsi_stack/commit/d78b9a93f93f0c0adc2d1ade78e76ff16b71ce97))
+
 ## [0.29.3](https://github.com/maevsi/maevsi_stack/compare/0.29.2...0.29.3) (2022-08-10)
 
 
