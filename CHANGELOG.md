@@ -1,3 +1,11 @@
+## [0.29.5](https://github.com/maevsi/maevsi_stack/compare/0.29.4...0.29.5) (2022-08-11)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi to v0.142.0 ([ca00b91](https://github.com/maevsi/maevsi_stack/commit/ca00b91c0dffe710653ffc580f08bd96a2493f70))
+* **deps:** update maevsi/stomper to v0.24.4 ([7961741](https://github.com/maevsi/maevsi_stack/commit/79617417498a353db0b4ea210267c5b0cefdd312))
+
 ## [0.29.4](https://github.com/maevsi/maevsi_stack/compare/0.29.3...0.29.4) (2022-08-10)
 
 
