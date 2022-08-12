@@ -1,3 +1,15 @@
+# [0.30.0](https://github.com/maevsi/maevsi_stack/compare/0.29.5...0.30.0) (2022-08-12)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi to v0.143.0 ([5dbfcb5](https://github.com/maevsi/maevsi_stack/commit/5dbfcb586f106bd4ce4ce96556064ce6bf3c5be6))
+
+
+### Features
+
+* **env:** add pnpm store directory ([ce4c4c3](https://github.com/maevsi/maevsi_stack/commit/ce4c4c3ec1ee0ec91a5e6af42d91852a58d7b604))
+
 ## [0.29.5](https://github.com/maevsi/maevsi_stack/compare/0.29.4...0.29.5) (2022-08-11)
 
 
