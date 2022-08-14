@@ -1,3 +1,10 @@
+# [0.31.0](https://github.com/maevsi/maevsi_stack/compare/0.30.1...0.31.0) (2022-08-14)
+
+
+### Features
+
+* **maevsi:** remove alpha subdomain ([90f1abd](https://github.com/maevsi/maevsi_stack/commit/90f1abdd00eeb8200331d5568159247138d86ff3))
+
 ## [0.30.1](https://github.com/maevsi/maevsi_stack/compare/0.30.0...0.30.1) (2022-08-13)
 
 
