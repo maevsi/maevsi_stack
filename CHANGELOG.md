@@ -1,3 +1,10 @@
+## [0.31.1](https://github.com/maevsi/maevsi_stack/compare/0.31.0...0.31.1) (2022-08-14)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi docker tag to v0.145.1 ([f93be88](https://github.com/maevsi/maevsi_stack/commit/f93be88576234ff9db704ae03512d3cc6cf11dfa))
+
 # [0.31.0](https://github.com/maevsi/maevsi_stack/compare/0.30.1...0.31.0) (2022-08-14)
 
 
