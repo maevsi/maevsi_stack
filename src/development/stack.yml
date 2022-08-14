@@ -161,7 +161,7 @@ services:
         - traefik.http.routers.s3_secure.service=s3 #DARGSTACK-REMOVE
         - traefik.http.services.s3.loadbalancer.server.port=9000 #DARGSTACK-REMOVE
         - traefik.http.services.s3.loadbalancer.passhostheader=true #DARGSTACK-REMOVE
-    image: minio/minio@sha256:a2fd67a22c9fea2943d44b9b8174a94663b2042390a9b0737ba6f808868d96ec #DARGSTACK-REMOVE
+    image: minio/minio@sha256:36433a735d87bbc2fed55674b3af936b57259f5cd2c544e869b8276d4d22b590 #DARGSTACK-REMOVE
     volumes: #DARGSTACK-REMOVE
       - minio_data:/data #DARGSTACK-REMOVE
       - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh #DARGSTACK-REMOVE
