@@ -258,7 +258,7 @@ services:
       - net.ipv4.tcp_keepalive_intvl=30
       - net.ipv4.tcp_keepalive_probes=10
     volumes:
-    - /mnt/dev/postgresql/:/var/run/postgresql/ #DARGSTACK-REMOVE
+    - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
     - postgres_data:/var/lib/postgresql/data
   rabbitmq:
   # You can access the message queue at [rabbitmq.maevsi.test](https://rabbitmq.maevsi.test/).
