@@ -1,3 +1,10 @@
+# [0.32.0](https://github.com/maevsi/maevsi_stack/compare/0.31.5...0.32.0) (2022-09-09)
+
+
+### Features
+
+* **postgres:** mount run for socket ([4ccd037](https://github.com/maevsi/maevsi_stack/commit/4ccd03719e0a38341a97a51d5c8f816e4b4966ca))
+
 ## [0.31.5](https://github.com/maevsi/maevsi_stack/compare/0.31.4...0.31.5) (2022-08-31)
 
 
