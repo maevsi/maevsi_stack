@@ -32,9 +32,17 @@ This project is deployed in accordance to the [DargStack template](https://githu
 ## secrets
 
 
+ - ### `jobber_aliases`
+    
+    The job scheduler's SMTP client mail alias.
+    
  - ### `jobber_aws-credentials`
     
     The job scheduler's AWS credentials.
+    
+ - ### `jobber_msmtprc`
+    
+    The job scheduler's SMTP client configuration.
     
  - ### `maevsi_sqitch-target`
     

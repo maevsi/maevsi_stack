@@ -11,9 +11,15 @@ configs:
   # The GraphQL API's configuration file.
     file: ../production/configurations/postgraphile/.postgraphilerc.js
 secrets:
+  jobber_aliases:
+  # The job scheduler's SMTP client mail alias.
+    file: ./secrets/jobber/aliases.secret
   jobber_aws-credentials:
   # The job scheduler's AWS credentials.
     file: ./secrets/jobber/aws-credentials.secret
+  jobber_msmtprc:
+  # The job scheduler's SMTP client configuration.
+    file: ./secrets/jobber/msmtprc.secret
   maevsi_sqitch-target:
   # The database change management application's database connection string.
     file: ./secrets/maevsi/sqitch-target.secret
@@ -93,13 +99,15 @@ services:
       AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
     image: dargmuesli/jobber-aws-msmtp:1.2.5@sha256:71019d2f58a0ecc5d8b5f78865c00acf23b3243bf8fc7792fcb7f18e5a42744e
     secrets:
+    - source: jobber_aliases
+      target: /etc/aliases
     - jobber_aws-credentials
+    - source: jobber_msmtprc
+      target: /etc/msmtprc
     volumes:
       - ../production/backups/postgres/:/backups/
       - ../development/configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro #DARGSTACK-REMOVE
       - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
-      - ../production/secrets/jobber/aliases.secret:/etc/aliases:ro
-      - ../production/secrets/jobber/msmtprc.secret:/etc/msmtprc:ro
   maevsi:
   # You can access the main project at [maevsi.test](https://maevsi.test/).
     configs:
