@@ -1,7 +1,7 @@
 {
   "name": "maevsi_stack",
   "private": true,
-  "version": "0.32.0",
+  "version": "0.33.0",
   "scheduleVersion": "0.31.4",
   "description": "DargStack configuration for maevsi.",
   "repository": "https://github.com/maevsi/maevsi_stack.git",

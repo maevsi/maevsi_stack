@@ -1,3 +1,11 @@
+# [0.33.0](https://github.com/maevsi/maevsi_stack/compare/0.32.0...0.33.0) (2022-09-10)
+
+
+### Features
+
+* **environment:** comment out optional environment variables ([99e4e95](https://github.com/maevsi/maevsi_stack/commit/99e4e95c2b9cefc8970da4b5eaff48a2a662341a))
+* **secrets:** move all secrets to development configuration ([b6e40f8](https://github.com/maevsi/maevsi_stack/commit/b6e40f8ee2c9e40fa46daa9bbbd96a9412f6129f))
+
 # [0.32.0](https://github.com/maevsi/maevsi_stack/compare/0.31.5...0.32.0) (2022-09-09)
 
 
