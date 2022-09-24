@@ -7,6 +7,5 @@ module.exports = {
     '@semantic-release/github',
     '@semantic-release/git'
   ],
-  // eslint-disable-next-line no-template-curly-in-string
   tagFormat: '${version}'
 }
