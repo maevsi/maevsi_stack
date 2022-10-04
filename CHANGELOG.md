@@ -1,3 +1,10 @@
+# [0.34.0](https://github.com/maevsi/maevsi_stack/compare/0.33.2...0.34.0) (2022-10-04)
+
+
+### Features
+
+* **certificates:** append root certificate ([76b51d4](https://github.com/maevsi/maevsi_stack/commit/76b51d439c765a2afdbf84e56db349d6cf06b793))
+
 ## [0.33.2](https://github.com/maevsi/maevsi_stack/compare/0.33.1...0.33.2) (2022-10-03)
 
 
