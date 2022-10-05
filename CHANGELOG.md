@@ -1,3 +1,10 @@
+# [0.35.0](https://github.com/maevsi/maevsi_stack/compare/0.34.0...0.35.0) (2022-10-05)
+
+
+### Features
+
+* **certificates:** add localhost ([646f00f](https://github.com/maevsi/maevsi_stack/commit/646f00fdae16eb2bfca14825e59d1cd53e49ab96))
+
 # [0.34.0](https://github.com/maevsi/maevsi_stack/compare/0.33.2...0.34.0) (2022-10-04)
 
 
