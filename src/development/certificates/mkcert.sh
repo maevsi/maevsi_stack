@@ -7,6 +7,7 @@ mkcert \
 -cert-file "$CERTFILE" \
 -ecdsa \
 -key-file "$THIS/$NAME.key" \
+    localhost \
     $NAME.test \
     "*.$NAME.test"
 
