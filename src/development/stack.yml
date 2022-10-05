@@ -116,12 +116,16 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.routers.maevsi.middlewares=redirectscheme,redirectregex_alpha
+      - traefik.http.routers.maevsi.entryPoints=web
+      - traefik.http.routers.maevsi.middlewares=redirectscheme
       - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi_secure.middlewares=redirectregex_alpha
-      - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.maevsi.service=maevsi
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
+      - traefik.tcp.routers.maevsi_secure.entryPoints=web-secure
+      - traefik.tcp.routers.maevsi_secure.rule=HostSNI(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.tcp.routers.maevsi_secure.tls.passthrough=true #DARGSTACK-REMOVE
+      - traefik.tcp.routers.maevsi_secure.service=maevsi_secure
+      - traefik.tcp.services.maevsi_secure.loadbalancer.server.port=3000
     environment:
       CONSOLA_LEVEL: 4 # debug
       GOOGLE_ADSENSE_ID: ${GOOGLE_ADSENSE_ID}
@@ -141,6 +145,7 @@ services:
     user: node:node
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
+    - ./certificates/:/srv/certificates/
     - ../../../maevsi/nuxt/:/srv/app/
     - ../../../maevsi/sqitch/:/srv/sqitch/
   minio: #DARGSTACK-REMOVE
