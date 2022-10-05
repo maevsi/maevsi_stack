@@ -126,6 +126,11 @@ services:
       - traefik.tcp.routers.maevsi_secure.tls.passthrough=true #DARGSTACK-REMOVE
       - traefik.tcp.routers.maevsi_secure.service=maevsi_secure
       - traefik.tcp.services.maevsi_secure.loadbalancer.server.port=3000
+      - traefik.tcp.routers.maevsi_secure_nuxt.entryPoints=nuxt
+      - traefik.tcp.routers.maevsi_secure_nuxt.rule=HostSNI(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.tcp.routers.maevsi_secure_nuxt.tls.passthrough=true #DARGSTACK-REMOVE
+      - traefik.tcp.routers.maevsi_secure_nuxt.service=maevsi_secure_nuxt
+      - traefik.tcp.services.maevsi_secure_nuxt.loadbalancer.server.port=24678
     environment:
       CONSOLA_LEVEL: 4 # debug
       GOOGLE_ADSENSE_ID: ${GOOGLE_ADSENSE_ID}
@@ -322,6 +327,7 @@ services:
     - --api=true
     - --entryPoints.web.address=:80
     - --entryPoints.web-secure.address=:443
+    - --entryPoints.nuxt.address=:24678 #DARGSTACK-REMOVE
     - --providers.docker=true
     - --providers.docker.endpoint=unix:///var/run/docker.sock
     - --providers.docker.exposedByDefault=false
@@ -357,6 +363,10 @@ services:
       protocol: tcp
       published: 443
       target: 443
+    - mode: host #DARGSTACK-REMOVE
+      protocol: tcp #DARGSTACK-REMOVE
+      published: 24678 #DARGSTACK-REMOVE
+      target: 24678 #DARGSTACK-REMOVE
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./certificates/:/etc/traefik/acme/
