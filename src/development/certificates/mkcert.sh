@@ -21,6 +21,6 @@ create() {
 
 rm "$THIS"/*.key "$THIS"/*.crt
 
-create "localhost" "localhost" "127.0.0.1"
+create "localhost" "localhost" "127.0.0.1" "0.0.0.0"
 create "maevsi" "maevsi.test" "www.maevsi.test" "alpha.maevsi.test"
 create "traefik" "*.maevsi.test"
