@@ -46,7 +46,7 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: prodrigestivill/postgres-backup-local:14-alpine@sha256:22358f8b47b5c53e204b4d72c676d47644fb18de15c143636dbf73fbcfc9b1fe
+    image: prodrigestivill/postgres-backup-local:15-alpine@sha256:e94deb5ea75a4246b9b4ccfd4b57f4aabbfb34e6e6188b092685a3bad6c050fe
     secrets:
     - postgres-backup_db
     - postgres_password
