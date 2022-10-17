@@ -1,3 +1,18 @@
+# [0.36.0](https://github.com/maevsi/maevsi_stack/compare/0.35.1...0.36.0) (2022-10-17)
+
+
+### Bug Fixes
+
+* **certificates:** add host 0.0.0.0 ([43812d8](https://github.com/maevsi/maevsi_stack/commit/43812d8ee43a6bce88e86a5974797d7fe3de9dbe))
+* **certificates:** add subdomains for maevsi ([aea360b](https://github.com/maevsi/maevsi_stack/commit/aea360ba099fb0e2e8c1d4967383d75eda0b8e4a))
+
+
+### Features
+
+* **maevsi:** add nuxt endpoint ([b88438f](https://github.com/maevsi/maevsi_stack/commit/b88438f704ec7606e80e8aab3856d5f6b7ee45ab))
+* **maevsi:** migrate public environment variable name ([81f8b82](https://github.com/maevsi/maevsi_stack/commit/81f8b829ca653018a17adc2e37abaebc190097ff))
+* **maevsi:** tunnel tls ([52f64db](https://github.com/maevsi/maevsi_stack/commit/52f64db3fee9f57e7dc7e8af5faff51c990c1be9))
+
 ## [0.35.1](https://github.com/maevsi/maevsi_stack/compare/0.35.0...0.35.1) (2022-10-17)
 
 
