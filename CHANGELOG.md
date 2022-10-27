@@ -1,3 +1,10 @@
+# [0.37.0](https://github.com/maevsi/maevsi_stack/compare/0.36.0...0.37.0) (2022-10-27)
+
+
+### Features
+
+* **deps:** migrate to pnpm ([4fdb250](https://github.com/maevsi/maevsi_stack/commit/4fdb250912cc54b71d4441241c0a81396cdc6d42))
+
 # [0.36.0](https://github.com/maevsi/maevsi_stack/compare/0.35.1...0.36.0) (2022-10-17)
 
 
