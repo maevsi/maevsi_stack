@@ -1,3 +1,11 @@
+## [0.37.1](https://github.com/maevsi/maevsi_stack/compare/0.37.0...0.37.1) (2022-10-28)
+
+
+### Reverts
+
+* Revert "chore(deps): update maevsi/maevsi docker tag to v0.147.0" ([2f886f5](https://github.com/maevsi/maevsi_stack/commit/2f886f59aee28aca0c2d7ef8ee92b7aa6b6d151c))
+* Revert "Merge pull request #44 from maevsi/feat/nuxt3" ([52e1cb2](https://github.com/maevsi/maevsi_stack/commit/52e1cb20645c3914788b0468669b7525a4e3db7d)), closes [#44](https://github.com/maevsi/maevsi_stack/issues/44)
+
 # [0.37.0](https://github.com/maevsi/maevsi_stack/compare/0.36.0...0.37.0) (2022-10-27)
 
 
