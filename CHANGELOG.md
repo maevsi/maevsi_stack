@@ -1,3 +1,10 @@
+# [0.38.0](https://github.com/maevsi/maevsi_stack/compare/0.37.1...0.38.0) (2022-10-28)
+
+
+### Features
+
+* **maevsi:** add cors ([dda83e5](https://github.com/maevsi/maevsi_stack/commit/dda83e52660546180119b5584e999e3c9332d607))
+
 ## [0.37.1](https://github.com/maevsi/maevsi_stack/compare/0.37.0...0.37.1) (2022-10-28)
 
 
