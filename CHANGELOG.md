@@ -1,3 +1,10 @@
+# [0.38.0-alpha.1](https://github.com/maevsi/maevsi_stack/compare/0.37.0...0.38.0-alpha.1) (2022-10-28)
+
+
+### Features
+
+* **certificates:** drop localhost, name each for traefik ([43c3949](https://github.com/maevsi/maevsi_stack/commit/43c3949055b5798464e9798e57f3e60ac650f8cb))
+
 # [0.37.0](https://github.com/maevsi/maevsi_stack/compare/0.36.0...0.37.0) (2022-10-27)
 
 
