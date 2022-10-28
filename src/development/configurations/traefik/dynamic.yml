@@ -1,7 +1,7 @@
 tls:
   certificates:
-    - certFile: /etc/traefik/acme/traefik.crt
-      keyFile: /etc/traefik/acme/traefik.key
+    - certFile: /etc/traefik/acme/maevsi.crt
+      keyFile: /etc/traefik/acme/maevsi.key
   options:
     mintls13:
       minVersion: VersionTLS13

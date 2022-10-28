@@ -23,4 +23,3 @@ rm "$THIS"/*.key "$THIS"/*.crt
 
 create "traefik" "adminer.localhost" "minio.localhost" "portainer.localhost" "postgraphile.localhost" "rabbitmq.localhost" "stomper.localhost" "traefik.localhost" "tusd.localhost"
 create "maevsi"  "127.0.0.1" "0.0.0.0" "localhost" "www.localhost" "alpha.localhost"
-
