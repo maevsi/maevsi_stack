@@ -208,7 +208,7 @@ services:
         constraints:
         - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.15.1-alpine@sha256:a20d75f6943aa76f9af502ed6f0c0b404dfbe9a06d2c1d3e8b090daf8f3d2911
+    image: portainer/portainer-ce:2.16.0-alpine@sha256:1b6292502321561231a895944243eb097a8897f4d81892114ec4a824c804b5b7
     secrets:
     - portainer_admin-password
     volumes:
