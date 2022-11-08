@@ -90,7 +90,7 @@ services:
       - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
       - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.adminer.loadbalancer.server.port=8080
-    image: adminer:4.8.1-standalone@sha256:df245615e82b3abf652badacb063996513080d05813fcef37c84900d9e578ca2
+    image: adminer:4.8.1-standalone@sha256:a391130bd791a9bbf24b7433375e06767e21f9699bb4e00bd56e4c632692affe
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   jobber:
@@ -116,8 +116,12 @@ services:
     deploy:
       labels:
       - traefik.enable=true
+      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowHeaders=authorization
+      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowOriginList=https://localhost:3000
+      - traefik.http.middlewares.maevsi_redirectregex_alpha.redirectregex.regex=^https?:\/\/(alpha|www)\.${STACK_DOMAIN}\/(.*)
+      - traefik.http.middlewares.maevsi_redirectregex_alpha.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
       - traefik.http.routers.maevsi.entryPoints=web
-      - traefik.http.routers.maevsi.middlewares=redirectscheme
+      - traefik.http.routers.maevsi.middlewares=redirectscheme,maevsi_redirectregex_alpha
       - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi.service=maevsi
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
@@ -179,7 +183,7 @@ services:
         - traefik.http.routers.s3_secure.service=s3 #DARGSTACK-REMOVE
         - traefik.http.services.s3.loadbalancer.server.port=9000 #DARGSTACK-REMOVE
         - traefik.http.services.s3.loadbalancer.passhostheader=true #DARGSTACK-REMOVE
-    image: minio/minio@sha256:6a2ae4f9950eb66e213c80c0b1ccdc6d7ae196ade98a32abf435c00a2c9c1cb3 #DARGSTACK-REMOVE
+    image: minio/minio@sha256:048de4353078028d55c569a0ab54f4254973b8386c522e816176201798191391 #DARGSTACK-REMOVE
     volumes: #DARGSTACK-REMOVE
       - minio_data:/data #DARGSTACK-REMOVE
       - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh #DARGSTACK-REMOVE
@@ -214,7 +218,7 @@ services:
         constraints:
         - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.15.1-alpine@sha256:a20d75f6943aa76f9af502ed6f0c0b404dfbe9a06d2c1d3e8b090daf8f3d2911
+    image: portainer/portainer-ce:2.16.0-alpine@sha256:1b6292502321561231a895944243eb097a8897f4d81892114ec4a824c804b5b7
     secrets:
     - portainer_admin-password
     volumes:
@@ -228,7 +232,7 @@ services:
         - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.15.1@sha256:814047c70f52827a084b0dfe7660940414a06a89eae4ad76dbbf4faf139f61d0
+    image: portainer/agent:2.16.0@sha256:1c23ae0d8c58998a457a2178bed5b0064cbc74eb8a78d0bb1b29a423cebfe4a4
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -242,9 +246,11 @@ services:
     deploy:
       labels:
       - traefik.enable=true
+      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type
+      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile_secure.middlewares=header_cors
+      - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
@@ -338,10 +344,6 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.middlewares.header_cors.headers.accessControlAllowHeaders=authorization,content-type
-      - traefik.http.middlewares.header_cors.headers.accessControlAllowOriginList=*
-      - traefik.http.middlewares.redirectregex_alpha.redirectregex.regex=^https?:\/\/(alpha|www)\.${STACK_DOMAIN}\/(.*)
-      - traefik.http.middlewares.redirectregex_alpha.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
       - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
       - traefik.http.routers.traefik.middlewares=redirectscheme
       - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
@@ -353,7 +355,7 @@ services:
       placement:
         constraints:
         - node.role == manager
-    image: traefik:v2.9.1@sha256:4ebf68cdb32ce65e8786ac83ece782ec0dbe583471c04dfd0af43f245b96c88f
+    image: traefik:v2.9.4@sha256:4c388f477f5b7aa48420694d90db0ecb96b4ecede60b9b7589c87858abf87b60
     ports:
     - mode: host
       protocol: tcp
