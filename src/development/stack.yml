@@ -116,7 +116,8 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowHeaders=authorization
+      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowHeaders=authorization,hook-name
+      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
       - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowOriginList=https://localhost:3000
       - traefik.http.middlewares.maevsi_redirectregex_alpha.redirectregex.regex=^https?:\/\/(alpha|www)\.${STACK_DOMAIN}\/(.*)
       - traefik.http.middlewares.maevsi_redirectregex_alpha.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
