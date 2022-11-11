@@ -1,3 +1,11 @@
+# [0.39.0-alpha.2](https://github.com/maevsi/maevsi_stack/compare/0.39.0-alpha.1...0.39.0-alpha.2) (2022-11-11)
+
+
+### Bug Fixes
+
+* **maevsi:** add cors headers ([aab5502](https://github.com/maevsi/maevsi_stack/commit/aab5502546bf8a85aae36676a8bb90ee370e69e6))
+* **tusd:** provide root certificate ([c8369b5](https://github.com/maevsi/maevsi_stack/commit/c8369b531c11973f3dc6eb7b27cfb0d27b2bdceb))
+
 # [0.39.0-alpha.1](https://github.com/maevsi/maevsi_stack/compare/0.38.1...0.39.0-alpha.1) (2022-11-08)
 
 
