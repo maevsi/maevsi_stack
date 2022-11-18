@@ -1,3 +1,15 @@
+# [0.39.0-alpha.3](https://github.com/maevsi/maevsi_stack/compare/0.39.0-alpha.2...0.39.0-alpha.3) (2022-11-18)
+
+
+### Bug Fixes
+
+* **maevsi:** revert to stable ([c211ec4](https://github.com/maevsi/maevsi_stack/commit/c211ec45f21147bf031f5a879207025892b52ad0))
+
+
+### Features
+
+* **production:** add maevsi beta service ([be3bbb3](https://github.com/maevsi/maevsi_stack/commit/be3bbb3ed9c9343d8d82f07d608e976eec70f09a))
+
 # [0.39.0-alpha.2](https://github.com/maevsi/maevsi_stack/compare/0.39.0-alpha.1...0.39.0-alpha.2) (2022-11-11)
 
 
