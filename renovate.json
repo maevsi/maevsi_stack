@@ -1,5 +1,17 @@
 {
   "extends": [
     "github>dargmuesli/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["maevsi/maevsi"],
+      "matchCurrentVersion": "/^.*-alpha/",
+      "allowedVersions": "/^.*-alpha/"
+    },
+    {
+      "matchPackageNames": ["maevsi/maevsi"],
+      "matchCurrentVersion": "/^.*-beta/",
+      "allowedVersions": "/^.*-beta/"
+    }
   ]
 }
