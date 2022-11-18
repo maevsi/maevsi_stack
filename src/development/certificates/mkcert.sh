@@ -1,14 +1,28 @@
 #!/bin/sh
 THIS=$(dirname "$(readlink -f "$0")")
-NAME=maevsi
-CERTFILE="$THIS/$NAME.crt"
 
-mkcert \
--cert-file "$CERTFILE" \
--ecdsa \
--key-file "$THIS/$NAME.key" \
-    localhost \
-    $NAME.test \
-    "*.$NAME.test"
+create() {
+    NAME="$1"
+    shift
+    CONTENT=$*
 
-cat "$(mkcert -CAROOT)/rootCA.pem" >> "$CERTFILE"
+    path="$THIS/$NAME"
+    certfile="$path.crt"
+    keyfile="$path.key"
+
+    if [ "$CONTENT" != "" ]; then
+        # shellcheck disable=SC2086
+        mkcert \
+            -cert-file "$certfile" \
+            -ecdsa \
+            -key-file "$keyfile" $CONTENT
+    fi
+
+    cat "$(mkcert -CAROOT)/rootCA.pem" >> "$certfile"
+}
+
+rm "$THIS"/*.key "$THIS"/*.crt
+
+create "root"
+create "traefik" "adminer.localhost" "minio.localhost" "portainer.localhost" "postgraphile.localhost" "rabbitmq.localhost" "stomper.localhost" "traefik.localhost" "tusd.localhost"
+create "maevsi"  "127.0.0.1" "0.0.0.0" "localhost" "www.localhost" "alpha.localhost" "maevsi"

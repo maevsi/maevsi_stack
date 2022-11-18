@@ -147,6 +147,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the main project at [maevsi.test](https://maevsi.test/).
     
+ - ### `maevsi_beta` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
+    
  - ### `minio` ![development](https://img.shields.io/badge/-development-informational.svg?style=flat-square)
     
     You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).

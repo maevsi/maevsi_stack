@@ -1,3 +1,45 @@
+# [0.39.0-alpha.3](https://github.com/maevsi/maevsi_stack/compare/0.39.0-alpha.2...0.39.0-alpha.3) (2022-11-18)
+
+
+### Bug Fixes
+
+* **maevsi:** revert to stable ([c211ec4](https://github.com/maevsi/maevsi_stack/commit/c211ec45f21147bf031f5a879207025892b52ad0))
+
+
+### Features
+
+* **production:** add maevsi beta service ([be3bbb3](https://github.com/maevsi/maevsi_stack/commit/be3bbb3ed9c9343d8d82f07d608e976eec70f09a))
+
+# [0.39.0-alpha.2](https://github.com/maevsi/maevsi_stack/compare/0.39.0-alpha.1...0.39.0-alpha.2) (2022-11-11)
+
+
+### Bug Fixes
+
+* **maevsi:** add cors headers ([aab5502](https://github.com/maevsi/maevsi_stack/commit/aab5502546bf8a85aae36676a8bb90ee370e69e6))
+* **tusd:** provide root certificate ([c8369b5](https://github.com/maevsi/maevsi_stack/commit/c8369b531c11973f3dc6eb7b27cfb0d27b2bdceb))
+
+# [0.39.0-alpha.1](https://github.com/maevsi/maevsi_stack/compare/0.38.1...0.39.0-alpha.1) (2022-11-08)
+
+
+### Features
+
+* **certificates:** drop localhost, name each for traefik ([43c3949](https://github.com/maevsi/maevsi_stack/commit/43c3949055b5798464e9798e57f3e60ac650f8cb))
+
+# [0.38.0-alpha.2](https://github.com/maevsi/maevsi_stack/compare/0.38.0-alpha.1...0.38.0-alpha.2) (2022-10-28)
+
+
+### Reverts
+
+* Revert "chore(deps): update maevsi/maevsi docker tag to v0.147.0" ([2f886f5](https://github.com/maevsi/maevsi_stack/commit/2f886f59aee28aca0c2d7ef8ee92b7aa6b6d151c))
+* Revert "Merge pull request #44 from maevsi/feat/nuxt3" ([52e1cb2](https://github.com/maevsi/maevsi_stack/commit/52e1cb20645c3914788b0468669b7525a4e3db7d)), closes [#44](https://github.com/maevsi/maevsi_stack/issues/44)
+
+# [0.38.0-alpha.1](https://github.com/maevsi/maevsi_stack/compare/0.37.0...0.38.0-alpha.1) (2022-10-28)
+
+
+### Features
+
+* **certificates:** drop localhost, name each for traefik ([43c3949](https://github.com/maevsi/maevsi_stack/commit/43c3949055b5798464e9798e57f3e60ac650f8cb))
+
 ## [0.38.1](https://github.com/maevsi/maevsi_stack/compare/0.38.0...0.38.1) (2022-11-07)
 
 

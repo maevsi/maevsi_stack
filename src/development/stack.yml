@@ -120,6 +120,7 @@ services:
       - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowOriginList=https://localhost:3000
       - traefik.http.middlewares.maevsi_redirectregex_alpha.redirectregex.regex=^https?:\/\/(alpha|www)\.${STACK_DOMAIN}\/(.*)
       - traefik.http.middlewares.maevsi_redirectregex_alpha.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
+      - traefik.http.routers.maevsi.entryPoints=web
       - traefik.http.routers.maevsi.middlewares=redirectscheme,maevsi_redirectregex_alpha
       - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_secure.middlewares=maevsi_redirectregex_alpha,maevsi_cors
@@ -145,6 +146,7 @@ services:
     user: node:node
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
+    - ./certificates/:/srv/certificates/
     - ../../../maevsi/nuxt/:/srv/app/
     - ../../../maevsi/sqitch/:/srv/sqitch/
   minio: #DARGSTACK-REMOVE
@@ -323,6 +325,7 @@ services:
     - --api=true
     - --entryPoints.web.address=:80
     - --entryPoints.web-secure.address=:443
+    - --entryPoints.nuxt.address=:24678 #DARGSTACK-REMOVE
     - --providers.docker=true
     - --providers.docker.endpoint=unix:///var/run/docker.sock
     - --providers.docker.exposedByDefault=false
@@ -354,13 +357,18 @@ services:
       protocol: tcp
       published: 443
       target: 443
+    - mode: host #DARGSTACK-REMOVE
+      protocol: tcp #DARGSTACK-REMOVE
+      published: 24678 #DARGSTACK-REMOVE
+      target: 24678 #DARGSTACK-REMOVE
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./certificates/:/etc/traefik/acme/
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
   tusd:
   # You can access the upload service at [tusd.maevsi.test](https://tusd.maevsi.test/).
-    command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http http://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_TUSD_BUCKET} -s3-endpoint ${S3_TUSD_ENDPOINT}
+    entrypoint: /custom-entrypoint.sh
+    command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http https://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_TUSD_BUCKET} -s3-endpoint ${S3_TUSD_ENDPOINT}
     deploy:
       labels:
       - traefik.enable=true
@@ -375,6 +383,10 @@ services:
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
+    volumes:
+      - ./certificates/root.crt:/etc/ssl/certs/root.pem
+      - ./configurations/tusd/entrypoint.sh:/custom-entrypoint.sh #DARGSTACK-REMOVE
+    user: root:root
 version: "3.7"
 volumes:
   minio_data: # DARGSTACK-REMOVE
