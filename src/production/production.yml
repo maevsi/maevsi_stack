@@ -29,6 +29,49 @@ services:
     image: maevsi/maevsi:0.146.6@sha256:91a14d209fafbe862045bfcdec521b5ca3a2953c4aad72bf79f185a75eaa7fa0
     user: (( prune ))
     volumes: (( prune ))
+  maevsi_beta:
+  # You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
+    configs:
+      - source: postgraphile_public-key
+        target: /run/config/postgraphile_jwt-public-key
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowHeaders=authorization,hook-name
+      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
+      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowOriginList=https://localhost:3000
+      - traefik.http.middlewares.maevsi_beta_redirectregex_beta.redirectregex.regex=^https?:\/\/(beta|www)\.${STACK_DOMAIN}\/(.*)
+      - traefik.http.middlewares.maevsi_beta_redirectregex_beta.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
+      - traefik.http.routers.maevsi_beta.entryPoints=web
+      - traefik.http.routers.maevsi_beta.middlewares=redirectscheme,maevsi_beta_redirectregex_beta
+      - traefik.http.routers.maevsi_beta.rule=Host(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.http.routers.maevsi_beta.service=maevsi_beta
+      - traefik.http.services.maevsi_beta.loadbalancer.server.port=3000
+      - traefik.tcp.routers.maevsi_beta_secure.entryPoints=web-secure
+      - traefik.tcp.routers.maevsi_beta_secure.rule=HostSNI(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.tcp.routers.maevsi_beta_secure.service=maevsi_beta_secure
+      - traefik.tcp.services.maevsi_beta_secure.loadbalancer.server.port=3000
+      - traefik.tcp.routers.maevsi_beta_secure_nuxt.entryPoints=nuxt
+      - traefik.tcp.routers.maevsi_beta_secure_nuxt.rule=HostSNI(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+      - traefik.tcp.routers.maevsi_beta_secure_nuxt.service=maevsi_beta_secure_nuxt
+      - traefik.tcp.services.maevsi_beta_secure_nuxt.loadbalancer.server.port=24678
+      - traefik.http.routers.maevsi_beta_secure.tls.certresolver=default
+    environment:
+      CONSOLA_LEVEL: 4 # debug
+      GOOGLE_ADSENSE_ID: ${GOOGLE_ADSENSE_ID}
+      GOOGLE_ANALYTICS_DOMAIN: ${GOOGLE_ANALYTICS_DOMAIN}
+      GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
+      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
+      POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
+      POSTGRES_DB_FILE: /run/secrets/postgres_db
+      POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
+    image: maevsi/maevsi:1.0.0-alpha.15@sha256:8bccb602edc101cbc93b9e0e603a2899e5c997127358822b661cad0390b3643d
+    secrets:
+    - maevsi_sqitch-target
+    - postgres_db
+    - postgres_role_maevsi-postgraphile_password
+    - postgres_role_maevsi-stomper_password
+    - postgres_role_maevsi-tusd_password
   portainer:
     deploy:
       labels:
