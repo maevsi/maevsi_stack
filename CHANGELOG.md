@@ -1,3 +1,18 @@
+# [0.39.0](https://github.com/maevsi/maevsi_stack/compare/0.38.1...0.39.0) (2022-11-18)
+
+
+### Bug Fixes
+
+* **maevsi:** add cors headers ([aab5502](https://github.com/maevsi/maevsi_stack/commit/aab5502546bf8a85aae36676a8bb90ee370e69e6))
+* **maevsi:** revert to stable ([c211ec4](https://github.com/maevsi/maevsi_stack/commit/c211ec45f21147bf031f5a879207025892b52ad0))
+* **tusd:** provide root certificate ([c8369b5](https://github.com/maevsi/maevsi_stack/commit/c8369b531c11973f3dc6eb7b27cfb0d27b2bdceb))
+
+
+### Features
+
+* **certificates:** drop localhost, name each for traefik ([43c3949](https://github.com/maevsi/maevsi_stack/commit/43c3949055b5798464e9798e57f3e60ac650f8cb))
+* **production:** add maevsi beta service ([be3bbb3](https://github.com/maevsi/maevsi_stack/commit/be3bbb3ed9c9343d8d82f07d608e976eec70f09a))
+
 # [0.39.0-alpha.3](https://github.com/maevsi/maevsi_stack/compare/0.39.0-alpha.2...0.39.0-alpha.3) (2022-11-18)
 
 
