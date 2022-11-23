@@ -7,6 +7,13 @@
   "repository": "https://github.com/maevsi/maevsi_stack.git",
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
   "license": "CC BY-NC-SA 4.0",
+  "engines": {
+    "node": "19"
+  },
+  "packageManager": "pnpm@7.17.0",
+  "scripts": {
+    "prepare": "if [ -d '.git' ] && [ -d '.husky' ]; then husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks; fi"
+  },
   "devDependencies": {
     "@commitlint/cli": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
@@ -14,8 +21,5 @@
     "dargstack_rgen": "0.7.14",
     "husky": "8.0.2",
     "shx": "0.3.4"
-  },
-  "scripts": {
-    "prepare": "if [ -d '.git' ] && [ -d '.husky' ]; then husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks; fi"
   }
 }
