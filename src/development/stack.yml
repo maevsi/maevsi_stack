@@ -318,6 +318,7 @@ services:
     - stomper_nodemailer-transporter
     user: 1000:1000
     volumes:
+    - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
     - ../../../stomper/:/srv/app/
   traefik:
   # You can access the reverse proxy's dashboard at [traefik.maevsi.test](https://traefik.maevsi.test/).
