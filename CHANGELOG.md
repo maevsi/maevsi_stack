@@ -1,3 +1,10 @@
+# [0.40.0](https://github.com/maevsi/maevsi_stack/compare/0.39.1...0.40.0) (2022-11-24)
+
+
+### Features
+
+* **maevsi:** remove certificates ([81efc55](https://github.com/maevsi/maevsi_stack/commit/81efc55dff90d4d67ff616b316b66839246ab3a0))
+
 ## [0.39.1](https://github.com/maevsi/maevsi_stack/compare/0.39.0...0.39.1) (2022-11-24)
 
 
