@@ -18,7 +18,7 @@ services:
   jobber:
     volumes:
       - (( append ))
-      - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro #DARGSTACK-REMOVE
+      - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   maevsi:
     deploy:
       labels:
@@ -44,15 +44,9 @@ services:
       - traefik.http.routers.maevsi_beta.entryPoints=web
       - traefik.http.routers.maevsi_beta.middlewares=redirectscheme
       - traefik.http.routers.maevsi_beta.rule=Host(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi_beta.service=maevsi_beta
+      - traefik.http.routers.maevsi_beta_secure.entryPoints=web-secure
+      - traefik.http.routers.maevsi_beta_secure.rule=Host(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.services.maevsi_beta.loadbalancer.server.port=3000
-      - traefik.tcp.routers.maevsi_beta_secure.entryPoints=web-secure
-      - traefik.tcp.routers.maevsi_beta_secure.rule=HostSNI(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.tcp.routers.maevsi_beta_secure.service=maevsi_beta
-      - traefik.tcp.routers.maevsi_beta_secure_nuxt.entryPoints=nuxt
-      - traefik.tcp.routers.maevsi_beta_secure_nuxt.rule=HostSNI(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.tcp.routers.maevsi_beta_secure_nuxt.service=maevsi_beta_secure_nuxt
-      - traefik.tcp.services.maevsi_beta_secure_nuxt.loadbalancer.server.port=24678
       - traefik.http.routers.maevsi_beta_secure.tls.certresolver=default
     environment:
       CONSOLA_LEVEL: 4 # debug
@@ -63,7 +57,7 @@ services:
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
-    image: maevsi/maevsi:1.0.0-beta.2@sha256:6dbc0f48f5c673b36043c0e69905aca3f4770262bceb2bb200fd4b9ace6f8968
+    image: maevsi/maevsi:1.0.0-beta.3@sha256:a43d132b6f9cd484cf1b0c2b76dec9c19b5c1b2a0033711f52fdee43c63e16bb
     secrets:
     - maevsi_sqitch-target
     - postgres_db
