@@ -1,3 +1,10 @@
+## [0.39.1](https://github.com/maevsi/maevsi_stack/compare/0.39.0...0.39.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* **stomper:** add pnpm volume ([c28d37f](https://github.com/maevsi/maevsi_stack/commit/c28d37f5da903cce4b19cf0540fe111076e122ea))
+
 # [0.39.0](https://github.com/maevsi/maevsi_stack/compare/0.38.1...0.39.0) (2022-11-18)
 
 
