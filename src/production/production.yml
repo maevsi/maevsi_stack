@@ -26,6 +26,7 @@ services:
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
     environment:
       HOST: 0.0.0.0
+      NUXT_ENV_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_ENV_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
     image: maevsi/maevsi:0.146.6@sha256:91a14d209fafbe862045bfcdec521b5ca3a2953c4aad72bf79f185a75eaa7fa0
     user: (( prune ))
     volumes: (( prune ))
@@ -39,18 +40,15 @@ services:
       - traefik.enable=true
       - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowHeaders=authorization,hook-name
       - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
-      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowOriginList=https://localhost:3000
-      - traefik.http.middlewares.maevsi_beta_redirectregex_beta.redirectregex.regex=^https?:\/\/(beta|www)\.${STACK_DOMAIN}\/(.*)
-      - traefik.http.middlewares.maevsi_beta_redirectregex_beta.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
+      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowOriginList=http://localhost:3000
       - traefik.http.routers.maevsi_beta.entryPoints=web
-      - traefik.http.routers.maevsi_beta.middlewares=redirectscheme,maevsi_beta_redirectregex_beta
+      - traefik.http.routers.maevsi_beta.middlewares=redirectscheme
       - traefik.http.routers.maevsi_beta.rule=Host(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.http.routers.maevsi_beta.service=maevsi_beta
       - traefik.http.services.maevsi_beta.loadbalancer.server.port=3000
       - traefik.tcp.routers.maevsi_beta_secure.entryPoints=web-secure
       - traefik.tcp.routers.maevsi_beta_secure.rule=HostSNI(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.tcp.routers.maevsi_beta_secure.service=maevsi_beta_secure
-      - traefik.tcp.services.maevsi_beta_secure.loadbalancer.server.port=3000
+      - traefik.tcp.routers.maevsi_beta_secure.service=maevsi_beta
       - traefik.tcp.routers.maevsi_beta_secure_nuxt.entryPoints=nuxt
       - traefik.tcp.routers.maevsi_beta_secure_nuxt.rule=HostSNI(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
       - traefik.tcp.routers.maevsi_beta_secure_nuxt.service=maevsi_beta_secure_nuxt
@@ -61,11 +59,11 @@ services:
       GOOGLE_ADSENSE_ID: ${GOOGLE_ADSENSE_ID}
       GOOGLE_ANALYTICS_DOMAIN: ${GOOGLE_ANALYTICS_DOMAIN}
       GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
-      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
+      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
-    image: maevsi/maevsi:1.0.0-beta.1@sha256:f592f6fbdbbb2d9315f7763e60cc4555e0a151b3846d69f1f5809d5354992921
+    image: maevsi/maevsi:1.0.0-beta.2@sha256:6dbc0f48f5c673b36043c0e69905aca3f4770262bceb2bb200fd4b9ace6f8968
     secrets:
     - maevsi_sqitch-target
     - postgres_db
