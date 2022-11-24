@@ -1,3 +1,10 @@
+## [0.40.1](https://github.com/maevsi/maevsi_stack/compare/0.40.0...0.40.1) (2022-11-24)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi to v1.0.0-beta.3 ([33e1514](https://github.com/maevsi/maevsi_stack/commit/33e15145af74d70b52e2167496145f0fe10f1654))
+
 # [0.40.0](https://github.com/maevsi/maevsi_stack/compare/0.39.1...0.40.0) (2022-11-24)
 
 
