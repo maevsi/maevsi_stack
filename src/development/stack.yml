@@ -258,7 +258,7 @@ services:
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRAPHILE_JWT_SECRET_KEY_FILE: /run/secrets/postgraphile_jwt-secret
       POSTGRAPHILE_OWNER_CONNECTION_FILE: /run/secrets/postgraphile_owner-connection
-    image: graphile/postgraphile:4.12.11@sha256:038ae2c2d0b907ea01e7db499c3acb7c2c9339d55fc357bc380f21b7cba27c6e
+    image: graphile/postgraphile:4.12.12@sha256:455859d464023b14550bcab6836a2ca44cb7fc56bf0d2bf05a0202f75fffacd1
     secrets:
     - postgraphile_connection
     - postgraphile_jwt-secret
