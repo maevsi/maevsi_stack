@@ -2,6 +2,9 @@
   "extends": [
     "github>dargmuesli/renovate-config"
   ],
+  "docker": {
+    "pinDigests": false
+  },
   "packageRules": [
     {
       "matchPackageNames": ["maevsi/maevsi"],

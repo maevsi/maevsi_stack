@@ -90,14 +90,14 @@ services:
       - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
       - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.adminer.loadbalancer.server.port=8080
-    image: adminer:4.8.1-standalone@sha256:3b4e25b39404729b27bbb2895fa0a8fefe8ec19cdad1fe85c85500f4c080c7f4
+    image: adminer:4.8.1-standalone
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   jobber:
   # You cannot access the jobber via a web interface.
     environment:
       AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
-    image: dargmuesli/jobber-aws-msmtp:1.2.5@sha256:71019d2f58a0ecc5d8b5f78865c00acf23b3243bf8fc7792fcb7f18e5a42744e
+    image: dargmuesli/jobber-aws-msmtp:1.2.5
     secrets:
     - source: jobber_aliases
       target: /etc/aliases
@@ -182,7 +182,7 @@ services:
         - traefik.http.routers.s3_secure.service=s3 #DARGSTACK-REMOVE
         - traefik.http.services.s3.loadbalancer.server.port=9000 #DARGSTACK-REMOVE
         - traefik.http.services.s3.loadbalancer.passhostheader=true #DARGSTACK-REMOVE
-    image: minio/minio@sha256:09b21c2aea3c02aa88e46d3d492918f92352f94fc023c9916c3204513f1134e0 #DARGSTACK-REMOVE
+    image: minio/minio
     volumes: #DARGSTACK-REMOVE
       - minio_data:/data #DARGSTACK-REMOVE
       - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh #DARGSTACK-REMOVE
@@ -197,7 +197,7 @@ services:
       DELIVERY_MODE: PERSISTENT
       POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
       RUST_LOG: info
-    image: dargmuesli/pg-amqp-bridge:0.0.8@sha256:11332841c98058fa7b362fe74dc47854132f42776e8f7c95381c656671f58fb0
+    image: dargmuesli/pg-amqp-bridge:0.0.8
     secrets:
     - pg-amqp-bridge_amqp-uri
     - pg-amqp-bridge_postgresql-uri
@@ -217,7 +217,7 @@ services:
         constraints:
         - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.16.2-alpine@sha256:42505180d3d12cdb83187dbe825ac2187aec0d1ebce074fc866f726a351f559f
+    image: portainer/portainer-ce:2.16.2-alpine
     secrets:
     - portainer_admin-password
     volumes:
@@ -231,7 +231,7 @@ services:
         - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.16.2@sha256:2c1abfac4937923e625be5f63a15f49a19cc4cca247c50f8746a9222023865a3
+    image: portainer/agent:2.16.2
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -258,7 +258,7 @@ services:
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRAPHILE_JWT_SECRET_KEY_FILE: /run/secrets/postgraphile_jwt-secret
       POSTGRAPHILE_OWNER_CONNECTION_FILE: /run/secrets/postgraphile_owner-connection
-    image: graphile/postgraphile:4.12.12@sha256:455859d464023b14550bcab6836a2ca44cb7fc56bf0d2bf05a0202f75fffacd1
+    image: graphile/postgraphile:4.12.12
     secrets:
     - postgraphile_connection
     - postgraphile_jwt-secret
@@ -270,7 +270,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: postgres:15.1-alpine@sha256:46bff4a5bd9ee7d78fc835c73fa8ff477051f603b89e796ea28fe83171e064e4
+    image: postgres:15.1-alpine
     secrets:
     - postgres_db
     - postgres_password
@@ -293,7 +293,7 @@ services:
       - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
       - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
-    image: rabbitmq:3.11.4-management-alpine@sha256:f35b674b2245b49e470aa954a7b04d29c971e697195471909929e99a1da40821
+    image: rabbitmq:3.11.4-management-alpine
     secrets:
     - source: rabbitmq_definitions
       target: /etc/rabbitmq/definitions.json
@@ -355,7 +355,7 @@ services:
       placement:
         constraints:
         - node.role == manager
-    image: traefik:v2.9.5@sha256:ac1480ce3203541705b01d6dce40ef4bf563cdb29d5b00db88cc396fa9fa9cd5
+    image: traefik:v2.9.5
     ports:
     - mode: host
       protocol: tcp
@@ -386,7 +386,7 @@ services:
       - traefik.http.services.tusd.loadbalancer.server.port=1080
     environment:
       AWS_REGION: ${S3_TUSD_REGION}
-    image: tusproject/tusd:v1.10.0@sha256:1e457b59fd5bbef888b2d04b701221e8300c4ce671f16cf5820e1d3e22872fe1
+    image: tusproject/tusd:v1.10.0
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
