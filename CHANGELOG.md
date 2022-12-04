@@ -1,3 +1,10 @@
+## [0.40.3](https://github.com/maevsi/maevsi_stack/compare/0.40.2...0.40.3) (2022-12-04)
+
+
+### Bug Fixes
+
+* **docker:** do not pin digests ([f0f9b18](https://github.com/maevsi/maevsi_stack/commit/f0f9b1866bcdb0a4035ea8e4588d137c59ae3ab7))
+
 ## [0.40.2](https://github.com/maevsi/maevsi_stack/compare/0.40.1...0.40.2) (2022-11-25)
 
 
