@@ -378,9 +378,9 @@ services:
         target: /home/tusd/.aws/credentials
 version: "3.7"
 volumes:
-  minio_data: # DARGSTACK-REMOVE
+  minio_data: #DARGSTACK-REMOVE
   # The s3 server's data.
-    {} # DARGSTACK-REMOVE
+    {} #DARGSTACK-REMOVE
   portainer_data:
   # The container manager's data.
     {}
