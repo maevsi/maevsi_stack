@@ -1,3 +1,10 @@
+## [0.40.4](https://github.com/maevsi/maevsi_stack/compare/0.40.3...0.40.4) (2022-12-05)
+
+
+### Bug Fixes
+
+* **tusd:** switch to arm compatible tag ([a987bb4](https://github.com/maevsi/maevsi_stack/commit/a987bb4df7128427108ccb921e03c462a2a90e75))
+
 ## [0.40.3](https://github.com/maevsi/maevsi_stack/compare/0.40.2...0.40.3) (2022-12-04)
 
 
