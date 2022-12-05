@@ -1,3 +1,15 @@
+# [0.41.0](https://github.com/maevsi/maevsi_stack/compare/0.40.4...0.41.0) (2022-12-05)
+
+
+### Bug Fixes
+
+* **minio:** correct production removal ([af99582](https://github.com/maevsi/maevsi_stack/commit/af995828bf82ef701039d3a7cc8e1b7a64a15f48))
+
+
+### Features
+
+* **jobber:** move to production ([b283707](https://github.com/maevsi/maevsi_stack/commit/b283707749f0fa4cddf3ae3e1fa5a3fd6b04eff7))
+
 ## [0.40.4](https://github.com/maevsi/maevsi_stack/compare/0.40.3...0.40.4) (2022-12-05)
 
 
