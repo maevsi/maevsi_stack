@@ -139,7 +139,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
     
- - ### `jobber`
+ - ### `jobber` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
     You cannot access the jobber via a web interface.
     
