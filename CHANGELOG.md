@@ -1,3 +1,10 @@
+## [0.41.1](https://github.com/maevsi/maevsi_stack/compare/0.41.0...0.41.1) (2022-12-13)
+
+
+### Bug Fixes
+
+* **commitlint:** allow long body lines on ci ([de923a5](https://github.com/maevsi/maevsi_stack/commit/de923a5d67da9c001593e1caf2dcd532ac15ed48))
+
 # [0.41.0](https://github.com/maevsi/maevsi_stack/compare/0.40.4...0.41.0) (2022-12-05)
 
 
