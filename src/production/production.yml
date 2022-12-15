@@ -68,7 +68,7 @@ services:
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
-    image: maevsi/maevsi:1.0.0-beta.12@sha256:69275315cffd9c94d9842a923c56eef5ddf4ec886665f5152e03c543e0e770a3
+    image: maevsi/maevsi:1.0.0-beta.13@sha256:66c3db14239e1960415450b0fdfe9530dbbbcef77fe4370de812c22815591b84
     secrets:
     - maevsi_sqitch-target
     - postgres_db
