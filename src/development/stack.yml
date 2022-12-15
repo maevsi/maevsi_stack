@@ -121,11 +121,11 @@ services:
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
       - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
-      CONSOLA_LEVEL: 4 # debug
+      CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
       GOOGLE_ADSENSE_ID: ${GOOGLE_ADSENSE_ID}
       GOOGLE_ANALYTICS_DOMAIN: ${GOOGLE_ANALYTICS_DOMAIN}
       GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
-      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config) #DARGSTACK-REMOVE
+      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
@@ -136,7 +136,6 @@ services:
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
     - postgres_role_maevsi-tusd_password
-    user: node:node
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
     - ./certificates/:/srv/certificates/

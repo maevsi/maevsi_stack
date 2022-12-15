@@ -35,11 +35,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    environment:
-      HOST: 0.0.0.0
-      NUXT_ENV_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_ENV_" (https://nuxtjs.org/api/configuration-env/#automatic-injection-of-environment-variables)
-    image: maevsi/maevsi:0.146.6@sha256:91a14d209fafbe862045bfcdec521b5ca3a2953c4aad72bf79f185a75eaa7fa0
-    user: (( prune ))
+    image: maevsi/maevsi:1.0.0@sha256:f28ec41043192132583bdb148eebbd6ad453682bb4058129cf33fcedb5f0cdb9
     volumes: (( prune ))
   maevsi_beta:
   # You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
