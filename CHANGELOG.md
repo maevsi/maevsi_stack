@@ -1,3 +1,15 @@
+# [1.0.0](https://github.com/maevsi/maevsi_stack/compare/0.41.4...1.0.0) (2022-12-15)
+
+
+### Features
+
+* **deps:** update maevsi/maevsi docker tag to v1 ([7940441](https://github.com/maevsi/maevsi_stack/commit/79404414e62ee5fdf8c668f7076b45582e47b3e6))
+
+
+### BREAKING CHANGES
+
+* **deps:** release maevsi v1
+
 ## [0.41.4](https://github.com/maevsi/maevsi_stack/compare/0.41.3...0.41.4) (2022-12-15)
 
 
