@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/maevsi/maevsi_stack/compare/1.0.0...1.0.1) (2022-12-16)
+
+
+### Bug Fixes
+
+* **maevsi:** readd user property ([aaacded](https://github.com/maevsi/maevsi_stack/commit/aaacded204f7ad8c31905d3f24cf2bb823c18237))
+
 # [1.0.0](https://github.com/maevsi/maevsi_stack/compare/0.41.4...1.0.0) (2022-12-15)
 
 
