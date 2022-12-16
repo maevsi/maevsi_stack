@@ -136,6 +136,7 @@ services:
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
     - postgres_role_maevsi-tusd_password
+    user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
     - ./certificates/:/srv/certificates/
