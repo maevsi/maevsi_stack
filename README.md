@@ -8,25 +8,11 @@ This project is deployed in accordance to the [DargStack template](https://githu
 ## Table of Contents
 
 
- 1. [configs](#configs)
+ 1. [secrets](#secrets)
     
- 2. [secrets](#secrets)
+ 2. [services](#services)
     
- 3. [services](#services)
-    
- 4. [volumes](#volumes)
-    
-
-## configs
-
-
- - ### `postgraphile_public-key`
-    
-    The GraphQL API's JWT public key file.
-    
- - ### `postgraphile_rc`
-    
-    The GraphQL API's configuration file.
+ 3. [volumes](#volumes)
     
 
 ## secrets
@@ -35,6 +21,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `jobber_aliases`
     
     The job scheduler's SMTP client mail alias.
+    
+ - ### `jobber_aws-bucket`
+    
+    The job scheduler's AWS bucket name.
     
  - ### `jobber_aws-credentials`
     
@@ -139,7 +129,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
     
- - ### `jobber` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+ - ### `jobber`
     
     You cannot access the jobber via a web interface.
     
