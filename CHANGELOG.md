@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/maevsi/maevsi_stack/compare/1.3.0...1.3.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* **postgraphile:** correct public keys ([864c345](https://github.com/maevsi/maevsi_stack/commit/864c345fd43e2f14e6a4607dc4c339b90f4b5596))
+
 # [1.3.0](https://github.com/maevsi/maevsi_stack/compare/1.2.0...1.3.0) (2023-01-05)
 
 
