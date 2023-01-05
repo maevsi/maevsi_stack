@@ -7,6 +7,9 @@ secrets:
   jobber_aliases:
   # The job scheduler's SMTP client mail alias.
     file: ./secrets/jobber/aliases.secret
+  jobber_aws-bucket:
+  # The job scheduler's AWS bucket name.
+    file: ./secrets/jobber/aws-bucket.secret
   jobber_aws-credentials:
   # The job scheduler's AWS credentials.
     file: ./secrets/jobber/aws-credentials.secret
