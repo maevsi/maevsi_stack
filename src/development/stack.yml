@@ -150,7 +150,7 @@ services:
     - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
     - ../../../maevsi/nuxt/:/srv/app/ #DARGSTACK-REMOVE
     - ../../../maevsi/sqitch/:/srv/sqitch/ #DARGSTACK-REMOVE
-    - ../production/configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
+    - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
   minio: #DARGSTACK-REMOVE
   # You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
   # You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
@@ -254,8 +254,8 @@ services:
     - postgraphile_jwt-secret
     - postgraphile_owner-connection
     volumes:
+    - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
     - ../production/configurations/postgraphile/.postgraphilerc.js:/postgraphile/.postgraphilerc.js:ro
-    - ../production/configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
   postgres:
   # You can access the database via `adminer`.
     command: -c maevsi.jwt_expiry_duration='1 month'
