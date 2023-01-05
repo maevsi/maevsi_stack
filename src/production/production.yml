@@ -23,6 +23,7 @@ services:
     secrets:
     - source: jobber_aliases
       target: /etc/aliases
+    - jobber_aws-bucket
     - jobber_aws-credentials
     - source: jobber_msmtprc
       target: /etc/msmtprc
