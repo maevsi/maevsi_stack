@@ -15,22 +15,6 @@ services:
       - (( append ))
       - traefik.http.routers.adminer_secure.middlewares=auth
       - traefik.http.routers.adminer_secure.tls.certresolver=default
-  jobber:
-  # You cannot access the jobber via a web interface.
-    environment:
-      AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
-    image: dargmuesli/jobber-aws-msmtp:1.2.5
-    secrets:
-    - source: jobber_aliases
-      target: /etc/aliases
-    - jobber_aws-bucket
-    - jobber_aws-credentials
-    - source: jobber_msmtprc
-      target: /etc/msmtprc
-    volumes:
-      - ./backups/postgres/:/backups/
-      - ./configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
-      - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   maevsi:
     deploy:
       labels:

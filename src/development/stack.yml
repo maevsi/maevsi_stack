@@ -89,7 +89,22 @@ services:
     image: adminer:4.8.1-standalone
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
-  # jobber: is currently only used in production
+  jobber:
+  # You cannot access the jobber via a web interface.
+    environment:
+      AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
+    image: dargmuesli/jobber-aws-msmtp:1.2.5
+    secrets:
+    - source: jobber_aliases
+      target: /etc/aliases
+    - jobber_aws-bucket
+    - jobber_aws-credentials
+    - source: jobber_msmtprc
+      target: /etc/msmtprc
+    volumes:
+      - ../production/backups/postgres/:/backups/
+      - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
+      - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   maevsi:
   # You can access the main project at [maevsi.test](https://maevsi.test/).
     deploy:
