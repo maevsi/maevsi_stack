@@ -146,11 +146,11 @@ services:
     - postgres_role_maevsi-tusd_password
     user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
-    - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
-    - ./certificates/:/srv/certificates/
+    - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
+    - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
+    - ../../../maevsi/nuxt/:/srv/app/ #DARGSTACK-REMOVE
+    - ../../../maevsi/sqitch/:/srv/sqitch/ #DARGSTACK-REMOVE
     - ../production/configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
-    - ../../../maevsi/nuxt/:/srv/app/
-    - ../../../maevsi/sqitch/:/srv/sqitch/
   minio: #DARGSTACK-REMOVE
   # You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
   # You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.

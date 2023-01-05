@@ -22,7 +22,6 @@ services:
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: maevsi/maevsi:1.0.2@sha256:546ab312e95880a5582a024ecb20267fcfe7b704c7456fd5cee1b1e677d5758d
     user: (( prune ))
-    volumes: (( prune ))
   maevsi_beta:
   # You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
     deploy:
