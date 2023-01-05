@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/maevsi/maevsi_stack/compare/1.1.0...1.2.0) (2023-01-05)
+
+
+### Features
+
+* **auth:** add basic authentication to remaining administrative services ([aaa3141](https://github.com/maevsi/maevsi_stack/commit/aaa314193bd279853f68af04df8e622dc254c9dd)), closes [#60](https://github.com/maevsi/maevsi_stack/issues/60)
+
 # [1.1.0](https://github.com/maevsi/maevsi_stack/compare/1.0.2...1.1.0) (2023-01-05)
 
 
