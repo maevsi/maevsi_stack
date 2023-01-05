@@ -119,7 +119,6 @@ services:
     - --certificatesResolvers.default.acme.email=${STACK_ACME_EMAIL}
     - --certificatesResolvers.default.acme.storage=/etc/traefik/acme/acme.json
     - --certificatesResolvers.default.acme.dnsChallenge.provider=${STACK_ACME_PROVIDER}
-    - --pilot.token=${TRAEFIK_PILOT_TOKEN}
     deploy:
       labels:
       - (( append ))
