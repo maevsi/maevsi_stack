@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/maevsi/maevsi_stack/compare/1.0.2...1.1.0) (2023-01-05)
+
+
+### Features
+
+* **jobber:** use aws secret ([265c563](https://github.com/maevsi/maevsi_stack/commit/265c563251585c2823231ecfb661f90d87dc5b50))
+* **package:** set type to module ([e8a06b5](https://github.com/maevsi/maevsi_stack/commit/e8a06b5a7bb5d306f76a534d9cacd9b3d2a4cdc4))
+
 ## [1.0.2](https://github.com/maevsi/maevsi_stack/compare/1.0.1...1.0.2) (2022-12-26)
 
 
