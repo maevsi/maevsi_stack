@@ -59,7 +59,8 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.portainer_secure.middlewares=auth
+      # TODO: enable basic authentication for portainer (https://github.com/maevsi/maevsi_stack/issues/60)
+      # - traefik.http.routers.portainer_secure.middlewares=auth
       - traefik.http.routers.portainer_secure.tls.certresolver=default
   postgraphile:
     deploy:
