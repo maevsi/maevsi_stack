@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/maevsi/maevsi_stack/compare/1.2.0...1.3.0) (2023-01-05)
+
+
+### Bug Fixes
+
+* **jobber:** add missing aws bucket secret definition ([7e51646](https://github.com/maevsi/maevsi_stack/commit/7e516465408128cbc0f03010af9c53d40adc0c05))
+* **maevsi:** keep configuation volume ([9392fbf](https://github.com/maevsi/maevsi_stack/commit/9392fbf9de4c05a2150caf3d1f31b39a46c540c3))
+* **postgraphile:** move configuration to production ([28f5c62](https://github.com/maevsi/maevsi_stack/commit/28f5c6221a6e63192201e1242325acf8caaf79a1))
+* **traefik:** remove pilot ([7181b8d](https://github.com/maevsi/maevsi_stack/commit/7181b8dc97ba9f529d5a62c2ecb9a4e4afae3e6d)), closes [#61](https://github.com/maevsi/maevsi_stack/issues/61)
+
+
+### Features
+
+* convert configs to volume mounts ([b152098](https://github.com/maevsi/maevsi_stack/commit/b15209847fb904c5532a2e5c2e0b9fa13438427b))
+* **jobber:** move back to development ([3379592](https://github.com/maevsi/maevsi_stack/commit/337959247f051c6afe8273d1ad356a3b53933fbb))
+
 # [1.2.0](https://github.com/maevsi/maevsi_stack/compare/1.1.0...1.2.0) (2023-01-05)
 
 
