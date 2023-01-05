@@ -7,6 +7,7 @@
   "repository": "https://github.com/maevsi/maevsi_stack.git",
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
   "license": "CC BY-NC-SA 4.0",
+  "type": "module",
   "engines": {
     "node": "19"
   },
