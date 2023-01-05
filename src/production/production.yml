@@ -41,9 +41,6 @@ services:
     volumes: (( prune ))
   maevsi_beta:
   # You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
-    configs:
-      - source: postgraphile_public-key
-        target: /run/config/postgraphile_jwt-public-key
     deploy:
       labels:
       - traefik.enable=true
@@ -73,6 +70,8 @@ services:
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
     - postgres_role_maevsi-tusd_password
+    volumes:
+    - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
   portainer:
     deploy:
       labels:

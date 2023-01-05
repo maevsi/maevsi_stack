@@ -3,13 +3,6 @@
 # maevsi
 # https://github.com/maevsi/maevsi/
 ---
-configs:
-  postgraphile_public-key:
-  # The GraphQL API's JWT public key file.
-    file: ./configurations/postgraphile/jwtRS256.key.pub
-  postgraphile_rc:
-  # The GraphQL API's configuration file.
-    file: ../production/configurations/postgraphile/.postgraphilerc.js
 secrets:
   jobber_aliases:
   # The job scheduler's SMTP client mail alias.
@@ -96,9 +89,6 @@ services:
   # jobber: is currently only used in production
   maevsi:
   # You can access the main project at [maevsi.test](https://maevsi.test/).
-    configs:
-      - source: postgraphile_public-key
-        target: /run/config/postgraphile_jwt-public-key
     deploy:
       labels:
       - traefik.enable=true
@@ -140,6 +130,7 @@ services:
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
     - ./certificates/:/srv/certificates/
+    - ../production/configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
     - ../../../maevsi/nuxt/:/srv/app/
     - ../../../maevsi/sqitch/:/srv/sqitch/
   minio: #DARGSTACK-REMOVE
@@ -223,11 +214,6 @@ services:
     - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgraphile:
   # You can access the GraphQL API for the PostgreSQL database at [postgraphile.maevsi.test](https://postgraphile.maevsi.test/).
-    configs:
-      - source: postgraphile_public-key
-        target: /run/config/postgraphile_jwt-public-key
-      - source: postgraphile_rc
-        target: /postgraphile/.postgraphilerc.js
     deploy:
       labels:
       - traefik.enable=true
@@ -249,6 +235,9 @@ services:
     - postgraphile_connection
     - postgraphile_jwt-secret
     - postgraphile_owner-connection
+    volumes:
+    - ../production/configurations/postgraphile/.postgraphilerc.js:/postgraphile/.postgraphilerc.js:ro
+    - ../production/configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
   postgres:
   # You can access the database via `adminer`.
     command: -c maevsi.jwt_expiry_duration='1 month'
