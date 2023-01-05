@@ -77,6 +77,7 @@ services:
     deploy:
       labels:
       - (( append ))
+      - traefik.http.routers.portainer_secure.middlewares=auth
       - traefik.http.routers.portainer_secure.tls.certresolver=default
   postgraphile:
     deploy:
@@ -102,6 +103,7 @@ services:
     deploy:
       labels:
       - (( append ))
+      - traefik.http.routers.rabbitmq_secure.middlewares=auth
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   stomper:
     deploy:
