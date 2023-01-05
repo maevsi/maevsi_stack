@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/maevsi/maevsi_stack/compare/1.3.1...1.3.2) (2023-01-05)
+
+
+### Bug Fixes
+
+* **portainer:** temporarily remove basic authentication ([5f6e824](https://github.com/maevsi/maevsi_stack/commit/5f6e82432407ca1c6233d03f47e0eea1ad5a095b))
+
 ## [1.3.1](https://github.com/maevsi/maevsi_stack/compare/1.3.0...1.3.1) (2023-01-05)
 
 
