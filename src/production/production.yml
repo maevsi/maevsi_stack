@@ -20,7 +20,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: maevsi/maevsi:1.1.0@sha256:0aed04a4b5223d27b4d3eb611c8e596b00620ef84d5fb4270317d1e6e40084c2
+    image: maevsi/maevsi:1.1.1@sha256:6a5c362ea517733ac7e4e8bceb11558ee9b0fc960a55e4ff01d288cf4b0e1964
     user: (( prune ))
   maevsi_beta:
   # You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
@@ -38,7 +38,7 @@ services:
       - traefik.http.services.maevsi_beta.loadbalancer.server.port=3000
       - traefik.http.routers.maevsi_beta_secure.tls.certresolver=default
     environment:
-      CONSOLA_LEVEL: 4 # debug
+      CONSOLA_LEVEL: 4 # 0: fatal/error, 1: warn, 2: log, 3: info/success, 4: debug, 5: trace
       NUXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
       NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
