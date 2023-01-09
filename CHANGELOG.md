@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/maevsi/maevsi_stack/compare/1.3.4...1.3.5) (2023-01-09)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([28b57a5](https://github.com/maevsi/maevsi_stack/commit/28b57a534e6dcc578f8771ef7cc51b9c1952f05c))
+
 ## [1.3.4](https://github.com/maevsi/maevsi_stack/compare/1.3.3...1.3.4) (2023-01-06)
 
 
