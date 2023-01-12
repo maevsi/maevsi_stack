@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/maevsi/maevsi_stack/compare/1.3.6...1.3.7) (2023-01-12)
+
+
+### Bug Fixes
+
+* **rabbitmq:** disable basic authentication ([dc0798b](https://github.com/maevsi/maevsi_stack/commit/dc0798b0ea9a65c846649ec5f467514d0c03648d))
+
 ## [1.3.6](https://github.com/maevsi/maevsi_stack/compare/1.3.5...1.3.6) (2023-01-12)
 
 
