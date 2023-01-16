@@ -4,7 +4,7 @@ specifiers:
   '@commitlint/cli': 17.4.2
   '@commitlint/config-conventional': 17.4.2
   dargstack: 2.0.3
-  dargstack_rgen: 0.8.3
+  dargstack_rgen: 0.8.4
   husky: 8.0.3
   shx: 0.3.4
 
@@ -12,7 +12,7 @@ devDependencies:
   '@commitlint/cli': 17.4.2
   '@commitlint/config-conventional': 17.4.2
   dargstack: 2.0.3
-  dargstack_rgen: 0.8.3
+  dargstack_rgen: 0.8.4
   husky: 8.0.3
   shx: 0.3.4
 
@@ -488,8 +488,8 @@ packages:
     engines: {node: '19'}
     dev: true
 
-  /dargstack_rgen/0.8.3:
-    resolution: {integrity: sha512-tmP1pxRpqtt+vxPQCzGhHMfKo8tLqI7GYMarlgP5MJsUr9ZkMb0isPbnBD1OWmX4jiuf+IxtbngCgvAn8i9zKQ==}
+  /dargstack_rgen/0.8.4:
+    resolution: {integrity: sha512-RqYBJotMdzmC49F3yVB6FUD6rCJGtY8xFWLJQkTAKKvBJH0HjEoxacpzI3+XyLF66cPJb6cSajpcWcSogHp15w==}
     engines: {node: '19'}
     hasBin: true
     dependencies:
