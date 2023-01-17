@@ -1,3 +1,10 @@
+## [1.3.9](https://github.com/maevsi/maevsi_stack/compare/1.3.8...1.3.9) (2023-01-17)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/stomper docker tag to v0.29.0 ([890de64](https://github.com/maevsi/maevsi_stack/commit/890de646ffd5a6ef2f5ddbe70e21f1985538b4c1))
+
 ## [1.3.8](https://github.com/maevsi/maevsi_stack/compare/1.3.7...1.3.8) (2023-01-17)
 
 
