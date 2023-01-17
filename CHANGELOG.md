@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/maevsi/maevsi_stack/compare/1.3.7...1.3.8) (2023-01-17)
+
+
+### Bug Fixes
+
+* **maevsi:** correct cors header ([c0bc74d](https://github.com/maevsi/maevsi_stack/commit/c0bc74d844d5606c7f52fc8784e8175475cbbd25))
+
 ## [1.3.7](https://github.com/maevsi/maevsi_stack/compare/1.3.6...1.3.7) (2023-01-12)
 
 
