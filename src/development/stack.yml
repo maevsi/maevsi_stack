@@ -378,7 +378,7 @@ services:
       - traefik.http.services.tusd.loadbalancer.server.port=1080
     environment:
       AWS_REGION: ${S3_TUSD_REGION}
-    image: tusproject/tusd:sha-eeffabf # TODO: change to numbered version once one is released with ARM support (https://github.com/maevsi/maevsi_stack/issues/52)
+    image: tusproject/tusd:v1.10.1@sha256:4bf5d2cba44c4d18638757e7ff481325a178a554f77a5e7bae863114e3329080
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
