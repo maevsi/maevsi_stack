@@ -234,13 +234,17 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type
+      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-authenticate
       - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.postgraphile_secure_auth.middlewares=postgraphile_cors,postgraphile_auth
+      - traefik.http.routers.postgraphile_secure_auth.rule=Host(`postgraphile.${STACK_DOMAIN}`) && HeadersRegexp(`x-authenticate`, `.*`)
+      - traefik.http.routers.postgraphile_secure_auth.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.middlewares.postgraphile_auth.forwardauth.address=http://maevsi:3000/api/auth-proxy
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
     environment:
       POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
