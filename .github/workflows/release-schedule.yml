@@ -2,7 +2,7 @@ name: 'Release: Scheduled'
 
 on:
   schedule:
-    - cron: '0 0 * * 7' # Every Sunday at 00:00 AM UTC on the default branch
+    - cron: '0 0 * * 0' # Every Sunday at 00:00 AM UTC on the default branch
   workflow_dispatch:
 
 jobs:
