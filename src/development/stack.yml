@@ -16,6 +16,9 @@ secrets:
   jobber_msmtprc:
   # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
+  maevsi_recaptcha-secret-key:
+  # The captcha provider's secret key.
+    file: ../production/secrets/maevsi/recaptcha-key.secret
   maevsi_sqitch-target:
   # The database change management application's database connection string.
     file: ./secrets/maevsi/sqitch-target.secret
@@ -136,8 +139,11 @@ services:
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
+      RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY}
+      RECAPTCHA_SECRET_KEY_PATH: /run/secrets/maevsi_recaptcha-secret-key
     image: maevsi/maevsi:dev
     secrets:
+    - maevsi_recaptcha-secret-key
     - maevsi_sqitch-target
     - postgres_db
     - postgres_role_maevsi-postgraphile_password
