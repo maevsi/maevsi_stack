@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/maevsi/maevsi_stack/compare/1.4.0...1.4.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* **package:** correct license ([3d6f933](https://github.com/maevsi/maevsi_stack/commit/3d6f933fa85515086a7e54d7f8b1a7f87871cdf3))
+
 # [1.4.0](https://github.com/maevsi/maevsi_stack/compare/1.3.10...1.4.0) (2023-01-24)
 
 
