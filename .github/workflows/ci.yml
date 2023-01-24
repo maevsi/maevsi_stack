@@ -8,8 +8,37 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [19]
     steps:
-    - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3
+    - name: Checkout git repository
+      uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+
+    - name: Setup package manager
+      run: corepack enable
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        cache: pnpm
+        cache-dependency-path: pnpm-lock.yaml
+        node-version: ${{ matrix.node }}
+
+    - name: Cache node_modules
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/pnpm-lock.yaml')) }}
+
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: pnpm install
+
+    - name: dargstack rgen
+      run: pnpm dargstack_rgen --validate
+
     - name: dargstack derive
       run: |
         mkdir ~/scripts/
