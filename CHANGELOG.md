@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/maevsi/maevsi_stack/compare/1.3.10...1.4.0) (2023-01-24)
+
+
+### Features
+
+* add license ([c6b01a1](https://github.com/maevsi/maevsi_stack/commit/c6b01a1c0ba4b0d39cf3efb45759fce2041465e5))
+
 ## [1.3.10](https://github.com/maevsi/maevsi_stack/compare/1.3.9...1.3.10) (2023-01-21)
 
 
