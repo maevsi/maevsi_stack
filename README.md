@@ -63,6 +63,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     The GraphQL API's database owner URI.
     
  - ### `postgres-backup_db` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmaevsi%2Fmaevsi_stack.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmaevsi%2Fmaevsi_stack?ref=badge_shield)
     
     The database's name.
     
@@ -215,3 +216,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     The message queue's data.
     
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmaevsi%2Fmaevsi_stack.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmaevsi%2Fmaevsi_stack?ref=badge_large)
