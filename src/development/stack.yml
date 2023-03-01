@@ -89,22 +89,22 @@ services:
     image: adminer:4.8.1-standalone
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
-  jobber:
-  # You cannot access the jobber via a web interface.
-    environment:
-      AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
-    image: dargmuesli/jobber-aws-msmtp:1.2.5
-    secrets:
-    - source: jobber_aliases
-      target: /etc/aliases
-    - jobber_aws-bucket
-    - jobber_aws-credentials
-    - source: jobber_msmtprc
-      target: /etc/msmtprc
-    volumes:
-      - ../production/backups/postgres/:/backups/
-      - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
-      - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
+  # jobber:
+  # # You cannot access the jobber via a web interface.
+  #   environment:
+  #     AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
+  #   image: dargmuesli/jobber-aws-msmtp:1.2.5
+  #   secrets:
+  #   - source: jobber_aliases
+  #     target: /etc/aliases
+  #   - jobber_aws-bucket
+  #   - jobber_aws-credentials
+  #   - source: jobber_msmtprc
+  #     target: /etc/msmtprc
+  #   volumes:
+  #     - ../production/backups/postgres/:/backups/
+  #     - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
+  #     - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   maevsi:
   # You can access the main project at [maevsi.test](https://maevsi.test/).
     deploy:
@@ -242,8 +242,8 @@ services:
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
-      - traefik.http.middlewares.auth-plugin.plugin.body_forward_auth.AuthUrl=http://host.docker.internal:3000/api/auth-proxy"
-      - traefik.http.routers.whoami.middlewares=auth-plugin"
+      - traefik.http.middlewares.auth-plugin.plugin.body_forward_auth.AuthUrl={$STACK_DOMAIN}/api/auth-proxy"
+      - traefik.http.routers.postgraphile.middlewares=auth-plugin"
     environment:
       POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
@@ -295,32 +295,32 @@ services:
     - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
     - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
     - rabbitmq_data:/var/lib/rabbitmq
-  stomper:
-  # You cannot access the email service directly.
-    deploy:
-      labels:
-      - traefik.enable=true
-      - traefik.http.routers.stomper.middlewares=redirectscheme
-      - traefik.http.routers.stomper.rule=Host(`stomper.${STACK_DOMAIN}`)
-      - traefik.http.routers.stomper_secure.rule=Host(`stomper.${STACK_DOMAIN}`)
-      - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.stomper.loadbalancer.server.port=3000
-    environment:
-      CONSOLA_LEVEL: 4 # debug
-      RABBITMQ_DEFINITIONS_FILE: /run/secrets/rabbitmq_definitions
-      STACK_DOMAIN: ${STACK_DOMAIN}
-    image: maevsi/stomper:dev
-    # ports:
-    # - 9229:9229
-    secrets:
-    - rabbitmq_definitions
-    - postgres_db
-    - postgres_role_maevsi-stomper_password
-    - stomper_nodemailer-transporter
-    user: 1000:1000
-    volumes:
-    - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
-    - ../../../stomper/:/srv/app/
+  # stomper:
+  # # You cannot access the email service directly.
+  #   deploy:
+  #     labels:
+  #     - traefik.enable=true
+  #     - traefik.http.routers.stomper.middlewares=redirectscheme
+  #     - traefik.http.routers.stomper.rule=Host(`stomper.${STACK_DOMAIN}`)
+  #     - traefik.http.routers.stomper_secure.rule=Host(`stomper.${STACK_DOMAIN}`)
+  #     - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+  #     - traefik.http.services.stomper.loadbalancer.server.port=3000
+  #   environment:
+  #     CONSOLA_LEVEL: 4 # debug
+  #     RABBITMQ_DEFINITIONS_FILE: /run/secrets/rabbitmq_definitions
+  #     STACK_DOMAIN: ${STACK_DOMAIN}
+  #   image: maevsi/stomper:dev
+  #   # ports:
+  #   # - 9229:9229
+  #   secrets:
+  #   - rabbitmq_definitions
+  #   - postgres_db
+  #   - postgres_role_maevsi-stomper_password
+  #   - stomper_nodemailer-transporter
+  #   user: 1000:1000
+  #   volumes:
+  #   - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
+  #   - ../../../stomper/:/srv/app/
   traefik:
   # You can access the reverse proxy's dashboard at [traefik.maevsi.test](https://traefik.maevsi.test/).
     command:
