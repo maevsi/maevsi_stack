@@ -23,7 +23,7 @@ services:
     image: maevsi/maevsi:1.9.1@sha256:0def2b1b919e100b37233595f324d101e27cd6f13f39ee11a59ddd1c41b218b6
     user: (( prune ))
   maevsi_beta:
-  # You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
+  # You can access the main project's beta version at [beta.localhost](https://localhost/).
     deploy:
       labels:
       - traefik.enable=true

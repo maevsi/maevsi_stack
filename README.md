@@ -116,7 +116,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
 
  - ### `adminer`
     
-    You can access the database's frontend at [adminer.maevsi.test](https://adminer.maevsi.test/).
+    You can access the database's frontend at [adminer.localhost](https://adminer.localhost/).
     This information is required for login:
     
     |          |                     |
@@ -135,16 +135,16 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `maevsi`
     
-    You can access the main project at [maevsi.test](https://maevsi.test/).
+    You can access the main project at [localhost](https://localhost/).
     
  - ### `maevsi_beta` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
-    You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
+    You can access the main project's beta version at [beta.localhost](https://localhost/).
     
  - ### `minio`
     
-    You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
-    You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
+    You can access the s3 console at [minio.localhost](https://minio.localhost/).
+    You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
     
  - ### `pg-amqp-bridge`
     
@@ -152,7 +152,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `portainer`
     
-    You can access the container manager's frontend at [portainer.maevsi.test](https://portainer.maevsi.test/).
+    You can access the container manager's frontend at [portainer.localhost](https://portainer.localhost/).
     
  - ### `portainer-agent`
     
@@ -160,7 +160,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `postgraphile`
     
-    You can access the GraphQL API for the PostgreSQL database at [postgraphile.maevsi.test](https://postgraphile.maevsi.test/).
+    You can access the GraphQL API for the PostgreSQL database at [postgraphile.localhost](https://postgraphile.localhost/).
     
  - ### `postgres`
     
@@ -172,7 +172,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `rabbitmq`
     
-    You can access the message queue at [rabbitmq.maevsi.test](https://rabbitmq.maevsi.test/).
+    You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
     
  - ### `stomper`
     
@@ -180,7 +180,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `traefik`
     
-    You can access the reverse proxy's dashboard at [traefik.maevsi.test](https://traefik.maevsi.test/).
+    You can access the reverse proxy's dashboard at [traefik.localhost](https://traefik.localhost/).
     
  - ### `traefik_certs-dumper` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
@@ -188,7 +188,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `tusd`
     
-    You can access the upload service at [tusd.maevsi.test](https://tusd.maevsi.test/).
+    You can access the upload service at [tusd.localhost](https://tusd.localhost/).
     
 
 ## volumes
