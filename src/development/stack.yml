@@ -127,6 +127,8 @@ services:
       - traefik.http.routers.maevsi_secure_nuxt.entryPoints=nuxt #DARGSTACK-REMOVE
       - traefik.http.routers.maevsi_secure_nuxt.service=maevsi_secure_nuxt #DARGSTACK-REMOVE
       - traefik.http.routers.maevsi_secure_nuxt.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
+      # TODO: This line is probably responsible for the hmr reload problem and may be removed. This should be checked
+      - traefik.http.routers.vitesocket.rule=Host(`${STACK_DOMAIN}`) && PathPrefix(`/_nuxt/hmr/`)
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
       - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
@@ -238,12 +240,11 @@ services:
       - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors
+      - traefik.http.routers.postgraphile_secure.middlewares=body_forward_auth,postgraphile_cors
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
-      - traefik.http.middlewares.auth-plugin.plugin.body_forward_auth.AuthUrl={$STACK_DOMAIN}/api/auth-proxy"
-      - traefik.http.routers.postgraphile.middlewares=auth-plugin"
+      - traefik.http.middlewares.body_forward_auth.plugin.body_forward_auth.AuthUrl=http://maevsi:3000/api/auth-proxy
     environment:
       POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
@@ -336,7 +337,7 @@ services:
     - --providers.file.watch=true #DARGSTACK-REMOVE
     - --log.level=DEBUG #DARGSTACK-REMOVE
     # Registers the local plugin
-    - --experimental.localPlugins.body-forward-auth.moduleName=github.com/maevsi/body-forward-auth #DARGSTACK-REMOVE
+    - --experimental.localPlugins.body_forward_auth.moduleName=github.com/PatrickMi/body_forward_auth #DARGSTACK-REMOVE
     deploy:
       labels:
       - traefik.enable=true
@@ -369,6 +370,7 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./certificates/:/etc/traefik/acme/
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
+    - ./plugins-local:/plugins-local
   tusd:
   # You can access the upload service at [tusd.maevsi.test](https://tusd.maevsi.test/).
     command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http http://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_TUSD_BUCKET} -s3-endpoint ${S3_TUSD_ENDPOINT}
