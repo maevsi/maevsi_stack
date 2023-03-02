@@ -53,6 +53,7 @@ services:
     - postgres_role_maevsi-tusd_password
     volumes:
     - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
+  minio: (( prune ))
   portainer:
     deploy:
       labels:

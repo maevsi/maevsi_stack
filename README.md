@@ -141,7 +141,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the main project's beta version at [beta.maevsi.test](https://maevsi.test/).
     
- - ### `minio` ![development](https://img.shields.io/badge/-development-informational.svg?style=flat-square)
+ - ### `minio`
     
     You can access the s3 console at [minio.maevsi.test](https://minio.maevsi.test/).
     You can access the s3 api service at [s3.maevsi.test](https://s3.maevsi.test/) if you want to access via cli from outside the stack.
