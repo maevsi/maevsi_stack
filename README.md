@@ -198,7 +198,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The reverse proxy's certificate data.
     
- - ### `minio_data` ![development](https://img.shields.io/badge/-development-informational.svg?style=flat-square)
+ - ### `minio_data`
     
     The s3 server's data.
     

@@ -140,3 +140,4 @@ volumes:
   acme_data:
   # The reverse proxy's certificate data.
     {}
+  minio_data: (( prune ))
