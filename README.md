@@ -34,10 +34,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's SMTP client configuration.
     
- - ### `maevsi_recaptcha-secret-key`
-    
-    The captcha provider's secret key.
-    
  - ### `maevsi_sqitch-target`
     
     The database change management application's database connection string.

@@ -2,7 +2,7 @@ displayName: Body Forward Auth
 type: middleware
 iconPath: .assets/icon.png
 
-import: github.com/PatrickMi/body_forward_auth
+import: github.com/PatrickMi/body-forward-auth
 
 summary: 'Middleware Plugin that sends the request to another server so that it can perform authentication based on the headers and the body'
 
