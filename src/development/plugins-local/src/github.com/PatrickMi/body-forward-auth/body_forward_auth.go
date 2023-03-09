@@ -7,7 +7,6 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"net/http/httputil"
 )
 
 // Config holds configuration to be passed to the plugin i.e. variables that come from the dockerfile
@@ -52,13 +51,7 @@ func (bfa *BodyForwardAuth) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 		log.Printf("Error while reading the body: %e\n", err)
 	}
 
-	dump, err := httputil.DumpRequest(req, true)
-	log.Printf("The incoming request is: %s", dump)
-	// log.Printf("The request Header is: %s", req.Header)
-	// log.Printf("The request body is: %s", body)
-
 	httpClient := &http.Client{}
-
 	proxyRequest, err := http.NewRequest(req.Method, bfa.authUrl, bytes.NewReader(body))
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusBadGateway)
