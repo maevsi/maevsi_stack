@@ -51,6 +51,7 @@ func (bfa *BodyForwardAuth) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 		log.Printf("Error while reading the body: %e\n", err)
 	}
+
 	dump, err := httputil.DumpRequest(req, true)
 	log.Printf("The incoming request is: %s", dump)
 	// log.Printf("The request Header is: %s", req.Header)
@@ -70,6 +71,7 @@ func (bfa *BodyForwardAuth) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
 		log.Printf("An error occured while doing the request: %e", err)
 	}
+
 	responseBody, _ := io.ReadAll(response.Body)
 	log.Printf("%s", responseBody)
 
@@ -77,7 +79,6 @@ func (bfa *BodyForwardAuth) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 		log.Printf("Got Response with status code: %d", response.StatusCode)
 		req.Body = io.NopCloser(bytes.NewBuffer(body))
 		bfa.next.ServeHTTP(rw, req)
-
 	} else {
 		log.Printf("Got response with status code: %d", response.StatusCode)
 		http.Error(rw, response.Status, response.StatusCode)
