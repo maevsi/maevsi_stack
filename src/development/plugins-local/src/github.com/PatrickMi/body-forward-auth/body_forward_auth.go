@@ -68,11 +68,6 @@ func (bfa *BodyForwardAuth) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 		log.Printf("An error occured while doing the request: %e", err)
 	}
 
-	if isPrintingDebug {
-		responseBody, _ := io.ReadAll(response.Body)
-		printfDebug("%s", responseBody)
-	}
-
 	if response.StatusCode >= 200 && response.StatusCode < 300 {
 		printfDebug("Got Response with status code: %d", response.StatusCode)
 		req.Body = io.NopCloser(bytes.NewBuffer(body))
