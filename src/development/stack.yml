@@ -127,8 +127,6 @@ services:
       - traefik.http.routers.maevsi_secure_nuxt.entryPoints=nuxt #DARGSTACK-REMOVE
       - traefik.http.routers.maevsi_secure_nuxt.service=maevsi_secure_nuxt #DARGSTACK-REMOVE
       - traefik.http.routers.maevsi_secure_nuxt.rule=Host(`${STACK_DOMAIN}`, `alpha.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
-      # TODO: This line is probably responsible for the hmr reload problem and may be removed. This should be checked
-      - traefik.http.routers.vitesocket.rule=Host(`${STACK_DOMAIN}`) && PathPrefix(`/_nuxt/hmr/`)
       - traefik.http.services.maevsi.loadbalancer.server.port=3000
       - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
