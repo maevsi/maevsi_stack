@@ -238,11 +238,11 @@ services:
       - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors,auth-plugin 
+      - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors,postgraphile_auth 
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
-      - traefik.http.middlewares.auth-plugin.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy
+      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy
     environment:
       POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
