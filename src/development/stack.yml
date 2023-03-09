@@ -334,8 +334,8 @@ services:
     - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
     - --providers.file.watch=true #DARGSTACK-REMOVE
     - --log.level=DEBUG #DARGSTACK-REMOVE
-    - --experimental.localPlugins.body-forward-auth.moduleName=github.com/PatrickMi/body-forward-auth
-    # - --experimental.plugins.body-forward-auth.version=0.1.1
+    - --experimental.plugins.body-forward-auth.moduleName=github.com/PatrickMi/body-forward-auth
+    - --experimental.plugins.body-forward-auth.version=v0.1.2
     deploy:
       labels:
       - traefik.enable=true
@@ -368,7 +368,7 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./certificates/:/etc/traefik/acme/
     - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
-    - ./configurations/traefik/plugins-local:/plugins-local
+    # - ./configurations/traefik/plugins-local:/plugins-local
   tusd:
   # You can access the upload service at [tusd.localhost](https://tusd.localhost/).
     command: -behind-proxy --hooks-enabled-events pre-create,post-finish,post-terminate --hooks-http http://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_TUSD_BUCKET} -s3-endpoint ${S3_TUSD_ENDPOINT}

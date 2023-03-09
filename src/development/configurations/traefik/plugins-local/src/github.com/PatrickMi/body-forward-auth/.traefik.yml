@@ -1,9 +1,0 @@
-displayName: Body Forward Auth
-type: middleware
-
-import: github.com/PatrickMi/body-forward-auth
-
-summary: 'Middleware plugin that sends the request to another server so that it can perform authentication based on the headers and the body.'
-
-testData:
-  AuthUrl : "http://127.0.0.1:3000"
