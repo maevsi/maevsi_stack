@@ -54,7 +54,6 @@ func (bfa *BodyForwardAuth) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 		log.Printf("Error while reading the body: %e\n", err)
 	}
 
-	httpClient := &http.Client{}
 	proxyRequest, err := http.NewRequest(req.Method, bfa.authUrl, bytes.NewReader(body))
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusBadGateway)
@@ -62,6 +61,7 @@ func (bfa *BodyForwardAuth) ServeHTTP(rw http.ResponseWriter, req *http.Request)
 	}
 
 	proxyRequest.Header = req.Header
+	httpClient := &http.Client{}
 	response, err := httpClient.Do(proxyRequest)
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
