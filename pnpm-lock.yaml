@@ -4,7 +4,7 @@ specifiers:
   '@commitlint/cli': 17.4.4
   '@commitlint/config-conventional': 17.4.4
   dargstack: 2.1.0
-  dargstack_rgen: 0.8.8
+  dargstack_rgen: 0.8.9
   husky: 8.0.3
   shx: 0.3.4
 
@@ -12,7 +12,7 @@ devDependencies:
   '@commitlint/cli': 17.4.4
   '@commitlint/config-conventional': 17.4.4
   dargstack: 2.1.0
-  dargstack_rgen: 0.8.8
+  dargstack_rgen: 0.8.9
   husky: 8.0.3
   shx: 0.3.4
 
@@ -488,12 +488,12 @@ packages:
     engines: {node: '19'}
     dev: true
 
-  /dargstack_rgen/0.8.8:
-    resolution: {integrity: sha512-9fB78ege797h2mCkt1Lb9v/0nhNeltwwecwX/LKeWsPkVPg98z0nSh6wG2jrX5kDJTpQmU4XEQCTQq2zFjCnCA==}
+  /dargstack_rgen/0.8.9:
+    resolution: {integrity: sha512-P1dlrF7fqjYhUUcAlmF3vpDMTtlMwN9NxOELULpYR47gHrPXJWX4+cZdocP76u2ITqZu0FbDhF+8edhvp3DE+Q==}
     engines: {node: '19'}
     hasBin: true
     dependencies:
-      deepmerge: 4.3.0
+      deepmerge: 4.3.1
       diff: 5.1.0
       json2md: 2.0.0
       yaml: 2.2.1
@@ -513,8 +513,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /deepmerge/4.3.0:
-    resolution: {integrity: sha512-z2wJZXrmeHdvYJp/Ux55wIjqo81G5Bp4c+oELTW+7ar6SogWHajt5a9gO3s3IDaGSAXjDk0vlQKN3rms8ab3og==}
+  /deepmerge/4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
     dev: true
 
