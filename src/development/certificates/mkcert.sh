@@ -21,7 +21,11 @@ create() {
     cat "$(mkcert -CAROOT)/rootCA.pem" >> "$certfile"
 }
 
-rm "$THIS"/*.key "$THIS"/*.crt
+echo "key crt" | tr ' ' '\n' | while read -r glob; do
+    if test -n "$(find "$THIS" -maxdepth 1 -name "*.$glob" -print -quit)"; then
+        rm "$THIS"/*."$glob"
+    fi
+done
 
 create "root"
 create "traefik" "127.0.0.1" "0.0.0.0" "localhost" "www.localhost" "alpha.localhost" "beta.localhost" "adminer.localhost" "minio.localhost" "portainer.localhost" "postgraphile.localhost" "rabbitmq.localhost" "stomper.localhost" "traefik.localhost" "tusd.localhost"
