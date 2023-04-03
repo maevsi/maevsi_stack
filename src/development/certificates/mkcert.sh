@@ -21,7 +21,11 @@ create() {
     cat "$(mkcert -CAROOT)/rootCA.pem" >> "$certfile"
 }
 
-rm "$THIS"/*.key "$THIS"/*.crt
+echo "key crt" | tr ' ' '\n' | while read -r glob; do
+    if test -n "$(find "$THIS" -maxdepth 1 -name "*.$glob" -print -quit)"; then
+        rm "$THIS"/*."$glob"
+    fi
+done
 
 create "root"
 create "traefik" \
