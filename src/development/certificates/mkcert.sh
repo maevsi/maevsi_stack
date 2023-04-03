@@ -28,4 +28,13 @@ echo "key crt" | tr ' ' '\n' | while read -r glob; do
 done
 
 create "root"
-create "traefik" "127.0.0.1" "0.0.0.0" "localhost" "www.localhost" "alpha.localhost" "beta.localhost" "adminer.localhost" "minio.localhost" "portainer.localhost" "postgraphile.localhost" "rabbitmq.localhost" "stomper.localhost" "traefik.localhost" "tusd.localhost"
+create "traefik" \
+    `# adminer` "adminer.localhost" \
+    `# maevsi` "localhost" "www.localhost" "alpha.localhost" "beta.localhost" "127.0.0.1" "0.0.0.0" \
+    `# minio` "minio.localhost" \
+    `# portainer` "portainer.localhost" \
+    `# postgraphile` "postgraphile.localhost" \
+    `# rabbitmq` "rabbitmq.localhost" \
+    `# stomper` "stomper.localhost" \
+    `# traefik` "traefik.localhost" \
+    `# tusd` "tusd.localhost"

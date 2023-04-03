@@ -10,14 +10,14 @@
   "engines": {
     "node": "19"
   },
-  "packageManager": "pnpm@7.30.3",
+  "packageManager": "pnpm@8.1.0",
   "scripts": {
     "prepare": "if [ \"$NODE_ENV\" != \"production\" ]; then husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks; fi"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.5.0",
+    "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
-    "dargstack": "2.2.0",
+    "dargstack": "2.2.1",
     "dargstack_rgen": "0.9.0",
     "husky": "8.0.3",
     "shx": "0.3.4"
