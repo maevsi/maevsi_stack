@@ -1,3 +1,20 @@
+## [1.4.7](https://github.com/maevsi/maevsi_stack/compare/1.4.6...1.4.7) (2023-04-03)
+
+
+### Bug Fixes
+
+* **postgres:** add missing secret template ([5e9da1a](https://github.com/maevsi/maevsi_stack/commit/5e9da1ae763955e2e57a26eec191c68b03786794))
+
+
+### Performance Improvements
+
+* **mkcert:** improve certificate creation on first use ([380bcbb](https://github.com/maevsi/maevsi_stack/commit/380bcbb3ebc25fea2e4a1433197422a52bcf263c))
+
+
+### Reverts
+
+* Revert "chore(package): use node 18 instead of 19" ([06be35d](https://github.com/maevsi/maevsi_stack/commit/06be35db32eff99043360f73d77ad7b0804b20c7))
+
 ## [1.4.6](https://github.com/maevsi/maevsi_stack/compare/1.4.5...1.4.6) (2023-03-26)
 
 
