@@ -3,7 +3,7 @@
 
 The Docker stack configuration for [maev.si](https://maev.si/).
 
-This project is deployed in accordance to the [DargStack template](https://github.com/dargmuesli/dargstack_template/) to make deployment a breeze. It is closely related to [maevsi's source code](https://github.com/maevsi/maevsi/).
+This project is deployed in accordance to the [DargStack template](https://github.com/dargstack/dargstack_template/) to make deployment a breeze. It is closely related to [maevsi's source code](https://github.com/maevsi/maevsi/).
 
 ## Table of Contents
 

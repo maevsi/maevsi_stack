@@ -1,3 +1,41 @@
+## [1.4.8](https://github.com/maevsi/maevsi_stack/compare/1.4.7...1.4.8) (2023-04-04)
+
+
+### Bug Fixes
+
+* **tusd:** correct hook usage ([e0e60fa](https://github.com/maevsi/maevsi_stack/commit/e0e60fa413bbef298733558a302654d61d3d04fe))
+
+## [1.4.7](https://github.com/maevsi/maevsi_stack/compare/1.4.6...1.4.7) (2023-04-03)
+
+
+### Bug Fixes
+
+* **postgres:** add missing secret template ([5e9da1a](https://github.com/maevsi/maevsi_stack/commit/5e9da1ae763955e2e57a26eec191c68b03786794))
+
+
+### Performance Improvements
+
+* **mkcert:** improve certificate creation on first use ([380bcbb](https://github.com/maevsi/maevsi_stack/commit/380bcbb3ebc25fea2e4a1433197422a52bcf263c))
+
+
+### Reverts
+
+* Revert "chore(package): use node 18 instead of 19" ([06be35d](https://github.com/maevsi/maevsi_stack/commit/06be35db32eff99043360f73d77ad7b0804b20c7))
+
+## [1.4.6](https://github.com/maevsi/maevsi_stack/compare/1.4.5...1.4.6) (2023-03-26)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([8c4d203](https://github.com/maevsi/maevsi_stack/commit/8c4d20393eb036ddcd01c80cf4456b7ada7d1bbf))
+
+## [1.4.5](https://github.com/maevsi/maevsi_stack/compare/1.4.4...1.4.5) (2023-03-12)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([8cdfe65](https://github.com/maevsi/maevsi_stack/commit/8cdfe658d6a2d19cd7511e71bdc599146eef0bd5))
+
 ## [1.4.4](https://github.com/maevsi/maevsi_stack/compare/1.4.3...1.4.4) (2023-02-26)
 
 
