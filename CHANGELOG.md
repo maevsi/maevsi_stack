@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/maevsi/maevsi_stack/compare/1.4.8...1.4.9) (2023-04-05)
+
+
+### Bug Fixes
+
+* **tusd:** correct hook usage ([4b36909](https://github.com/maevsi/maevsi_stack/commit/4b36909298886d7aeb1347ae0cda99545e73ce32))
+
 ## [1.4.8](https://github.com/maevsi/maevsi_stack/compare/1.4.7...1.4.8) (2023-04-04)
 
 
