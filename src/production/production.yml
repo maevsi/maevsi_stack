@@ -20,7 +20,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: maevsi/maevsi:1.11.2@sha256:95e796236bf3b099820908b446e79d530e71c9d9f29da035aabc4c5b806b6e40
+    image: maevsi/maevsi:1.12.0@sha256:5ef55c2bdb7e2b500ce036c899449f9521aab48acd7b3c6b7d444ffdd995cb0f
     user: (( prune ))
   maevsi_beta:
   # You can access the main project's beta version at [beta.localhost](https://localhost/).
