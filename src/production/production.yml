@@ -20,7 +20,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: maevsi/maevsi:1.12.0@sha256:5ef55c2bdb7e2b500ce036c899449f9521aab48acd7b3c6b7d444ffdd995cb0f
+    image: ghcr.io/maevsi/maevsi:1.12.0@sha256:5ef55c2bdb7e2b500ce036c899449f9521aab48acd7b3c6b7d444ffdd995cb0f
     user: (( prune ))
   maevsi_beta:
   # You can access the main project's beta version at [beta.localhost](https://localhost/).
@@ -44,7 +44,7 @@ services:
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
-    image: maevsi/maevsi:1.0.0-beta.13@sha256:66c3db14239e1960415450b0fdfe9530dbbbcef77fe4370de812c22815591b84
+    image: ghcr.io/maevsi/maevsi:1.0.0-beta.13@sha256:66c3db14239e1960415450b0fdfe9530dbbbcef77fe4370de812c22815591b84
     secrets:
     - maevsi_sqitch-target
     - postgres_db
@@ -93,7 +93,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.stomper_secure.tls.certresolver=default
-    image: maevsi/stomper:0.29.9@sha256:f15b71e224e8f408da0ae4196a53e0ea7791885a8df16e55c882176d86039f95
+    image: ghcr.io/maevsi/stomper:0.29.9@sha256:f15b71e224e8f408da0ae4196a53e0ea7791885a8df16e55c882176d86039f95
     user: (( prune ))
     volumes: (( prune ))
   traefik:
