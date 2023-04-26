@@ -1,3 +1,10 @@
+## [1.4.13](https://github.com/maevsi/maevsi_stack/compare/1.4.12...1.4.13) (2023-04-26)
+
+
+### Bug Fixes
+
+* **development:** account for pnpm workspace ([391197f](https://github.com/maevsi/maevsi_stack/commit/391197fe8ca97c148a32ab4293653f4ce245a57b))
+
 ## [1.4.12](https://github.com/maevsi/maevsi_stack/compare/1.4.11...1.4.12) (2023-04-26)
 
 
