@@ -1,24 +1,24 @@
 {
   "name": "maevsi_stack",
   "private": true,
-  "version": "1.4.8",
+  "version": "1.4.13",
   "description": "DargStack configuration for maevsi.",
   "repository": "https://github.com/maevsi/maevsi_stack.git",
   "author": "Jonas Thelemann <e-mail@jonas-thelemann.de>",
   "license": "GPL-3.0-only",
   "type": "module",
   "engines": {
-    "node": "19"
+    "node": "20"
   },
-  "packageManager": "pnpm@8.1.0",
+  "packageManager": "pnpm@8.3.1",
   "scripts": {
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.5.1",
-    "@commitlint/config-conventional": "17.4.4",
+    "@commitlint/cli": "17.6.1",
+    "@commitlint/config-conventional": "17.6.1",
     "dargstack": "2.2.1",
-    "dargstack_rgen": "0.9.0",
+    "dargstack_rgen": "0.9.3",
     "husky": "8.0.3"
   }
 }

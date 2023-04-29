@@ -20,7 +20,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: maevsi/maevsi:1.9.4@sha256:7efb0ef7e7a18021c7edfd77633f4913a7c4f5669c30a4c74142a49b33b6a183
+    image: maevsi/maevsi:1.13.1@sha256:6ce54a6dcd0527220d01d62ebc16163418000bd8b7c7e2d8d9c0dd0c2a6fe209
     user: (( prune ))
   maevsi_beta:
   # You can access the main project's beta version at [beta.localhost](https://localhost/).
@@ -73,7 +73,7 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: prodrigestivill/postgres-backup-local:15-alpine@sha256:ba07582f28f4104c14da79fa34a5dda372f313d274c551d21c50b2bb075f4432
+    image: prodrigestivill/postgres-backup-local:15-alpine@sha256:da879cc0012841820854bee1a71306b116cf2d0c85f25de342522f0b6f281a4e
     secrets:
     - postgres-backup_db
     - postgres_password
@@ -93,7 +93,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.stomper_secure.tls.certresolver=default
-    image: maevsi/stomper:0.29.6@sha256:df73a7535648c3f6219507c723fd116155e2f60d56b66ba609cc9a8f0cb65576
+    image: maevsi/stomper:0.29.10@sha256:978171ef238a484263eb1e5cb3688def5517a8205a492f653bb54cd1e48a49b3
     user: (( prune ))
     volumes: (( prune ))
   traefik:
