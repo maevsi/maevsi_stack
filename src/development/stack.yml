@@ -238,7 +238,7 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-authenticate
+      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
       - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
