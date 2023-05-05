@@ -1,3 +1,17 @@
+## [1.4.13](https://github.com/maevsi/maevsi_stack/compare/1.4.12...1.4.13) (2023-04-26)
+
+
+### Bug Fixes
+
+* **development:** account for pnpm workspace ([391197f](https://github.com/maevsi/maevsi_stack/commit/391197fe8ca97c148a32ab4293653f4ce245a57b))
+
+## [1.4.12](https://github.com/maevsi/maevsi_stack/compare/1.4.11...1.4.12) (2023-04-26)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi/maevsi docker tag to v1.13.0 ([1cc4d3e](https://github.com/maevsi/maevsi_stack/commit/1cc4d3e00945148a954fef44def313adecdba19a))
+
 ## [1.4.11](https://github.com/maevsi/maevsi_stack/compare/1.4.10...1.4.11) (2023-04-23)
 
 
