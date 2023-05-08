@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/maevsi/maevsi_stack/compare/1.4.14...1.5.0) (2023-05-08)
+
+
+### Features
+
+* **production:** use github container registry ([8e20ffe](https://github.com/maevsi/maevsi_stack/commit/8e20ffe975b654369a044f13202c25748444e436))
+
 ## [1.4.14](https://github.com/maevsi/maevsi_stack/compare/1.4.13...1.4.14) (2023-05-07)
 
 
