@@ -13,7 +13,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.adminer_secure.middlewares=auth
       - traefik.http.routers.adminer_secure.tls.certresolver=default
   maevsi:
     deploy:
@@ -58,8 +57,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      # TODO: enable authentication for portainer (https://github.com/maevsi/maevsi_stack/issues/62)
-      # - traefik.http.routers.portainer_secure.middlewares=auth
       - traefik.http.routers.portainer_secure.tls.certresolver=default
   postgraphile:
     deploy:
@@ -85,8 +82,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      # TODO: enable authentication for rabbitmq (https://github.com/maevsi/maevsi_stack/issues/62)
-      # - traefik.http.routers.rabbitmq_secure.middlewares=auth
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   stomper:
     deploy:
