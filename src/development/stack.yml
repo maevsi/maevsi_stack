@@ -19,6 +19,9 @@ secrets:
   maevsi_sqitch-target:
   # The database change management application's database connection string.
     file: ./secrets/maevsi/sqitch-target.secret
+  maevsi_turnstile-key:
+  # The captcha provider's secret key.
+    file: ./secrets/maevsi/turnstile-key.secret
   pg-amqp-bridge_amqp-uri:
   # The database-to-AMQP bridge's AMQP URI.
     file: ./secrets/pg-amqp-bridge/amqp-uri.secret
@@ -131,14 +134,16 @@ services:
       - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
-      NUXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
-      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
+      NUXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
+      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN}
+      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
     image: maevsi/maevsi:dev
     secrets:
     - maevsi_sqitch-target
+    - maevsi_turnstile-key
     - postgres_db
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
@@ -233,14 +238,15 @@ services:
     deploy:
       labels:
       - traefik.enable=true
-      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type
+      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
       - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
       - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors
+      - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors,postgraphile_auth
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
+      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy #DARGSTACK-REMOVE
     environment:
       POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
@@ -332,6 +338,8 @@ services:
     - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
     - --providers.file.watch=true #DARGSTACK-REMOVE
     - --log.level=DEBUG #DARGSTACK-REMOVE
+    - --experimental.plugins.body-forward-auth.moduleName=github.com/PatrickMi/body-forward-auth
+    - --experimental.plugins.body-forward-auth.version=v0.1.2
     deploy:
       labels:
       - traefik.enable=true
