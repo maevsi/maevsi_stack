@@ -38,16 +38,14 @@ services:
       - traefik.http.routers.maevsi_beta_secure.tls.certresolver=default
     environment:
       CONSOLA_LEVEL: 4 # 0: fatal/error, 1: warn, 2: log, 3: info/success, 4: debug, 5: trace
-      NUXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
-      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN}
-      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
+      NUXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
+      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
     image: ghcr.io/maevsi/maevsi:1.17.0-beta.1@sha256:1699bc84a02bbfcbe4273686325e062ff6802938c28d7b7e8ba3088ede28f299
     secrets:
     - maevsi_sqitch-target
-    - maevsi_turnstile-key
     - postgres_db
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
@@ -85,11 +83,6 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
-  postgraphile:
-    deploy:
-      labels:
-      - (( append ))
-      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi_beta:3000/api/auth-proxy #DARGSTACK-REMOVE
   stomper:
     deploy:
       labels:
