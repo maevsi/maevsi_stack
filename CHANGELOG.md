@@ -1,3 +1,29 @@
+# [1.6.0](https://github.com/maevsi/maevsi_stack/compare/1.5.0...1.6.0) (2023-05-10)
+
+
+### Bug Fixes
+
+* **maevsi_beta:** prepare for production ([15bea51](https://github.com/maevsi/maevsi_stack/commit/15bea519add695d9fab5cea7fb773f401a7f0734))
+* **turnstile:** correct secret ([87266b4](https://github.com/maevsi/maevsi_stack/commit/87266b400f41b37518dc45b2b3475a2d241d4c73))
+* **turnstile:** use 'x-turnstile-key' as header for the ts key ([9bbec60](https://github.com/maevsi/maevsi_stack/commit/9bbec604eac0dbe92bc784125cc1927223dcba9a))
+
+
+### Features
+
+* **auth:** add forward authentication plugin ([3542eaa](https://github.com/maevsi/maevsi_stack/commit/3542eaa4c772d8bb46a945aa753a2f20fa31b7e3))
+* **authentication:** adds blank lines after code blocks ([b3f7190](https://github.com/maevsi/maevsi_stack/commit/b3f719000f90d6612f80b1c26eead6790a27ba1d))
+* **authentication:** adds constant to enable/disable debug output ([e2ee037](https://github.com/maevsi/maevsi_stack/commit/e2ee0371aaba61ccbd940888050561f2a82ae87c))
+* **authentication:** moves plugin and rearrange code ([b1cb539](https://github.com/maevsi/maevsi_stack/commit/b1cb539cd75ceca52d3cadb79763e69e9db60b9e))
+* **authentication:** remove unimportant logging ([7c9b4dc](https://github.com/maevsi/maevsi_stack/commit/7c9b4dc671a92f408dafc42aa8f5dfc0422bec20))
+* **authentication:** removes .DS_Store file ([dd3c0ab](https://github.com/maevsi/maevsi_stack/commit/dd3c0abf71fce9bf8f6ac07c54bb3197ba7cc826))
+* **authentication:** removes todo ([da96691](https://github.com/maevsi/maevsi_stack/commit/da966913ab0c8437470938625014d753479181ef))
+* **authentication:** removes unimportant logging ([b6e2ae3](https://github.com/maevsi/maevsi_stack/commit/b6e2ae3cb423f79f70e89d46547628f2a6e1efbc))
+* **authentication:** removes unused icon path ([c44ef37](https://github.com/maevsi/maevsi_stack/commit/c44ef3733f3d2350ed7234e49231755685dace61))
+* **authentication:** rename plugin in stack configuration ([6968232](https://github.com/maevsi/maevsi_stack/commit/6968232dd3288d81a86870a9651efc4fb495cefb))
+* **authentication:** uses body-forward-auth plugin from github ([f9d96d4](https://github.com/maevsi/maevsi_stack/commit/f9d96d458f5b433075723a49a4dde69854e4c694))
+* stash ([af80d6d](https://github.com/maevsi/maevsi_stack/commit/af80d6d77b363990d0ece00c2cd45a9622d5e498))
+* stash ([ae951bb](https://github.com/maevsi/maevsi_stack/commit/ae951bb40c319ac2a1944672183dd8c12f7e44de))
+
 # [1.5.0](https://github.com/maevsi/maevsi_stack/compare/1.4.14...1.5.0) (2023-05-08)
 
 
