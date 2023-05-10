@@ -100,8 +100,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.middlewares.auth.basicauth.users=${STACK_AUTH_BASIC}
-      - traefik.http.routers.traefik_secure.middlewares=auth
       - traefik.http.routers.traefik_secure.tls.certresolver=default
     environment:
       CF_DNS_API_TOKEN_FILE: /run/secrets/traefik_cf-dns-api-token
