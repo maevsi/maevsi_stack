@@ -152,7 +152,7 @@ services:
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
     - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
-    - ../../../maevsi/:/srv/app/ #DARGSTACK-REMOVE
+    - ../../../maevsi/nuxt/:/srv/app/ #DARGSTACK-REMOVE
     - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
   minio:
   # You can access the s3 console at [minio.localhost](https://minio.localhost/).
