@@ -1,3 +1,10 @@
+## [1.7.1-beta.1](https://github.com/maevsi/maevsi_stack/compare/1.7.0...1.7.1-beta.1) (2023-05-16)
+
+
+### Bug Fixes
+
+* **maevsi:** correct volume source directory ([6d95ef2](https://github.com/maevsi/maevsi_stack/commit/6d95ef2a7d73a583e7d6509ce19478dc5043a7bb))
+
 # [1.7.0](https://github.com/maevsi/maevsi_stack/compare/1.6.0...1.7.0) (2023-05-16)
 
 
