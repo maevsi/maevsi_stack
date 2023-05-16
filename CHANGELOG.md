@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/maevsi/maevsi_stack/compare/1.6.0...1.7.0) (2023-05-16)
+
+
+### Features
+
+* **production:** remove basic authentication from services with own login ([aea6eb5](https://github.com/maevsi/maevsi_stack/commit/aea6eb56b852be873ac8e7f6ca92fb0a9ae2dc36))
+* **production:** remove stack's basic authentication ([dc96753](https://github.com/maevsi/maevsi_stack/commit/dc967539aa5ed9f1f7152090a35a53194df2d4c4))
+
 # [1.6.0](https://github.com/maevsi/maevsi_stack/compare/1.5.0...1.6.0) (2023-05-10)
 
 
