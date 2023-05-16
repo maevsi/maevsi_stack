@@ -13,7 +13,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.routers.adminer_secure.middlewares=auth
       - traefik.http.routers.adminer_secure.tls.certresolver=default
   maevsi:
     deploy:
@@ -60,8 +59,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      # TODO: enable authentication for portainer (https://github.com/maevsi/maevsi_stack/issues/62)
-      # - traefik.http.routers.portainer_secure.middlewares=auth
       - traefik.http.routers.portainer_secure.tls.certresolver=default
   postgraphile:
     deploy:
@@ -87,8 +84,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      # TODO: enable authentication for rabbitmq (https://github.com/maevsi/maevsi_stack/issues/62)
-      # - traefik.http.routers.rabbitmq_secure.middlewares=auth
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   postgraphile:
     deploy:
@@ -112,8 +107,6 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.middlewares.auth.basicauth.users=${STACK_AUTH_BASIC}
-      - traefik.http.routers.traefik_secure.middlewares=auth
       - traefik.http.routers.traefik_secure.tls.certresolver=default
     environment:
       CF_DNS_API_TOKEN_FILE: /run/secrets/traefik_cf-dns-api-token
