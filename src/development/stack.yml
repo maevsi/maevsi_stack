@@ -109,7 +109,7 @@ services:
       - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
       - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   maevsi:
-  # You can access the main project at [localhost](https://localhost/).
+  # You can access the main project's frontend at [localhost](https://localhost/).
     deploy:
       labels:
       - traefik.enable=true
@@ -142,12 +142,8 @@ services:
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
     image: maevsi/maevsi:dev
     secrets:
-    - maevsi_sqitch-target
     - maevsi_turnstile-key
     - postgres_db
-    - postgres_role_maevsi-postgraphile_password
-    - postgres_role_maevsi-stomper_password
-    - postgres_role_maevsi-tusd_password
     user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
@@ -298,6 +294,17 @@ services:
     - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
     - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
     - rabbitmq_data:/var/lib/rabbitmq
+  sqitch:
+  # You cannot access the database migrations directly.
+    image: maevsi/sqitch:dev
+    secrets:
+    - maevsi_sqitch-target
+    - postgres_role_maevsi-postgraphile_password
+    - postgres_role_maevsi-stomper_password
+    - postgres_role_maevsi-tusd_password
+    volumes:
+    - ../../../sqitch/src/:/srv/app/
+    - /run/postgresql/:/run/postgresql/
   stomper:
   # You cannot access the email service directly.
     deploy:
