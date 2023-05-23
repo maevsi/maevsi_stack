@@ -1,3 +1,10 @@
+# [1.8.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/1.8.0-beta.1...1.8.0-beta.2) (2023-05-23)
+
+
+### Features
+
+* **maevsi:** correct development volume mount ([c7a0d49](https://github.com/maevsi/maevsi_stack/commit/c7a0d490a4344293e32c37054b62ed4f3e09cacf))
+
 # [1.8.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/1.7.1-beta.1...1.8.0-beta.1) (2023-05-23)
 
 
