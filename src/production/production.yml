@@ -22,7 +22,7 @@ services:
     image: ghcr.io/maevsi/maevsi:1.17.1@sha256:1a142eca58945e6cadd9444d43e102221fe26538ec5dbc2838092bea4eeef50b
     user: (( prune ))
   maevsi_beta:
-  # You can access the main project's beta version at [beta.localhost](https://localhost/).
+  # You can access the main project's beta version frontend at [beta.localhost](https://localhost/).
     deploy:
       labels:
       - traefik.enable=true
@@ -89,7 +89,10 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi_beta:3000/api/auth-proxy #DARGSTACK-REMOVE
+      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi_beta:3000/api/auth-proxy
+  sqitch:
+    image: maevsi/maevsi-database-migrations:1.13.2@sha256:698c82959d925b062f90ff069d7b361020f0a71fe4d8b53f1453d86b888a11fe
+    volumes: (( prune ))
   stomper:
     deploy:
       labels:
