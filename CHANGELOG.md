@@ -1,3 +1,10 @@
+# [1.8.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/1.7.1-beta.1...1.8.0-beta.1) (2023-05-23)
+
+
+### Features
+
+* **sqitch:** add database migrations as separate service ([9f8244b](https://github.com/maevsi/maevsi_stack/commit/9f8244b1cd5acb9e99aac76c964c715b1eb511ee))
+
 ## [1.7.1-beta.1](https://github.com/maevsi/maevsi_stack/compare/1.7.0...1.7.1-beta.1) (2023-05-16)
 
 
