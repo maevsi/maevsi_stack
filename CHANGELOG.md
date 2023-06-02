@@ -1,3 +1,10 @@
+# [1.8.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/1.8.0-beta.2...1.8.0-beta.3) (2023-06-02)
+
+
+### Bug Fixes
+
+* **postgraphile:** add router for graphiql ([c8b6dac](https://github.com/maevsi/maevsi_stack/commit/c8b6dac518e4ac5c0ccb3a873c21a7a5d06cb5ab))
+
 # [1.8.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/1.8.0-beta.1...1.8.0-beta.2) (2023-05-23)
 
 
