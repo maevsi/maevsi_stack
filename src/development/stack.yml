@@ -234,6 +234,7 @@ services:
     deploy:
       labels:
       - traefik.enable=true
+      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy #DARGSTACK-REMOVE
       - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
       - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
       - traefik.http.routers.postgraphile.middlewares=redirectscheme
@@ -241,8 +242,9 @@ services:
       - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors,postgraphile_auth
       - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
       - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.routers.postgraphile_secure_graphiql.rule=Host(`postgraphile.${STACK_DOMAIN}`) && Path(`/graphiql`)
+      - traefik.http.routers.postgraphile_secure_graphiql.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.postgraphile.loadbalancer.server.port=5000
-      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy #DARGSTACK-REMOVE
     environment:
       POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
