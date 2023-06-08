@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/maevsi/maevsi_stack/compare/1.7.0...1.7.1) (2023-06-08)
+
+
+### Reverts
+
+* Revert "Merge pull request #73 from maevsi/traefik_changes" ([c5e9bed](https://github.com/maevsi/maevsi_stack/commit/c5e9bed385e34e40d093e2964b21071e2d48b78d)), closes [#73](https://github.com/maevsi/maevsi_stack/issues/73)
+
 # [1.7.0](https://github.com/maevsi/maevsi_stack/compare/1.6.0...1.7.0) (2023-05-16)
 
 
