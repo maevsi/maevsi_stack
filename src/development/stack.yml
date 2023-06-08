@@ -211,7 +211,7 @@ services:
         constraints:
         - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.18.2-alpine
+    image: portainer/portainer-ce:2.18.3-alpine
     secrets:
     - portainer_admin-password
     volumes:
@@ -225,7 +225,7 @@ services:
         - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.18.2
+    image: portainer/agent:2.18.3
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -394,7 +394,7 @@ services:
       - traefik.http.services.tusd.loadbalancer.server.port=1080
     environment:
       AWS_REGION: ${S3_TUSD_REGION}
-    image: tusproject/tusd:v1.11.0@sha256:db463b74ebb57a7bc959d8ac364dd007bf8fd49d50ede93c0dde885800e74602
+    image: tusproject/tusd:v1.11.0
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials

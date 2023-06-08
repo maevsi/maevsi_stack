@@ -10,15 +10,15 @@
   "engines": {
     "node": "20"
   },
-  "packageManager": "pnpm@8.5.1",
+  "packageManager": "pnpm@8.6.1",
   "scripts": {
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.3",
-    "@commitlint/config-conventional": "17.6.3",
+    "@commitlint/cli": "17.6.5",
+    "@commitlint/config-conventional": "17.6.5",
     "dargstack": "2.2.1",
-    "dargstack_rgen": "0.9.5",
+    "dargstack_rgen": "0.9.7",
     "husky": "8.0.3"
   }
 }
