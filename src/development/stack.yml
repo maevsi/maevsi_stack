@@ -144,6 +144,7 @@ services:
     secrets:
     - maevsi_turnstile-key
     - postgres_db
+    - postgres_role_maevsi-tusd_password
     user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
     - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
