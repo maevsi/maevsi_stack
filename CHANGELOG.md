@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/maevsi/maevsi_stack/compare/1.7.2...1.7.3) (2023-06-08)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v1.18.3 ([55e875e](https://github.com/maevsi/maevsi_stack/commit/55e875e90cf4cb65f2aed7989fafb49f7ca93c86))
+
 ## [1.7.2](https://github.com/maevsi/maevsi_stack/compare/1.7.1...1.7.2) (2023-06-08)
 
 
