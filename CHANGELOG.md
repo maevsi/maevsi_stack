@@ -1,3 +1,10 @@
+# [1.8.0-beta.4](https://github.com/maevsi/maevsi_stack/compare/1.8.0-beta.3...1.8.0-beta.4) (2023-06-14)
+
+
+### Bug Fixes
+
+* **maevsi:** add missing secret ([7aef10f](https://github.com/maevsi/maevsi_stack/commit/7aef10fc5ed90443bd9012b1dfec90ba71cca624))
+
 # [1.8.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/1.8.0-beta.2...1.8.0-beta.3) (2023-06-02)
 
 
