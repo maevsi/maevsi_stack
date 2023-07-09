@@ -135,11 +135,11 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `maevsi`
     
-    You can access the main project at [localhost](https://localhost/).
+    You can access the main project's frontend at [localhost](https://localhost/).
     
  - ### `maevsi_beta` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
-    You can access the main project's beta version at [beta.localhost](https://localhost/).
+    You can access the main project's beta version frontend at [beta.localhost](https://localhost/).
     
  - ### `minio`
     
@@ -173,6 +173,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `rabbitmq`
     
     You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
+    
+ - ### `sqitch`
+    
+    You cannot access the database migrations directly.
     
  - ### `stomper`
     

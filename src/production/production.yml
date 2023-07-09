@@ -22,7 +22,7 @@ services:
     image: ghcr.io/maevsi/maevsi:1.19.1@sha256:6cf6fd26355d832d2683a85f91b8b0f8fc8443c926cbe6cf437dd66e75370fad
     user: (( prune ))
   maevsi_beta:
-  # You can access the main project's beta version at [beta.localhost](https://localhost/).
+  # You can access the main project's beta version frontend at [beta.localhost](https://localhost/).
     deploy:
       labels:
       - traefik.enable=true
@@ -62,6 +62,7 @@ services:
     deploy:
       labels:
       - (( append ))
+      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi_beta:3001/api/auth-proxy
       - traefik.http.routers.postgraphile_secure.tls.certresolver=default
   postgres_backup:
   # You cannot access the database backup directly.
@@ -83,6 +84,9 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
+  sqitch:
+    image: maevsi/sqitch:1.17.4@sha256:6a08d7cc543c0d95f80228fbf1dd17c768fdce597a27a187cf4b5495a6049e60
+    volumes: (( prune ))
   stomper:
     deploy:
       labels:
