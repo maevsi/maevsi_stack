@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/maevsi/maevsi_stack/compare/1.7.6...1.8.0) (2023-07-09)
+
+
+### Bug Fixes
+
+* **maevsi:** add missing secret ([7aef10f](https://github.com/maevsi/maevsi_stack/commit/7aef10fc5ed90443bd9012b1dfec90ba71cca624))
+* **maevsi:** correct volume source directory ([6d95ef2](https://github.com/maevsi/maevsi_stack/commit/6d95ef2a7d73a583e7d6509ce19478dc5043a7bb))
+* **postgraphile:** add router for graphiql ([c8b6dac](https://github.com/maevsi/maevsi_stack/commit/c8b6dac518e4ac5c0ccb3a873c21a7a5d06cb5ab))
+
+
+### Features
+
+* **maevsi:** correct development volume mount ([c7a0d49](https://github.com/maevsi/maevsi_stack/commit/c7a0d490a4344293e32c37054b62ed4f3e09cacf))
+* **sqitch:** add database migrations as separate service ([9f8244b](https://github.com/maevsi/maevsi_stack/commit/9f8244b1cd5acb9e99aac76c964c715b1eb511ee))
+
 # [1.8.0-beta.4](https://github.com/maevsi/maevsi_stack/compare/1.8.0-beta.3...1.8.0-beta.4) (2023-06-14)
 
 
