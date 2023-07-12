@@ -19,6 +19,9 @@ secrets:
   maevsi_sqitch-target:
   # The database change management application's database connection string.
     file: ./secrets/maevsi/sqitch-target.secret
+  maevsi_turnstile-key:
+  # The captcha provider's application key.
+    file: ./secrets/maevsi/turnstile-key.secret
   pg-amqp-bridge_amqp-uri:
   # The database-to-AMQP bridge's AMQP URI.
     file: ./secrets/pg-amqp-bridge/amqp-uri.secret

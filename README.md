@@ -38,6 +38,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The database change management application's database connection string.
     
+ - ### `maevsi_turnstile-key`
+    
+    The captcha provider's application key.
+    
  - ### `pg-amqp-bridge_amqp-uri`
     
     The database-to-AMQP bridge's AMQP URI.
