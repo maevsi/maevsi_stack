@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/maevsi/maevsi_stack/compare/1.8.0...1.8.1) (2023-07-12)
+
+
+### Bug Fixes
+
+* **maevsi:** add missing turnstile secret ([a27e0dc](https://github.com/maevsi/maevsi_stack/commit/a27e0dc1aff9c0f928ede2fe1c51effc4a75d7fc))
+
 # [1.8.0](https://github.com/maevsi/maevsi_stack/compare/1.7.6...1.8.0) (2023-07-09)
 
 
