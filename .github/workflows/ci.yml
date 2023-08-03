@@ -13,4 +13,4 @@ jobs:
     name: Semantic Release
     uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.40.16
     secrets:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
