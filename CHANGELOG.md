@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/maevsi/maevsi_stack/compare/1.8.3...1.8.4) (2023-08-08)
+
+
+### Bug Fixes
+
+* **maevsi:** correct volume mount ([898a9e2](https://github.com/maevsi/maevsi_stack/commit/898a9e2d747275ce9e98a091d63d7d7d40eeb872))
+
 ## [1.8.3](https://github.com/maevsi/maevsi_stack/compare/1.8.2...1.8.3) (2023-08-06)
 
 
