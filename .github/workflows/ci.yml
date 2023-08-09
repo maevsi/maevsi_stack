@@ -7,10 +7,10 @@ on:
 jobs:
   build:
     name: DargStack rgen
-    uses: dargmuesli/github-actions/.github/workflows/dargstack-rgen.yml@0.40.16
+    uses: dargmuesli/github-actions/.github/workflows/dargstack-rgen.yml@0.40.17
   release-semantic:
     needs: build
     name: Semantic Release
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.40.16
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.40.17
     secrets:
       GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
