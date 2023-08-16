@@ -7,11 +7,11 @@ on:
 jobs:
   build:
     name: DargStack rgen
-    uses: dargmuesli/github-actions/.github/workflows/dargstack-rgen.yml@0.41.3
+    uses: dargmuesli/github-actions/.github/workflows/dargstack-rgen.yml@0.41.4
   release-semantic:
     needs: build
     name: Semantic Release
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.41.3
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.41.4
     permissions:
       contents: write
     secrets:
