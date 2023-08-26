@@ -16,9 +16,6 @@ secrets:
   jobber_msmtprc:
   # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
-  maevsi_sqitch-target:
-  # The database change management application's database connection string.
-    file: ./secrets/maevsi/sqitch-target.secret
   maevsi_turnstile-key:
   # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
@@ -61,6 +58,9 @@ secrets:
   rabbitmq_definitions:
   # The message queue's configuration.
     file: ./secrets/rabbitmq/definitions.json.secret
+  sqitch_target:
+  # The database change management application's database connection string.
+    file: ./secrets/sqitch/target.secret
   stomper_nodemailer-transporter:
   # The email service's SMTP configuration.
     file: ./secrets/stomper/nodemailer-transporter.secret
@@ -300,10 +300,10 @@ services:
   # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
     secrets:
-    - maevsi_sqitch-target
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
     - postgres_role_maevsi-tusd_password
+    - sqitch_target
     volumes:
     - ../../../sqitch/src/:/srv/app/
     - /run/postgresql/:/run/postgresql/
