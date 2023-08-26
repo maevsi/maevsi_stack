@@ -1,3 +1,10 @@
+## [1.9.4](https://github.com/maevsi/maevsi_stack/compare/1.9.3...1.9.4) (2023-08-26)
+
+
+### Bug Fixes
+
+* **maevsi:** correct production port ([a86b0b2](https://github.com/maevsi/maevsi_stack/commit/a86b0b29c42190c74a341b7708c04d3d881bcfa2))
+
 ## [1.9.3](https://github.com/maevsi/maevsi_stack/compare/1.9.2...1.9.3) (2023-08-26)
 
 
