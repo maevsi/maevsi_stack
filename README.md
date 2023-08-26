@@ -141,10 +141,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the main project's frontend at [localhost](https://localhost/).
     
- - ### `maevsi_beta` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-    
-    You can access the main project's beta version frontend at [beta.localhost](https://localhost/).
-    
  - ### `minio`
     
     You can access the s3 console at [minio.localhost](https://minio.localhost/).

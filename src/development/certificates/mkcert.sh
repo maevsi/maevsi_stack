@@ -30,7 +30,7 @@ done
 create "root"
 create "traefik" \
     `# adminer` "adminer.localhost" \
-    `# maevsi` "localhost" "www.localhost" "alpha.localhost" "beta.localhost" "127.0.0.1" "0.0.0.0" \
+    `# maevsi` "localhost" "www.localhost" "127.0.0.1" "0.0.0.0" \
     `# minio` "minio.localhost" \
     `# portainer` "portainer.localhost" \
     `# postgraphile` "postgraphile.localhost" \
