@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/maevsi/maevsi_stack/compare/1.9.1...1.9.2) (2023-08-26)
+
+
+### Bug Fixes
+
+* **sqitch:** update to v1.17.10 ([29cec4f](https://github.com/maevsi/maevsi_stack/commit/29cec4f6625e35b93cbfd12584b28aab9b94597e))
+
 ## [1.9.1](https://github.com/maevsi/maevsi_stack/compare/1.9.0...1.9.1) (2023-08-26)
 
 
