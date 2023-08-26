@@ -34,10 +34,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's SMTP client configuration.
     
- - ### `maevsi_sqitch-target`
-    
-    The database change management application's database connection string.
-    
  - ### `maevsi_turnstile-key`
     
     The captcha provider's application key.
@@ -97,6 +93,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `rabbitmq_definitions`
     
     The message queue's configuration.
+    
+ - ### `sqitch_target`
+    
+    The database change management application's database connection string.
     
  - ### `stomper_nodemailer-transporter`
     
