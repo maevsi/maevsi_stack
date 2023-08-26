@@ -1,3 +1,10 @@
+## [1.9.5](https://github.com/maevsi/maevsi_stack/compare/1.9.4...1.9.5) (2023-08-26)
+
+
+### Bug Fixes
+
+* **maevsi:** add turnstile site key environment variable ([53f0737](https://github.com/maevsi/maevsi_stack/commit/53f073753c933b943fff8f6faa890668a2cab723))
+
 ## [1.9.4](https://github.com/maevsi/maevsi_stack/compare/1.9.3...1.9.4) (2023-08-26)
 
 
