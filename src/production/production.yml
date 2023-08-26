@@ -54,7 +54,7 @@ services:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   sqitch:
-    image: maevsi/sqitch:1.17.4@sha256:6a08d7cc543c0d95f80228fbf1dd17c768fdce597a27a187cf4b5495a6049e60
+    image: ghcr.io/maevsi/sqitch:1.17.4@sha256:6a08d7cc543c0d95f80228fbf1dd17c768fdce597a27a187cf4b5495a6049e60
     volumes: (( prune ))
   stomper:
     deploy:
