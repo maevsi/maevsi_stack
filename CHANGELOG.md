@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/maevsi/maevsi_stack/compare/1.9.0...1.9.1) (2023-08-26)
+
+
+### Bug Fixes
+
+* **sqitch:** correct target secret name ([4f09163](https://github.com/maevsi/maevsi_stack/commit/4f09163c39ac563697409929be714da60fecb6fd))
+
 # [1.9.0](https://github.com/maevsi/maevsi_stack/compare/1.8.5...1.9.0) (2023-08-26)
 
 
