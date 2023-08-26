@@ -21,37 +21,6 @@ services:
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: ghcr.io/maevsi/maevsi:1.21.2@sha256:e034fea459969b42ab280dda51d7b81d88e7eab9ab22e7bec31f134532decce6
     user: (( prune ))
-  maevsi_beta:
-  # You can access the main project's beta version frontend at [beta.localhost](https://localhost/).
-    deploy:
-      labels:
-      - traefik.enable=true
-      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowHeaders=authorization,hook-name
-      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
-      - traefik.http.middlewares.maevsi_beta_cors.headers.accessControlAllowOriginList=http://localhost:3000
-      - traefik.http.routers.maevsi_beta.entryPoints=web
-      - traefik.http.routers.maevsi_beta.middlewares=redirectscheme
-      - traefik.http.routers.maevsi_beta.rule=Host(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi_beta_secure.entryPoints=web-secure
-      - traefik.http.routers.maevsi_beta_secure.rule=Host(`${STACK_DOMAIN}`, `beta.${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.services.maevsi_beta.loadbalancer.server.port=3000
-      - traefik.http.routers.maevsi_beta_secure.tls.certresolver=default
-    environment:
-      CONSOLA_LEVEL: 4 # 0: fatal/error, 1: warn, 2: log, 3: info/success, 4: debug, 5: trace
-      NUXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
-      NUXT_PUBLIC_STACK_DOMAIN: ${STACK_DOMAIN} # Must be prefixed by "NUXT_PUBLIC_" (https://nuxt.com/docs/api/composables/use-runtime-config)
-      POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
-      POSTGRES_DB_FILE: /run/secrets/postgres_db
-      POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
-    image: ghcr.io/maevsi/maevsi:1.19.0-beta.1@sha256:78064c2e5c5362eefbcd746280c8876e6c09c32ba237a3d971769a427a1973a8
-    secrets:
-    - maevsi_sqitch-target
-    - postgres_db
-    - postgres_role_maevsi-postgraphile_password
-    - postgres_role_maevsi-stomper_password
-    - postgres_role_maevsi-tusd_password
-    volumes:
-    - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
   minio: (( prune ))
   portainer:
     deploy:
@@ -62,7 +31,7 @@ services:
     deploy:
       labels:
       - (( append ))
-      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi_beta:3001/api/auth-proxy
+      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3001/api/auth-proxy
       - traefik.http.routers.postgraphile_secure.tls.certresolver=default
   postgres_backup:
   # You cannot access the database backup directly.
@@ -85,7 +54,7 @@ services:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   sqitch:
-    image: maevsi/sqitch:1.17.4@sha256:6a08d7cc543c0d95f80228fbf1dd17c768fdce597a27a187cf4b5495a6049e60
+    image: ghcr.io/maevsi/sqitch:1.17.4@sha256:6a08d7cc543c0d95f80228fbf1dd17c768fdce597a27a187cf4b5495a6049e60
     volumes: (( prune ))
   stomper:
     deploy:
