@@ -1,3 +1,16 @@
+# [1.9.0](https://github.com/maevsi/maevsi_stack/compare/1.8.5...1.9.0) (2023-08-26)
+
+
+### Bug Fixes
+
+* **sqitch:** correct image registry ([291bb24](https://github.com/maevsi/maevsi_stack/commit/291bb24450352898145c96c603030fe884101526))
+
+
+### Features
+
+* **maevsi:** remove alpha redirection ([c1ccc7f](https://github.com/maevsi/maevsi_stack/commit/c1ccc7ffcbccbb80b53b54c595cedf506ae4f180))
+* **maevsi:** remove beta service ([9cecedb](https://github.com/maevsi/maevsi_stack/commit/9cecedbbfce262cc5157bdcb61532ab3fa6eedec))
+
 ## [1.8.5](https://github.com/maevsi/maevsi_stack/compare/1.8.4...1.8.5) (2023-08-20)
 
 
