@@ -20,7 +20,7 @@ services:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
       - traefik.http.services.maevsi.loadbalancer.server.port=3001
-    image: ghcr.io/maevsi/maevsi:1.21.4@sha256:697f76852f10f5cb525b23197a7029b714e7801fd47c7278deabe7314e272312
+    image: ghcr.io/maevsi/maevsi:1.21.5@sha256:e310b454cb5e104ea62399c59952f3d686d51f71884bb1d96093ca17dd03af7b
     user: (( prune ))
   minio: (( prune ))
   portainer:
