@@ -89,7 +89,7 @@ services:
       - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
       - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.adminer.loadbalancer.server.port=8080
-    image: adminer:4.8.1-standalone@sha256:758aa020a8d631163bc1c94a3a9b545c2e34e45c6c5f38252396f021c20c3637
+    image: adminer:4.8.1-standalone@sha256:dd5406612e8bd1a1908196233612ab6515e027cb1dae1e81f1daf412597b5517
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   jobber:
