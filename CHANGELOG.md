@@ -1,3 +1,10 @@
+## [1.9.8](https://github.com/maevsi/maevsi_stack/compare/1.9.7...1.9.8) (2023-09-08)
+
+
+### Bug Fixes
+
+* **maevsi:** correct google analytics environment variable ([bb44e5e](https://github.com/maevsi/maevsi_stack/commit/bb44e5e30d0c931dca98228e01fad3c7787759f4))
+
 ## [1.9.7](https://github.com/maevsi/maevsi_stack/compare/1.9.6...1.9.7) (2023-09-07)
 
 
