@@ -1,3 +1,10 @@
+## [1.9.10](https://github.com/maevsi/maevsi_stack/compare/1.9.9...1.9.10) (2023-09-10)
+
+
+### Bug Fixes
+
+* **maevsi:** correct stack domain ([838f9e5](https://github.com/maevsi/maevsi_stack/commit/838f9e55cd37122f66cbc39ef83904187fbd18e3))
+
 ## [1.9.9](https://github.com/maevsi/maevsi_stack/compare/1.9.8...1.9.9) (2023-09-10)
 
 
