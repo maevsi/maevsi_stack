@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/maevsi/maevsi_stack/compare/2.0.0...2.0.1) (2023-09-12)
+
+
+### Bug Fixes
+
+* **maevsi:** keep port for production ([e093afb](https://github.com/maevsi/maevsi_stack/commit/e093afbe41a5a4b00d272a93b010f226988df98e))
+
 ## [2.0.0](https://github.com/maevsi/maevsi_stack/compare/1.9.12...2.0.0) (2023-09-12)
 
 
