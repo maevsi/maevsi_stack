@@ -1,3 +1,10 @@
+## [1.9.12](https://github.com/maevsi/maevsi_stack/compare/1.9.11...1.9.12) (2023-09-12)
+
+
+### Bug Fixes
+
+* **maevsi:** correct port ([8541b88](https://github.com/maevsi/maevsi_stack/commit/8541b88925e62661132f78ee5f2f9107de9a6ff2))
+
 ## [1.9.11](https://github.com/maevsi/maevsi_stack/compare/1.9.10...1.9.11) (2023-09-12)
 
 
