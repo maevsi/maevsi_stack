@@ -130,7 +130,7 @@ services:
       - traefik.http.routers.maevsi_secure_nuxt.entryPoints=nuxt #DARGSTACK-REMOVE
       - traefik.http.routers.maevsi_secure_nuxt.service=maevsi_secure_nuxt #DARGSTACK-REMOVE
       - traefik.http.routers.maevsi_secure_nuxt.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
-      - traefik.http.services.maevsi.loadbalancer.server.port=3000 #DARGSTACK-REMOVE
+      - traefik.http.services.maevsi.loadbalancer.server.port=3000
       - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
