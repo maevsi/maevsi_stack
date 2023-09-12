@@ -1,3 +1,19 @@
+## [2.0.0](https://github.com/maevsi/maevsi_stack/compare/1.9.12...2.0.0) (2023-09-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **traefik:** prefix environment variables
+
+### Features
+
+* **traefik:** prefix environment variables ([4af8643](https://github.com/maevsi/maevsi_stack/commit/4af86436a79c5f9daff209ca87f6b3e0cc1ce8db))
+
+
+### Bug Fixes
+
+* **maevsi:** correct environment variable ([91b099b](https://github.com/maevsi/maevsi_stack/commit/91b099b3f3c3e78fe135d0823d94fae373923dc7))
+
 ## [1.9.12](https://github.com/maevsi/maevsi_stack/compare/1.9.11...1.9.12) (2023-09-12)
 
 
