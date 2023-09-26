@@ -11,6 +11,20 @@
 * **deps:** update postgres docker tag to v16 ([9b2b945](https://github.com/maevsi/maevsi_stack/commit/9b2b9456e577aadf6799ec70d85f0acc6b55e617))
 * **deps:** update prodrigestivill/postgres-backup-local docker tag to v16 ([8873ffd](https://github.com/maevsi/maevsi_stack/commit/8873ffd697c8943a2b41a9ed08829d51e917e70a))
 
+## [2.0.4](https://github.com/maevsi/maevsi_stack/compare/2.0.3...2.0.4) (2023-09-26)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v1.32.0 ([6cab579](https://github.com/maevsi/maevsi_stack/commit/6cab579be4921a0ec0297da50ad19dd226a80ef7))
+
+## [2.0.3](https://github.com/maevsi/maevsi_stack/compare/2.0.2...2.0.3) (2023-09-24)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v1.30.2 ([c9ee587](https://github.com/maevsi/maevsi_stack/commit/c9ee587180c26b5edaae3e97169b3f3a42f20fa0))
+
 ## [2.0.2](https://github.com/maevsi/maevsi_stack/compare/2.0.1...2.0.2) (2023-09-13)
 
 
