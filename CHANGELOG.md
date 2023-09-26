@@ -1,3 +1,20 @@
+## [3.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/3.0.0-beta.1...3.0.0-beta.2) (2023-09-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** upgrade maevsi and sqitch
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v1.30.2 ([c9ee587](https://github.com/maevsi/maevsi_stack/commit/c9ee587180c26b5edaae3e97169b3f3a42f20fa0))
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v1.32.0 ([6cab579](https://github.com/maevsi/maevsi_stack/commit/6cab579be4921a0ec0297da50ad19dd226a80ef7))
+
+
+### Miscellaneous Chores
+
+* **deps:** upgrade maevsi and sqitch ([687d2aa](https://github.com/maevsi/maevsi_stack/commit/687d2aab730b5fd659dd9ac9e680a6cc4d43bd39))
+
 ## [3.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/2.0.2...3.0.0-beta.1) (2023-09-20)
 
 
