@@ -1,3 +1,18 @@
+## [3.0.0](https://github.com/maevsi/maevsi_stack/compare/2.0.4...3.0.0) (2023-09-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** upgrade maevsi and sqitch
+* **deps:** update postgres docker tag to v16
+* **deps:** update prodrigestivill/postgres-backup-local docker tag to v16
+
+### Miscellaneous Chores
+
+* **deps:** update postgres docker tag to v16 ([9b2b945](https://github.com/maevsi/maevsi_stack/commit/9b2b9456e577aadf6799ec70d85f0acc6b55e617))
+* **deps:** update prodrigestivill/postgres-backup-local docker tag to v16 ([8873ffd](https://github.com/maevsi/maevsi_stack/commit/8873ffd697c8943a2b41a9ed08829d51e917e70a))
+* **deps:** upgrade maevsi and sqitch ([687d2aa](https://github.com/maevsi/maevsi_stack/commit/687d2aab730b5fd659dd9ac9e680a6cc4d43bd39))
+
 ## [3.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/3.0.0-beta.1...3.0.0-beta.2) (2023-09-26)
 
 
