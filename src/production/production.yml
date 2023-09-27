@@ -19,7 +19,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/maevsi:1.32.0@sha256:dc462547781838f2b3a970e62a4a53793e855ed535cbff6a9922c3b751a6c78c
+    image: ghcr.io/maevsi/maevsi:2.0.0@sha256:df1b76cef4cf1d802adad9a7a3e373242dafdbe355c075e39ad93b1b7aafaf77
     user: (( prune ))
   minio: (( prune ))
   portainer:
@@ -40,7 +40,7 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: prodrigestivill/postgres-backup-local:15-alpine@sha256:99c20c3fea96531f9f50dd582be085074afb6853c8773cb2d349537ae54832c3
+    image: prodrigestivill/postgres-backup-local:16-alpine@sha256:e72ca1c987e22dedf495ddd6c397fab8b3a9cb9cc06bf8364a27eb9f539726fe
     secrets:
     - postgres-backup_db
     - postgres_password
@@ -54,7 +54,7 @@ services:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   sqitch:
-    image: ghcr.io/maevsi/sqitch:1.17.11@sha256:969a241a58b124805f6dce397d4f631d2ef5b48f1bf6bea9bcece1b0b71702d5
+    image: ghcr.io/maevsi/sqitch:2.1.0@sha256:9674ad22a7edc52bff8927285e7c297a9100b34edd2a810c728b103c7c5d45c2
     volumes: (( prune ))
   stomper:
     deploy:
