@@ -177,7 +177,7 @@ services:
         - traefik.http.routers.s3_secure.service=s3
         - traefik.http.services.s3.loadbalancer.server.port=9000
         - traefik.http.services.s3.loadbalancer.passhostheader=true
-    image: minio/minio@sha256:3653713353a271df41fa7fafc80ea125fed56bda270d8f29280077b7f9b4c7bb
+    image: minio/minio@sha256:f39735a3106edceabdbdc4a58dbf7f6d619a76d198e87a43b427c8933633a915
     volumes:
       - minio_data:/data
       - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh
