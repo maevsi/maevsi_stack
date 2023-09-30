@@ -306,7 +306,7 @@ services:
     - postgres_role_maevsi-tusd_password
     - sqitch_target
     volumes:
-    - ../../../sqitch/src/:/srv/app/
+    - ../../../sqitch/:/srv/app/
     - /run/postgresql/:/run/postgresql/
   stomper:
   # You cannot access the email service directly.
@@ -390,10 +390,10 @@ services:
       - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
       - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && Method(`GET`, `HEAD`, `OPTIONS`, `POST`, `PUT`, `PATCH`)
       - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.tusd.loadbalancer.server.port=1080
+      - traefik.http.services.tusd.loadbalancer.server.port=8080
     environment:
       AWS_REGION: ${S3_TUSD_REGION}
-    image: tusproject/tusd:v1.13.0@sha256:f8088058b80f32b34c17e8d78859dc106facb4aa013ef8bd998f27406d475956
+    image: tusproject/tusd:v2.0.0@sha256:5386b7069572c1c6285f00373f1e984a5b4abfb1b642969bb0c159eaca2b4040
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
