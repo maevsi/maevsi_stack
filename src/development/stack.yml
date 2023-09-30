@@ -306,7 +306,7 @@ services:
     - postgres_role_maevsi-tusd_password
     - sqitch_target
     volumes:
-    - ../../../sqitch/src/:/srv/app/
+    - ../../../sqitch/:/srv/app/
     - /run/postgresql/:/run/postgresql/
   stomper:
   # You cannot access the email service directly.
