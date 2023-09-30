@@ -390,7 +390,7 @@ services:
       - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
       - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && Method(`GET`, `HEAD`, `OPTIONS`, `POST`, `PUT`, `PATCH`)
       - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.tusd.loadbalancer.server.port=1080
+      - traefik.http.services.tusd.loadbalancer.server.port=8080
     environment:
       AWS_REGION: ${S3_TUSD_REGION}
     image: tusproject/tusd:v2.0.0@sha256:5386b7069572c1c6285f00373f1e984a5b4abfb1b642969bb0c159eaca2b4040
