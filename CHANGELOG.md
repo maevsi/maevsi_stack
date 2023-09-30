@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/maevsi/maevsi_stack/compare/3.0.0...3.0.1) (2023-09-30)
+
+
+### Bug Fixes
+
+* **sqitch:** correct mount path ([57bc313](https://github.com/maevsi/maevsi_stack/commit/57bc3131ab749ef8a4448735d4d2935fabf01cd0))
+
 ## [3.0.0](https://github.com/maevsi/maevsi_stack/compare/2.0.4...3.0.0) (2023-09-27)
 
 
