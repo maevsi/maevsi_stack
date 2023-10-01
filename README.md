@@ -86,6 +86,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The `tusd` database role's password.
     
+ - ### `postgres_role_maevsi-tusd_username`
+    
+    The `tusd` database role's password.
+    
  - ### `postgres_user`
     
     The database's default user.
