@@ -1,3 +1,10 @@
+## [3.1.0](https://github.com/maevsi/maevsi_stack/compare/3.0.1...3.1.0) (2023-10-01)
+
+
+### Features
+
+* **maevsi:** add `tusd` username secret ([47cab15](https://github.com/maevsi/maevsi_stack/commit/47cab1509fdb540c6026891cffe453515b9adade))
+
 ## [3.0.1](https://github.com/maevsi/maevsi_stack/compare/3.0.0...3.0.1) (2023-09-30)
 
 
