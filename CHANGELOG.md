@@ -1,3 +1,14 @@
+## [4.0.0](https://github.com/maevsi/maevsi_stack/compare/3.1.1...4.0.0) (2023-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** update ghcr.io/maevsi/sqitch docker tag to v3
+
+### Miscellaneous Chores
+
+* **deps:** update ghcr.io/maevsi/sqitch docker tag to v3 ([6af1318](https://github.com/maevsi/maevsi_stack/commit/6af1318ae656009f953832baa8bb2b1e942cbf61))
+
 ## [3.1.1](https://github.com/maevsi/maevsi_stack/compare/3.1.0...3.1.1) (2023-10-02)
 
 
