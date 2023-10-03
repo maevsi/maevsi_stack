@@ -18,8 +18,8 @@ devDependencies:
     specifier: 2.2.1
     version: 2.2.1
   dargstack_rgen:
-    specifier: 0.9.16
-    version: 0.9.16
+    specifier: 0.9.17
+    version: 0.9.17
   husky:
     specifier: 8.0.3
     version: 8.0.3
@@ -490,8 +490,8 @@ packages:
     engines: {node: '19'}
     dev: true
 
-  /dargstack_rgen@0.9.16:
-    resolution: {integrity: sha512-wRmpjV12AUpSvi5iZWF9GlTJyh3JmioW5HRdRzedd+Ita6xrr2QQwGwhhQsF0q+Faj9ulpVN6BSXD12J8tT8Yg==}
+  /dargstack_rgen@0.9.17:
+    resolution: {integrity: sha512-fDoAjlhaBBumIoambAnhVA3jzVnR44yJTaFJ03zLR42NIhXeAIXqI9pw6iBd6vVWDRDJwW4a2loRgHhz0b1vwg==}
     engines: {node: '20'}
     hasBin: true
     dependencies:
