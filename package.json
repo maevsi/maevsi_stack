@@ -19,7 +19,7 @@
     "@commitlint/config-conventional": "17.8.0",
     "conventional-changelog-conventionalcommits": "7.0.2",
     "dargstack": "2.2.1",
-    "dargstack_rgen": "0.9.17",
+    "dargstack_rgen": "0.9.18",
     "husky": "8.0.3"
   }
 }
