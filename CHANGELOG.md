@@ -1,3 +1,10 @@
+## [4.0.11](https://github.com/maevsi/maevsi_stack/compare/4.0.10...4.0.11) (2023-11-07)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/stomper docker tag to v0.33.0 ([f6061f4](https://github.com/maevsi/maevsi_stack/commit/f6061f4cb90e82a29698e802e9b293f9dba906d7))
+
 ## [4.0.10](https://github.com/maevsi/maevsi_stack/compare/4.0.9...4.0.10) (2023-11-06)
 
 
