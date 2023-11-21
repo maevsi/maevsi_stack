@@ -1,3 +1,10 @@
+## [4.1.0](https://github.com/maevsi/maevsi_stack/compare/4.0.13...4.1.0) (2023-11-21)
+
+
+### Features
+
+* add grafana and prometheus ([6748b05](https://github.com/maevsi/maevsi_stack/commit/6748b0595a3ea72bc8ae43c54288476c85d4e817))
+
 ## [4.0.13](https://github.com/maevsi/maevsi_stack/compare/4.0.12...4.0.13) (2023-11-17)
 
 
