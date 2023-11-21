@@ -74,6 +74,14 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The database's password.
     
+ - ### `postgres_role_grafana_password`
+    
+    The `maevsi_grafana` database role's password.
+    
+ - ### `postgres_role_grafana_username`
+    
+    The `maevsi_grafana` database role's username.
+    
  - ### `postgres_role_maevsi-postgraphile_password`
     
     The `maevsi_postgraphile` database role's password.
@@ -137,6 +145,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
     
+ - ### `grafana`
+    
+    You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
+    
  - ### `jobber`
     
     You cannot access the jobber via a web interface.
@@ -174,6 +186,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You cannot access the database backup directly.
     
+ - ### `prometheus`
+    
+    You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
+    
  - ### `rabbitmq`
     
     You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
@@ -206,6 +222,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The reverse proxy's certificate data.
     
+ - ### `grafana_data`
+    
+    The observation dashboard's data.
+    
  - ### `minio_data`
     
     The s3 server's data.
@@ -217,6 +237,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `postgres_data`
     
     The database's data.
+    
+ - ### `prometheus_data`
+    
+    The metrics monitoring's data.
     
  - ### `rabbitmq_data`
     

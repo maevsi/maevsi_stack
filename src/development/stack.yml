@@ -43,6 +43,12 @@ secrets:
   postgres_password:
   # The database's password.
     file: ./secrets/postgres/password.secret
+  postgres_role_grafana_password:
+  # The `maevsi_grafana` database role's password.
+    file: ./secrets/postgres/role_grafana_password.secret
+  postgres_role_grafana_username:
+  # The `maevsi_grafana` database role's username.
+    file: ./secrets/postgres/role_grafana_username.secret
   postgres_role_maevsi-postgraphile_password:
   # The `maevsi_postgraphile` database role's password.
     file: ./secrets/postgres/role_maevsi-postgraphile_password.secret
@@ -95,6 +101,24 @@ services:
     image: adminer:4.8.1-standalone@sha256:b7f0e6681e9a77916daf2f070616d25e3fd687b84550aa6673de9a24407dd613
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
+  grafana:
+  # You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.grafana.middlewares=redirectscheme
+      - traefik.http.routers.grafana.rule=Host(`grafana.${STACK_DOMAIN}`)
+      - traefik.http.routers.grafana_secure.rule=Host(`grafana.${STACK_DOMAIN}`)
+      - traefik.http.routers.grafana_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.services.grafana.loadbalancer.server.port=3000
+    image: grafana/grafana:9.5.14
+    secrets:
+    - postgres_role_grafana_password
+    - postgres_role_grafana_username
+    volumes:
+    - ./configurations/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
+    - ../production/configurations/grafana/provisioning:/etc/grafana/provisioning:ro
+    - grafana_data:/var/lib/grafana
   jobber:
   # You cannot access the jobber via a web interface.
     environment:
@@ -284,6 +308,20 @@ services:
     volumes:
     - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
     - postgres_data:/var/lib/postgresql/data
+  prometheus:
+  # You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
+    deploy:
+      labels:
+      - traefik.enable=true
+      - traefik.http.routers.prometheus.middlewares=redirectscheme
+      - traefik.http.routers.prometheus.rule=Host(`prometheus.${STACK_DOMAIN}`)
+      - traefik.http.routers.prometheus_secure.rule=Host(`prometheus.${STACK_DOMAIN}`)
+      - traefik.http.routers.prometheus_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+      - traefik.http.services.prometheus.loadbalancer.server.port=9090
+    image: prom/prometheus:v2.48.0
+    volumes:
+    - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
+    - prometheus_data:/prometheus
   rabbitmq:
   # You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
     deploy:
@@ -306,6 +344,8 @@ services:
   # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
     secrets:
+    - postgres_role_grafana_password
+    - postgres_role_grafana_username
     - postgres_role_maevsi-postgraphile_password
     - postgres_role_maevsi-stomper_password
     - postgres_role_maevsi-tusd_password
@@ -404,6 +444,9 @@ services:
         target: /home/tusd/.aws/credentials
 version: "3.7"
 volumes:
+  grafana_data:
+  # The observation dashboard's data.
+    {}
   minio_data:
   # The s3 server's data.
     {}
@@ -415,4 +458,7 @@ volumes:
     {}
   rabbitmq_data:
   # The message queue's data.
+    {}
+  prometheus_data:
+  # The metrics monitoring's data.
     {}

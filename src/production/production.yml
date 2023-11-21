@@ -14,6 +14,11 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.adminer_secure.tls.certresolver=default
+  grafana:
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.grafana_secure.tls.certresolver=default
   maevsi:
     deploy:
       labels:
@@ -48,6 +53,11 @@ services:
     volumes:
     - postgres_data:/var/lib/postgresql/data/
     - ../production/backups/postgres/:/backups/
+  prometheus:
+    deploy:
+      labels:
+      - (( append ))
+      - traefik.http.routers.prometheus_secure.tls.certresolver=default
   rabbitmq:
     deploy:
       labels:
