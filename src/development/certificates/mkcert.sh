@@ -30,11 +30,13 @@ done
 create "root"
 create "traefik" \
     `# adminer` "adminer.localhost" \
+    `# grafana` "grafana.localhost" \
     `# maevsi` "localhost" "www.localhost" "127.0.0.1" "0.0.0.0" \
     `# minio` "minio.localhost" \
     `# portainer` "portainer.localhost" \
     `# postgraphile` "postgraphile.localhost" \
     `# rabbitmq` "rabbitmq.localhost" \
+    `# prometheus` "prometheus.localhost" \
     `# stomper` "stomper.localhost" \
     `# traefik` "traefik.localhost" \
     `# tusd` "tusd.localhost"
