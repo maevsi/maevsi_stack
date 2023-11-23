@@ -52,9 +52,15 @@ secrets:
   postgres_role_maevsi-postgraphile_password:
   # The `maevsi_postgraphile` database role's password.
     file: ./secrets/postgres/role_maevsi-postgraphile_password.secret
+  postgres_role_maevsi-postgraphile_username:
+  # The `maevsi_postgraphile` database role's username.
+    file: ./secrets/postgres/role_maevsi-postgraphile_username.secret
   postgres_role_maevsi-stomper_password:
   # The `stomper` database role's password.
     file: ./secrets/postgres/role_maevsi-stomper_password.secret
+  postgres_role_maevsi-stomper_username:
+  # The `stomper` database role's username.
+    file: ./secrets/postgres/role_maevsi-stomper_username.secret
   postgres_role_maevsi-tusd_password:
   # The `tusd` database role's password.
     file: ./secrets/postgres/role_maevsi-tusd_password.secret
@@ -98,7 +104,7 @@ services:
       - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
       - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.adminer.loadbalancer.server.port=8080
-    image: adminer:4.8.1-standalone@sha256:0ce7583815dabdd9f560ee0afed630ecb33df6756f4b66c85c197011559a0248
+    image: adminer:4.8.1-standalone
     volumes:
     - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   grafana:
@@ -123,7 +129,7 @@ services:
   # You cannot access the jobber via a web interface.
     environment:
       AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
-    image: dargmuesli/jobber-aws-msmtp:1.2.5@sha256:71019d2f58a0ecc5d8b5f78865c00acf23b3243bf8fc7792fcb7f18e5a42744e
+    image: dargmuesli/jobber-aws-msmtp:1.2.5
     secrets:
     - source: jobber_aliases
       target: /etc/aliases
@@ -206,7 +212,7 @@ services:
         - traefik.http.routers.s3_secure.service=s3
         - traefik.http.services.s3.loadbalancer.server.port=9000
         - traefik.http.services.s3.loadbalancer.passhostheader=true
-    image: minio/minio@sha256:b833a1699b4fb11fe9e716467dd21562f2cd972ddb4a4045d05fd41859c0d222
+    image: minio/minio
     volumes:
       - minio_data:/data
       - ./configurations/minio/entrypoint.sh:/patched-entrypoint.sh
@@ -241,7 +247,7 @@ services:
         constraints:
         - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.19.3-alpine@sha256:a2ed8b6330f766189a3a316f9c888f6d20e2e867e15b86adc9ed2600841b66ba
+    image: portainer/portainer-ce:2.19.3-alpine
     secrets:
     - portainer_admin-password
     volumes:
@@ -255,7 +261,7 @@ services:
         - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.19.3@sha256:44fabb7653fdecab6821644fd55623c3ac53c8b7da019f3fbb2c62176247423f
+    image: portainer/agent:2.19.3
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -280,7 +286,7 @@ services:
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRAPHILE_JWT_SECRET_KEY_FILE: /run/secrets/postgraphile_jwt-secret
       POSTGRAPHILE_OWNER_CONNECTION_FILE: /run/secrets/postgraphile_owner-connection
-    image: graphile/postgraphile:4.14.0@sha256:ab8f433f0c42292845205f52c99f20804f25ec64edcc78553ddc76e25380230e
+    image: graphile/postgraphile:4.14.0
     secrets:
     - postgraphile_connection
     - postgraphile_jwt-secret
@@ -295,7 +301,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: postgres:16.1-alpine@sha256:bebdbe026fbb097684cc853e1a259b8c8b385e06ffc9873b4f76c5ae5d596257
+    image: postgres:16.1-alpine
     secrets:
     - postgres_db
     - postgres_password
@@ -347,8 +353,11 @@ services:
     - postgres_role_grafana_password
     - postgres_role_grafana_username
     - postgres_role_maevsi-postgraphile_password
+    - postgres_role_maevsi-postgraphile_username
     - postgres_role_maevsi-stomper_password
+    - postgres_role_maevsi-stomper_username
     - postgres_role_maevsi-tusd_password
+    - postgres_role_maevsi-tusd_username
     - sqitch_target
     volumes:
     - ../../../sqitch/:/srv/app/
@@ -374,6 +383,7 @@ services:
     - rabbitmq_definitions
     - postgres_db
     - postgres_role_maevsi-stomper_password
+    - postgres_role_maevsi-stomper_username
     - stomper_nodemailer-transporter
     user: 1000:1000
     volumes:
@@ -407,7 +417,7 @@ services:
       placement:
         constraints:
         - node.role == manager
-    image: traefik:2.10.5@sha256:948978f7ec62f137a79f8af7044a1785bd7868706ef2c8cba9c88db688d08661
+    image: traefik:2.10.5
     ports:
     - mode: host
       protocol: tcp
@@ -438,7 +448,7 @@ services:
       - traefik.http.services.tusd.loadbalancer.server.port=8080
     environment:
       AWS_REGION: ${S3_TUSD_REGION}
-    image: tusproject/tusd:v2.1.0@sha256:b0e2de03cc0ef865a5295aa1dc84cafe51b9de5fcf2054d11bbb29bc2ac03fe9
+    image: tusproject/tusd:v2.1.0
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
