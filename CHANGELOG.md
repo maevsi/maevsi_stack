@@ -1,3 +1,15 @@
+## [4.2.0](https://github.com/maevsi/maevsi_stack/compare/4.1.0...4.2.0) (2023-11-23)
+
+
+### Features
+
+* **postgres:** add username secrets ([f501c7c](https://github.com/maevsi/maevsi_stack/commit/f501c7c4d815c6631bea3fa7836c427ea4548a24))
+
+
+### Bug Fixes
+
+* **grafana:** add production secrets ([5b11ed1](https://github.com/maevsi/maevsi_stack/commit/5b11ed1132e163e96b7c01c9000e5cc19856776c))
+
 ## [4.1.0](https://github.com/maevsi/maevsi_stack/compare/4.0.13...4.1.0) (2023-11-21)
 
 
