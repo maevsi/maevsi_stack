@@ -18,6 +18,18 @@ This project is deployed in accordance to the [DargStack template](https://githu
 ## secrets
 
 
+ - ### `grafana_admin_email` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    The observation dashboard's admin email.
+    
+ - ### `grafana_admin_password` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    The observation dashboard's admin password.
+    
+ - ### `grafana_admin_user` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    The observation dashboard's admin user.
+    
  - ### `jobber_aliases`
     
     The job scheduler's SMTP client mail alias.
@@ -86,9 +98,17 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The `maevsi_postgraphile` database role's password.
     
+ - ### `postgres_role_maevsi-postgraphile_username`
+    
+    The `maevsi_postgraphile` database role's username.
+    
  - ### `postgres_role_maevsi-stomper_password`
     
     The `stomper` database role's password.
+    
+ - ### `postgres_role_maevsi-stomper_username`
+    
+    The `stomper` database role's username.
     
  - ### `postgres_role_maevsi-tusd_password`
     
