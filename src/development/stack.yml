@@ -114,6 +114,7 @@ services:
       - postgres_role_grafana_username
     volumes:
       - ./configurations/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
+      - ../production/configurations/grafana/dashboards:/var/lib/grafana/dashboards:ro
       - ../production/configurations/grafana/provisioning:/etc/grafana/provisioning:ro
       - grafana_data:/var/lib/grafana
   jobber:
@@ -312,6 +313,40 @@ services:
     image: maevsi/reccoom:dev
     volumes:
       - ../../../reccoom/:/srv/app/
+  redpanda:
+    # You can access the event streaming platform's ui as described under `redpanda-console`.
+    command:
+      - redpanda start
+      - --mode dev-container #DARGSTACK-REMOVE
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr internal://redpanda:9092,external://localhost:19092
+      - --pandaproxy-addr internal://0.0.0.0:8082,external://0.0.0.0:18082
+      - --advertise-pandaproxy-addr internal://redpanda:8082,external://localhost:18082
+      - --schema-registry-addr internal://0.0.0.0:8081,external://0.0.0.0:18081
+    healthcheck:
+      test: ["CMD-SHELL", "output=$(rpk cluster health --json); echo \"$output\" | grep -q '\"healthy\":true' || { echo \"$output\"; exit 1; }"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    image: redpandadata/redpanda:v23.2.17
+    volumes:
+      - redpanda_data:/var/lib/redpanda/data
+  redpanda-console:
+    # You can access the event streaming platform's ui at [redpanda.localhost](https://redpanda.localhost/).
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.redpanda.middlewares=redirectscheme
+        - traefik.http.routers.redpanda.rule=Host(`redpanda.${STACK_DOMAIN}`)
+        - traefik.http.routers.redpanda_secure.rule=Host(`redpanda.${STACK_DOMAIN}`)
+        - traefik.http.routers.redpanda_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.redpanda.loadbalancer.server.port=8080
+    environment:
+      CONFIG_FILEPATH: /srv/app/redpanda-config.yaml
+    image: redpandadata/console:v2.3.7
+    volumes:
+      - ../production/configurations/redpanda/config.yaml:/srv/app/redpanda-config.yaml:ro
   sqitch:
     # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
@@ -430,4 +465,7 @@ volumes:
     {}
   prometheus_data:
     # The metrics monitoring's data.
+    {}
+  redpanda_data:
+    # The message queue's data.
     {}
