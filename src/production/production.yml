@@ -24,7 +24,7 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/maevsi:3.13.3@sha256:89f3399477d086683bcf276754f894ddec14d04e80037094b961d9f03f2de96d
+    image: ghcr.io/maevsi/maevsi:3.13.3
     user: (( prune ))
   minio: (( prune ))
   portainer:
@@ -45,7 +45,7 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: prodrigestivill/postgres-backup-local:16-alpine@sha256:e72ca1c987e22dedf495ddd6c397fab8b3a9cb9cc06bf8364a27eb9f539726fe
+    image: prodrigestivill/postgres-backup-local:16-alpine
     secrets:
     - postgres-backup_db
     - postgres_password
@@ -64,14 +64,14 @@ services:
       - (( append ))
       - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   sqitch:
-    image: ghcr.io/maevsi/sqitch:3.1.0@sha256:01e7b1cf8a0b779ffe1ebc6b42722f2d87375726b5aad0172e08c7fdabd7c092
+    image: ghcr.io/maevsi/sqitch:3.1.0
     volumes: (( prune ))
   stomper:
     deploy:
       labels:
       - (( append ))
       - traefik.http.routers.stomper_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/stomper:1.0.0@sha256:e9eb1d335ce058b968fa55b572af75f0089370ea3e83a51209853670e24a3b56
+    image: ghcr.io/maevsi/stomper:1.0.0
     user: (( prune ))
     volumes: (( prune ))
   traefik:
@@ -103,7 +103,7 @@ services:
     - --watch
     environment:
       STACK_DOMAIN: ${STACK_DOMAIN}
-    image: ldez/traefik-certs-dumper:v2.8.1@sha256:2734462fc8290feab0e34a00d5f3e4992ba74f8e3712d74efff7ae703d0e7e87
+    image: ldez/traefik-certs-dumper:v2.8.1
     volumes:
     - acme_data:/etc/traefik/acme/
   tusd:
