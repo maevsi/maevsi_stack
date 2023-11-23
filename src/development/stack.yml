@@ -19,12 +19,6 @@ secrets:
   maevsi_turnstile-key:
     # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
-  pg-amqp-bridge_amqp-uri:
-    # The database-to-AMQP bridge's AMQP URI.
-    file: ./secrets/pg-amqp-bridge/amqp-uri.secret
-  pg-amqp-bridge_postgresql-uri:
-    # The database-to-AMQP bridge's database URI.
-    file: ./secrets/pg-amqp-bridge/postgresql-uri.secret
   portainer_admin-password:
     # The container manager's admin password.
     file: ./secrets/portainer/admin-password.secret
@@ -70,9 +64,6 @@ secrets:
   postgres_user:
     # The database's default user.
     file: ./secrets/postgres/user.secret
-  rabbitmq_definitions:
-    # The message queue's configuration.
-    file: ./secrets/rabbitmq/definitions.json.secret
   sqitch_target:
     # The database change management application's database connection string.
     file: ./secrets/sqitch/target.secret
@@ -216,18 +207,6 @@ services:
     environment: #DARGSTACK-REMOVE
       MINIO_ROOT_PASSWORD: s3password #DARGSTACK-REMOVE
       MINIO_ROOT_USER: s3user #DARGSTACK-REMOVE
-  pg-amqp-bridge:
-    # You cannot access the database-to-AMQP bridge directly.
-    environment:
-      AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
-      BRIDGE_CHANNELS: account_password_reset_request:account_password_reset_request,account_registration:account_registration,event_invitation:event_invitation
-      DELIVERY_MODE: PERSISTENT
-      POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
-      RUST_LOG: info
-    image: ghcr.io/dargmuesli/pg-amqp-bridge:0.0.8
-    secrets:
-      - pg-amqp-bridge_amqp-uri
-      - pg-amqp-bridge_postgresql-uri
   portainer:
     # You can access the container manager's frontend at [portainer.localhost](https://portainer.localhost/).
     command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
@@ -306,11 +285,11 @@ services:
       - postgres_db
       - postgres_password
       - postgres_user
-    sysctls:
-      # Prevent Docker Swarm from killing pg-amqp-bridge connections (https://github.com/moby/moby/issues/31208)
-      - net.ipv4.tcp_keepalive_time=600
-      - net.ipv4.tcp_keepalive_intvl=30
-      - net.ipv4.tcp_keepalive_probes=10
+    # sysctls:
+    #   # Prevent Docker Swarm from killing pg-amqp-bridge connections (https://github.com/moby/moby/issues/31208)
+    #   - net.ipv4.tcp_keepalive_time=600
+    #   - net.ipv4.tcp_keepalive_intvl=30
+    #   - net.ipv4.tcp_keepalive_probes=10
     volumes:
       - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
       - postgres_data:/var/lib/postgresql/data
@@ -328,24 +307,6 @@ services:
     volumes:
       - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
-  rabbitmq:
-    # You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
-    deploy:
-      labels:
-        - traefik.enable=true
-        - traefik.http.routers.rabbitmq.middlewares=redirectscheme #DARGSTACK-REMOVE
-        - traefik.http.routers.rabbitmq.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
-        - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
-        - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-        - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
-    image: rabbitmq:4.0.2-management-alpine
-    secrets:
-      - source: rabbitmq_definitions
-        target: /etc/rabbitmq/definitions.json
-    volumes:
-      - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
-      - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
-      - rabbitmq_data:/var/lib/rabbitmq
   reccoom:
     # You cannot access the recommendation service directly.
     image: maevsi/reccoom:dev
@@ -379,13 +340,11 @@ services:
         - traefik.http.services.stomper.loadbalancer.server.port=3000
     environment:
       CONSOLA_LEVEL: 4 # debug
-      RABBITMQ_DEFINITIONS_FILE: /run/secrets/rabbitmq_definitions
       STACK_DOMAIN: ${STACK_DOMAIN}
     image: maevsi/stomper:dev
     # ports:
     # - 9229:9229
     secrets:
-      - rabbitmq_definitions
       - postgres_db
       - postgres_role_maevsi-stomper_password
       - postgres_role_maevsi-stomper_username
@@ -468,9 +427,6 @@ volumes:
     {}
   postgres_data:
     # The database's data.
-    {}
-  rabbitmq_data:
-    # The message queue's data.
     {}
   prometheus_data:
     # The metrics monitoring's data.

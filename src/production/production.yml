@@ -116,11 +116,6 @@ services:
       labels:
         - (( append ))
         - traefik.http.routers.prometheus_secure.tls.certresolver=default
-  rabbitmq:
-    deploy:
-      labels:
-        - (( append ))
-        - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   reccoom:
     image: ghcr.io/maevsi/reccoom:0.1.0
     volumes: (( prune ))
