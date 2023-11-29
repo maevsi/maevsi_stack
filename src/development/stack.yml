@@ -338,7 +338,7 @@ services:
       - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
       - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
       - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
-    image: rabbitmq:3.12.9-management-alpine@sha256:45893567a8689ea472a1508aef9abaecaf160d50df3e8bb9be74982f923a7929
+    image: rabbitmq:3.12.10-management-alpine@sha256:403ed210008ff8ab931ad90cb5c9576847f7e874b852b945b2c1786f696ee077
     secrets:
     - source: rabbitmq_definitions
       target: /etc/rabbitmq/definitions.json
