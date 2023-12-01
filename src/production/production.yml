@@ -28,6 +28,10 @@ services:
       labels:
       - (( append ))
       - traefik.http.routers.grafana_secure.tls.certresolver=default
+    secrets:
+    - grafana_admin_email
+    - grafana_admin_password
+    - grafana_admin_user
   maevsi:
     deploy:
       labels:
