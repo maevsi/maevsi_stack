@@ -1,3 +1,10 @@
+## [4.2.2](https://github.com/maevsi/maevsi_stack/compare/4.2.1...4.2.2) (2023-12-01)
+
+
+### Bug Fixes
+
+* **grafana:** add production secrets ([6979456](https://github.com/maevsi/maevsi_stack/commit/69794561a4a6af8311fdefacf017fc978554acf6))
+
 ## [4.2.1](https://github.com/maevsi/maevsi_stack/compare/4.2.0...4.2.1) (2023-11-30)
 
 
