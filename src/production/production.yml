@@ -1,59 +1,59 @@
 secrets:
   grafana_admin_email:
-  # The observation dashboard's admin email.
+    # The observation dashboard's admin email.
     external: true
   grafana_admin_password:
-  # The observation dashboard's admin password.
+    # The observation dashboard's admin password.
     external: true
   grafana_admin_user:
-  # The observation dashboard's admin user.
+    # The observation dashboard's admin user.
     external: true
   postgres-backup_db:
-  # The database's name.
+    # The database's name.
     external: true
   traefik_cf-dns-api-token:
-  # The DNS provider's DNS API token.
+    # The DNS provider's DNS API token.
     external: true
   traefik_cf-zone-api-token:
-  # The DNS provider's zone API token.
+    # The DNS provider's zone API token.
     external: true
 services:
   adminer:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.adminer_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.adminer_secure.tls.certresolver=default
   grafana:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.grafana_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.grafana_secure.tls.certresolver=default
     secrets:
-    - (( append ))
-    - grafana_admin_email
-    - grafana_admin_password
-    - grafana_admin_user
+      - (( append ))
+      - grafana_admin_email
+      - grafana_admin_password
+      - grafana_admin_user
   maevsi:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.maevsi_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: ghcr.io/maevsi/maevsi:3.14.0
     user: (( prune ))
   minio: (( prune ))
   portainer:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.portainer_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.portainer_secure.tls.certresolver=default
   postgraphile:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3001/api/auth-proxy
-      - traefik.http.routers.postgraphile_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3001/api/auth-proxy
+        - traefik.http.routers.postgraphile_secure.tls.certresolver=default
   postgres_backup:
-  # You cannot access the database backup directly.
+    # You cannot access the database backup directly.
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres-backup_db
       POSTGRES_HOST: postgres
@@ -61,73 +61,73 @@ services:
       POSTGRES_USER_FILE: /run/secrets/postgres_user
     image: prodrigestivill/postgres-backup-local:16-alpine
     secrets:
-    - postgres-backup_db
-    - postgres_password
-    - postgres_user
+      - postgres-backup_db
+      - postgres_password
+      - postgres_user
     volumes:
-    - postgres_data:/var/lib/postgresql/data/
-    - ../production/backups/postgres/:/backups/
+      - postgres_data:/var/lib/postgresql/data/
+      - ../production/backups/postgres/:/backups/
   prometheus:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.prometheus_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.prometheus_secure.tls.certresolver=default
   rabbitmq:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
   sqitch:
     image: ghcr.io/maevsi/sqitch:3.1.1
     volumes: (( prune ))
   stomper:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.stomper_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.stomper_secure.tls.certresolver=default
     image: ghcr.io/maevsi/stomper:1.0.1
     user: (( prune ))
     volumes: (( prune ))
   traefik:
     command:
-    - (( prepend ))
-    - --certificatesResolvers.default.acme.email=${TRAEFIK_ACME_EMAIL}
-    - --certificatesResolvers.default.acme.storage=/etc/traefik/acme/acme.json
-    - --certificatesResolvers.default.acme.dnsChallenge.provider=${TRAEFIK_ACME_PROVIDER}
+      - (( prepend ))
+      - --certificatesResolvers.default.acme.email=${TRAEFIK_ACME_EMAIL}
+      - --certificatesResolvers.default.acme.storage=/etc/traefik/acme/acme.json
+      - --certificatesResolvers.default.acme.dnsChallenge.provider=${TRAEFIK_ACME_PROVIDER}
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.traefik_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.traefik_secure.tls.certresolver=default
     environment:
       CF_DNS_API_TOKEN_FILE: /run/secrets/traefik_cf-dns-api-token
       CF_ZONE_API_TOKEN_FILE: /run/secrets/traefik_cf-zone-api-token
     secrets:
-    - traefik_cf-dns-api-token
-    - traefik_cf-zone-api-token
+      - traefik_cf-dns-api-token
+      - traefik_cf-zone-api-token
   traefik_certs-dumper:
-  # You cannot access the reverse proxy's certificate helper directly.
+    # You cannot access the reverse proxy's certificate helper directly.
     command:
-    - file
-    - --clean=false
-    - --crt-name="$STACK_DOMAIN"
-    - --dest=/etc/traefik/acme/
-    - --key-name="$STACK_DOMAIN"
-    - --source=/etc/traefik/acme/acme.json
-    - --version=v2
-    - --watch
+      - file
+      - --clean=false
+      - --crt-name="$STACK_DOMAIN"
+      - --dest=/etc/traefik/acme/
+      - --key-name="$STACK_DOMAIN"
+      - --source=/etc/traefik/acme/acme.json
+      - --version=v2
+      - --watch
     environment:
       STACK_DOMAIN: ${STACK_DOMAIN}
     image: ldez/traefik-certs-dumper:v2.8.1
     volumes:
-    - acme_data:/etc/traefik/acme/
+      - acme_data:/etc/traefik/acme/
   tusd:
     deploy:
       labels:
-      - (( append ))
-      - traefik.http.routers.tusd_secure.tls.certresolver=default
+        - (( append ))
+        - traefik.http.routers.tusd_secure.tls.certresolver=default
 version: "3.7"
 volumes:
   acme_data:
-  # The reverse proxy's certificate data.
+    # The reverse proxy's certificate data.
     {}
   minio_data: (( prune ))

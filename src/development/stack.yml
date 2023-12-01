@@ -5,166 +5,166 @@
 ---
 secrets:
   jobber_aliases:
-  # The job scheduler's SMTP client mail alias.
+    # The job scheduler's SMTP client mail alias.
     file: ./secrets/jobber/aliases.secret
   jobber_aws-bucket:
-  # The job scheduler's AWS bucket name.
+    # The job scheduler's AWS bucket name.
     file: ./secrets/jobber/aws-bucket.secret
   jobber_aws-credentials:
-  # The job scheduler's AWS credentials.
+    # The job scheduler's AWS credentials.
     file: ./secrets/jobber/aws-credentials.secret
   jobber_msmtprc:
-  # The job scheduler's SMTP client configuration.
+    # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
   maevsi_turnstile-key:
-  # The captcha provider's application key.
+    # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
   pg-amqp-bridge_amqp-uri:
-  # The database-to-AMQP bridge's AMQP URI.
+    # The database-to-AMQP bridge's AMQP URI.
     file: ./secrets/pg-amqp-bridge/amqp-uri.secret
   pg-amqp-bridge_postgresql-uri:
-  # The database-to-AMQP bridge's database URI.
+    # The database-to-AMQP bridge's database URI.
     file: ./secrets/pg-amqp-bridge/postgresql-uri.secret
   portainer_admin-password:
-  # The container manager's admin password.
+    # The container manager's admin password.
     file: ./secrets/portainer/admin-password.secret
   postgraphile_connection:
-  # The GraphQL API's database URI.
+    # The GraphQL API's database URI.
     file: ./secrets/postgraphile/connection.secret
   postgraphile_jwt-secret:
-  # The GraphQL API's JWT secret.
+    # The GraphQL API's JWT secret.
     file: ./secrets/postgraphile/jwt-secret.secret
   postgraphile_owner-connection:
-  # The GraphQL API's database owner URI.
+    # The GraphQL API's database owner URI.
     file: ./secrets/postgraphile/owner-connection.secret
   postgres_db:
-  # The database's name.
+    # The database's name.
     file: ./secrets/postgres/db.secret
   postgres_password:
-  # The database's password.
+    # The database's password.
     file: ./secrets/postgres/password.secret
   postgres_role_grafana_password:
-  # The `maevsi_grafana` database role's password.
+    # The `maevsi_grafana` database role's password.
     file: ./secrets/postgres/role_grafana_password.secret
   postgres_role_grafana_username:
-  # The `maevsi_grafana` database role's username.
+    # The `maevsi_grafana` database role's username.
     file: ./secrets/postgres/role_grafana_username.secret
   postgres_role_maevsi-postgraphile_password:
-  # The `maevsi_postgraphile` database role's password.
+    # The `maevsi_postgraphile` database role's password.
     file: ./secrets/postgres/role_maevsi-postgraphile_password.secret
   postgres_role_maevsi-postgraphile_username:
-  # The `maevsi_postgraphile` database role's username.
+    # The `maevsi_postgraphile` database role's username.
     file: ./secrets/postgres/role_maevsi-postgraphile_username.secret
   postgres_role_maevsi-stomper_password:
-  # The `stomper` database role's password.
+    # The `stomper` database role's password.
     file: ./secrets/postgres/role_maevsi-stomper_password.secret
   postgres_role_maevsi-stomper_username:
-  # The `stomper` database role's username.
+    # The `stomper` database role's username.
     file: ./secrets/postgres/role_maevsi-stomper_username.secret
   postgres_role_maevsi-tusd_password:
-  # The `tusd` database role's password.
+    # The `tusd` database role's password.
     file: ./secrets/postgres/role_maevsi-tusd_password.secret
   postgres_role_maevsi-tusd_username:
-  # The `tusd` database role's password.
+    # The `tusd` database role's password.
     file: ./secrets/postgres/role_maevsi-tusd_username.secret
   postgres_user:
-  # The database's default user.
+    # The database's default user.
     file: ./secrets/postgres/user.secret
   rabbitmq_definitions:
-  # The message queue's configuration.
+    # The message queue's configuration.
     file: ./secrets/rabbitmq/definitions.json.secret
   sqitch_target:
-  # The database change management application's database connection string.
+    # The database change management application's database connection string.
     file: ./secrets/sqitch/target.secret
   stomper_nodemailer-transporter:
-  # The email service's SMTP configuration.
+    # The email service's SMTP configuration.
     file: ./secrets/stomper/nodemailer-transporter.secret
   tusd_aws:
-  # The upload service's s3 credentials file.
+    # The upload service's s3 credentials file.
     file: ./secrets/tusd/aws.secret
 services:
   adminer:
-  # You can access the database's frontend at [adminer.localhost](https://adminer.localhost/).
-  # This information is required for login:
-  #
-  # |          |                     |
-  # | -------- | ------------------- |
-  # | System   | PostgreSQL          |
-  # | Server   | postgres            |
-  # | Username | [postgres_user]     |
-  # | Password | [postgres_password] |
-  # | Database | [postgres_db]       |
-  #
-  # Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
+    # You can access the database's frontend at [adminer.localhost](https://adminer.localhost/).
+    # This information is required for login:
+    #
+    # |          |                     |
+    # | -------- | ------------------- |
+    # | System   | PostgreSQL          |
+    # | Server   | postgres            |
+    # | Username | [postgres_user]     |
+    # | Password | [postgres_password] |
+    # | Database | [postgres_db]       |
+    #
+    # Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.routers.adminer.middlewares=redirectscheme
-      - traefik.http.routers.adminer.rule=Host(`adminer.${STACK_DOMAIN}`)
-      - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
-      - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.adminer.loadbalancer.server.port=8080
+        - traefik.enable=true
+        - traefik.http.routers.adminer.middlewares=redirectscheme
+        - traefik.http.routers.adminer.rule=Host(`adminer.${STACK_DOMAIN}`)
+        - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
+        - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.adminer.loadbalancer.server.port=8080
     image: adminer:4.8.1-standalone
     volumes:
-    - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
+      - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   grafana:
-  # You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
+    # You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.routers.grafana.middlewares=redirectscheme
-      - traefik.http.routers.grafana.rule=Host(`grafana.${STACK_DOMAIN}`)
-      - traefik.http.routers.grafana_secure.rule=Host(`grafana.${STACK_DOMAIN}`)
-      - traefik.http.routers.grafana_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.grafana.loadbalancer.server.port=3000
+        - traefik.enable=true
+        - traefik.http.routers.grafana.middlewares=redirectscheme
+        - traefik.http.routers.grafana.rule=Host(`grafana.${STACK_DOMAIN}`)
+        - traefik.http.routers.grafana_secure.rule=Host(`grafana.${STACK_DOMAIN}`)
+        - traefik.http.routers.grafana_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.grafana.loadbalancer.server.port=3000
     image: grafana/grafana:10.2.2
     secrets:
-    - postgres_role_grafana_password
-    - postgres_role_grafana_username
+      - postgres_role_grafana_password
+      - postgres_role_grafana_username
     volumes:
-    - ./configurations/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
-    - ../production/configurations/grafana/provisioning:/etc/grafana/provisioning:ro
-    - grafana_data:/var/lib/grafana
+      - ./configurations/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
+      - ../production/configurations/grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana_data:/var/lib/grafana
   jobber:
-  # You cannot access the jobber via a web interface.
+    # You cannot access the jobber via a web interface.
     environment:
       AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
     image: dargmuesli/jobber-aws-msmtp:1.2.5
     secrets:
-    - source: jobber_aliases
-      target: /etc/aliases
-    - jobber_aws-bucket
-    - jobber_aws-credentials
-    - source: jobber_msmtprc
-      target: /etc/msmtprc
+      - source: jobber_aliases
+        target: /etc/aliases
+      - jobber_aws-bucket
+      - jobber_aws-credentials
+      - source: jobber_msmtprc
+        target: /etc/msmtprc
     volumes:
       - ../production/backups/postgres/:/backups/
       - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
       - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   maevsi:
-  # You can access the main project's frontend at [localhost](https://localhost/).
+    # You can access the main project's frontend at [localhost](https://localhost/).
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowHeaders=authorization,hook-name
-      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
-      - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowOriginList=http://localhost:3000
-      - traefik.http.middlewares.maevsi_redirectregex.redirectregex.regex=^https?:\/\/www\.${STACK_DOMAIN}\/(.*)
-      - traefik.http.middlewares.maevsi_redirectregex.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
-      - traefik.http.routers.maevsi.entryPoints=web
-      - traefik.http.routers.maevsi.middlewares=redirectscheme,maevsi_redirectregex
-      - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi.service=maevsi #DARGSTACK-REMOVE
-      - traefik.http.routers.maevsi_secure.entryPoints=web-secure
-      - traefik.http.routers.maevsi_secure.middlewares=maevsi_redirectregex,maevsi_cors
-      - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
-      - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.routers.maevsi_secure.service=maevsi #DARGSTACK-REMOVE
-      - traefik.http.routers.maevsi_secure_nuxt.entryPoints=nuxt #DARGSTACK-REMOVE
-      - traefik.http.routers.maevsi_secure_nuxt.service=maevsi_secure_nuxt #DARGSTACK-REMOVE
-      - traefik.http.routers.maevsi_secure_nuxt.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
-      - traefik.http.services.maevsi.loadbalancer.server.port=3000
-      - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
+        - traefik.enable=true
+        - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowHeaders=authorization,hook-name
+        - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
+        - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowOriginList=http://localhost:3000
+        - traefik.http.middlewares.maevsi_redirectregex.redirectregex.regex=^https?:\/\/www\.${STACK_DOMAIN}\/(.*)
+        - traefik.http.middlewares.maevsi_redirectregex.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
+        - traefik.http.routers.maevsi.entryPoints=web
+        - traefik.http.routers.maevsi.middlewares=redirectscheme,maevsi_redirectregex
+        - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+        - traefik.http.routers.maevsi.service=maevsi #DARGSTACK-REMOVE
+        - traefik.http.routers.maevsi_secure.entryPoints=web-secure
+        - traefik.http.routers.maevsi_secure.middlewares=maevsi_redirectregex,maevsi_cors
+        - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+        - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.routers.maevsi_secure.service=maevsi #DARGSTACK-REMOVE
+        - traefik.http.routers.maevsi_secure_nuxt.entryPoints=nuxt #DARGSTACK-REMOVE
+        - traefik.http.routers.maevsi_secure_nuxt.service=maevsi_secure_nuxt #DARGSTACK-REMOVE
+        - traefik.http.routers.maevsi_secure_nuxt.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
+        - traefik.http.services.maevsi.loadbalancer.server.port=3000
+        - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
@@ -176,19 +176,19 @@ services:
       POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
     image: maevsi/maevsi:dev
     secrets:
-    - maevsi_turnstile-key
-    - postgres_db
-    - postgres_role_maevsi-tusd_password
-    - postgres_role_maevsi-tusd_username
+      - maevsi_turnstile-key
+      - postgres_db
+      - postgres_role_maevsi-tusd_password
+      - postgres_role_maevsi-tusd_username
     user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
-    - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
-    - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
-    - ../../../maevsi/:/srv/app/ #DARGSTACK-REMOVE
-    - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
+      - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
+      - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
+      - ../../../maevsi/:/srv/app/ #DARGSTACK-REMOVE
+      - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
   minio:
-  # You can access the s3 console at [minio.localhost](https://minio.localhost/).
-  # You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
+    # You can access the s3 console at [minio.localhost](https://minio.localhost/).
+    # You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
     entrypoint: /patched-entrypoint.sh
     command: server /data --console-address ":9001"
     deploy:
@@ -220,7 +220,7 @@ services:
       MINIO_ROOT_PASSWORD: s3password
       MINIO_ROOT_USER: s3user
   pg-amqp-bridge:
-  # You cannot access the database-to-AMQP bridge directly.
+    # You cannot access the database-to-AMQP bridge directly.
     environment:
       AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
       BRIDGE_CHANNELS: account_password_reset_request:account_password_reset_request,account_registration:account_registration,event_invitation:event_invitation
@@ -229,58 +229,58 @@ services:
       RUST_LOG: info
     image: dargmuesli/pg-amqp-bridge:0.0.8@sha256:0f1d0432dc86d7b391111e3771c985f55dd79f39f28b6147fa483aea1b847282
     secrets:
-    - pg-amqp-bridge_amqp-uri
-    - pg-amqp-bridge_postgresql-uri
+      - pg-amqp-bridge_amqp-uri
+      - pg-amqp-bridge_postgresql-uri
   portainer:
-  # You can access the container manager's frontend at [portainer.localhost](https://portainer.localhost/).
+    # You can access the container manager's frontend at [portainer.localhost](https://portainer.localhost/).
     command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.routers.portainer.middlewares=redirectscheme
-      - traefik.http.routers.portainer.rule=Host(`portainer.${STACK_DOMAIN}`)
-      - traefik.http.routers.portainer_secure.rule=Host(`portainer.${STACK_DOMAIN}`)
-      - traefik.http.routers.portainer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.portainer.loadbalancer.server.port=9000
+        - traefik.enable=true
+        - traefik.http.routers.portainer.middlewares=redirectscheme
+        - traefik.http.routers.portainer.rule=Host(`portainer.${STACK_DOMAIN}`)
+        - traefik.http.routers.portainer_secure.rule=Host(`portainer.${STACK_DOMAIN}`)
+        - traefik.http.routers.portainer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.portainer.loadbalancer.server.port=9000
       mode: replicated
       placement:
         constraints:
-        - node.role == manager
+          - node.role == manager
       replicas: 1
     image: portainer/portainer-ce:2.19.3-alpine
     secrets:
-    - portainer_admin-password
+      - portainer_admin-password
     volumes:
-    - portainer_data:/data
+      - portainer_data:/data
   portainer-agent:
-  # You cannot access the container manager's agent directly.
+    # You cannot access the container manager's agent directly.
     deploy:
       mode: global
       placement:
         constraints:
-        - node.platform.os == linux
+          - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
     image: portainer/agent:2.19.3
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
   postgraphile:
-  # You can access the GraphQL API for the PostgreSQL database at [postgraphile.localhost](https://postgraphile.localhost/).
+    # You can access the GraphQL API for the PostgreSQL database at [postgraphile.localhost](https://postgraphile.localhost/).
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy #DARGSTACK-REMOVE
-      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
-      - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
-      - traefik.http.routers.postgraphile.middlewares=redirectscheme
-      - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors
-      - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-      - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.routers.postgraphile_secure_graphiql.rule=Host(`postgraphile.${STACK_DOMAIN}`) && Path(`/graphiql`)
-      - traefik.http.routers.postgraphile_secure_graphiql.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.postgraphile.loadbalancer.server.port=5000
+        - traefik.enable=true
+        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy #DARGSTACK-REMOVE
+        - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
+        - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
+        - traefik.http.routers.postgraphile.middlewares=redirectscheme
+        - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
+        - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors
+        - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
+        - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.routers.postgraphile_secure_graphiql.rule=Host(`postgraphile.${STACK_DOMAIN}`) && Path(`/graphiql`)
+        - traefik.http.routers.postgraphile_secure_graphiql.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.postgraphile.loadbalancer.server.port=5000
     environment:
       POSTGRAPHILE_CONNECTION_FILE: /run/secrets/postgraphile_connection
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
@@ -288,14 +288,14 @@ services:
       POSTGRAPHILE_OWNER_CONNECTION_FILE: /run/secrets/postgraphile_owner-connection
     image: graphile/postgraphile:4.14.0
     secrets:
-    - postgraphile_connection
-    - postgraphile_jwt-secret
-    - postgraphile_owner-connection
+      - postgraphile_connection
+      - postgraphile_jwt-secret
+      - postgraphile_owner-connection
     volumes:
-    - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
-    - ../production/configurations/postgraphile/.postgraphilerc.js:/postgraphile/.postgraphilerc.js:ro
+      - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
+      - ../production/configurations/postgraphile/.postgraphilerc.js:/postgraphile/.postgraphilerc.js:ro
   postgres:
-  # You can access the database via `adminer`.
+    # You can access the database via `adminer`.
     command: -c maevsi.jwt_expiry_duration='1 month'
     environment:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
@@ -303,75 +303,75 @@ services:
       POSTGRES_USER_FILE: /run/secrets/postgres_user
     image: postgres:16.1-alpine
     secrets:
-    - postgres_db
-    - postgres_password
-    - postgres_user
+      - postgres_db
+      - postgres_password
+      - postgres_user
     sysctls:
       # Prevent Docker Swarm from killing pg-amqp-bridge connections (https://github.com/moby/moby/issues/31208)
       - net.ipv4.tcp_keepalive_time=600
       - net.ipv4.tcp_keepalive_intvl=30
       - net.ipv4.tcp_keepalive_probes=10
     volumes:
-    - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
-    - postgres_data:/var/lib/postgresql/data
+      - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
+      - postgres_data:/var/lib/postgresql/data
   prometheus:
-  # You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
+    # You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.routers.prometheus.middlewares=redirectscheme
-      - traefik.http.routers.prometheus.rule=Host(`prometheus.${STACK_DOMAIN}`)
-      - traefik.http.routers.prometheus_secure.rule=Host(`prometheus.${STACK_DOMAIN}`)
-      - traefik.http.routers.prometheus_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.prometheus.loadbalancer.server.port=9090
+        - traefik.enable=true
+        - traefik.http.routers.prometheus.middlewares=redirectscheme
+        - traefik.http.routers.prometheus.rule=Host(`prometheus.${STACK_DOMAIN}`)
+        - traefik.http.routers.prometheus_secure.rule=Host(`prometheus.${STACK_DOMAIN}`)
+        - traefik.http.routers.prometheus_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.prometheus.loadbalancer.server.port=9090
     image: prom/prometheus:v2.48.0
     volumes:
-    - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
-    - prometheus_data:/prometheus
+      - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
   rabbitmq:
-  # You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
+    # You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.routers.rabbitmq.middlewares=redirectscheme
-      - traefik.http.routers.rabbitmq.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
-      - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
-      - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
+        - traefik.enable=true
+        - traefik.http.routers.rabbitmq.middlewares=redirectscheme
+        - traefik.http.routers.rabbitmq.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
+        - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
+        - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
     image: rabbitmq:3.12.10-management-alpine@sha256:118ae12ff534ec6c550aac8a2f6fbf874d6aa5cc5ae1808929876cce3f82115c
     secrets:
-    - source: rabbitmq_definitions
-      target: /etc/rabbitmq/definitions.json
+      - source: rabbitmq_definitions
+        target: /etc/rabbitmq/definitions.json
     volumes:
-    - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
-    - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
-    - rabbitmq_data:/var/lib/rabbitmq
+      - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+      - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - rabbitmq_data:/var/lib/rabbitmq
   sqitch:
-  # You cannot access the database migrations directly.
+    # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
     secrets:
-    - postgres_role_grafana_password
-    - postgres_role_grafana_username
-    - postgres_role_maevsi-postgraphile_password
-    - postgres_role_maevsi-postgraphile_username
-    - postgres_role_maevsi-stomper_password
-    - postgres_role_maevsi-stomper_username
-    - postgres_role_maevsi-tusd_password
-    - postgres_role_maevsi-tusd_username
-    - sqitch_target
+      - postgres_role_grafana_password
+      - postgres_role_grafana_username
+      - postgres_role_maevsi-postgraphile_password
+      - postgres_role_maevsi-postgraphile_username
+      - postgres_role_maevsi-stomper_password
+      - postgres_role_maevsi-stomper_username
+      - postgres_role_maevsi-tusd_password
+      - postgres_role_maevsi-tusd_username
+      - sqitch_target
     volumes:
-    - ../../../sqitch/:/srv/app/
-    - /run/postgresql/:/run/postgresql/
+      - ../../../sqitch/:/srv/app/
+      - /run/postgresql/:/run/postgresql/
   stomper:
-  # You cannot access the email service directly.
+    # You cannot access the email service directly.
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.routers.stomper.middlewares=redirectscheme
-      - traefik.http.routers.stomper.rule=Host(`stomper.${STACK_DOMAIN}`)
-      - traefik.http.routers.stomper_secure.rule=Host(`stomper.${STACK_DOMAIN}`)
-      - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.stomper.loadbalancer.server.port=3000
+        - traefik.enable=true
+        - traefik.http.routers.stomper.middlewares=redirectscheme
+        - traefik.http.routers.stomper.rule=Host(`stomper.${STACK_DOMAIN}`)
+        - traefik.http.routers.stomper_secure.rule=Host(`stomper.${STACK_DOMAIN}`)
+        - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.stomper.loadbalancer.server.port=3000
     environment:
       CONSOLA_LEVEL: 4 # debug
       RABBITMQ_DEFINITIONS_FILE: /run/secrets/rabbitmq_definitions
@@ -380,72 +380,72 @@ services:
     # ports:
     # - 9229:9229
     secrets:
-    - rabbitmq_definitions
-    - postgres_db
-    - postgres_role_maevsi-stomper_password
-    - postgres_role_maevsi-stomper_username
-    - stomper_nodemailer-transporter
+      - rabbitmq_definitions
+      - postgres_db
+      - postgres_role_maevsi-stomper_password
+      - postgres_role_maevsi-stomper_username
+      - stomper_nodemailer-transporter
     user: 1000:1000
     volumes:
-    - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
-    - ../../../stomper/:/srv/app/
+      - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
+      - ../../../stomper/:/srv/app/
   traefik:
-  # You can access the reverse proxy's dashboard at [traefik.localhost](https://traefik.localhost/).
+    # You can access the reverse proxy's dashboard at [traefik.localhost](https://traefik.localhost/).
     command:
-    - --api=true
-    - --entryPoints.web.address=:80
-    - --entryPoints.web-secure.address=:443
-    - --entryPoints.nuxt.address=:24678 #DARGSTACK-REMOVE
-    - --providers.docker=true
-    - --providers.docker.endpoint=unix:///var/run/docker.sock
-    - --providers.docker.exposedByDefault=false
-    - --providers.docker.swarmMode=true
-    - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
-    - --providers.file.watch=true #DARGSTACK-REMOVE
-    - --log.level=DEBUG #DARGSTACK-REMOVE
+      - --api=true
+      - --entryPoints.web.address=:80
+      - --entryPoints.web-secure.address=:443
+      - --entryPoints.nuxt.address=:24678 #DARGSTACK-REMOVE
+      - --providers.docker=true
+      - --providers.docker.endpoint=unix:///var/run/docker.sock
+      - --providers.docker.exposedByDefault=false
+      - --providers.docker.swarmMode=true
+      - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
+      - --providers.file.watch=true #DARGSTACK-REMOVE
+      - --log.level=DEBUG #DARGSTACK-REMOVE
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
-      - traefik.http.routers.traefik.middlewares=redirectscheme
-      - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
-      - traefik.http.routers.traefik_secure.rule=Host(`traefik.${STACK_DOMAIN}`)
-      - traefik.http.routers.traefik_secure.service=api@internal
-      - traefik.http.routers.traefik_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.traefik.loadbalancer.server.port=8080
+        - traefik.enable=true
+        - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
+        - traefik.http.routers.traefik.middlewares=redirectscheme
+        - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
+        - traefik.http.routers.traefik_secure.rule=Host(`traefik.${STACK_DOMAIN}`)
+        - traefik.http.routers.traefik_secure.service=api@internal
+        - traefik.http.routers.traefik_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.traefik.loadbalancer.server.port=8080
       mode: global
       placement:
         constraints:
-        - node.role == manager
+          - node.role == manager
     image: traefik:2.10.6
     ports:
-    - mode: host
-      protocol: tcp
-      published: 80
-      target: 80
-    - mode: host
-      protocol: tcp
-      published: 443
-      target: 443
-    - mode: host #DARGSTACK-REMOVE
-      protocol: tcp #DARGSTACK-REMOVE
-      published: 24678 #DARGSTACK-REMOVE
-      target: 24678 #DARGSTACK-REMOVE
+      - mode: host
+        protocol: tcp
+        published: 80
+        target: 80
+      - mode: host
+        protocol: tcp
+        published: 443
+        target: 443
+      - mode: host #DARGSTACK-REMOVE
+        protocol: tcp #DARGSTACK-REMOVE
+        published: 24678 #DARGSTACK-REMOVE
+        target: 24678 #DARGSTACK-REMOVE
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - ./certificates/:/etc/traefik/acme/
-    - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./certificates/:/etc/traefik/acme/
+      - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
   tusd:
-  # You can access the upload service at [tusd.localhost](https://tusd.localhost/).
+    # You can access the upload service at [tusd.localhost](https://tusd.localhost/).
     command: -behind-proxy --hooks-enabled-events pre-create,pre-finish,post-terminate --hooks-http http://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_TUSD_BUCKET} -s3-endpoint ${S3_TUSD_ENDPOINT}
     deploy:
       labels:
-      - traefik.enable=true
-      - traefik.http.routers.tusd.middlewares=redirectscheme
-      - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
-      - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && Method(`GET`, `HEAD`, `OPTIONS`, `POST`, `PUT`, `PATCH`)
-      - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-      - traefik.http.services.tusd.loadbalancer.server.port=8080
+        - traefik.enable=true
+        - traefik.http.routers.tusd.middlewares=redirectscheme
+        - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
+        - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && Method(`GET`, `HEAD`, `OPTIONS`, `POST`, `PUT`, `PATCH`)
+        - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.tusd.loadbalancer.server.port=8080
     environment:
       AWS_REGION: ${S3_TUSD_REGION}
     image: tusproject/tusd:v2.1.0
@@ -455,20 +455,20 @@ services:
 version: "3.7"
 volumes:
   grafana_data:
-  # The observation dashboard's data.
+    # The observation dashboard's data.
     {}
   minio_data:
-  # The s3 server's data.
+    # The s3 server's data.
     {}
   portainer_data:
-  # The container manager's data.
+    # The container manager's data.
     {}
   postgres_data:
-  # The database's data.
+    # The database's data.
     {}
   rabbitmq_data:
-  # The message queue's data.
+    # The message queue's data.
     {}
   prometheus_data:
-  # The metrics monitoring's data.
+    # The metrics monitoring's data.
     {}
