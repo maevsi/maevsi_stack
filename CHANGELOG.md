@@ -1,3 +1,10 @@
+## [4.2.7](https://github.com/maevsi/maevsi_stack/compare/4.2.6...4.2.7) (2023-12-07)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v3.19.1 ([ac87556](https://github.com/maevsi/maevsi_stack/commit/ac875569a9df53a43fd1846ebdc6b1b83b3772de))
+
 ## [4.2.6](https://github.com/maevsi/maevsi_stack/compare/4.2.5...4.2.6) (2023-12-06)
 
 
