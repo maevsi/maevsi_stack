@@ -1,3 +1,15 @@
+## [4.3.0](https://github.com/maevsi/maevsi_stack/compare/4.2.7...4.3.0) (2023-12-08)
+
+
+### Features
+
+* **production:** add maevsi beta ([f927a03](https://github.com/maevsi/maevsi_stack/commit/f927a038acacf584fd76890f661088c65f3222e3))
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v3.19.3 ([34a874f](https://github.com/maevsi/maevsi_stack/commit/34a874f8cc4b07aeb487a7d95c1bb00bfbc0052c))
+
 ## [4.2.7](https://github.com/maevsi/maevsi_stack/compare/4.2.6...4.2.7) (2023-12-07)
 
 
