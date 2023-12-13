@@ -1,3 +1,10 @@
+## [4.3.4](https://github.com/maevsi/maevsi_stack/compare/4.3.3...4.3.4) (2023-12-13)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi_beta to v3.21.0-beta.3 ([84fca2a](https://github.com/maevsi/maevsi_stack/commit/84fca2ae54146356127b7b2cd02e6dd222029285))
+
 ## [4.3.3](https://github.com/maevsi/maevsi_stack/compare/4.3.2...4.3.3) (2023-12-13)
 
 
