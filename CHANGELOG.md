@@ -1,3 +1,10 @@
+## [4.3.7](https://github.com/maevsi/maevsi_stack/compare/4.3.6...4.3.7) (2023-12-14)
+
+
+### Bug Fixes
+
+* **deps:** update maevsi ([99f544a](https://github.com/maevsi/maevsi_stack/commit/99f544acc76966b59da84fa0c1342f4b3adcdf0c))
+
 ## [4.3.6](https://github.com/maevsi/maevsi_stack/compare/4.3.5...4.3.6) (2023-12-14)
 
 
