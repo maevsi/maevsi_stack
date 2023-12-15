@@ -61,7 +61,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
       POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
-    image: ghcr.io/maevsi/maevsi:3.21.0-beta.9
+    image: ghcr.io/maevsi/maevsi:3.21.0-beta.10
     secrets:
       - maevsi_turnstile-key
       - postgres_db
