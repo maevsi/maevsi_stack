@@ -19,6 +19,9 @@ secrets:
   maevsi_turnstile-key:
     # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
+  maevsi_oauth-github-client-secret:
+    # The captcha provider's application key.
+    file: ./secrets/maevsi/oauth-github-client-secret.secret
   pg-amqp-bridge_amqp-uri:
     # The database-to-AMQP bridge's AMQP URI.
     file: ./secrets/pg-amqp-bridge/amqp-uri.secret
@@ -170,12 +173,15 @@ services:
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
       NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
       NUXT_PUBLIC_VIO_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
+      NUXT_OAUTH_GITHUB_CLIENT_ID: ${OAUTH_GITHUB_CLIENT_ID}
+      NUXT_OAUTH_GITHUB_CLIENT_SECRET_SECRETSFILE: /run/secrets/maevsi_oauth-github-client-secret
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
       POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
     image: maevsi/maevsi:dev
     secrets:
+      - maevsi_oauth-github-client-secret
       - maevsi_turnstile-key
       - postgres_db
       - postgres_role_maevsi-tusd_password
