@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/maevsi/maevsi_stack/compare/4.4.0...4.4.1) (2024-01-08)
+
+
+### Bug Fixes
+
+* **reccoom:** prune volumes on production ([7ce2133](https://github.com/maevsi/maevsi_stack/commit/7ce21333ea4fd2056df636fe94aa63c3c20ae222))
+
 ## [4.4.0](https://github.com/maevsi/maevsi_stack/compare/4.3.12...4.4.0) (2024-01-08)
 
 
