@@ -218,6 +218,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
     
+ - ### `reccoom`
+    
+    You cannot access the recommendation service directly.
+    
  - ### `sqitch`
     
     You cannot access the database migrations directly.
