@@ -1,3 +1,10 @@
+## [4.4.0](https://github.com/maevsi/maevsi_stack/compare/4.3.12...4.4.0) (2024-01-08)
+
+
+### Features
+
+* **services:** add reccoom ([86eafc7](https://github.com/maevsi/maevsi_stack/commit/86eafc727a3d8928c9e3d1b7fac2bb7534cde29e))
+
 ## [4.3.12](https://github.com/maevsi/maevsi_stack/compare/4.3.11...4.3.12) (2024-01-07)
 
 
