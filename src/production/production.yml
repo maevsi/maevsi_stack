@@ -106,6 +106,8 @@ services:
       labels:
         - (( append ))
         - traefik.http.routers.rabbitmq_secure.tls.certresolver=default
+  reccoom:
+    image: ghcr.io/maevsi/reccoom:0.1.0
   sqitch:
     image: ghcr.io/maevsi/sqitch:3.2.0
     volumes: (( prune ))

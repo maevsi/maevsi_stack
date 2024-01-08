@@ -346,6 +346,11 @@ services:
       - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
       - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
       - rabbitmq_data:/var/lib/rabbitmq
+  reccoom:
+    # You cannot access the recommendation service directly.
+    image: maevsi/reccoom:dev
+    volumes:
+      - ../../../reccoom/:/srv/app/
   sqitch:
     # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
