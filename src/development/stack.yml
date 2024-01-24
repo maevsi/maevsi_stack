@@ -302,6 +302,9 @@ services:
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
     image: postgres:16.1-alpine
+    # # Expose ports (only) e.g. to generate a database graph image or similar.
+    # ports:
+    #   - 5432:5432
     secrets:
       - postgres_db
       - postgres_password
