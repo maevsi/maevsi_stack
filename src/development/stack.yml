@@ -275,7 +275,7 @@ services:
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
         - traefik.http.routers.postgraphile.middlewares=redirectscheme
         - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
-        - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors
+        - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors,postgraphile_auth
         - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
         - traefik.http.routers.postgraphile_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.routers.postgraphile_secure_graphiql.rule=Host(`postgraphile.${STACK_DOMAIN}`) && Path(`/graphiql`)
