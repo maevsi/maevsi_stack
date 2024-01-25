@@ -1,3 +1,11 @@
+## [4.4.8](https://github.com/maevsi/maevsi_stack/compare/4.4.7...4.4.8) (2024-01-25)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v3.24.1 ([0bb8072](https://github.com/maevsi/maevsi_stack/commit/0bb807201d6fa476043f2ebcc27630c0732555ec))
+* **maevsi:** add turnstile secret key ([2ba4a51](https://github.com/maevsi/maevsi_stack/commit/2ba4a510866460adf8be1506870dc47beb775922))
+
 ## [4.4.7](https://github.com/maevsi/maevsi_stack/compare/4.4.6...4.4.7) (2024-01-25)
 
 
