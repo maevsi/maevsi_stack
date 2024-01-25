@@ -79,7 +79,7 @@ services:
     deploy:
       labels:
         - (( append ))
-        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3001/api/auth-proxy
+        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy
         - traefik.http.routers.postgraphile_secure.tls.certresolver=default
   postgres_backup:
     # You cannot access the database backup directly.
