@@ -1,3 +1,10 @@
+## [4.4.5](https://github.com/maevsi/maevsi_stack/compare/4.4.4...4.4.5) (2024-01-25)
+
+
+### Bug Fixes
+
+* **postgraphile:** remove duplicate label ([342aeb3](https://github.com/maevsi/maevsi_stack/commit/342aeb394b59a082bc84501e815d16e6956d4965))
+
 ## [4.4.4](https://github.com/maevsi/maevsi_stack/compare/4.4.3...4.4.4) (2024-01-25)
 
 
