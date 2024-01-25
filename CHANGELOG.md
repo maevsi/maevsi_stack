@@ -1,3 +1,10 @@
+## [4.4.6](https://github.com/maevsi/maevsi_stack/compare/4.4.5...4.4.6) (2024-01-25)
+
+
+### Bug Fixes
+
+* **postgraphile:** enable authorization middleware ([9544a6e](https://github.com/maevsi/maevsi_stack/commit/9544a6e8988a2031ba1d62c4f7e373e361d202cc))
+
 ## [4.4.5](https://github.com/maevsi/maevsi_stack/compare/4.4.4...4.4.5) (2024-01-25)
 
 
