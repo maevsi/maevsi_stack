@@ -1,3 +1,10 @@
+## [4.4.4](https://github.com/maevsi/maevsi_stack/compare/4.4.3...4.4.4) (2024-01-25)
+
+
+### Bug Fixes
+
+* **postgraphile:** readd turnstile plugin ([6882678](https://github.com/maevsi/maevsi_stack/commit/68826788ec5fadde7032fb9584c35b1ec6814a2b))
+
 ## [4.4.3](https://github.com/maevsi/maevsi_stack/compare/4.4.2...4.4.3) (2024-01-24)
 
 
