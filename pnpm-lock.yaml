@@ -18,8 +18,8 @@ devDependencies:
     specifier: 2.2.1
     version: 2.2.1
   dargstack_rgen:
-    specifier: 0.9.26
-    version: 0.9.26
+    specifier: 0.9.27
+    version: 0.9.27
   husky:
     specifier: 9.0.11
     version: 9.0.11
@@ -423,13 +423,13 @@ packages:
     engines: {node: '19'}
     dev: true
 
-  /dargstack_rgen@0.9.26:
-    resolution: {integrity: sha512-7wPkwi23IV01bS5lfGAdsG+26lCWbSOuyDX4VFqMjyv1fzjXuLiRQ9hNmca5cKaH0LJNVQqn6MwNHqqdLADRiw==}
+  /dargstack_rgen@0.9.27:
+    resolution: {integrity: sha512-PXCQwIbiyTEhvlEiYmpWOQ4F05i08n0Cf1kN2mO6mk6ClFpjyC9w1TtHpFD7lrrGeDGRVFWt3r4C1nTjK1ndpQ==}
     engines: {node: '20'}
     hasBin: true
     dependencies:
       deepmerge: 4.3.1
-      diff: 5.1.0
+      diff: 5.2.0
       json2md: 2.0.1
       yaml: 2.3.4
       yargs: 17.7.2
@@ -453,8 +453,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /diff@5.1.0:
-    resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}
+  /diff@5.2.0:
+    resolution: {integrity: sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==}
     engines: {node: '>=0.3.1'}
     dev: true
 
