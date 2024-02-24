@@ -109,7 +109,7 @@ services:
     image: ghcr.io/maevsi/reccoom:0.1.0
     volumes: (( prune ))
   sqitch:
-    image: ghcr.io/maevsi/sqitch:3.2.3
+    image: ghcr.io/maevsi/sqitch:3.2.4
     volumes: (( prune ))
   stomper:
     deploy:
