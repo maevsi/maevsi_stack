@@ -1,3 +1,20 @@
+## [5.0.0](https://github.com/maevsi/maevsi_stack/compare/4.4.15...5.0.0) (2024-03-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** upgrade to maevsi v4
+* **maevsi-beta:** disable
+
+### Features
+
+* **maevsi-beta:** disable ([f31f9f8](https://github.com/maevsi/maevsi_stack/commit/f31f9f8acd0132a34235489575e2d762bf0ae495))
+
+
+### Code Refactoring
+
+* **deps:** upgrade to maevsi v4 ([117c4f0](https://github.com/maevsi/maevsi_stack/commit/117c4f06b707047f2b7bce537ad0f6ba869bf6c8))
+
 ## [4.4.15](https://github.com/maevsi/maevsi_stack/compare/4.4.14...4.4.15) (2024-03-19)
 
 
