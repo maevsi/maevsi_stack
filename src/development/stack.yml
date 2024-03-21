@@ -167,9 +167,9 @@ services:
         - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
+      NUXT_PUBLIC_GTAG_ID: ${GTAG_ID}
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
       NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
-      NUXT_PUBLIC_VIO_GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
       NUXT_TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY} # TODO: move to file (https://github.com/nuxt-modules/turnstile/pull/298)
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
