@@ -1,3 +1,15 @@
+## [5.1.0](https://github.com/maevsi/maevsi_stack/compare/5.0.1...5.1.0) (2024-04-06)
+
+
+### Features
+
+* **maevsi:** enable beta service ([e32f125](https://github.com/maevsi/maevsi_stack/commit/e32f12554c0d162f57a833de9a8df14427ef973a))
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v4.1.0 ([15621c6](https://github.com/maevsi/maevsi_stack/commit/15621c69aafa60730f826d21e9e25c1f62e95fdd))
+
 ## [5.0.1](https://github.com/maevsi/maevsi_stack/compare/5.0.0...5.0.1) (2024-03-26)
 
 
