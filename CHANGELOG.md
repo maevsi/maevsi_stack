@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/maevsi/maevsi_stack/compare/5.1.1...5.1.2) (2024-04-12)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/stomper to v1.1.11 ([9780b02](https://github.com/maevsi/maevsi_stack/commit/9780b024748feb2ae5a89a5f6d04506afbf3a826))
+
 ## [5.1.1](https://github.com/maevsi/maevsi_stack/compare/5.1.0...5.1.1) (2024-04-12)
 
 
