@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
@@ -21,8 +21,8 @@ importers:
         specifier: 2.2.1
         version: 2.2.1
       dargstack_rgen:
-        specifier: 0.9.31
-        version: 0.9.31
+        specifier: 0.9.32
+        version: 0.9.32
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -215,8 +215,8 @@ packages:
     resolution: {integrity: sha512-7TeoDV8gFS4O8OINshyMcVFFbugFhecdDkjCevDSO/xkBYJvizHdzvQaINImuarJCPbx0YmB7YNZUD4xJlwNnQ==}
     engines: {node: '19'}
 
-  dargstack_rgen@0.9.31:
-    resolution: {integrity: sha512-QfsUethjioM6btOzPHQkiXqVQZ8rgFA2UxNPjIpFVcoJYHjo8x2YX7HTsVTmyRYuP4y6cbl2++EgeFBhOvnxsg==}
+  dargstack_rgen@0.9.32:
+    resolution: {integrity: sha512-fHJg2YVe3TRzqQ4Ll2IiI++SiCRvNm36jtsPA4wa48a/AOsowca3b0Ixr0K1YawIWGGfhru8N0i4KjSEjnu+uQ==}
     engines: {node: '20'}
     hasBin: true
 
@@ -629,7 +629,7 @@ snapshots:
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.4.5)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.12.7)(cosmiconfig@9.0.0)(typescript@5.4.5)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.12.7)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -763,7 +763,7 @@ snapshots:
       meow: 12.1.1
       split2: 4.2.0
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.12.7)(cosmiconfig@9.0.0)(typescript@5.4.5):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@20.12.7)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5):
     dependencies:
       '@types/node': 20.12.7
       cosmiconfig: 9.0.0(typescript@5.4.5)
@@ -776,6 +776,7 @@ snapshots:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
+    optionalDependencies:
       typescript: 5.4.5
 
   cross-spawn@7.0.3:
@@ -788,7 +789,7 @@ snapshots:
 
   dargstack@2.2.1: {}
 
-  dargstack_rgen@0.9.31:
+  dargstack_rgen@0.9.32:
     dependencies:
       deepmerge: 4.3.1
       diff: 5.2.0
