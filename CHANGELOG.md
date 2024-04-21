@@ -1,3 +1,10 @@
+## [5.1.4](https://github.com/maevsi/maevsi_stack/compare/5.1.3...5.1.4) (2024-04-21)
+
+
+### Bug Fixes
+
+* schedule release ([39e6880](https://github.com/maevsi/maevsi_stack/commit/39e6880395ba2a919c7d790a130d5496a760d8bc))
+
 ## [5.1.3](https://github.com/maevsi/maevsi_stack/compare/5.1.2...5.1.3) (2024-04-13)
 
 
