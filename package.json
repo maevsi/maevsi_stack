@@ -10,7 +10,7 @@
   "engines": {
     "node": "20"
   },
-  "packageManager": "pnpm@9.0.5",
+  "packageManager": "pnpm@9.0.6",
   "scripts": {
     "prepare": "husky"
   },
