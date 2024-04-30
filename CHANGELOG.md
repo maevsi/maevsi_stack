@@ -1,3 +1,10 @@
+## [5.1.5](https://github.com/maevsi/maevsi_stack/compare/5.1.4...5.1.5) (2024-04-30)
+
+
+### Bug Fixes
+
+* **traefik:** migrate to v3 ([0c57b5c](https://github.com/maevsi/maevsi_stack/commit/0c57b5c6014dee5318bdde44c67dee8704d07f18))
+
 ## [5.1.4](https://github.com/maevsi/maevsi_stack/compare/5.1.3...5.1.4) (2024-04-21)
 
 
