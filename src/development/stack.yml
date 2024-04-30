@@ -153,16 +153,16 @@ services:
         - traefik.http.middlewares.maevsi_redirectregex.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
         - traefik.http.routers.maevsi.entryPoints=web
         - traefik.http.routers.maevsi.middlewares=redirectscheme,maevsi_redirectregex
-        - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+        - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi.service=maevsi #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi_secure.entryPoints=web-secure
         - traefik.http.routers.maevsi_secure.middlewares=maevsi_redirectregex,maevsi_cors
-        - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`)
+        - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi_secure.service=maevsi #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi_secure_nuxt.entryPoints=nuxt #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi_secure_nuxt.service=maevsi_secure_nuxt #DARGSTACK-REMOVE
-        - traefik.http.routers.maevsi_secure_nuxt.rule=Host(`${STACK_DOMAIN}`, `www.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
+        - traefik.http.routers.maevsi_secure_nuxt.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`) #DARGSTACK-REMOVE
         - traefik.http.services.maevsi.loadbalancer.server.port=3000
         - traefik.http.services.maevsi_secure_nuxt.loadbalancer.server.port=24678 #DARGSTACK-REMOVE
     environment:
@@ -407,10 +407,9 @@ services:
       - --entryPoints.nuxt.address=:24678 #DARGSTACK-REMOVE
       - --experimental.plugins.body-forward-auth.moduleName=github.com/PatrickMi/body-forward-auth
       - --experimental.plugins.body-forward-auth.version=v0.1.2
-      - --providers.docker=true
-      - --providers.docker.endpoint=unix:///var/run/docker.sock
-      - --providers.docker.exposedByDefault=false
-      - --providers.docker.swarmMode=true
+      - --providers.swarm=true
+      - --providers.swarm.endpoint=unix:///var/run/docker.sock
+      - --providers.swarm.exposedByDefault=false
       - --providers.file.filename=/dynamic.yml #DARGSTACK-REMOVE
       - --providers.file.watch=true #DARGSTACK-REMOVE
       - --log.level=DEBUG #DARGSTACK-REMOVE
@@ -454,7 +453,7 @@ services:
         - traefik.enable=true
         - traefik.http.routers.tusd.middlewares=redirectscheme
         - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
-        - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && Method(`GET`, `HEAD`, `OPTIONS`, `POST`, `PUT`, `PATCH`)
+        - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && (Method(`GET`) || Method(`HEAD`) || Method(`OPTIONS`) || Method(`POST`) || Method(`PUT`) || Method(`PATCH`))
         - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.tusd.loadbalancer.server.port=8080
     environment:
