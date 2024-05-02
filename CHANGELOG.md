@@ -1,3 +1,10 @@
+## [5.1.8](https://github.com/maevsi/maevsi_stack/compare/5.1.7...5.1.8) (2024-05-02)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v4.4.0 ([10463e5](https://github.com/maevsi/maevsi_stack/commit/10463e5eb2d63a34da8f9017745a23dc8f1a0918))
+
 ## [5.1.7](https://github.com/maevsi/maevsi_stack/compare/5.1.6...5.1.7) (2024-05-02)
 
 
