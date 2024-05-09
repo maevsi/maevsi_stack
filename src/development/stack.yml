@@ -139,7 +139,7 @@ services:
         target: /etc/msmtprc
     volumes:
       - ../production/backups/postgres/:/backups/
-      - ../production/configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
+      - ./configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
       - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   maevsi:
     # You can access the main project's frontend at [localhost](https://localhost/).

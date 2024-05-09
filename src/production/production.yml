@@ -33,6 +33,11 @@ services:
       - grafana_admin_email
       - grafana_admin_password
       - grafana_admin_user
+  jobber:
+    environment:
+      SENTRY_CRONS: ${SENTRY_CRONS}
+    volumes:
+      - ./configurations/jobber/sinks:/srv/sinks:ro
   maevsi:
     deploy:
       labels:
