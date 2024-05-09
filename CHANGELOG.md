@@ -1,3 +1,10 @@
+## [5.2.0](https://github.com/maevsi/maevsi_stack/compare/5.1.14...5.2.0) (2024-05-09)
+
+
+### Features
+
+* **jobber:** use sentry sink ([89959dd](https://github.com/maevsi/maevsi_stack/commit/89959ddbacd5e9870873ead6aa0f46e051e7621b))
+
 ## [5.1.14](https://github.com/maevsi/maevsi_stack/compare/5.1.13...5.1.14) (2024-05-07)
 
 
