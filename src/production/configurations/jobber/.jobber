@@ -2,11 +2,16 @@ version: 1.4
 
 jobs:
   DBBackup:
-    cmd: aws s3 sync /backups s3://$(cat /run/secrets/jobber_aws-bucket)/backups
+    cmd: |
+      /srv/sink_sentry_in-progress.sh
+      aws s3 sync /backups s3://$(cat /run/secrets/jobber_aws-bucket)/backups
     time: 0 0 0 *
     notifyOnSuccess:
-      - type: system-email
+      - type: program
+        path: /srv/sinks/sentry/ok.sh
     notifyOnError:
-      - type: system-email
+      - type: program
+        path: /srv/sinks/sentry/error.sh
     notifyOnFailure:
-      - type: system-email
+      - type: program
+        path: /srv/sinks/sentry/error.sh
