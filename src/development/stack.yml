@@ -228,7 +228,7 @@ services:
       DELIVERY_MODE: PERSISTENT
       POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
       RUST_LOG: info
-    image: dargmuesli/pg-amqp-bridge:0.0.8@sha256:0f1d0432dc86d7b391111e3771c985f55dd79f39f28b6147fa483aea1b847282
+    image: ghcr.io/dargmuesli/pg-amqp-bridge:0.0.8
     secrets:
       - pg-amqp-bridge_amqp-uri
       - pg-amqp-bridge_postgresql-uri
