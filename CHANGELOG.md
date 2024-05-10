@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/maevsi/maevsi_stack/compare/5.2.0...5.2.1) (2024-05-10)
+
+
+### Bug Fixes
+
+* **jobber:** add curl ([b4e0d76](https://github.com/maevsi/maevsi_stack/commit/b4e0d7625cb8c995c1ae0cc2867237b0a218d59a))
+
 ## [5.2.0](https://github.com/maevsi/maevsi_stack/compare/5.1.14...5.2.0) (2024-05-09)
 
 
