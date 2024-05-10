@@ -129,7 +129,7 @@ services:
     # You cannot access the jobber via a web interface.
     environment:
       AWS_SHARED_CREDENTIALS_FILE: /run/secrets/jobber_aws-credentials
-    image: dargmuesli/jobber-aws-msmtp:1.2.5
+    image: ghcr.io/dargmuesli/jobber-aws-msmtp:1.3.0
     secrets:
       - source: jobber_aliases
         target: /etc/aliases
@@ -228,7 +228,7 @@ services:
       DELIVERY_MODE: PERSISTENT
       POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
       RUST_LOG: info
-    image: dargmuesli/pg-amqp-bridge:0.0.8@sha256:0f1d0432dc86d7b391111e3771c985f55dd79f39f28b6147fa483aea1b847282
+    image: ghcr.io/dargmuesli/pg-amqp-bridge:0.0.8
     secrets:
       - pg-amqp-bridge_amqp-uri
       - pg-amqp-bridge_postgresql-uri
@@ -342,7 +342,7 @@ services:
         - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
         - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
-    image: rabbitmq:3.13.2-management-alpine@sha256:5fb2a4d0f9faa3ef2a1f43a3183c3ef7f574498dce4597575dc24abd6b9cdd53
+    image: rabbitmq:3.13.2-management-alpine
     secrets:
       - source: rabbitmq_definitions
         target: /etc/rabbitmq/definitions.json
