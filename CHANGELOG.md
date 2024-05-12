@@ -1,3 +1,10 @@
+## [5.2.2](https://github.com/maevsi/maevsi_stack/compare/5.2.1...5.2.2) (2024-05-12)
+
+
+### Bug Fixes
+
+* **jobber:** correct sink path ([941f4fe](https://github.com/maevsi/maevsi_stack/commit/941f4fea91e9f50da2181c4db91b34b7f07f8ed6))
+
 ## [5.2.1](https://github.com/maevsi/maevsi_stack/compare/5.2.0...5.2.1) (2024-05-10)
 
 
