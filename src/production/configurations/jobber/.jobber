@@ -3,7 +3,7 @@ version: 1.4
 jobs:
   DBBackup:
     cmd: |
-      /srv/sink_sentry_in-progress.sh
+      /srv/sinks/sentry/in-progress.sh
       aws s3 sync /backups s3://$(cat /run/secrets/jobber_aws-bucket)/backups
     time: 0 0 0 *
     notifyOnSuccess:
