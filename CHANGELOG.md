@@ -1,3 +1,11 @@
+## [5.2.3](https://github.com/maevsi/maevsi_stack/compare/5.2.2...5.2.3) (2024-05-13)
+
+
+### Bug Fixes
+
+* **jobber:** correct virtual environment ([f29a575](https://github.com/maevsi/maevsi_stack/commit/f29a575944e10fac923fac0b656acafe203fa77b))
+* **jobber:** correct volume appendix ([34a9a0f](https://github.com/maevsi/maevsi_stack/commit/34a9a0ffed0664025dea2e4e074845a13a5f5687))
+
 ## [5.2.2](https://github.com/maevsi/maevsi_stack/compare/5.2.1...5.2.2) (2024-05-12)
 
 
