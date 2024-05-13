@@ -37,6 +37,7 @@ services:
     environment:
       SENTRY_CRONS: ${SENTRY_CRONS}
     volumes:
+      - (( append ))
       - ./configurations/jobber/sinks:/srv/sinks:ro
   maevsi:
     deploy:
