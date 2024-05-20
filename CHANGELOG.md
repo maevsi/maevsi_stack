@@ -1,3 +1,10 @@
+## [5.2.5](https://github.com/maevsi/maevsi_stack/compare/5.2.4...5.2.5) (2024-05-20)
+
+
+### Bug Fixes
+
+* **jobber:** deactivate virtual environment when done ([79e1de3](https://github.com/maevsi/maevsi_stack/commit/79e1de379c6eaab345af2e0c57c65213d08d1e88))
+
 ## [5.2.4](https://github.com/maevsi/maevsi_stack/compare/5.2.3...5.2.4) (2024-05-20)
 
 
