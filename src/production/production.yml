@@ -140,9 +140,6 @@ services:
     environment:
       CF_DNS_API_TOKEN_FILE: /run/secrets/traefik_cf-dns-api-token
       CF_ZONE_API_TOKEN_FILE: /run/secrets/traefik_cf-zone-api-token
-    ports:
-      - host_ip: 127.0.0.1
-      - host_ip: 127.0.0.1
     secrets:
       - traefik_cf-dns-api-token
       - traefik_cf-zone-api-token
