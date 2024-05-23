@@ -1,3 +1,19 @@
+## [6.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/5.2.3...6.0.0-beta.1) (2024-05-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **traefik:** use localhost
+
+### Features
+
+* **traefik:** use localhost ([34f0902](https://github.com/maevsi/maevsi_stack/commit/34f09025ab29e971414c88712fac62ab61d1c53a))
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v4.9.0 ([5d12b12](https://github.com/maevsi/maevsi_stack/commit/5d12b12f23fbee322b006b6d89100f9add33cab5))
+
 ## [5.2.3](https://github.com/maevsi/maevsi_stack/compare/5.2.2...5.2.3) (2024-05-13)
 
 
