@@ -1,3 +1,12 @@
+## [6.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.1...6.0.0-beta.2) (2024-05-23)
+
+
+### Bug Fixes
+
+* **ci:** update dargmuesli/github-actions to v2.1.1-beta.1 ([60cb03d](https://github.com/maevsi/maevsi_stack/commit/60cb03deba0dc7ac9123435623a2c176a5f4a6c5))
+* **jobber:** deactivate virtual environment when done ([79e1de3](https://github.com/maevsi/maevsi_stack/commit/79e1de379c6eaab345af2e0c57c65213d08d1e88))
+* revert "feat(traefik)!: use localhost" ([71a2c01](https://github.com/maevsi/maevsi_stack/commit/71a2c012f28420c3f9cea63d3a95b4654fa74210))
+
 ## [6.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/5.2.3...6.0.0-beta.1) (2024-05-23)
 
 
