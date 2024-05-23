@@ -14,6 +14,20 @@
 
 * **deps:** update ghcr.io/maevsi/maevsi to v4.9.0 ([5d12b12](https://github.com/maevsi/maevsi_stack/commit/5d12b12f23fbee322b006b6d89100f9add33cab5))
 
+## [5.2.5](https://github.com/maevsi/maevsi_stack/compare/5.2.4...5.2.5) (2024-05-20)
+
+
+### Bug Fixes
+
+* **jobber:** deactivate virtual environment when done ([79e1de3](https://github.com/maevsi/maevsi_stack/commit/79e1de379c6eaab345af2e0c57c65213d08d1e88))
+
+## [5.2.4](https://github.com/maevsi/maevsi_stack/compare/5.2.3...5.2.4) (2024-05-20)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v4.9.0 ([5d12b12](https://github.com/maevsi/maevsi_stack/commit/5d12b12f23fbee322b006b6d89100f9add33cab5))
+
 ## [5.2.3](https://github.com/maevsi/maevsi_stack/compare/5.2.2...5.2.3) (2024-05-13)
 
 

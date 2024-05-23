@@ -248,7 +248,7 @@ services:
         constraints:
           - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.20.2-alpine
+    image: portainer/portainer-ce:2.20.3-alpine
     secrets:
       - portainer_admin-password
     volumes:
@@ -262,7 +262,7 @@ services:
           - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.20.2
+    image: portainer/agent:2.20.3
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -427,7 +427,7 @@ services:
       placement:
         constraints:
           - node.role == manager
-    image: traefik:v3.0.0
+    image: traefik:v3.0.1
     ports:
       - mode: host
         protocol: tcp
