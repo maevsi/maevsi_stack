@@ -25,12 +25,12 @@ jobs:
   build:
     needs: prepare_jobs
     name: dargstack rgen
-    uses: dargmuesli/github-actions/.github/workflows/dargstack-rgen.yml@2.0.0-beta.13
+    uses: dargmuesli/github-actions/.github/workflows/dargstack-rgen.yml@2.1.1-beta.1
     if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
   release-semantic:
     needs: build
     name: Semantic Release
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@2.0.0-beta.13
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@2.1.1-beta.1
     permissions:
       contents: write
     secrets:
