@@ -1,3 +1,13 @@
+## [6.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.2...6.0.0-beta.3) (2024-05-27)
+
+
+### Bug Fixes
+
+* **ci:** test pull request ([102c2b0](https://github.com/maevsi/maevsi_stack/commit/102c2b0b6aa68b9ea6dee42de387592776347312))
+* **ci:** test pull request ([d001388](https://github.com/maevsi/maevsi_stack/commit/d0013886ae23a9d1106ac7eae09f8ba2f2b6cff9))
+* **ci:** test pull request ([8dea724](https://github.com/maevsi/maevsi_stack/commit/8dea724f65180dcec9e0a03895cc729d178430a0))
+* revert "ci: specify pull request types instead of late checking" ([7b47d0e](https://github.com/maevsi/maevsi_stack/commit/7b47d0ec8eee416a3c30d75703ae989ebbdc108b))
+
 ## [6.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.1...6.0.0-beta.2) (2024-05-23)
 
 
