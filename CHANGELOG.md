@@ -1,3 +1,10 @@
+## [6.0.0-beta.4](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.3...6.0.0-beta.4) (2024-06-04)
+
+
+### Features
+
+* **infra:** remove redirect and use port 80 for incoming connections ([353dade](https://github.com/maevsi/maevsi_stack/commit/353dade03ccb22ac5ee281e60c852ee3213d79d6))
+
 ## [6.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.2...6.0.0-beta.3) (2024-05-27)
 
 
