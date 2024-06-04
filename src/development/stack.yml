@@ -417,7 +417,6 @@ services:
     image: traefik:v3.0.1
     ports:
       - mode: host
-        host_ip: 127.0.0.1
         protocol: tcp
         published: 80
         target: 80
