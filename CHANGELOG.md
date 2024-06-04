@@ -1,3 +1,10 @@
+## [6.0.0-beta.5](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.4...6.0.0-beta.5) (2024-06-04)
+
+
+### Bug Fixes
+
+* **traefik:** remove host_ip property ([dd6fcaa](https://github.com/maevsi/maevsi_stack/commit/dd6fcaac10a51524af77ccb8a64a0bdc22d2921b))
+
 ## [6.0.0-beta.4](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.3...6.0.0-beta.4) (2024-06-04)
 
 
