@@ -52,7 +52,6 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.routers.maevsi_beta.entryPoints=web
-        - traefik.http.routers.maevsi_beta.middlewares=redirectscheme
         - traefik.http.routers.maevsi_beta.rule=Host(`beta.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi_beta_secure.entryPoints=web-secure
         - traefik.http.routers.maevsi_beta_secure.middlewares=maevsi_cors
