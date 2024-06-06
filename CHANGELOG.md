@@ -1,3 +1,10 @@
+## [6.0.0-beta.8](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.7...6.0.0-beta.8) (2024-06-06)
+
+
+### Features
+
+* **cloudflared:** add environment variable ([868ba1c](https://github.com/maevsi/maevsi_stack/commit/868ba1c7476ab0f9152a576ef737b662892b9b3b))
+
 ## [6.0.0-beta.7](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.6...6.0.0-beta.7) (2024-06-06)
 
 
