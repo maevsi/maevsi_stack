@@ -1,3 +1,10 @@
+## [6.0.0-beta.7](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.6...6.0.0-beta.7) (2024-06-06)
+
+
+### Features
+
+* **production:** add command to cloudflare service ([f822483](https://github.com/maevsi/maevsi_stack/commit/f822483cc6ee7217dbd3675fffd6552c050dfb80))
+
 ## [6.0.0-beta.6](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.5...6.0.0-beta.6) (2024-06-06)
 
 
