@@ -24,6 +24,7 @@ services:
         - (( append ))
         - traefik.http.routers.adminer_secure.tls.certresolver=default
   cloudflared:
+    # You can configure the secure tunnel at [dash.cloudflare.com](https://dash.cloudflare.com/).
     command: tunnel run
     environment:
       TUNNEL_TOKEN: ${CLOUDFLARED_TUNNEL_TOKEN}
@@ -48,6 +49,7 @@ services:
     deploy:
       labels:
         - (( append ))
+        - traefik.http.routers.maevsi.middlewares=maevsi_redirectregex
         - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: ghcr.io/maevsi/maevsi:4.9.0
     user: (( prune ))

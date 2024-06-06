@@ -403,7 +403,7 @@ services:
     command:
       - --api=true
       - --entryPoints.web.address=:80
-      - --entryPoints.web-secure.address=:443 #DARGSTACK-REMOVE
+      - --entryPoints.web-secure.address=:443
       - --entryPoints.nuxt.address=:24678 #DARGSTACK-REMOVE
       - --experimental.plugins.body-forward-auth.moduleName=github.com/PatrickMi/body-forward-auth
       - --experimental.plugins.body-forward-auth.version=v0.1.2
