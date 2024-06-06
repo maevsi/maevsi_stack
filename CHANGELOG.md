@@ -1,3 +1,10 @@
+## [6.0.0-beta.10](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.9...6.0.0-beta.10) (2024-06-06)
+
+
+### Bug Fixes
+
+* **redirect:** re-add redirect regex ([b840c59](https://github.com/maevsi/maevsi_stack/commit/b840c591928fd2aa40128d2ac1ddef3f1a9e7751))
+
 ## [6.0.0-beta.9](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.8...6.0.0-beta.9) (2024-06-06)
 
 
