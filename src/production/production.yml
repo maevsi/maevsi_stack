@@ -24,6 +24,7 @@ services:
         - (( append ))
         - traefik.http.routers.adminer_secure.tls.certresolver=default
   cloudflared:
+    command: tunnel run
     environment:
       TUNNEL_TOKEN: token
     image: cloudflare/cloudflared
