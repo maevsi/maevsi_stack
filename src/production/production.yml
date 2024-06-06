@@ -23,6 +23,11 @@ services:
       labels:
         - (( append ))
         - traefik.http.routers.adminer_secure.tls.certresolver=default
+  cloudflared:
+    environment:
+      TUNNEL_TOKEN: token
+    image: cloudflare/cloudflared
+    restart: unless-stopped
   grafana:
     deploy:
       labels:

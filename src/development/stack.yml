@@ -416,9 +416,9 @@ services:
           - node.role == manager
     image: traefik:v3.0.1
     ports:
-      - mode: host
+      - mode: host #DARGSTACK-REMOVE
         protocol: tcp
-        published: 80
+        published: 80 #DARGSTACK-REMOVE
         target: 80
       - mode: host #DARGSTACK-REMOVE
         protocol: tcp #DARGSTACK-REMOVE
