@@ -1,3 +1,10 @@
+## [6.0.0-beta.6](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.5...6.0.0-beta.6) (2024-06-06)
+
+
+### Features
+
+* **prod:** add cloudflared service to production deployment ([2c04195](https://github.com/maevsi/maevsi_stack/commit/2c041955e8dd05bcf0c7faa59ba70988b4a29dd0))
+
 ## [6.0.0-beta.5](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.4...6.0.0-beta.5) (2024-06-04)
 
 
