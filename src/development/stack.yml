@@ -415,11 +415,11 @@ services:
         constraints:
           - node.role == manager
     image: traefik:v3.0.1
-    ports:
+    ports: #DARGSTACK-REMOVE
       - mode: host #DARGSTACK-REMOVE
-        protocol: tcp
+        protocol: tcp #DARGSTACK-REMOVE
         published: 80 #DARGSTACK-REMOVE
-        target: 80
+        target: 80 #DARGSTACK-REMOVE
       - mode: host #DARGSTACK-REMOVE
         protocol: tcp #DARGSTACK-REMOVE
         published: 24678 #DARGSTACK-REMOVE
