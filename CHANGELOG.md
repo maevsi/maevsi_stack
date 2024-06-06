@@ -1,3 +1,10 @@
+## [6.0.0-beta.12](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.11...6.0.0-beta.12) (2024-06-06)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v4.9.3 ([2137c30](https://github.com/maevsi/maevsi_stack/commit/2137c308d6233a2d122b82d606ebabee7498e6ba))
+
 ## [6.0.0-beta.11](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.10...6.0.0-beta.11) (2024-06-06)
 
 
