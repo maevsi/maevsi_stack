@@ -1,3 +1,32 @@
+## [6.0.0](https://github.com/maevsi/maevsi_stack/compare/5.2.6...6.0.0) (2024-06-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **traefik:** use localhost
+
+### Features
+
+* **cloudflared:** add environment variable ([868ba1c](https://github.com/maevsi/maevsi_stack/commit/868ba1c7476ab0f9152a576ef737b662892b9b3b))
+* **infra:** remove redirect and use port 80 for incoming connections ([353dade](https://github.com/maevsi/maevsi_stack/commit/353dade03ccb22ac5ee281e60c852ee3213d79d6))
+* **prod:** add cloudflared service to production deployment ([2c04195](https://github.com/maevsi/maevsi_stack/commit/2c041955e8dd05bcf0c7faa59ba70988b4a29dd0))
+* **production:** add command to cloudflare service ([f822483](https://github.com/maevsi/maevsi_stack/commit/f822483cc6ee7217dbd3675fffd6552c050dfb80))
+* **traefik:** use localhost ([34f0902](https://github.com/maevsi/maevsi_stack/commit/34f09025ab29e971414c88712fac62ab61d1c53a))
+
+
+### Bug Fixes
+
+* **ci:** test pull request ([102c2b0](https://github.com/maevsi/maevsi_stack/commit/102c2b0b6aa68b9ea6dee42de387592776347312))
+* **ci:** test pull request ([d001388](https://github.com/maevsi/maevsi_stack/commit/d0013886ae23a9d1106ac7eae09f8ba2f2b6cff9))
+* **ci:** test pull request ([8dea724](https://github.com/maevsi/maevsi_stack/commit/8dea724f65180dcec9e0a03895cc729d178430a0))
+* **ci:** update dargmuesli/github-actions to v2.1.1-beta.1 ([60cb03d](https://github.com/maevsi/maevsi_stack/commit/60cb03deba0dc7ac9123435623a2c176a5f4a6c5))
+* **redirect:** re-add redirect regex ([b840c59](https://github.com/maevsi/maevsi_stack/commit/b840c591928fd2aa40128d2ac1ddef3f1a9e7751))
+* revert "ci: specify pull request types instead of late checking" ([7b47d0e](https://github.com/maevsi/maevsi_stack/commit/7b47d0ec8eee416a3c30d75703ae989ebbdc108b))
+* revert "feat(traefik)!: use localhost" ([71a2c01](https://github.com/maevsi/maevsi_stack/commit/71a2c012f28420c3f9cea63d3a95b4654fa74210))
+* **traefik:** do not remove entrypoint in production ([ce0df8e](https://github.com/maevsi/maevsi_stack/commit/ce0df8eb2fec054b98748c607eabe77fadbd7cc0))
+* **traefik:** remove host_ip property ([dd6fcaa](https://github.com/maevsi/maevsi_stack/commit/dd6fcaac10a51524af77ccb8a64a0bdc22d2921b))
+* **traefik:** remove whole port definition on production ([31710ee](https://github.com/maevsi/maevsi_stack/commit/31710eeb71603ab2ceea186c9ebdf31d223f3cff))
+
 ## [6.0.0-beta.12](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.11...6.0.0-beta.12) (2024-06-06)
 
 
