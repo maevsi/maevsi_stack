@@ -1,3 +1,10 @@
+## [6.0.0-beta.9](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.8...6.0.0-beta.9) (2024-06-06)
+
+
+### Bug Fixes
+
+* **traefik:** remove whole port definition on production ([31710ee](https://github.com/maevsi/maevsi_stack/commit/31710eeb71603ab2ceea186c9ebdf31d223f3cff))
+
 ## [6.0.0-beta.8](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.7...6.0.0-beta.8) (2024-06-06)
 
 
