@@ -49,7 +49,6 @@ services:
       labels:
         - (( append ))
         - traefik.http.routers.maevsi_secure.tls.certresolver=default
-        - traefik.http.routers.maevsi_secure.middlewares=maevsi_cors
     image: ghcr.io/maevsi/maevsi:4.9.0
     user: (( prune ))
   maevsi_beta:

@@ -156,7 +156,7 @@ services:
         - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi.service=maevsi #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi_secure.entryPoints=web-secure
-        - traefik.http.routers.maevsi_secure.middlewares=maevsi_redirectregex,maevsi_cors #DARGSTACK-REMOVE
+        - traefik.http.routers.maevsi_secure.middlewares=maevsi_redirectregex,maevsi_cors
         - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi_secure.service=maevsi #DARGSTACK-REMOVE
