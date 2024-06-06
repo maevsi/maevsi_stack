@@ -99,7 +99,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.adminer.middlewares=redirectscheme
+        - traefik.http.routers.adminer.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.adminer.rule=Host(`adminer.${STACK_DOMAIN}`)
         - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
         - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
@@ -112,7 +112,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.grafana.middlewares=redirectscheme
+        - traefik.http.routers.grafana.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.grafana.rule=Host(`grafana.${STACK_DOMAIN}`)
         - traefik.http.routers.grafana_secure.rule=Host(`grafana.${STACK_DOMAIN}`)
         - traefik.http.routers.grafana_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
@@ -152,7 +152,7 @@ services:
         - traefik.http.middlewares.maevsi_redirectregex.redirectregex.regex=^https?:\/\/www\.${STACK_DOMAIN}\/(.*)
         - traefik.http.middlewares.maevsi_redirectregex.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
         - traefik.http.routers.maevsi.entryPoints=web
-        - traefik.http.routers.maevsi.middlewares=redirectscheme,maevsi_redirectregex
+        - traefik.http.routers.maevsi.middlewares=redirectscheme,maevsi_redirectregex #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi.service=maevsi #DARGSTACK-REMOVE
         - traefik.http.routers.maevsi_secure.entryPoints=web-secure
@@ -196,7 +196,7 @@ services:
       labels:
         - traefik.enable=true
         # Minio Console
-        - traefik.http.routers.minio.middlewares=redirectscheme
+        - traefik.http.routers.minio.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.minio.rule=Host(`minio.${STACK_DOMAIN}`)
         - traefik.http.routers.minio.service=minio
         - traefik.http.routers.minio_secure.rule=Host(`minio.${STACK_DOMAIN}`)
@@ -205,7 +205,7 @@ services:
         - traefik.http.services.minio.loadbalancer.server.port=9001
         - traefik.http.services.minio.loadbalancer.passhostheader=true
         # Minio itself
-        - traefik.http.routers.s3.middlewares=redirectscheme
+        - traefik.http.routers.s3.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.s3.rule=Host(`s3.${STACK_DOMAIN}`)
         - traefik.http.routers.s3.service=s3
         - traefik.http.routers.s3_secure.rule=Host(`s3.${STACK_DOMAIN}`)
@@ -238,7 +238,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.portainer.middlewares=redirectscheme
+        - traefik.http.routers.portainer.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.portainer.rule=Host(`portainer.${STACK_DOMAIN}`)
         - traefik.http.routers.portainer_secure.rule=Host(`portainer.${STACK_DOMAIN}`)
         - traefik.http.routers.portainer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
@@ -274,7 +274,7 @@ services:
         - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
-        - traefik.http.routers.postgraphile.middlewares=redirectscheme
+        - traefik.http.routers.postgraphile.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
         - traefik.http.routers.postgraphile_secure.middlewares=postgraphile_cors,postgraphile_auth
         - traefik.http.routers.postgraphile_secure.rule=Host(`postgraphile.${STACK_DOMAIN}`)
@@ -323,7 +323,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.prometheus.middlewares=redirectscheme
+        - traefik.http.routers.prometheus.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.prometheus.rule=Host(`prometheus.${STACK_DOMAIN}`)
         - traefik.http.routers.prometheus_secure.rule=Host(`prometheus.${STACK_DOMAIN}`)
         - traefik.http.routers.prometheus_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
@@ -337,7 +337,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.rabbitmq.middlewares=redirectscheme
+        - traefik.http.routers.rabbitmq.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.rabbitmq.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
         - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
         - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
@@ -376,7 +376,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.stomper.middlewares=redirectscheme
+        - traefik.http.routers.stomper.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.stomper.rule=Host(`stomper.${STACK_DOMAIN}`)
         - traefik.http.routers.stomper_secure.rule=Host(`stomper.${STACK_DOMAIN}`)
         - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
@@ -416,8 +416,8 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https
-        - traefik.http.routers.traefik.middlewares=redirectscheme
+        - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https #DARGSTACK-REMOVE
+        - traefik.http.routers.traefik.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
         - traefik.http.routers.traefik_secure.rule=Host(`traefik.${STACK_DOMAIN}`)
         - traefik.http.routers.traefik_secure.service=api@internal
@@ -428,15 +428,15 @@ services:
         constraints:
           - node.role == manager
     image: traefik:v3.0.1
-    ports:
-      - mode: host
-        protocol: tcp
-        published: 80
-        target: 80
-      - mode: host
-        protocol: tcp
-        published: 443
-        target: 443
+    ports: #DARGSTACK-REMOVE
+      - mode: host #DARGSTACK-REMOVE
+        protocol: tcp #DARGSTACK-REMOVE
+        published: 80 #DARGSTACK-REMOVE
+        target: 80 #DARGSTACK-REMOVE
+      - mode: host #DARGSTACK-REMOVE
+        protocol: tcp #DARGSTACK-REMOVE
+        published: 443 #DARGSTACK-REMOVE
+        target: 443 #DARGSTACK-REMOVE
       - mode: host #DARGSTACK-REMOVE
         protocol: tcp #DARGSTACK-REMOVE
         published: 24678 #DARGSTACK-REMOVE
@@ -451,7 +451,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.tusd.middlewares=redirectscheme
+        - traefik.http.routers.tusd.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
         - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && (Method(`GET`) || Method(`HEAD`) || Method(`OPTIONS`) || Method(`POST`) || Method(`PUT`) || Method(`PATCH`))
         - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE

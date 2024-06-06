@@ -1,3 +1,101 @@
+## [6.0.0-beta.12](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.11...6.0.0-beta.12) (2024-06-06)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v4.9.3 ([2137c30](https://github.com/maevsi/maevsi_stack/commit/2137c308d6233a2d122b82d606ebabee7498e6ba))
+
+## [6.0.0-beta.11](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.10...6.0.0-beta.11) (2024-06-06)
+
+
+### Bug Fixes
+
+* **traefik:** do not remove entrypoint in production ([ce0df8e](https://github.com/maevsi/maevsi_stack/commit/ce0df8eb2fec054b98748c607eabe77fadbd7cc0))
+
+## [6.0.0-beta.10](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.9...6.0.0-beta.10) (2024-06-06)
+
+
+### Bug Fixes
+
+* **redirect:** re-add redirect regex ([b840c59](https://github.com/maevsi/maevsi_stack/commit/b840c591928fd2aa40128d2ac1ddef3f1a9e7751))
+
+## [6.0.0-beta.9](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.8...6.0.0-beta.9) (2024-06-06)
+
+
+### Bug Fixes
+
+* **traefik:** remove whole port definition on production ([31710ee](https://github.com/maevsi/maevsi_stack/commit/31710eeb71603ab2ceea186c9ebdf31d223f3cff))
+
+## [6.0.0-beta.8](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.7...6.0.0-beta.8) (2024-06-06)
+
+
+### Features
+
+* **cloudflared:** add environment variable ([868ba1c](https://github.com/maevsi/maevsi_stack/commit/868ba1c7476ab0f9152a576ef737b662892b9b3b))
+
+## [6.0.0-beta.7](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.6...6.0.0-beta.7) (2024-06-06)
+
+
+### Features
+
+* **production:** add command to cloudflare service ([f822483](https://github.com/maevsi/maevsi_stack/commit/f822483cc6ee7217dbd3675fffd6552c050dfb80))
+
+## [6.0.0-beta.6](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.5...6.0.0-beta.6) (2024-06-06)
+
+
+### Features
+
+* **prod:** add cloudflared service to production deployment ([2c04195](https://github.com/maevsi/maevsi_stack/commit/2c041955e8dd05bcf0c7faa59ba70988b4a29dd0))
+
+## [6.0.0-beta.5](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.4...6.0.0-beta.5) (2024-06-04)
+
+
+### Bug Fixes
+
+* **traefik:** remove host_ip property ([dd6fcaa](https://github.com/maevsi/maevsi_stack/commit/dd6fcaac10a51524af77ccb8a64a0bdc22d2921b))
+
+## [6.0.0-beta.4](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.3...6.0.0-beta.4) (2024-06-04)
+
+
+### Features
+
+* **infra:** remove redirect and use port 80 for incoming connections ([353dade](https://github.com/maevsi/maevsi_stack/commit/353dade03ccb22ac5ee281e60c852ee3213d79d6))
+
+## [6.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.2...6.0.0-beta.3) (2024-05-27)
+
+
+### Bug Fixes
+
+* **ci:** test pull request ([102c2b0](https://github.com/maevsi/maevsi_stack/commit/102c2b0b6aa68b9ea6dee42de387592776347312))
+* **ci:** test pull request ([d001388](https://github.com/maevsi/maevsi_stack/commit/d0013886ae23a9d1106ac7eae09f8ba2f2b6cff9))
+* **ci:** test pull request ([8dea724](https://github.com/maevsi/maevsi_stack/commit/8dea724f65180dcec9e0a03895cc729d178430a0))
+* revert "ci: specify pull request types instead of late checking" ([7b47d0e](https://github.com/maevsi/maevsi_stack/commit/7b47d0ec8eee416a3c30d75703ae989ebbdc108b))
+
+## [6.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.1...6.0.0-beta.2) (2024-05-23)
+
+
+### Bug Fixes
+
+* **ci:** update dargmuesli/github-actions to v2.1.1-beta.1 ([60cb03d](https://github.com/maevsi/maevsi_stack/commit/60cb03deba0dc7ac9123435623a2c176a5f4a6c5))
+* **jobber:** deactivate virtual environment when done ([79e1de3](https://github.com/maevsi/maevsi_stack/commit/79e1de379c6eaab345af2e0c57c65213d08d1e88))
+* revert "feat(traefik)!: use localhost" ([71a2c01](https://github.com/maevsi/maevsi_stack/commit/71a2c012f28420c3f9cea63d3a95b4654fa74210))
+
+## [6.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/5.2.3...6.0.0-beta.1) (2024-05-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **traefik:** use localhost
+
+### Features
+
+* **traefik:** use localhost ([34f0902](https://github.com/maevsi/maevsi_stack/commit/34f09025ab29e971414c88712fac62ab61d1c53a))
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v4.9.0 ([5d12b12](https://github.com/maevsi/maevsi_stack/commit/5d12b12f23fbee322b006b6d89100f9add33cab5))
+
 ## [5.2.6](https://github.com/maevsi/maevsi_stack/compare/5.2.5...5.2.6) (2024-06-04)
 
 

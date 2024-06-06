@@ -165,6 +165,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     Values in square brackets are [Docker secrets](https://docs.docker.com/engine/swarm/secrets/).
     
+ - ### `cloudflared` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    You can configure the secure tunnel at [dash.cloudflare.com](https://dash.cloudflare.com/).
+    
  - ### `grafana`
     
     You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).

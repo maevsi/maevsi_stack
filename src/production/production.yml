@@ -23,6 +23,12 @@ services:
       labels:
         - (( append ))
         - traefik.http.routers.adminer_secure.tls.certresolver=default
+  cloudflared:
+    # You can configure the secure tunnel at [dash.cloudflare.com](https://dash.cloudflare.com/).
+    command: tunnel run
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARED_TUNNEL_TOKEN}
+    image: cloudflare/cloudflared
   grafana:
     deploy:
       labels:
@@ -43,6 +49,7 @@ services:
     deploy:
       labels:
         - (( append ))
+        - traefik.http.routers.maevsi.middlewares=maevsi_redirectregex
         - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: ghcr.io/maevsi/maevsi:4.9.3
     user: (( prune ))
@@ -52,7 +59,6 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.routers.maevsi_beta.entryPoints=web
-        - traefik.http.routers.maevsi_beta.middlewares=redirectscheme
         - traefik.http.routers.maevsi_beta.rule=Host(`beta.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi_beta_secure.entryPoints=web-secure
         - traefik.http.routers.maevsi_beta_secure.middlewares=maevsi_cors
