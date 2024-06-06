@@ -1,3 +1,10 @@
+## [6.0.0-beta.11](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.10...6.0.0-beta.11) (2024-06-06)
+
+
+### Bug Fixes
+
+* **traefik:** do not remove entrypoint in production ([ce0df8e](https://github.com/maevsi/maevsi_stack/commit/ce0df8eb2fec054b98748c607eabe77fadbd7cc0))
+
 ## [6.0.0-beta.10](https://github.com/maevsi/maevsi_stack/compare/6.0.0-beta.9...6.0.0-beta.10) (2024-06-06)
 
 
