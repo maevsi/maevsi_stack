@@ -49,7 +49,7 @@ services:
     deploy:
       labels:
         - (( append ))
-        - traefik.http.routers.maevsi.middlewares=maevsi_redirectregex
+        - traefik.http.routers.maevsi.middlewares=maevsi_cors,maevsi_redirectregex
         - traefik.http.routers.maevsi_secure.tls.certresolver=default
     image: ghcr.io/maevsi/maevsi:4.9.3
     user: (( prune ))
@@ -59,9 +59,10 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.routers.maevsi_beta.entryPoints=web
+        - traefik.http.routers.maevsi_beta.middlewares=maevsi_cors,maevsi_redirectregex
         - traefik.http.routers.maevsi_beta.rule=Host(`beta.${STACK_DOMAIN}`)
         - traefik.http.routers.maevsi_beta_secure.entryPoints=web-secure
-        - traefik.http.routers.maevsi_beta_secure.middlewares=maevsi_cors
+        - traefik.http.routers.maevsi_beta_secure.middlewares=maevsi_cors,maevsi_redirectregex
         - traefik.http.routers.maevsi_beta_secure.rule=Host(`beta.${STACK_DOMAIN}`)
         - traefik.http.services.maevsi_beta.loadbalancer.server.port=3000
         - traefik.http.routers.maevsi_beta_secure.tls.certresolver=default
@@ -93,6 +94,7 @@ services:
     deploy:
       labels:
         - (( append ))
+        - traefik.http.routers.postgraphile.middlewares=postgraphile_auth,postgraphile_cors
         - traefik.http.routers.postgraphile_secure.tls.certresolver=default
   postgres_backup:
     # You cannot access the database backup directly.
