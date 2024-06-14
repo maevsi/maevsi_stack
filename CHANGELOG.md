@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/maevsi/maevsi_stack/compare/6.0.0...6.0.1) (2024-06-14)
+
+
+### Bug Fixes
+
+* **traefik:** correct production middlewares ([1af038c](https://github.com/maevsi/maevsi_stack/commit/1af038c35a5eb55061597fb33acbdf98c9360658))
+
 ## [6.0.0](https://github.com/maevsi/maevsi_stack/compare/5.2.6...6.0.0) (2024-06-06)
 
 
