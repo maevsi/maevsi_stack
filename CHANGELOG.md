@@ -1,3 +1,10 @@
+## [6.0.2](https://github.com/maevsi/maevsi_stack/compare/6.0.1...6.0.2) (2024-06-14)
+
+
+### Bug Fixes
+
+* **maevsi:** add turnstile secret to environment template ([ef22321](https://github.com/maevsi/maevsi_stack/commit/ef22321d4b2f0ca9105c4b36183f08bf4a517016))
+
 ## [6.0.1](https://github.com/maevsi/maevsi_stack/compare/6.0.0...6.0.1) (2024-06-14)
 
 
