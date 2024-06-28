@@ -185,7 +185,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the main project frontend's beta version at [beta.localhost](https://beta.localhost/).
     
- - ### `minio`
+ - ### `minio` ![development](https://img.shields.io/badge/-development-informational.svg?style=flat-square)
     
     You can access the s3 console at [minio.localhost](https://minio.localhost/).
     You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
