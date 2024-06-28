@@ -1,3 +1,10 @@
+## [6.0.4](https://github.com/maevsi/maevsi_stack/compare/6.0.3...6.0.4) (2024-06-28)
+
+
+### Bug Fixes
+
+* **renovate:** prune minio by dargstack remove ([e415615](https://github.com/maevsi/maevsi_stack/commit/e415615102fc8d4a1731d0f00e34691917886e4d))
+
 ## [6.0.3](https://github.com/maevsi/maevsi_stack/compare/6.0.2...6.0.3) (2024-06-24)
 
 
