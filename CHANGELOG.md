@@ -1,3 +1,10 @@
+## [6.0.5](https://github.com/maevsi/maevsi_stack/compare/6.0.4...6.0.5) (2024-06-28)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([2571c7e](https://github.com/maevsi/maevsi_stack/commit/2571c7e321667d0ae7e8c30ecee6da47aa9fa88c))
+
 ## [6.0.4](https://github.com/maevsi/maevsi_stack/compare/6.0.3...6.0.4) (2024-06-28)
 
 
