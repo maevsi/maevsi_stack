@@ -1,3 +1,10 @@
+## [6.0.9](https://github.com/maevsi/maevsi_stack/compare/6.0.8...6.0.9) (2024-08-18)
+
+
+### Bug Fixes
+
+* schedule release ([258b252](https://github.com/maevsi/maevsi_stack/commit/258b2522ce14731a88230f6fb270992636b1c2a4))
+
 ## [6.0.8](https://github.com/maevsi/maevsi_stack/compare/6.0.7...6.0.8) (2024-08-04)
 
 
