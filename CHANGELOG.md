@@ -1,3 +1,10 @@
+## [6.0.12](https://github.com/maevsi/maevsi_stack/compare/6.0.11...6.0.12) (2024-09-15)
+
+
+### Bug Fixes
+
+* **development:** add missing environment variables ([dc0ee1b](https://github.com/maevsi/maevsi_stack/commit/dc0ee1b70226eb17a9845d166e2b174ca86c8759))
+
 ## [6.0.11](https://github.com/maevsi/maevsi_stack/compare/6.0.10...6.0.11) (2024-09-15)
 
 
