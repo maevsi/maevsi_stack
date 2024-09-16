@@ -18,8 +18,8 @@ importers:
         specifier: 8.0.0
         version: 8.0.0
       dargstack:
-        specifier: 2.2.1
-        version: 2.2.1
+        specifier: 2.2.2
+        version: 2.2.2
       dargstack_rgen:
         specifier: 0.9.42
         version: 0.9.42
@@ -211,9 +211,9 @@ packages:
     resolution: {integrity: sha512-wAV9QHOsNbwnWdNW2FYvE1P56wtgSbM+3SZcdGiWQILwVjACCXDCI3Ai8QlCjMDB8YK5zySiXZYBiwGmNY3lnw==}
     engines: {node: '>=12'}
 
-  dargstack@2.2.1:
-    resolution: {integrity: sha512-7TeoDV8gFS4O8OINshyMcVFFbugFhecdDkjCevDSO/xkBYJvizHdzvQaINImuarJCPbx0YmB7YNZUD4xJlwNnQ==}
-    engines: {node: '19'}
+  dargstack@2.2.2:
+    resolution: {integrity: sha512-cr8LFy4mpi44kRVqp5i8dN2cIFX04D0RiDmKDmRIiUKs4M62RXi3WEo5yadtSQJ0W/Xk1MCSgZkEWlvUKOmLzg==}
+    engines: {node: '20'}
 
   dargstack_rgen@0.9.42:
     resolution: {integrity: sha512-roABzm5vGHo73jN1Y908pISlIQdIfbSXCfDdwT/DpsYblhspTmJ9l25x7l0z7sIHUeZ6dzVT+VZcHppZISApTQ==}
@@ -713,7 +713,7 @@ snapshots:
 
   dargs@8.1.0: {}
 
-  dargstack@2.2.1: {}
+  dargstack@2.2.2: {}
 
   dargstack_rgen@0.9.42:
     dependencies:
