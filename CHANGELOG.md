@@ -1,3 +1,10 @@
+## [6.1.0](https://github.com/maevsi/maevsi_stack/compare/6.0.12...6.1.0) (2024-09-23)
+
+
+### Features
+
+* **tusd:** add cross origin resource policy response header ([f5f65e2](https://github.com/maevsi/maevsi_stack/commit/f5f65e2f782df3bccd6b9b0a684433f9c370c20c))
+
 ## [6.0.12](https://github.com/maevsi/maevsi_stack/compare/6.0.11...6.0.12) (2024-09-15)
 
 
