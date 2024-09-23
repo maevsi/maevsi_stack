@@ -1,3 +1,10 @@
+## [6.1.1](https://github.com/maevsi/maevsi_stack/compare/6.1.0...6.1.1) (2024-09-23)
+
+
+### Bug Fixes
+
+* **rabbitmq:** explicitly specify exchanges and bindings ([9596fc4](https://github.com/maevsi/maevsi_stack/commit/9596fc4ce8b01bfa3b011f7172bade52932fb2ed))
+
 ## [6.1.0](https://github.com/maevsi/maevsi_stack/compare/6.0.12...6.1.0) (2024-09-23)
 
 
