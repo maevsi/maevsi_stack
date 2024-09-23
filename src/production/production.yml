@@ -171,6 +171,7 @@ services:
     deploy:
       labels:
         - (( append ))
+        - traefik.http.routers.tusd.middlewares=tusd_cors
         - traefik.http.routers.tusd_secure.tls.certresolver=default
 version: "3.7"
 volumes:

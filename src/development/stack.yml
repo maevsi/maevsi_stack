@@ -453,6 +453,8 @@ services:
         - traefik.enable=true
         - traefik.http.routers.tusd.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.tusd.rule=Host(`tusd.${STACK_DOMAIN}`)
+        - traefik.http.middlewares.tusd_cors.headers.customresponseheaders.Cross-Origin-Resource-Policy=cross-origin
+        - traefik.http.routers.tusd_secure.middlewares=tusd_cors
         - traefik.http.routers.tusd_secure.rule=Host(`tusd.${STACK_DOMAIN}`) && (Method(`GET`) || Method(`HEAD`) || Method(`OPTIONS`) || Method(`POST`) || Method(`PUT`) || Method(`PATCH`))
         - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.tusd.loadbalancer.server.port=8080
