@@ -1,3 +1,14 @@
+## [7.0.0](https://github.com/maevsi/maevsi_stack/compare/6.1.1...7.0.0) (2024-09-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** update postgres docker tag to v17 (#138)
+
+### Miscellaneous Chores
+
+* **deps:** update postgres docker tag to v17 ([#138](https://github.com/maevsi/maevsi_stack/issues/138)) ([f68ef81](https://github.com/maevsi/maevsi_stack/commit/f68ef81d650f9f8eba5684b1d681e34188f7255d))
+
 ## [6.1.1](https://github.com/maevsi/maevsi_stack/compare/6.1.0...6.1.1) (2024-09-23)
 
 
