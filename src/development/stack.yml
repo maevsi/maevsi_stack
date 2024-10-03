@@ -244,7 +244,7 @@ services:
         constraints:
           - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.21.2-alpine
+    image: portainer/portainer-ce:2.22.0-alpine
     secrets:
       - portainer_admin-password
     volumes:
@@ -258,7 +258,7 @@ services:
           - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.21.2
+    image: portainer/agent:2.22.0
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -422,7 +422,7 @@ services:
       placement:
         constraints:
           - node.role == manager
-    image: traefik:v3.1.4
+    image: traefik:v3.1.5
     ports: #DARGSTACK-REMOVE
       - mode: host #DARGSTACK-REMOVE
         protocol: tcp #DARGSTACK-REMOVE
