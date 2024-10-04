@@ -98,6 +98,35 @@ services:
     image: adminer:4.8.1-standalone
     volumes:
       - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
+  debezium:
+    # You can see how changes in the database end up in the event stream using `redpanda-console`.
+    environment:
+      BOOTSTRAP_SERVERS: redpanda:9092
+      CONFIG_STORAGE_TOPIC: connect_configs
+      GROUP_ID: 1
+      OFFSET_STORAGE_TOPIC: connect_offsets
+      STATUS_STORAGE_TOPIC: connect_statuses
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "--show-error", "http://localhost:8083/connectors"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    image: debezium/connect:3.0
+  debezium-postgres-connector:
+    # You can check the database connector's setup logs using `portainer`.
+    command: /entrypoint.sh
+    deploy:
+      restart_policy:
+        condition: on-failure
+    entrypoint: sh
+    image: curlimages/curl:8.10.1
+    secrets:
+      - postgres_db
+      - postgres_password
+      - postgres_user
+    volumes:
+      - ./configurations/debezium/entrypoint.sh:/entrypoint.sh:ro
   grafana:
     # You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
     deploy:
@@ -278,7 +307,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: postgres:17.0-alpine
+    image: debezium/postgres:16-alpine
     # # Expose ports (only) e.g. to generate a database graph image or similar.
     # ports:
     #   - 5432:5432

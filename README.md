@@ -157,6 +157,14 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can configure the secure tunnel at [dash.cloudflare.com](https://dash.cloudflare.com/).
     
+ - ### `debezium`
+    
+    You can see how changes in the database end up in the event stream using `redpanda-console`.
+    
+ - ### `debezium-postgres-connector`
+    
+    You can check the database connector's setup logs using `portainer`.
+    
  - ### `grafana`
     
     You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
