@@ -46,6 +46,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's SMTP client configuration.
     
+ - ### `maevsi_aws-credentials`
+    
+    The cloud computing provider's user credentials.
+    
  - ### `maevsi_turnstile-key`
     
     The captcha provider's application key.
@@ -117,10 +121,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `sqitch_target`
     
     The database change management application's database connection string.
-    
- - ### `stomper_nodemailer-transporter`
-    
-    The email service's SMTP configuration.
     
  - ### `traefik_cf-dns-api-token` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
@@ -225,10 +225,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `sqitch`
     
     You cannot access the database migrations directly.
-    
- - ### `stomper`
-    
-    You cannot access the email service directly.
     
  - ### `traefik`
     

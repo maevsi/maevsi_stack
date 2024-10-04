@@ -122,14 +122,6 @@ services:
   sqitch:
     image: ghcr.io/maevsi/sqitch:3.4.8
     volumes: (( prune ))
-  stomper:
-    deploy:
-      labels:
-        - (( append ))
-        - traefik.http.routers.stomper_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/stomper:1.1.25
-    user: (( prune ))
-    volumes: (( prune ))
   traefik:
     command:
       - (( prepend ))

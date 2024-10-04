@@ -16,6 +16,9 @@ secrets:
   jobber_msmtprc:
     # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
+  maevsi_aws-credentials:
+    # The cloud computing provider's user credentials.
+    file: ./secrets/maevsi/aws-credentials.secret
   maevsi_turnstile-key:
     # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
@@ -67,9 +70,6 @@ secrets:
   sqitch_target:
     # The database change management application's database connection string.
     file: ./secrets/sqitch/target.secret
-  stomper_nodemailer-transporter:
-    # The email service's SMTP configuration.
-    file: ./secrets/stomper/nodemailer-transporter.secret
   tusd_aws:
     # The upload service's s3 credentials file.
     file: ./secrets/tusd/aws.secret
@@ -183,6 +183,7 @@ services:
         - traefik.http.routers.maevsi_secure.service=maevsi #DARGSTACK-REMOVE
         - traefik.http.services.maevsi.loadbalancer.server.port=3000
     environment:
+      AWS_REGION: ${MAEVSI_AWS_REGION}
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
       NUXT_PUBLIC_GTAG_ID: ${GTAG_ID}
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
@@ -194,6 +195,8 @@ services:
       POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
     image: maevsi/maevsi:dev
     secrets:
+      - source: maevsi_aws-credentials
+        target: /home/node/.aws/credentials # TODO: switch to user `node`
       - maevsi_turnstile-key
       - postgres_db
       - postgres_role_maevsi-tusd_password
@@ -392,31 +395,6 @@ services:
     volumes:
       - ../../../sqitch/:/srv/app/
       - /run/postgresql/:/run/postgresql/
-  stomper:
-    # You cannot access the email service directly.
-    deploy:
-      labels:
-        - traefik.enable=true
-        - traefik.http.routers.stomper.middlewares=redirectscheme #DARGSTACK-REMOVE
-        - traefik.http.routers.stomper.rule=Host(`stomper.${STACK_DOMAIN}`)
-        - traefik.http.routers.stomper_secure.rule=Host(`stomper.${STACK_DOMAIN}`)
-        - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-        - traefik.http.services.stomper.loadbalancer.server.port=3000
-    environment:
-      CONSOLA_LEVEL: 4 # debug
-      STACK_DOMAIN: ${STACK_DOMAIN}
-    image: maevsi/stomper:dev
-    # ports:
-    # - 9229:9229
-    secrets:
-      - postgres_db
-      - postgres_role_maevsi-stomper_password
-      - postgres_role_maevsi-stomper_username
-      - stomper_nodemailer-transporter
-    user: 1000:1000
-    volumes:
-      - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
-      - ../../../stomper/:/srv/app/
   traefik:
     # You can access the reverse proxy's dashboard at [traefik.localhost](https://traefik.localhost/).
     command:
