@@ -340,11 +340,6 @@ services:
     volumes:
       - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
-  reccoom:
-    # You cannot access the recommendation service directly.
-    image: maevsi/reccoom:dev
-    volumes:
-      - ../../../reccoom/:/srv/app/
   redpanda:
     # You can access the event streaming platform's ui as described under `redpanda-console`.
     command:

@@ -116,9 +116,6 @@ services:
       labels:
         - (( append ))
         - traefik.http.routers.prometheus_secure.tls.certresolver=default
-  reccoom:
-    image: ghcr.io/maevsi/reccoom:0.1.0
-    volumes: (( prune ))
   sqitch:
     image: ghcr.io/maevsi/sqitch:3.4.8
     volumes: (( prune ))
