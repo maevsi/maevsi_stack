@@ -98,14 +98,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The `maevsi_postgraphile` database role's username.
     
- - ### `postgres_role_maevsi-stomper_password`
-    
-    The `stomper` database role's password.
-    
- - ### `postgres_role_maevsi-stomper_username`
-    
-    The `stomper` database role's username.
-    
  - ### `postgres_role_maevsi-tusd_password`
     
     The `tusd` database role's password.
