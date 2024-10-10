@@ -1,3 +1,10 @@
+## [7.0.1](https://github.com/maevsi/maevsi_stack/compare/7.0.0...7.0.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* schedule release ([00cea26](https://github.com/maevsi/maevsi_stack/commit/00cea261fbf3f37c9b03a272300159026fd8236a))
+
 ## [7.0.0](https://github.com/maevsi/maevsi_stack/compare/6.1.1...7.0.0) (2024-09-29)
 
 
