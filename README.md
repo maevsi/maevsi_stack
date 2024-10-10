@@ -50,14 +50,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The captcha provider's application key.
     
- - ### `pg-amqp-bridge_amqp-uri`
-    
-    The database-to-AMQP bridge's AMQP URI.
-    
- - ### `pg-amqp-bridge_postgresql-uri`
-    
-    The database-to-AMQP bridge's database URI.
-    
  - ### `portainer_admin-password`
     
     The container manager's admin password.
@@ -122,10 +114,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The database's default user.
     
- - ### `rabbitmq_definitions`
-    
-    The message queue's configuration.
-    
  - ### `sqitch_target`
     
     The database change management application's database connection string.
@@ -169,6 +157,14 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can configure the secure tunnel at [dash.cloudflare.com](https://dash.cloudflare.com/).
     
+ - ### `debezium`
+    
+    You can see how changes in the database end up in the event stream using `redpanda-console`.
+    
+ - ### `debezium-postgres-connector`
+    
+    You can check the database connector's setup logs using `portainer`.
+    
  - ### `grafana`
     
     You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
@@ -189,10 +185,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the s3 console at [minio.localhost](https://minio.localhost/).
     You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
-    
- - ### `pg-amqp-bridge`
-    
-    You cannot access the database-to-AMQP bridge directly.
     
  - ### `portainer`
     
@@ -218,13 +210,17 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
     
- - ### `rabbitmq`
-    
-    You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
-    
  - ### `reccoom`
     
     You cannot access the recommendation service directly.
+    
+ - ### `redpanda`
+    
+    You can access the event streaming platform's ui as described under `redpanda-console`.
+    
+ - ### `redpanda-console`
+    
+    You can access the event streaming platform's ui at [redpanda.localhost](https://redpanda.localhost/).
     
  - ### `sqitch`
     
@@ -274,7 +270,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The metrics monitoring's data.
     
- - ### `rabbitmq_data`
+ - ### `redpanda_data`
     
     The message queue's data.
     
