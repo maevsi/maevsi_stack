@@ -107,6 +107,9 @@ services:
     image: adminer:4.8.1-standalone
     volumes:
       - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
+  geoip:
+    # You cannot access the ip geolocator via a web interface.
+    image: ghcr.io/observabilitystack/geoip-api:2024-41
   grafana:
     # You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
     deploy:
