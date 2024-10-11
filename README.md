@@ -169,6 +169,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can configure the secure tunnel at [dash.cloudflare.com](https://dash.cloudflare.com/).
     
+ - ### `geoip`
+    
+    You cannot access the ip geolocator via a web interface.
+    
  - ### `grafana`
     
     You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).
