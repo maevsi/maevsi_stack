@@ -1,3 +1,10 @@
+## [7.1.0](https://github.com/maevsi/maevsi_stack/compare/7.0.1...7.1.0) (2024-10-11)
+
+
+### Features
+
+* **service:** add ip geolocator ([af20a2c](https://github.com/maevsi/maevsi_stack/commit/af20a2c045e825bd41a950f742e5b7a8e8de17e2))
+
 ## [7.0.1](https://github.com/maevsi/maevsi_stack/compare/7.0.0...7.0.1) (2024-10-10)
 
 
