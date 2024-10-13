@@ -1,3 +1,10 @@
+## [7.1.8](https://github.com/maevsi/maevsi_stack/compare/7.1.7...7.1.8) (2024-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/stomper docker tag to v1.1.26 ([1e7f7d6](https://github.com/maevsi/maevsi_stack/commit/1e7f7d696cb98a6607ea3374c2319c8f9f587cc6))
+
 ## [7.1.7](https://github.com/maevsi/maevsi_stack/compare/7.1.6...7.1.7) (2024-10-13)
 
 
