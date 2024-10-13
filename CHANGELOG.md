@@ -1,3 +1,10 @@
+## [7.1.9](https://github.com/maevsi/maevsi_stack/compare/7.1.8...7.1.9) (2024-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.8 ([44d4cf2](https://github.com/maevsi/maevsi_stack/commit/44d4cf23585eb412184eadad50962110b55f5ca5))
+
 ## [7.1.8](https://github.com/maevsi/maevsi_stack/compare/7.1.7...7.1.8) (2024-10-13)
 
 
