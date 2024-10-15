@@ -247,7 +247,7 @@ services:
         constraints:
           - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.22.0-alpine
+    image: portainer/portainer-ce:2.23.0-alpine
     secrets:
       - portainer_admin-password
     volumes:
@@ -261,7 +261,7 @@ services:
           - node.platform.os == linux
     environment:
       AGENT_CLUSTER_ADDR: tasks.portainer-agent
-    image: portainer/agent:2.22.0
+    image: portainer/agent:2.23.0
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
