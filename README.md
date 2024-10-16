@@ -46,17 +46,13 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's SMTP client configuration.
     
+ - ### `maevsi_aws-credentials`
+    
+    The cloud computing provider's user credentials.
+    
  - ### `maevsi_turnstile-key`
     
     The captcha provider's application key.
-    
- - ### `pg-amqp-bridge_amqp-uri`
-    
-    The database-to-AMQP bridge's AMQP URI.
-    
- - ### `pg-amqp-bridge_postgresql-uri`
-    
-    The database-to-AMQP bridge's database URI.
     
  - ### `portainer_admin-password`
     
@@ -102,14 +98,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The `maevsi_postgraphile` database role's username.
     
- - ### `postgres_role_maevsi-stomper_password`
-    
-    The `stomper` database role's password.
-    
- - ### `postgres_role_maevsi-stomper_username`
-    
-    The `stomper` database role's username.
-    
  - ### `postgres_role_maevsi-tusd_password`
     
     The `tusd` database role's password.
@@ -122,17 +110,9 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The database's default user.
     
- - ### `rabbitmq_definitions`
-    
-    The message queue's configuration.
-    
  - ### `sqitch_target`
     
     The database change management application's database connection string.
-    
- - ### `stomper_nodemailer-transporter`
-    
-    The email service's SMTP configuration.
     
  - ### `traefik_cf-dns-api-token` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
@@ -169,6 +149,14 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can configure the secure tunnel at [dash.cloudflare.com](https://dash.cloudflare.com/).
     
+ - ### `debezium`
+    
+    You can see how changes in the database end up in the event stream using `redpanda-console`.
+    
+ - ### `debezium-postgres-connector`
+    
+    You can check the database connector's setup logs using `portainer`.
+    
  - ### `geoip`
     
     You cannot access the ip geolocator via a web interface.
@@ -194,10 +182,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     You can access the s3 console at [minio.localhost](https://minio.localhost/).
     You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
     
- - ### `pg-amqp-bridge`
-    
-    You cannot access the database-to-AMQP bridge directly.
-    
  - ### `portainer`
     
     You can access the container manager's frontend at [portainer.localhost](https://portainer.localhost/).
@@ -222,21 +206,17 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
     
- - ### `rabbitmq`
+ - ### `redpanda`
     
-    You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
+    You can access the event streaming platform's ui as described under `redpanda-console`.
     
- - ### `reccoom`
+ - ### `redpanda-console`
     
-    You cannot access the recommendation service directly.
+    You can access the event streaming platform's ui at [redpanda.localhost](https://redpanda.localhost/).
     
  - ### `sqitch`
     
     You cannot access the database migrations directly.
-    
- - ### `stomper`
-    
-    You cannot access the email service directly.
     
  - ### `traefik`
     
@@ -278,7 +258,7 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The metrics monitoring's data.
     
- - ### `rabbitmq_data`
+ - ### `redpanda_data`
     
     The message queue's data.
     

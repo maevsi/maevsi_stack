@@ -16,15 +16,12 @@ secrets:
   jobber_msmtprc:
     # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
+  maevsi_aws-credentials:
+    # The cloud computing provider's user credentials.
+    file: ./secrets/maevsi/aws-credentials.secret
   maevsi_turnstile-key:
     # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
-  pg-amqp-bridge_amqp-uri:
-    # The database-to-AMQP bridge's AMQP URI.
-    file: ./secrets/pg-amqp-bridge/amqp-uri.secret
-  pg-amqp-bridge_postgresql-uri:
-    # The database-to-AMQP bridge's database URI.
-    file: ./secrets/pg-amqp-bridge/postgresql-uri.secret
   portainer_admin-password:
     # The container manager's admin password.
     file: ./secrets/portainer/admin-password.secret
@@ -55,12 +52,6 @@ secrets:
   postgres_role_maevsi-postgraphile_username:
     # The `maevsi_postgraphile` database role's username.
     file: ./secrets/postgres/role_maevsi-postgraphile_username.secret
-  postgres_role_maevsi-stomper_password:
-    # The `stomper` database role's password.
-    file: ./secrets/postgres/role_maevsi-stomper_password.secret
-  postgres_role_maevsi-stomper_username:
-    # The `stomper` database role's username.
-    file: ./secrets/postgres/role_maevsi-stomper_username.secret
   postgres_role_maevsi-tusd_password:
     # The `tusd` database role's password.
     file: ./secrets/postgres/role_maevsi-tusd_password.secret
@@ -70,15 +61,9 @@ secrets:
   postgres_user:
     # The database's default user.
     file: ./secrets/postgres/user.secret
-  rabbitmq_definitions:
-    # The message queue's configuration.
-    file: ./secrets/rabbitmq/definitions.json.secret
   sqitch_target:
     # The database change management application's database connection string.
     file: ./secrets/sqitch/target.secret
-  stomper_nodemailer-transporter:
-    # The email service's SMTP configuration.
-    file: ./secrets/stomper/nodemailer-transporter.secret
   tusd_aws:
     # The upload service's s3 credentials file.
     file: ./secrets/tusd/aws.secret
@@ -107,6 +92,35 @@ services:
     image: adminer:4.8.1-standalone
     volumes:
       - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
+  debezium:
+    # You can see how changes in the database end up in the event stream using `redpanda-console`.
+    environment:
+      BOOTSTRAP_SERVERS: redpanda:9092
+      CONFIG_STORAGE_TOPIC: connect_configs
+      GROUP_ID: 1
+      OFFSET_STORAGE_TOPIC: connect_offsets
+      STATUS_STORAGE_TOPIC: connect_statuses
+    # healthcheck:
+    #   test: ["CMD", "curl", "--fail", "--silent", "--show-error", "http://localhost:8083/connectors"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 20s
+    image: debezium/connect:3.0
+  debezium-postgres-connector:
+    # You can check the database connector's setup logs using `portainer`.
+    command: /entrypoint.sh
+    deploy:
+      restart_policy:
+        condition: on-failure
+    entrypoint: sh
+    image: curlimages/curl:8.10.1
+    secrets:
+      - postgres_db
+      - postgres_password
+      - postgres_user
+    volumes:
+      - ./configurations/debezium/entrypoint.sh:/entrypoint.sh:ro
   geoip:
     # You cannot access the ip geolocator via a web interface.
     image: ghcr.io/observabilitystack/geoip-api:2024-41
@@ -126,6 +140,7 @@ services:
       - postgres_role_grafana_username
     volumes:
       - ./configurations/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
+      - ../production/configurations/grafana/dashboards:/var/lib/grafana/dashboards:ro
       - ../production/configurations/grafana/provisioning:/etc/grafana/provisioning:ro
       - grafana_data:/var/lib/grafana
   jobber:
@@ -165,6 +180,7 @@ services:
         - traefik.http.routers.maevsi_secure.service=maevsi #DARGSTACK-REMOVE
         - traefik.http.services.maevsi.loadbalancer.server.port=3000
     environment:
+      AWS_REGION: ${MAEVSI_AWS_REGION}
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
       NUXT_PUBLIC_GTAG_ID: ${GTAG_ID}
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
@@ -176,6 +192,8 @@ services:
       POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
     image: maevsi/maevsi:dev
     secrets:
+      - source: maevsi_aws-credentials
+        target: /home/node/.aws/credentials # TODO: switch to user `node`
       - maevsi_turnstile-key
       - postgres_db
       - postgres_role_maevsi-tusd_password
@@ -219,18 +237,6 @@ services:
     environment: #DARGSTACK-REMOVE
       MINIO_ROOT_PASSWORD: s3password #DARGSTACK-REMOVE
       MINIO_ROOT_USER: s3user #DARGSTACK-REMOVE
-  pg-amqp-bridge:
-    # You cannot access the database-to-AMQP bridge directly.
-    environment:
-      AMQP_URI_FILE: /run/secrets/pg-amqp-bridge_amqp-uri
-      BRIDGE_CHANNELS: account_password_reset_request:account_password_reset_request,account_registration:account_registration,event_invitation:event_invitation
-      DELIVERY_MODE: PERSISTENT
-      POSTGRESQL_URI_FILE: /run/secrets/pg-amqp-bridge_postgresql-uri
-      RUST_LOG: info
-    image: ghcr.io/dargmuesli/pg-amqp-bridge:0.0.8
-    secrets:
-      - pg-amqp-bridge_amqp-uri
-      - pg-amqp-bridge_postgresql-uri
   portainer:
     # You can access the container manager's frontend at [portainer.localhost](https://portainer.localhost/).
     command: -H tcp://tasks.portainer-agent:9001 --tlsskipverify --admin-password-file '/run/secrets/portainer_admin-password'
@@ -301,7 +307,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: postgres:17.0-alpine
+    image: quay.io/debezium/postgres:17-alpine
     # # Expose ports (only) e.g. to generate a database graph image or similar.
     # ports:
     #   - 5432:5432
@@ -309,11 +315,11 @@ services:
       - postgres_db
       - postgres_password
       - postgres_user
-    sysctls:
-      # Prevent Docker Swarm from killing pg-amqp-bridge connections (https://github.com/moby/moby/issues/31208)
-      - net.ipv4.tcp_keepalive_time=600
-      - net.ipv4.tcp_keepalive_intvl=30
-      - net.ipv4.tcp_keepalive_probes=10
+    # sysctls:
+    #   # Prevent Docker Swarm from killing pg-amqp-bridge connections (https://github.com/moby/moby/issues/31208)
+    #   - net.ipv4.tcp_keepalive_time=600
+    #   - net.ipv4.tcp_keepalive_intvl=30
+    #   - net.ipv4.tcp_keepalive_probes=10
     volumes:
       - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
       - postgres_data:/var/lib/postgresql/data
@@ -331,29 +337,40 @@ services:
     volumes:
       - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
-  rabbitmq:
-    # You can access the message queue at [rabbitmq.localhost](https://rabbitmq.localhost/).
+  redpanda:
+    # You can access the event streaming platform's ui as described under `redpanda-console`.
+    command:
+      - redpanda start
+      - --mode dev-container #DARGSTACK-REMOVE
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr internal://redpanda:9092,external://localhost:19092
+      - --pandaproxy-addr internal://0.0.0.0:8082,external://0.0.0.0:18082
+      - --advertise-pandaproxy-addr internal://redpanda:8082,external://localhost:18082
+      - --schema-registry-addr internal://0.0.0.0:8081,external://0.0.0.0:18081
+    # healthcheck:
+    #   test: ["CMD-SHELL", "output=$(rpk cluster health --json); echo \"$output\" | grep -q '\"healthy\":true' || { echo \"$output\"; exit 1; }"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 10s
+    image: redpandadata/redpanda:v23.3.21
+    volumes:
+      - redpanda_data:/var/lib/redpanda/data
+  redpanda-console:
+    # You can access the event streaming platform's ui at [redpanda.localhost](https://redpanda.localhost/).
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.rabbitmq.middlewares=redirectscheme #DARGSTACK-REMOVE
-        - traefik.http.routers.rabbitmq.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
-        - traefik.http.routers.rabbitmq_secure.rule=Host(`rabbitmq.${STACK_DOMAIN}`)
-        - traefik.http.routers.rabbitmq_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-        - traefik.http.services.rabbitmq.loadbalancer.server.port=15672
-    image: rabbitmq:4.0.2-management-alpine
-    secrets:
-      - source: rabbitmq_definitions
-        target: /etc/rabbitmq/definitions.json
+        - traefik.http.routers.redpanda.middlewares=redirectscheme
+        - traefik.http.routers.redpanda.rule=Host(`redpanda.${STACK_DOMAIN}`)
+        - traefik.http.routers.redpanda_secure.rule=Host(`redpanda.${STACK_DOMAIN}`)
+        - traefik.http.routers.redpanda_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.redpanda.loadbalancer.server.port=8080
+    environment:
+      CONFIG_FILEPATH: /srv/app/redpanda-config.yaml
+    image: redpandadata/console:v2.7.2
     volumes:
-      - ../production/configurations/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
-      - ../production/configurations/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
-      - rabbitmq_data:/var/lib/rabbitmq
-  reccoom:
-    # You cannot access the recommendation service directly.
-    image: maevsi/reccoom:dev
-    volumes:
-      - ../../../reccoom/:/srv/app/
+      - ../production/configurations/redpanda/config.yaml:/srv/app/redpanda-config.yaml:ro
   sqitch:
     # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
@@ -362,41 +379,12 @@ services:
       - postgres_role_grafana_username
       - postgres_role_maevsi-postgraphile_password
       - postgres_role_maevsi-postgraphile_username
-      - postgres_role_maevsi-stomper_password
-      - postgres_role_maevsi-stomper_username
       - postgres_role_maevsi-tusd_password
       - postgres_role_maevsi-tusd_username
       - sqitch_target
     volumes:
       - ../../../sqitch/:/srv/app/
       - /run/postgresql/:/run/postgresql/
-  stomper:
-    # You cannot access the email service directly.
-    deploy:
-      labels:
-        - traefik.enable=true
-        - traefik.http.routers.stomper.middlewares=redirectscheme #DARGSTACK-REMOVE
-        - traefik.http.routers.stomper.rule=Host(`stomper.${STACK_DOMAIN}`)
-        - traefik.http.routers.stomper_secure.rule=Host(`stomper.${STACK_DOMAIN}`)
-        - traefik.http.routers.stomper_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-        - traefik.http.services.stomper.loadbalancer.server.port=3000
-    environment:
-      CONSOLA_LEVEL: 4 # debug
-      RABBITMQ_DEFINITIONS_FILE: /run/secrets/rabbitmq_definitions
-      STACK_DOMAIN: ${STACK_DOMAIN}
-    image: maevsi/stomper:dev
-    # ports:
-    # - 9229:9229
-    secrets:
-      - rabbitmq_definitions
-      - postgres_db
-      - postgres_role_maevsi-stomper_password
-      - postgres_role_maevsi-stomper_username
-      - stomper_nodemailer-transporter
-    user: 1000:1000
-    volumes:
-      - ${PNPM_STORE_DIR}:/srv/.pnpm-store/
-      - ../../../stomper/:/srv/app/
   traefik:
     # You can access the reverse proxy's dashboard at [traefik.localhost](https://traefik.localhost/).
     command:
@@ -472,9 +460,9 @@ volumes:
   postgres_data:
     # The database's data.
     {}
-  rabbitmq_data:
-    # The message queue's data.
-    {}
   prometheus_data:
     # The metrics monitoring's data.
+    {}
+  redpanda_data:
+    # The message queue's data.
     {}

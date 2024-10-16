@@ -35,8 +35,7 @@ create "traefik" \
     `# minio` "minio.localhost" \
     `# portainer` "portainer.localhost" \
     `# postgraphile` "postgraphile.localhost" \
-    `# rabbitmq` "rabbitmq.localhost" \
     `# prometheus` "prometheus.localhost" \
-    `# stomper` "stomper.localhost" \
+    `# redpanda` "redpanda.localhost" \
     `# traefik` "traefik.localhost" \
     `# tusd` "tusd.localhost"
