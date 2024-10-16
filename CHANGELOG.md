@@ -1,3 +1,29 @@
+## [8.0.0](https://github.com/maevsi/maevsi_stack/compare/7.1.13...8.0.0) (2024-10-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **secrets:** remove stomper
+* **services:** remove reccoom
+* **stomper:** migrate to `Nuxt`
+* **kafka:** remove rabbitmq and pg-amqp-bridge
+
+### Features
+
+* add debezium for postgres change data capture ([5677ade](https://github.com/maevsi/maevsi_stack/commit/5677adea95ef84fa9b4dc1ef8a1a787ebe4dfd43))
+* **grafana:** add monitoring dashboards ([2a5b4e5](https://github.com/maevsi/maevsi_stack/commit/2a5b4e56ad8f5f32f18ffa1aac06a6dd56292460))
+* **healthchecks:** disable ([4fdef6d](https://github.com/maevsi/maevsi_stack/commit/4fdef6dbb5721095713d33c64c7dcf1c52dc8927))
+* **kafka:** add redpanda ([2f724a9](https://github.com/maevsi/maevsi_stack/commit/2f724a9ce62e7a2263aa54576a410e1043ceecda))
+* **kafka:** remove rabbitmq and pg-amqp-bridge ([78c3a80](https://github.com/maevsi/maevsi_stack/commit/78c3a80877c45f7b0ed6e2c19f9bc9013a140622))
+* **secrets:** remove stomper ([87661f7](https://github.com/maevsi/maevsi_stack/commit/87661f77e9757af6667654a583551a6f62c80b71))
+* **services:** remove reccoom ([9dfd9f5](https://github.com/maevsi/maevsi_stack/commit/9dfd9f53de053e999c40a00a90ee0f9c36c0c45e))
+* **stomper:** migrate to `Nuxt` ([2bf1692](https://github.com/maevsi/maevsi_stack/commit/2bf16923caaf5ac6b69add9aba4de1b14a1604ea))
+
+
+### Bug Fixes
+
+* **maevsi:** correct aws credential profile ([be31b5b](https://github.com/maevsi/maevsi_stack/commit/be31b5b8112f9e77cfab63e340acba38c0b4ca04))
+
 ## [7.1.13](https://github.com/maevsi/maevsi_stack/compare/7.1.12...7.1.13) (2024-10-16)
 
 
