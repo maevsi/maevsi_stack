@@ -37,6 +37,5 @@ create "traefik" \
     `# postgraphile` "postgraphile.localhost" \
     `# prometheus` "prometheus.localhost" \
     `# redpanda` "redpanda.localhost" \
-    `# stomper` "stomper.localhost" \
     `# traefik` "traefik.localhost" \
     `# tusd` "tusd.localhost"

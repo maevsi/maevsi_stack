@@ -46,6 +46,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's SMTP client configuration.
     
+ - ### `maevsi_aws-credentials`
+    
+    The cloud computing provider's user credentials.
+    
  - ### `maevsi_turnstile-key`
     
     The captcha provider's application key.
@@ -94,14 +98,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The `maevsi_postgraphile` database role's username.
     
- - ### `postgres_role_maevsi-stomper_password`
-    
-    The `stomper` database role's password.
-    
- - ### `postgres_role_maevsi-stomper_username`
-    
-    The `stomper` database role's username.
-    
  - ### `postgres_role_maevsi-tusd_password`
     
     The `tusd` database role's password.
@@ -117,10 +113,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `sqitch_target`
     
     The database change management application's database connection string.
-    
- - ### `stomper_nodemailer-transporter`
-    
-    The email service's SMTP configuration.
     
  - ### `traefik_cf-dns-api-token` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
     
@@ -164,6 +156,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `debezium-postgres-connector`
     
     You can check the database connector's setup logs using `portainer`.
+    
+ - ### `geoip`
+    
+    You cannot access the ip geolocator via a web interface.
     
  - ### `grafana`
     
@@ -210,10 +206,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
     
- - ### `reccoom`
-    
-    You cannot access the recommendation service directly.
-    
  - ### `redpanda`
     
     You can access the event streaming platform's ui as described under `redpanda-console`.
@@ -225,10 +217,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `sqitch`
     
     You cannot access the database migrations directly.
-    
- - ### `stomper`
-    
-    You cannot access the email service directly.
     
  - ### `traefik`
     
