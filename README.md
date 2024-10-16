@@ -157,6 +157,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can check the database connector's setup logs using `portainer`.
     
+ - ### `geoip`
+    
+    You cannot access the ip geolocator via a web interface.
+    
  - ### `grafana`
     
     You can access the observation dashboard at [grafana.localhost](https://grafana.localhost/).

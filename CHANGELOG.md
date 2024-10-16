@@ -1,3 +1,108 @@
+## [7.1.13](https://github.com/maevsi/maevsi_stack/compare/7.1.12...7.1.13) (2024-10-16)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.12 ([fe1b68d](https://github.com/maevsi/maevsi_stack/commit/fe1b68d764ab2d3d765be2b6b47509eeb9e72092))
+
+## [7.1.12](https://github.com/maevsi/maevsi_stack/compare/7.1.11...7.1.12) (2024-10-15)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.10 ([0898404](https://github.com/maevsi/maevsi_stack/commit/0898404cf075f71544896fc964a1ba193388945b))
+
+## [7.1.11](https://github.com/maevsi/maevsi_stack/compare/7.1.10...7.1.11) (2024-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/stomper docker tag to v1.1.27 ([b7f302e](https://github.com/maevsi/maevsi_stack/commit/b7f302e2543729d2f9d77fdc4879ebdc6364db38))
+
+## [7.1.10](https://github.com/maevsi/maevsi_stack/compare/7.1.9...7.1.10) (2024-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.9 ([0bda781](https://github.com/maevsi/maevsi_stack/commit/0bda7812069ac112cf13e8ead3fec302b0b26645))
+
+## [7.1.9](https://github.com/maevsi/maevsi_stack/compare/7.1.8...7.1.9) (2024-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.8 ([44d4cf2](https://github.com/maevsi/maevsi_stack/commit/44d4cf23585eb412184eadad50962110b55f5ca5))
+
+## [7.1.8](https://github.com/maevsi/maevsi_stack/compare/7.1.7...7.1.8) (2024-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/stomper docker tag to v1.1.26 ([1e7f7d6](https://github.com/maevsi/maevsi_stack/commit/1e7f7d696cb98a6607ea3374c2319c8f9f587cc6))
+
+## [7.1.7](https://github.com/maevsi/maevsi_stack/compare/7.1.6...7.1.7) (2024-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.7 ([35b781c](https://github.com/maevsi/maevsi_stack/commit/35b781c880bdd740aa9ababc862c38ff7d2b6efe))
+
+## [7.1.6](https://github.com/maevsi/maevsi_stack/compare/7.1.5...7.1.6) (2024-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.7 ([1418646](https://github.com/maevsi/maevsi_stack/commit/1418646f31f1001bb40f4887c6cab7aad6b33cfb))
+
+## [7.1.5](https://github.com/maevsi/maevsi_stack/compare/7.1.4...7.1.5) (2024-10-13)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.6 ([5a34d17](https://github.com/maevsi/maevsi_stack/commit/5a34d17623327133d6ad8203184302df47c3f644))
+
+## [7.1.4](https://github.com/maevsi/maevsi_stack/compare/7.1.3...7.1.4) (2024-10-12)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.5 ([fd9491d](https://github.com/maevsi/maevsi_stack/commit/fd9491da4bd6d85a3022fa39531f6827778912cd))
+
+## [7.1.3](https://github.com/maevsi/maevsi_stack/compare/7.1.2...7.1.3) (2024-10-12)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.4 ([c89976b](https://github.com/maevsi/maevsi_stack/commit/c89976b1d01bef865ae7f6f53c5341b2ba78cea8))
+
+## [7.1.2](https://github.com/maevsi/maevsi_stack/compare/7.1.1...7.1.2) (2024-10-12)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.17.0 ([aa6621f](https://github.com/maevsi/maevsi_stack/commit/aa6621f2b02b9786bf9be5c8919e46bcf4de1fff))
+
+## [7.1.1](https://github.com/maevsi/maevsi_stack/compare/7.1.0...7.1.1) (2024-10-11)
+
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v4.16.0 ([66de563](https://github.com/maevsi/maevsi_stack/commit/66de563dfa1711e96ded9f90c8b2f4cf88372aae))
+
+## [7.1.0](https://github.com/maevsi/maevsi_stack/compare/7.0.1...7.1.0) (2024-10-11)
+
+
+### Features
+
+* **service:** add ip geolocator ([af20a2c](https://github.com/maevsi/maevsi_stack/commit/af20a2c045e825bd41a950f742e5b7a8e8de17e2))
+
+## [7.0.1](https://github.com/maevsi/maevsi_stack/compare/7.0.0...7.0.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* schedule release ([00cea26](https://github.com/maevsi/maevsi_stack/commit/00cea261fbf3f37c9b03a272300159026fd8236a))
+
 ## [7.0.0](https://github.com/maevsi/maevsi_stack/compare/6.1.1...7.0.0) (2024-09-29)
 
 
