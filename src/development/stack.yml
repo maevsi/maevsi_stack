@@ -134,7 +134,7 @@ services:
         - traefik.http.routers.grafana_secure.rule=Host(`grafana.${STACK_DOMAIN}`)
         - traefik.http.routers.grafana_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.grafana.loadbalancer.server.port=3000
-    image: grafana/grafana:11.2.2
+    image: grafana/grafana:11.3.0
     secrets:
       - postgres_role_grafana_password
       - postgres_role_grafana_username
@@ -333,7 +333,7 @@ services:
         - traefik.http.routers.prometheus_secure.rule=Host(`prometheus.${STACK_DOMAIN}`)
         - traefik.http.routers.prometheus_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.prometheus.loadbalancer.server.port=9090
-    image: prom/prometheus:v2.54.1
+    image: prom/prometheus:v2.55.0
     volumes:
       - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
