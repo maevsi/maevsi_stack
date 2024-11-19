@@ -1,3 +1,9 @@
+## [8.0.4](https://github.com/maevsi/maevsi_stack/compare/8.0.3...8.0.4) (2024-11-19)
+
+### Bug Fixes
+
+* **debezium:** use quay.io as source ([c5ee6d6](https://github.com/maevsi/maevsi_stack/commit/c5ee6d66ee9f679bbd432fc465e572b52a36ca93))
+
 ## [8.0.3](https://github.com/maevsi/maevsi_stack/compare/8.0.2...8.0.3) (2024-11-17)
 
 ### Bug Fixes
