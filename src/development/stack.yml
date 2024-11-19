@@ -106,7 +106,7 @@ services:
     #   timeout: 10s
     #   retries: 3
     #   start_period: 20s
-    image: debezium/connect:3.0
+    image: quay.io/debezium/connect:3.0
   debezium-postgres-connector:
     # You can check the database connector's setup logs using `portainer`.
     command: /entrypoint.sh
