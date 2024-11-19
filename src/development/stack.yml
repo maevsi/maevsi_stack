@@ -106,7 +106,7 @@ services:
     #   timeout: 10s
     #   retries: 3
     #   start_period: 20s
-    image: debezium/connect:3.0
+    image: quay.io/debezium/connect:3.0
   debezium-postgres-connector:
     # You can check the database connector's setup logs using `portainer`.
     command: /entrypoint.sh
@@ -333,7 +333,7 @@ services:
         - traefik.http.routers.prometheus_secure.rule=Host(`prometheus.${STACK_DOMAIN}`)
         - traefik.http.routers.prometheus_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.prometheus.loadbalancer.server.port=9090
-    image: prom/prometheus:v2.55.1
+    image: prom/prometheus:v3.0.0
     volumes:
       - ../production/configurations/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
