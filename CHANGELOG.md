@@ -1,3 +1,19 @@
+## [8.1.0](https://github.com/maevsi/maevsi_stack/compare/8.0.5...8.1.0) (2024-12-03)
+
+### Features
+
+* **grafana:** add monthly active user chart ([a66b23d](https://github.com/maevsi/maevsi_stack/commit/a66b23d5e21f569d25f5afdb5486161b1e0c0339))
+* **grafana:** add monthly user activity ([6545e35](https://github.com/maevsi/maevsi_stack/commit/6545e35f55c70061963e87abb4b34bba6b1704b3))
+* **grafana:** add postgres dashboard ([4af2327](https://github.com/maevsi/maevsi_stack/commit/4af23279916881ef42bab1bcfc45c6c05dbdb579))
+* **grafana:** add postgres datasource configuration ([62e9d14](https://github.com/maevsi/maevsi_stack/commit/62e9d14807d7fc9ea363b5ab0704654bceedfbc5))
+* **grafana:** tweak postgres dashboard ([7f32a55](https://github.com/maevsi/maevsi_stack/commit/7f32a559bed5e525ec90aa7ac9478acc95277340))
+
+### Bug Fixes
+
+* **grafana): revert "feat(grafana:** add monthly active user chart" ([25ddf8d](https://github.com/maevsi/maevsi_stack/commit/25ddf8d52f696c7759e93521e721c4003f21db99))
+* **grafana:** correct postgres datasource type ([c53368a](https://github.com/maevsi/maevsi_stack/commit/c53368a62727372f7f2658da24e7d40cba86ffe0))
+* **grafana:** fix syntax error ([49c06bf](https://github.com/maevsi/maevsi_stack/commit/49c06bf3d3062027dfd0bd5707869c6cc326aea7))
+
 ## [8.0.5](https://github.com/maevsi/maevsi_stack/compare/8.0.4...8.0.5) (2024-12-01)
 
 ### Bug Fixes
