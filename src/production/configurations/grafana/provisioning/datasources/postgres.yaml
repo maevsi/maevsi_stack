@@ -1,0 +1,24 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: "Name of the datasource"
+    orgId: 1
+
+datasources:
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    user: postgres
+    secureJsonData:e
+      password: postgrs  
+    # Access mode - proxy (server in the UI) or direct (browser in the UI).
+    url: http://postgres:5432
+    database: maevsi
+    jsonData:
+      sslmode: 'disable' # disable/require/verify-ca/verify-full
+      maxOpenConns: 100 # Grafana v5.4+
+      maxIdleConns: 100 # Grafana v5.4+
+      maxIdleConnsAuto: true # Grafana v9.5.1+
+      connMaxLifetime: 14401 # Grafana v5.4+
+      postgresVersion: 15
+      timescaledb: false
