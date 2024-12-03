@@ -19,7 +19,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -38,14 +38,14 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "fillOpacity": 17,
+            "fillOpacity": 50,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "lineWidth": 1,
+            "lineWidth": 0,
             "scaleDistribution": {
               "type": "linear"
             },
@@ -60,10 +60,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 100
               }
             ]
           }
@@ -79,7 +75,7 @@
       "id": 2,
       "options": {
         "barRadius": 0.05,
-        "barWidth": 0.95,
+        "barWidth": 0.9,
         "fullHighlight": false,
         "groupWidth": 0.7,
         "legend": {
@@ -108,7 +104,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \r\n    DATE_TRUNC('month', last_activity) AS month,\r\n    COUNT(*) AS activity_count\r\nFROM \r\n    maevsi_private.account\r\nGROUP BY \r\n    DATE_TRUNC('month', last_activity)\r\nORDER BY \r\n    month;\r\n",
+          "rawSql": "SELECT \r\n    DATE_TRUNC('month', last_activity) AS month,\r\n    COUNT(*) AS \"Active user count\"\r\nFROM \r\n    maevsi_private.account\r\nGROUP BY \r\n    DATE_TRUNC('month', last_activity)\r\nORDER BY \r\n    month;\r\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -129,7 +125,7 @@
           }
         }
       ],
-      "title": "Monthly User Activity",
+      "title": "Monthly Active Users",
       "type": "barchart"
     },
     {
@@ -182,10 +178,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -204,7 +196,7 @@
           "calcs": [],
           "displayMode": "list",
           "placement": "bottom",
-          "showLegend": true
+          "showLegend": false
         },
         "tooltip": {
           "mode": "single",
@@ -242,7 +234,7 @@
           }
         }
       ],
-      "title": "User Counts",
+      "title": "User Count",
       "type": "timeseries"
     }
   ],
@@ -253,13 +245,13 @@
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-1y",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Postgres",
   "uid": "de5jb2krazfnkb",
-  "version": 5,
+  "version": 1,
   "weekStart": ""
 }
