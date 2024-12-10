@@ -183,6 +183,7 @@ services:
       AWS_REGION: ${MAEVSI_AWS_REGION}
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
       NUXT_PUBLIC_GTAG_ID: ${GTAG_ID}
+      NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
       NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
       NUXT_TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY} # TODO: move to file (https://github.com/nuxt-modules/turnstile/pull/298)
