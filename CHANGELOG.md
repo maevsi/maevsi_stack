@@ -1,3 +1,9 @@
+## [8.1.1](https://github.com/maevsi/maevsi_stack/compare/8.1.0...8.1.1) (2024-12-10)
+
+### Bug Fixes
+
+* **maevsi:** add i18n base url ([b9903c2](https://github.com/maevsi/maevsi_stack/commit/b9903c251c6adc295ddc7108abca4266a8e2d331))
+
 ## [8.1.0](https://github.com/maevsi/maevsi_stack/compare/8.0.5...8.1.0) (2024-12-03)
 
 ### Features
