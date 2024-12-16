@@ -1,3 +1,9 @@
+## [8.1.3](https://github.com/maevsi/maevsi_stack/compare/8.1.2...8.1.3) (2024-12-16)
+
+### Bug Fixes
+
+* **debezium-postgres-connector:** correct entrypoint for production ([67ea8b1](https://github.com/maevsi/maevsi_stack/commit/67ea8b1b20c96fcab806ba34c8b1dfcd809e0f52))
+
 ## [8.1.2](https://github.com/maevsi/maevsi_stack/compare/8.1.1...8.1.2) (2024-12-16)
 
 ### Bug Fixes
