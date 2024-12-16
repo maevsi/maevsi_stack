@@ -120,7 +120,7 @@ services:
       - postgres_password
       - postgres_user
     volumes:
-      - ./configurations/debezium/entrypoint.sh:/entrypoint.sh:ro
+      - ../production/configurations/debezium-postgres-connector/entrypoint.sh:/entrypoint.sh:ro
   geoip:
     # You cannot access the ip geolocator via a web interface.
     image: ghcr.io/observabilitystack/geoip-api:2024-41
