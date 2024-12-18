@@ -1,3 +1,9 @@
+## [8.2.0](https://github.com/maevsi/maevsi_stack/compare/8.1.3...8.2.0) (2024-12-18)
+
+### Features
+
+* **postgres:** create additional databases at startup ([#152](https://github.com/maevsi/maevsi_stack/issues/152)) ([71e3918](https://github.com/maevsi/maevsi_stack/commit/71e391805a9c6d9c5618490685919a510a849a11))
+
 ## [8.1.3](https://github.com/maevsi/maevsi_stack/compare/8.1.2...8.1.3) (2024-12-16)
 
 ### Bug Fixes
