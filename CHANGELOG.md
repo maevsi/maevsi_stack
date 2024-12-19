@@ -1,3 +1,9 @@
+## [8.2.2](https://github.com/maevsi/maevsi_stack/compare/8.2.1...8.2.2) (2024-12-19)
+
+### Bug Fixes
+
+* **deps:** update `ghcr.io/maevsi/maevsi` to `5.2.3` ([19ac601](https://github.com/maevsi/maevsi_stack/commit/19ac6015f252a43c7156ac25e13e7c9e8c64bfa1))
+
 ## [8.2.1](https://github.com/maevsi/maevsi_stack/compare/8.2.0...8.2.1) (2024-12-19)
 
 ### Bug Fixes
