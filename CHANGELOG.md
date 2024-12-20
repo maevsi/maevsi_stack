@@ -1,3 +1,9 @@
+## [8.2.4](https://github.com/maevsi/maevsi_stack/compare/8.2.3...8.2.4) (2024-12-20)
+
+### Bug Fixes
+
+* **maevsi:** increase 24 hour email sending limit to 15 ([4217a8f](https://github.com/maevsi/maevsi_stack/commit/4217a8fc362bc8c4cc5235db2a3beaa6370aa976))
+
 ## [8.2.3](https://github.com/maevsi/maevsi_stack/compare/8.2.2...8.2.3) (2024-12-20)
 
 ### Bug Fixes
