@@ -1,3 +1,9 @@
+## [8.2.3](https://github.com/maevsi/maevsi_stack/compare/8.2.2...8.2.3) (2024-12-20)
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([558e3bf](https://github.com/maevsi/maevsi_stack/commit/558e3bf089e2d22d3c5e4a1dbf9262b9ff209b23))
+
 ## [8.2.2](https://github.com/maevsi/maevsi_stack/compare/8.2.1...8.2.2) (2024-12-19)
 
 ### Bug Fixes
