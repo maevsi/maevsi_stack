@@ -1,3 +1,9 @@
+## [8.2.6](https://github.com/maevsi/maevsi_stack/compare/8.2.5...8.2.6) (2024-12-29)
+
+### Bug Fixes
+
+* schedule release ([ee2c8c6](https://github.com/maevsi/maevsi_stack/commit/ee2c8c64d76712e1b5ccbb5e149d03f3d377306f))
+
 ## [8.2.5](https://github.com/maevsi/maevsi_stack/compare/8.2.4...8.2.5) (2024-12-20)
 
 ### Bug Fixes
