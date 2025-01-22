@@ -1,7 +1,10 @@
 const fs = require('fs');
 
+const postgisPlugin = require("@graphile/postgis");
+
 module.exports = {
     options: {
+        appendPlugins: [postgisPlugin.default || postgisPlugin],
         connection: fs.readFileSync(process.env.POSTGRAPHILE_CONNECTION_FILE, 'utf8'),
         defaultRole: 'maevsi_anonymous',
         dynamicJson: true,
