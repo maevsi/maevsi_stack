@@ -8,6 +8,12 @@
 
 * **postgres:** switch from alpine to debian variant ([#156](https://github.com/maevsi/maevsi_stack/issues/156)) ([2cf718c](https://github.com/maevsi/maevsi_stack/commit/2cf718c9d8880e7cbabdbc55177d0c8ec9f7080c))
 
+## [8.3.0](https://github.com/maevsi/maevsi_stack/compare/8.2.7...8.3.0) (2025-01-22)
+
+### Features
+
+* **postgraphile:** append postgres plugin ([#158](https://github.com/maevsi/maevsi_stack/issues/158)) ([dc9def2](https://github.com/maevsi/maevsi_stack/commit/dc9def22c3b2093215c44ab417c5f2a229b8f937))
+
 ## [8.2.7](https://github.com/maevsi/maevsi_stack/compare/8.2.6...8.2.7) (2025-01-12)
 
 ### Bug Fixes
