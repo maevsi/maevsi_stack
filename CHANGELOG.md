@@ -1,3 +1,9 @@
+## [9.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/9.0.0-beta.1...9.0.0-beta.2) (2025-01-25)
+
+### Features
+
+* **postgraphile:** append postgres plugin ([#158](https://github.com/maevsi/maevsi_stack/issues/158)) ([dc9def2](https://github.com/maevsi/maevsi_stack/commit/dc9def22c3b2093215c44ab417c5f2a229b8f937))
+
 ## [9.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/8.2.7...9.0.0-beta.1) (2025-01-18)
 
 ### ⚠ BREAKING CHANGES
