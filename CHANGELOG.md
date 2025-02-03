@@ -1,3 +1,9 @@
+## [8.3.2](https://github.com/maevsi/maevsi_stack/compare/8.3.1...8.3.2) (2025-02-03)
+
+### Bug Fixes
+
+* **postgraphile:** allow sentry cors headers ([220b0ae](https://github.com/maevsi/maevsi_stack/commit/220b0ae307a8235d8fc2031ba830421ee46e3860))
+
 ## [8.3.1](https://github.com/maevsi/maevsi_stack/compare/8.3.0...8.3.1) (2025-02-02)
 
 ### Bug Fixes
