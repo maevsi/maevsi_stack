@@ -278,7 +278,8 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy
+        - traefik.http.middlewares.postgraphile_auth.forwardauth.address=http://maevsi:3000/api/auth-proxy
+        - traefik.http.middlewares.postgraphile_auth.forwardauth.forwardBody=true
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
         - traefik.http.routers.postgraphile.middlewares=redirectscheme #DARGSTACK-REMOVE
@@ -395,8 +396,6 @@ services:
       - --api=true
       - --entryPoints.web.address=:80
       - --entryPoints.web-secure.address=:443
-      - --experimental.plugins.body-forward-auth.moduleName=github.com/PatrickMi/body-forward-auth
-      - --experimental.plugins.body-forward-auth.version=v0.1.2
       - --providers.swarm=true
       - --providers.swarm.endpoint=unix:///var/run/docker.sock
       - --providers.swarm.exposedByDefault=false
