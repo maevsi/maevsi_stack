@@ -1,3 +1,10 @@
+## [9.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/9.0.0-beta.2...9.0.0-beta.3) (2025-02-04)
+
+### Bug Fixes
+
+* **postgraphile:** allow sentry cors headers ([220b0ae](https://github.com/maevsi/maevsi_stack/commit/220b0ae307a8235d8fc2031ba830421ee46e3860))
+* schedule release ([372be8f](https://github.com/maevsi/maevsi_stack/commit/372be8fdfc24c69bba50eafa747ac7cbb86bbc41))
+
 ## [9.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/9.0.0-beta.1...9.0.0-beta.2) (2025-01-25)
 
 ### Features
