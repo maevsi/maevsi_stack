@@ -134,7 +134,7 @@ services:
         - traefik.http.routers.grafana_secure.rule=Host(`grafana.${STACK_DOMAIN}`)
         - traefik.http.routers.grafana_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.grafana.loadbalancer.server.port=3000
-    image: grafana/grafana:11.4.0
+    image: grafana/grafana:11.5.1
     secrets:
       - postgres_role_grafana_password
       - postgres_role_grafana_username
@@ -279,7 +279,7 @@ services:
       labels:
         - traefik.enable=true
         - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy
-        - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,content-type,x-turnstile-key
+        - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,baggage,content-type,sentry-trace,x-turnstile-key
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
         - traefik.http.routers.postgraphile.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.postgraphile.rule=Host(`postgraphile.${STACK_DOMAIN}`)
@@ -357,7 +357,7 @@ services:
     #   timeout: 10s
     #   retries: 3
     #   start_period: 10s
-    image: redpandadata/redpanda:v24.3.3
+    image: redpandadata/redpanda:v24.3.4
     volumes:
       - redpanda_data:/var/lib/redpanda/data
   redpanda-console:
@@ -417,7 +417,7 @@ services:
       placement:
         constraints:
           - node.role == manager
-    image: traefik:v3.3.2
+    image: traefik:v3.3.3
     ports: #DARGSTACK-REMOVE
       - mode: host #DARGSTACK-REMOVE
         protocol: tcp #DARGSTACK-REMOVE

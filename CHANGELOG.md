@@ -14,6 +14,18 @@
 
 * **postgres:** switch from alpine to debian variant ([#156](https://github.com/maevsi/maevsi_stack/issues/156)) ([2cf718c](https://github.com/maevsi/maevsi_stack/commit/2cf718c9d8880e7cbabdbc55177d0c8ec9f7080c))
 
+## [8.3.2](https://github.com/maevsi/maevsi_stack/compare/8.3.1...8.3.2) (2025-02-03)
+
+### Bug Fixes
+
+* **postgraphile:** allow sentry cors headers ([220b0ae](https://github.com/maevsi/maevsi_stack/commit/220b0ae307a8235d8fc2031ba830421ee46e3860))
+
+## [8.3.1](https://github.com/maevsi/maevsi_stack/compare/8.3.0...8.3.1) (2025-02-02)
+
+### Bug Fixes
+
+* schedule release ([372be8f](https://github.com/maevsi/maevsi_stack/commit/372be8fdfc24c69bba50eafa747ac7cbb86bbc41))
+
 ## [8.3.0](https://github.com/maevsi/maevsi_stack/compare/8.2.7...8.3.0) (2025-01-22)
 
 ### Features
