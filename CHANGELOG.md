@@ -1,3 +1,9 @@
+## [8.3.3](https://github.com/maevsi/maevsi_stack/compare/8.3.2...8.3.3) (2025-02-05)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v6.2.0 ([#161](https://github.com/maevsi/maevsi_stack/issues/161)) ([fd72b3f](https://github.com/maevsi/maevsi_stack/commit/fd72b3f87ed0e485e4f40e7ad9fc3a4e68097e39))
+
 ## [8.3.2](https://github.com/maevsi/maevsi_stack/compare/8.3.1...8.3.2) (2025-02-03)
 
 ### Bug Fixes
