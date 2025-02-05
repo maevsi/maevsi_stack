@@ -1,3 +1,26 @@
+## [9.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/9.0.0-beta.2...9.0.0-beta.3) (2025-02-04)
+
+### Bug Fixes
+
+* **postgraphile:** allow sentry cors headers ([220b0ae](https://github.com/maevsi/maevsi_stack/commit/220b0ae307a8235d8fc2031ba830421ee46e3860))
+* schedule release ([372be8f](https://github.com/maevsi/maevsi_stack/commit/372be8fdfc24c69bba50eafa747ac7cbb86bbc41))
+
+## [9.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/9.0.0-beta.1...9.0.0-beta.2) (2025-01-25)
+
+### Features
+
+* **postgraphile:** append postgres plugin ([#158](https://github.com/maevsi/maevsi_stack/issues/158)) ([dc9def2](https://github.com/maevsi/maevsi_stack/commit/dc9def22c3b2093215c44ab417c5f2a229b8f937))
+
+## [9.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/8.2.7...9.0.0-beta.1) (2025-01-18)
+
+### ⚠ BREAKING CHANGES
+
+* **postgres:** switch from alpine to debian variant (#156)
+
+### Features
+
+* **postgres:** switch from alpine to debian variant ([#156](https://github.com/maevsi/maevsi_stack/issues/156)) ([2cf718c](https://github.com/maevsi/maevsi_stack/commit/2cf718c9d8880e7cbabdbc55177d0c8ec9f7080c))
+
 ## [8.3.2](https://github.com/maevsi/maevsi_stack/compare/8.3.1...8.3.2) (2025-02-03)
 
 ### Bug Fixes
