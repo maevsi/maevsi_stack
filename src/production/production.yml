@@ -74,6 +74,7 @@ services:
       NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
       NUXT_PUBLIC_VIO_ENVIRONMENT: beta
       NUXT_TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
+      NUXT_PRIVATE_OPENAI_API_KEY: ${MAEVSI_NUXT_PRIVATE_OPENAI_API_KEY}
       POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
