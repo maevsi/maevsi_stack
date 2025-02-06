@@ -1,3 +1,9 @@
+## [8.3.7](https://github.com/maevsi/maevsi_stack/compare/8.3.6...8.3.7) (2025-02-06)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v6.2.7 ([ed5ace6](https://github.com/maevsi/maevsi_stack/commit/ed5ace6f402d90abef7f0a19c536fad94a89ab0c))
+
 ## [8.3.6](https://github.com/maevsi/maevsi_stack/compare/8.3.5...8.3.6) (2025-02-06)
 
 ### Bug Fixes
