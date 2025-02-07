@@ -1,3 +1,9 @@
+## [8.4.0](https://github.com/maevsi/maevsi_stack/compare/8.3.8...8.4.0) (2025-02-07)
+
+### Features
+
+* **maevsi:** add openai api key to environment variables ([#162](https://github.com/maevsi/maevsi_stack/issues/162)) ([c511f0f](https://github.com/maevsi/maevsi_stack/commit/c511f0fdb842b79e05f5cdceef48ffc3e3c63598))
+
 ## [8.3.8](https://github.com/maevsi/maevsi_stack/compare/8.3.7...8.3.8) (2025-02-06)
 
 ### Bug Fixes
