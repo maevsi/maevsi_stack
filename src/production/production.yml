@@ -120,7 +120,7 @@ services:
         - (( append ))
         - traefik.http.routers.prometheus_secure.tls.certresolver=default
   sqitch:
-    image: ghcr.io/maevsi/sqitch:4.13.3
+    image: ghcr.io/maevsi/sqitch:4.13.4
     volumes: (( prune ))
   traefik:
     command:
