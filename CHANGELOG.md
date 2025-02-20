@@ -1,3 +1,9 @@
+## [9.1.0](https://github.com/maevsi/maevsi_stack/compare/9.0.0...9.1.0) (2025-02-20)
+
+### Features
+
+* **maevsi:** turn firebase service account credentials into secret ([43bb35c](https://github.com/maevsi/maevsi_stack/commit/43bb35cdcffdb466e925a4199e33488aa999f0b3))
+
 ## [9.0.0](https://github.com/maevsi/maevsi_stack/compare/8.4.2...9.0.0) (2025-02-20)
 
 ### ⚠ BREAKING CHANGES
