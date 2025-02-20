@@ -1,3 +1,9 @@
+## [9.1.1](https://github.com/maevsi/maevsi_stack/compare/9.1.0...9.1.1) (2025-02-20)
+
+### Bug Fixes
+
+* **environment:** remove outdated template variable ([0f617b5](https://github.com/maevsi/maevsi_stack/commit/0f617b55318a0839b356090765e85fff50c5dfd3))
+
 ## [9.1.0](https://github.com/maevsi/maevsi_stack/compare/9.0.0...9.1.0) (2025-02-20)
 
 ### Features
