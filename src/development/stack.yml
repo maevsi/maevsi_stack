@@ -22,6 +22,9 @@ secrets:
   maevsi_aws-credentials:
     # The cloud computing provider's user credentials.
     file: ./secrets/maevsi/aws-credentials.secret
+  maevsi_firebase-service-account-credentials:
+    # The notification provider's service account credentials.
+    file: ../production/secrets/maevsi/firebase-service-account-credentials.secret
   maevsi_openai-api-key:
     # The AI provider's API key.
     file: ../production/secrets/maevsi/openai-api-key.secret
@@ -188,8 +191,6 @@ services:
     environment:
       AWS_REGION: ${MAEVSI_AWS_REGION}
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
-      FIREBASE_SERVICE_ACCOUNT_CREDENTIALS: ${MAEVSI_FIREBASE_SERVICE_ACCOUNT_CREDENTIALS}
-      NUXT_PRIVATE_API_NOTIFICATION_SECRET: ${MAEVSI_NUXT_PRIVATE_API_NOTIFICATION_SECRET}
       NUXT_PUBLIC_GTAG_ID: ${MAEVSI_NUXT_PUBLIC_GTAG_ID}
       NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
       NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H: ${MAEVSI_NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H}
@@ -202,6 +203,8 @@ services:
         target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
       - source: maevsi_aws-credentials
         target: /home/node/.aws/credentials # TODO: switch to user `node`
+      - source: maevsi_firebase-service-account-credentials
+        target: /run/environment-variables/FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
       - source: maevsi_openai-api-key
         target: /run/environment-variables/NUXT_PRIVATE_OPENAI_API_KEY
       - source: maevsi_turnstile-key

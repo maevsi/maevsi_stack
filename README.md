@@ -54,6 +54,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The cloud computing provider's user credentials.
     
+ - ### `maevsi_firebase-service-account-credentials`
+    
+    The notification provider's service account credentials.
+    
  - ### `maevsi_openai-api-key`
     
     The AI provider's API key.
