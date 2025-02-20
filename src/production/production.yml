@@ -51,7 +51,7 @@ services:
         - (( append ))
         - traefik.http.routers.maevsi.middlewares=maevsi_cors,maevsi_redirectregex
         - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/maevsi:6.6.0
+    image: ghcr.io/maevsi/maevsi:7.0.0
     user: (( prune ))
   maevsi_beta:
     # You can access the main project frontend's beta version at [beta.localhost](https://beta.localhost/).
@@ -67,26 +67,33 @@ services:
         - traefik.http.services.maevsi_beta.loadbalancer.server.port=3000
         - traefik.http.routers.maevsi_beta_secure.tls.certresolver=default
     environment:
+      AWS_REGION: ${MAEVSI_AWS_REGION}
       FIREBASE_SERVICE_ACCOUNT_CREDENTIALS: ${MAEVSI_FIREBASE_SERVICE_ACCOUNT_CREDENTIALS}
       NUXT_PRIVATE_API_NOTIFICATION_SECRET: ${MAEVSI_NUXT_PRIVATE_API_NOTIFICATION_SECRET}
-      NUXT_PRIVATE_OPENAI_API_KEY: ${MAEVSI_NUXT_PRIVATE_OPENAI_API_KEY}
-      NUXT_PUBLIC_GTAG_ID: ${GTAG_ID}
-      NUXT_PUBLIC_SITE_URL: https://beta.${STACK_DOMAIN}
-      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
-      NUXT_PUBLIC_VIO_ENVIRONMENT: beta
-      NUXT_TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
-      POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
-      POSTGRES_DB_FILE: /run/secrets/postgres_db
-      POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
-      POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
-    image: ghcr.io/maevsi/maevsi:6.6.0
+      NUXT_PUBLIC_GTAG_ID: ${MAEVSI_NUXT_PUBLIC_GTAG_ID}
+      NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
+      NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H: ${MAEVSI_NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H}
+      NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
+      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${MAEVSI_NUXT_PUBLIC_TURNSTILE_SITE_KEY}
+      PGHOST: ${MAEVSI_PGHOST}
+    image: ghcr.io/maevsi/maevsi:7.0.0
     secrets:
-      - maevsi_turnstile-key
-      - postgres_db
-      - postgres_role_maevsi-tusd_password
-      - postgres_role_maevsi-tusd_username
+      - source: maevsi_api-notification-secret
+        target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
+      - source: maevsi_aws-credentials
+        target: /home/node/.aws/credentials # TODO: switch to user `node`
+      - source: maevsi_openai-api-key
+        target: /run/environment-variables/NUXT_PRIVATE_OPENAI_API_KEY
+      - source: maevsi_turnstile-key
+        target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
+      - source: postgres_db
+        target: /run/environment-variables/PGDATABASE
+      - source: postgres_role_maevsi-tusd_password
+        target: /run/environment-variables/PGPASSWORD
+      - source: postgres_role_maevsi-tusd_username
+        target: /run/environment-variables/PGUSER
     volumes:
-      - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
+      - ./configurations/postgraphile/jwtRS256.key.pub:/run/environment-variables/NUXT_PUBLIC_VIO_AUTH_JWT_PUBLIC_KEY:ro
   # minio: (( prune )) # breaks renovate
   portainer:
     deploy:
