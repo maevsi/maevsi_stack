@@ -1,3 +1,9 @@
+## [8.4.2](https://github.com/maevsi/maevsi_stack/compare/8.4.1...8.4.2) (2025-02-20)
+
+### Bug Fixes
+
+* **maevsi:** allow secure localhost origin ([#163](https://github.com/maevsi/maevsi_stack/issues/163)) ([8ca5326](https://github.com/maevsi/maevsi_stack/commit/8ca5326b84e3c3d3dc50ce092c09211342d77c00))
+
 ## [8.4.1](https://github.com/maevsi/maevsi_stack/compare/8.4.0...8.4.1) (2025-02-16)
 
 ### Bug Fixes
