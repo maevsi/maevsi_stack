@@ -51,7 +51,7 @@ services:
         - (( append ))
         - traefik.http.routers.maevsi.middlewares=maevsi_cors,maevsi_redirectregex
         - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/maevsi:6.6.0
+    image: ghcr.io/maevsi/maevsi:7.0.0
     user: (( prune ))
   maevsi_beta:
     # You can access the main project frontend's beta version at [beta.localhost](https://beta.localhost/).
@@ -79,7 +79,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
       POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
-    image: ghcr.io/maevsi/maevsi:6.6.0
+    image: ghcr.io/maevsi/maevsi:7.0.0
     secrets:
       - maevsi_turnstile-key
       - postgres_db
