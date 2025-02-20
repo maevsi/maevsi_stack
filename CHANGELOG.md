@@ -1,3 +1,13 @@
+## [9.0.0](https://github.com/maevsi/maevsi_stack/compare/8.4.2...9.0.0) (2025-02-20)
+
+### ⚠ BREAKING CHANGES
+
+* **maevsi:** upgrade to v7
+
+### Features
+
+* **maevsi:** upgrade to v7 ([f6f2e0e](https://github.com/maevsi/maevsi_stack/commit/f6f2e0e2ebb46f2d6fd55721695e30870f0d8fdd))
+
 ## [8.4.2](https://github.com/maevsi/maevsi_stack/compare/8.4.1...8.4.2) (2025-02-20)
 
 ### Bug Fixes
