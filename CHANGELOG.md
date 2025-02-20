@@ -1,3 +1,9 @@
+## [9.1.2](https://github.com/maevsi/maevsi_stack/compare/9.1.1...9.1.2) (2025-02-20)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v7.1.0 ([26c23f3](https://github.com/maevsi/maevsi_stack/commit/26c23f34f3545fd80ce7d78f77073ee72108c905))
+
 ## [9.1.1](https://github.com/maevsi/maevsi_stack/compare/9.1.0...9.1.1) (2025-02-20)
 
 ### Bug Fixes
