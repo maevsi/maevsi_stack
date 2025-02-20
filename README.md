@@ -46,9 +46,17 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's SMTP client configuration.
     
+ - ### `maevsi_api-notification-secret`
+    
+    The notification endpoint's secret.
+    
  - ### `maevsi_aws-credentials`
     
     The cloud computing provider's user credentials.
+    
+ - ### `maevsi_openai-api-key`
+    
+    The AI provider's API key.
     
  - ### `maevsi_turnstile-key`
     

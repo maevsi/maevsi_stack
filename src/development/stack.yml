@@ -16,9 +16,15 @@ secrets:
   jobber_msmtprc:
     # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
+  maevsi_api-notification-secret:
+    # The notification endpoint's secret.
+    file: ./secrets/maevsi/api-notification.secret
   maevsi_aws-credentials:
     # The cloud computing provider's user credentials.
     file: ./secrets/maevsi/aws-credentials.secret
+  maevsi_openai-api-key:
+    # The AI provider's API key.
+    file: ../production/secrets/maevsi/openai-api-key.secret
   maevsi_turnstile-key:
     # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
@@ -184,31 +190,34 @@ services:
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
       FIREBASE_SERVICE_ACCOUNT_CREDENTIALS: ${MAEVSI_FIREBASE_SERVICE_ACCOUNT_CREDENTIALS}
       NUXT_PRIVATE_API_NOTIFICATION_SECRET: ${MAEVSI_NUXT_PRIVATE_API_NOTIFICATION_SECRET}
-      NUXT_PRIVATE_OPENAI_API_KEY: ${MAEVSI_NUXT_PRIVATE_OPENAI_API_KEY}
-      NUXT_PUBLIC_GTAG_ID: ${GTAG_ID}
+      NUXT_PUBLIC_GTAG_ID: ${MAEVSI_NUXT_PUBLIC_GTAG_ID}
       NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
-      NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H: 15
+      NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H: ${MAEVSI_NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H}
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
-      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${TURNSTILE_SITE_KEY}
-      NUXT_TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY} # TODO: move to file (https://github.com/nuxt-modules/turnstile/pull/298)
-      POSTGRAPHILE_JWT_PUBLIC_KEY_FILE: /run/config/postgraphile_jwt-public-key
-      POSTGRES_DB_FILE: /run/secrets/postgres_db
-      POSTGRES_ROLE_MAEVSI_TUSD_PASSWORD_FILE: /run/secrets/postgres_role_maevsi-tusd_password
-      POSTGRES_ROLE_MAEVSI_TUSD_USERNAME_FILE: /run/secrets/postgres_role_maevsi-tusd_username
+      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${MAEVSI_NUXT_PUBLIC_TURNSTILE_SITE_KEY}
+      PGHOST: ${MAEVSI_PGHOST}
     image: maevsi/maevsi:dev
     secrets:
+      - source: maevsi_api-notification-secret
+        target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
       - source: maevsi_aws-credentials
         target: /home/node/.aws/credentials # TODO: switch to user `node`
-      - maevsi_turnstile-key
-      - postgres_db
-      - postgres_role_maevsi-tusd_password
-      - postgres_role_maevsi-tusd_username
+      - source: maevsi_openai-api-key
+        target: /run/environment-variables/NUXT_PRIVATE_OPENAI_API_KEY
+      - source: maevsi_turnstile-key
+        target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
+      - source: postgres_db
+        target: /run/environment-variables/PGDATABASE
+      - source: postgres_role_maevsi-tusd_password
+        target: /run/environment-variables/PGPASSWORD
+      - source: postgres_role_maevsi-tusd_username
+        target: /run/environment-variables/PGUSER
     user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
       - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
       - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
       - ../../../maevsi/:/srv/app/ #DARGSTACK-REMOVE
-      - ./configurations/postgraphile/jwtRS256.key.pub:/run/config/postgraphile_jwt-public-key:ro
+      - ./configurations/postgraphile/jwtRS256.key.pub:/run/environment-variables/NUXT_PUBLIC_VIO_AUTH_JWT_PUBLIC_KEY:ro
   minio: #DARGSTACK-REMOVE
     # You can access the s3 console at [minio.localhost](https://minio.localhost/).
     # You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
@@ -436,7 +445,7 @@ services:
       - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
   tusd:
     # You can access the upload service at [tusd.localhost](https://tusd.localhost/).
-    command: -behind-proxy --hooks-enabled-events pre-create,pre-finish,post-terminate --hooks-http http://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${S3_TUSD_BUCKET} -s3-endpoint ${S3_TUSD_ENDPOINT}
+    command: -behind-proxy --hooks-enabled-events pre-create,pre-finish,post-terminate --hooks-http http://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${TUSD_BUCKET} -s3-endpoint ${TUSD_ENDPOINT}
     deploy:
       labels:
         - traefik.enable=true
@@ -448,7 +457,7 @@ services:
         - traefik.http.routers.tusd_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.tusd.loadbalancer.server.port=8080
     environment:
-      AWS_REGION: ${S3_TUSD_REGION}
+      AWS_REGION: ${TUSD_REGION}
     image: tusproject/tusd:v2.6.0
     secrets:
       - source: tusd_aws
