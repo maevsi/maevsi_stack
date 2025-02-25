@@ -1,3 +1,13 @@
+## [10.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/9.1.2...10.0.0-beta.1) (2025-02-25)
+
+### ⚠ BREAKING CHANGES
+
+* **postgres:** switch from alpine to debian variant (#156)
+
+### Features
+
+* **postgres:** switch from alpine to debian variant ([#156](https://github.com/maevsi/maevsi_stack/issues/156)) ([2cf718c](https://github.com/maevsi/maevsi_stack/commit/2cf718c9d8880e7cbabdbc55177d0c8ec9f7080c))
+
 ## [9.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/9.0.0-beta.2...9.0.0-beta.3) (2025-02-04)
 
 ### Bug Fixes
