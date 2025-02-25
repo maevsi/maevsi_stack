@@ -21,6 +21,88 @@
 
 * **postgres:** switch from alpine to debian variant ([#156](https://github.com/maevsi/maevsi_stack/issues/156)) ([2cf718c](https://github.com/maevsi/maevsi_stack/commit/2cf718c9d8880e7cbabdbc55177d0c8ec9f7080c))
 
+## [9.1.2](https://github.com/maevsi/maevsi_stack/compare/9.1.1...9.1.2) (2025-02-20)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v7.1.0 ([26c23f3](https://github.com/maevsi/maevsi_stack/commit/26c23f34f3545fd80ce7d78f77073ee72108c905))
+
+## [9.1.1](https://github.com/maevsi/maevsi_stack/compare/9.1.0...9.1.1) (2025-02-20)
+
+### Bug Fixes
+
+* **environment:** remove outdated template variable ([0f617b5](https://github.com/maevsi/maevsi_stack/commit/0f617b55318a0839b356090765e85fff50c5dfd3))
+
+## [9.1.0](https://github.com/maevsi/maevsi_stack/compare/9.0.0...9.1.0) (2025-02-20)
+
+### Features
+
+* **maevsi:** turn firebase service account credentials into secret ([43bb35c](https://github.com/maevsi/maevsi_stack/commit/43bb35cdcffdb466e925a4199e33488aa999f0b3))
+
+## [9.0.0](https://github.com/maevsi/maevsi_stack/compare/8.4.2...9.0.0) (2025-02-20)
+
+### ⚠ BREAKING CHANGES
+
+* **maevsi:** upgrade to v7
+
+### Features
+
+* **maevsi:** upgrade to v7 ([f6f2e0e](https://github.com/maevsi/maevsi_stack/commit/f6f2e0e2ebb46f2d6fd55721695e30870f0d8fdd))
+
+## [8.4.2](https://github.com/maevsi/maevsi_stack/compare/8.4.1...8.4.2) (2025-02-20)
+
+### Bug Fixes
+
+* **maevsi:** allow secure localhost origin ([#163](https://github.com/maevsi/maevsi_stack/issues/163)) ([8ca5326](https://github.com/maevsi/maevsi_stack/commit/8ca5326b84e3c3d3dc50ce092c09211342d77c00))
+
+## [8.4.1](https://github.com/maevsi/maevsi_stack/compare/8.4.0...8.4.1) (2025-02-16)
+
+### Bug Fixes
+
+* schedule release ([5a36922](https://github.com/maevsi/maevsi_stack/commit/5a369221141a672d36e69be478b30bcc9d021243))
+
+## [8.4.0](https://github.com/maevsi/maevsi_stack/compare/8.3.8...8.4.0) (2025-02-07)
+
+### Features
+
+* **maevsi:** add openai api key to environment variables ([#162](https://github.com/maevsi/maevsi_stack/issues/162)) ([c511f0f](https://github.com/maevsi/maevsi_stack/commit/c511f0fdb842b79e05f5cdceef48ffc3e3c63598))
+
+## [8.3.8](https://github.com/maevsi/maevsi_stack/compare/8.3.7...8.3.8) (2025-02-06)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v6.3.0 ([d8c37f3](https://github.com/maevsi/maevsi_stack/commit/d8c37f3b2a772f181e8b5a40a9c9ed6258332272))
+
+## [8.3.7](https://github.com/maevsi/maevsi_stack/compare/8.3.6...8.3.7) (2025-02-06)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v6.2.7 ([ed5ace6](https://github.com/maevsi/maevsi_stack/commit/ed5ace6f402d90abef7f0a19c536fad94a89ab0c))
+
+## [8.3.6](https://github.com/maevsi/maevsi_stack/compare/8.3.5...8.3.6) (2025-02-06)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v6.2.5 ([5f7d072](https://github.com/maevsi/maevsi_stack/commit/5f7d072e703371d6fa7afc2baf4e16da93051247))
+
+## [8.3.5](https://github.com/maevsi/maevsi_stack/compare/8.3.4...8.3.5) (2025-02-06)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v6.2.4 ([14388ba](https://github.com/maevsi/maevsi_stack/commit/14388ba6b57b939cf8fb14c437b96b0f4f30087f))
+
+## [8.3.4](https://github.com/maevsi/maevsi_stack/compare/8.3.3...8.3.4) (2025-02-06)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi docker tag to v6.2.3 ([0134502](https://github.com/maevsi/maevsi_stack/commit/0134502a003b5e1e16945bc5994c0ae3bf508708))
+
+## [8.3.3](https://github.com/maevsi/maevsi_stack/compare/8.3.2...8.3.3) (2025-02-05)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v6.2.0 ([#161](https://github.com/maevsi/maevsi_stack/issues/161)) ([fd72b3f](https://github.com/maevsi/maevsi_stack/commit/fd72b3f87ed0e485e4f40e7ad9fc3a4e68097e39))
+
 ## [8.3.2](https://github.com/maevsi/maevsi_stack/compare/8.3.1...8.3.2) (2025-02-03)
 
 ### Bug Fixes

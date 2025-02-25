@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: 19.7.1
-        version: 19.7.1(@types/node@22.10.10)(typescript@5.7.3)
+        version: 19.7.1(@types/node@22.13.5)(typescript@5.7.3)
       '@commitlint/config-conventional':
         specifier: 19.7.1
         version: 19.7.1
@@ -18,11 +18,11 @@ importers:
         specifier: 8.0.0
         version: 8.0.0
       dargstack:
-        specifier: 2.2.2
-        version: 2.2.2
+        specifier: 2.2.3
+        version: 2.2.3
       dargstack_rgen:
-        specifier: 0.9.54
-        version: 0.9.54
+        specifier: 0.9.55
+        version: 0.9.55
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -109,8 +109,8 @@ packages:
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
 
-  '@types/node@22.10.10':
-    resolution: {integrity: sha512-X47y/mPNzxviAGY5TcYPtYL8JsY3kAq2n8fMmKoRCxq/c4v4pyGNCzM2R6+M5/umG4ZfHuT+sgqDYqWc9rJ6ww==}
+  '@types/node@22.13.5':
+    resolution: {integrity: sha512-+lTU0PxZXn0Dr1NBtC7Y8cR21AJr87dLLU953CWA6pMxxv/UDc7jYAY90upcrie1nRcD6XNG5HOYEDtgW5TxAg==}
 
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -193,12 +193,12 @@ packages:
     resolution: {integrity: sha512-wAV9QHOsNbwnWdNW2FYvE1P56wtgSbM+3SZcdGiWQILwVjACCXDCI3Ai8QlCjMDB8YK5zySiXZYBiwGmNY3lnw==}
     engines: {node: '>=12'}
 
-  dargstack@2.2.2:
-    resolution: {integrity: sha512-cr8LFy4mpi44kRVqp5i8dN2cIFX04D0RiDmKDmRIiUKs4M62RXi3WEo5yadtSQJ0W/Xk1MCSgZkEWlvUKOmLzg==}
-    engines: {node: '20'}
+  dargstack@2.2.3:
+    resolution: {integrity: sha512-TMGPK8JhAY/Z7xyqVTQRlJtCHzD+s+USfWDST7DG9S/Fy2Pb3xMqjYXly4e9CF41ssAqUzpF4wFpgMYOPL8Onw==}
+    engines: {node: '22'}
 
-  dargstack_rgen@0.9.54:
-    resolution: {integrity: sha512-1sNf6OQz5iat0+jM3gmGl4BFttK8I/iXbfaqOcnro6GC7Vkgf3HAzgCwuzHmcBF+f4lXNVjXHpN/W/0IiYHJAA==}
+  dargstack_rgen@0.9.55:
+    resolution: {integrity: sha512-vhBG+SZKxeUJoJW3NGqEdBIe2wy+k5qlxriHtJKL0nX98zydtgegFm6E5X+eBvB98kmTWLLodqTEvnH+ISGZoA==}
     engines: {node: '22'}
     hasBin: true
 
@@ -256,15 +256,15 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  import-fresh@3.3.0:
-    resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
+  import-fresh@3.3.1:
+    resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
     engines: {node: '>=6'}
 
   import-meta-resolve@4.1.0:
     resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
 
-  indento@1.1.13:
-    resolution: {integrity: sha512-YZWk3mreBEM7sBPddsiQnW9Z8SGg/gNpFfscJq00HCDS7pxcQWWWMSVKJU7YkTRyDu1Zv2s8zaK8gQWKmCXHlg==}
+  indento@1.1.14:
+    resolution: {integrity: sha512-K4cK97v4M/ucCAbe3LUpg994folYL0WnEiCFxHXAIowKLbBb/Ahiazkz3Ao5gRar4i9pDr3imcpq4suOu0FbNw==}
 
   ini@4.1.1:
     resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
@@ -389,8 +389,8 @@ packages:
     resolution: {integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==}
     engines: {node: '>=8'}
 
-  semver@7.6.3:
-    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
+  semver@7.7.1:
+    resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -463,11 +463,11 @@ snapshots:
 
   '@babel/helper-validator-identifier@7.25.9': {}
 
-  '@commitlint/cli@19.7.1(@types/node@22.10.10)(typescript@5.7.3)':
+  '@commitlint/cli@19.7.1(@types/node@22.13.5)(typescript@5.7.3)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.7.1
-      '@commitlint/load': 19.6.1(@types/node@22.10.10)(typescript@5.7.3)
+      '@commitlint/load': 19.6.1(@types/node@22.13.5)(typescript@5.7.3)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.2
@@ -505,7 +505,7 @@ snapshots:
   '@commitlint/is-ignored@19.7.1':
     dependencies:
       '@commitlint/types': 19.5.0
-      semver: 7.6.3
+      semver: 7.7.1
 
   '@commitlint/lint@19.7.1':
     dependencies:
@@ -514,7 +514,7 @@ snapshots:
       '@commitlint/rules': 19.6.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.6.1(@types/node@22.10.10)(typescript@5.7.3)':
+  '@commitlint/load@19.6.1(@types/node@22.13.5)(typescript@5.7.3)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -522,7 +522,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.7.3)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.10.10)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.13.5)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -575,9 +575,9 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
-      '@types/node': 22.10.10
+      '@types/node': 22.13.5
 
-  '@types/node@22.10.10':
+  '@types/node@22.13.5':
     dependencies:
       undici-types: 6.20.0
 
@@ -643,9 +643,9 @@ snapshots:
       meow: 12.1.1
       split2: 4.2.0
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@22.10.10)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@22.13.5)(cosmiconfig@9.0.0(typescript@5.7.3))(typescript@5.7.3):
     dependencies:
-      '@types/node': 22.10.10
+      '@types/node': 22.13.5
       cosmiconfig: 9.0.0(typescript@5.7.3)
       jiti: 2.4.2
       typescript: 5.7.3
@@ -653,7 +653,7 @@ snapshots:
   cosmiconfig@9.0.0(typescript@5.7.3):
     dependencies:
       env-paths: 2.2.1
-      import-fresh: 3.3.0
+      import-fresh: 3.3.1
       js-yaml: 4.1.0
       parse-json: 5.2.0
     optionalDependencies:
@@ -661,9 +661,9 @@ snapshots:
 
   dargs@8.1.0: {}
 
-  dargstack@2.2.2: {}
+  dargstack@2.2.3: {}
 
-  dargstack_rgen@0.9.54:
+  dargstack_rgen@0.9.55:
     dependencies:
       deepmerge: 4.3.1
       diff: 7.0.0
@@ -713,14 +713,14 @@ snapshots:
 
   husky@9.1.7: {}
 
-  import-fresh@3.3.0:
+  import-fresh@3.3.1:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
 
   import-meta-resolve@4.1.0: {}
 
-  indento@1.1.13: {}
+  indento@1.1.14: {}
 
   ini@4.1.1: {}
 
@@ -748,7 +748,7 @@ snapshots:
 
   json2md@2.0.1:
     dependencies:
-      indento: 1.1.13
+      indento: 1.1.14
 
   jsonparse@1.3.1: {}
 
@@ -811,7 +811,7 @@ snapshots:
 
   resolve-from@5.0.0: {}
 
-  semver@7.6.3: {}
+  semver@7.7.1: {}
 
   split2@4.2.0: {}
 

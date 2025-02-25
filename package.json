@@ -10,7 +10,7 @@
   "engines": {
     "node": "22"
   },
-  "packageManager": "pnpm@9.15.5",
+  "packageManager": "pnpm@10.4.1",
   "scripts": {
     "prepare": "husky"
   },
@@ -18,8 +18,8 @@
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
     "conventional-changelog-conventionalcommits": "8.0.0",
-    "dargstack": "2.2.2",
-    "dargstack_rgen": "0.9.54",
+    "dargstack": "2.2.3",
+    "dargstack_rgen": "0.9.55",
     "husky": "9.1.7"
   }
 }
