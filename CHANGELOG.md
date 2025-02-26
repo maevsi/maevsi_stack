@@ -1,3 +1,9 @@
+## [9.2.0](https://github.com/maevsi/maevsi_stack/compare/9.1.2...9.2.0) (2025-02-26)
+
+### Features
+
+* **postgres:** create roles in entrypoint ([c2be365](https://github.com/maevsi/maevsi_stack/commit/c2be365df2d69f819adc0b109964296753226ff2))
+
 ## [9.1.2](https://github.com/maevsi/maevsi_stack/compare/9.1.1...9.1.2) (2025-02-20)
 
 ### Bug Fixes
