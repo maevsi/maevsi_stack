@@ -51,7 +51,7 @@ services:
         - (( append ))
         - traefik.http.routers.maevsi.middlewares=maevsi_cors,maevsi_redirectregex
         - traefik.http.routers.maevsi_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/maevsi:7.2.0
+    image: ghcr.io/maevsi/maevsi:7.2.1
     user: (( prune ))
   maevsi_beta:
     # You can access the main project frontend's beta version at [beta.localhost](https://beta.localhost/).
@@ -75,7 +75,7 @@ services:
       NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${MAEVSI_NUXT_PUBLIC_TURNSTILE_SITE_KEY}
       NUXT_PUBLIC_VIO_ENVIRONMENT: beta
       PGHOST: ${MAEVSI_PGHOST}
-    image: ghcr.io/maevsi/maevsi:7.2.0
+    image: ghcr.io/maevsi/maevsi:7.2.1
     secrets:
       - source: maevsi_api-notification-secret
         target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
