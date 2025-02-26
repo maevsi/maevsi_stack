@@ -1,3 +1,10 @@
+## [10.0.0-beta.4](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.3...10.0.0-beta.4) (2025-02-26)
+
+### Bug Fixes
+
+* **postgres:** enable logical replication ([3aff283](https://github.com/maevsi/maevsi_stack/commit/3aff283ebf0f12506db107605713a61b2f04739a))
+* **postgres:** mount entrypoint as file ([a2a29f4](https://github.com/maevsi/maevsi_stack/commit/a2a29f49c307a704ea4b1a7ed0fc9291a2cee304))
+
 ## [10.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.2...10.0.0-beta.3) (2025-02-26)
 
 ### Bug Fixes
