@@ -1,3 +1,13 @@
+## [10.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.1...10.0.0-beta.2) (2025-02-26)
+
+### ⚠ BREAKING CHANGES
+
+* **postgres:** rename maevsi's role secret
+
+### Features
+
+* **postgres:** rename maevsi's role secret ([6ef446c](https://github.com/maevsi/maevsi_stack/commit/6ef446cdd9892433dc24d6cd763a118d28e59661))
+
 ## [10.0.0-beta.1](https://github.com/maevsi/maevsi_stack/compare/9.1.2...10.0.0-beta.1) (2025-02-25)
 
 ### ⚠ BREAKING CHANGES
