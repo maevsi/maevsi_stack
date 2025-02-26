@@ -110,11 +110,11 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The `maevsi_postgraphile` database role's username.
     
- - ### `postgres_role_maevsi-tusd_password`
+ - ### `postgres_role_maevsi_password`
     
     The `tusd` database role's password.
     
- - ### `postgres_role_maevsi-tusd_username`
+ - ### `postgres_role_maevsi_username`
     
     The `tusd` database role's password.
     
