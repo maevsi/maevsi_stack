@@ -98,7 +98,7 @@ services:
         - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
         - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.adminer.loadbalancer.server.port=8080
-    image: adminer:4.8.1-standalone
+    image: adminer:4.17.1-standalone
     volumes:
       - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   debezium:
@@ -332,14 +332,16 @@ services:
     secrets:
       - postgres_db
       - postgres_password
+      - postgres_role_grafana_password
+      - postgres_role_grafana_username
       - postgres_user
     # sysctls:
-    #   # Prevent Docker Swarm from killing pg-amqp-bridge connections (https://github.com/moby/moby/issues/31208)
+    #   # Prevent Docker Swarm from killing connections (https://github.com/moby/moby/issues/31208)
     #   - net.ipv4.tcp_keepalive_time=600
     #   - net.ipv4.tcp_keepalive_intvl=30
     #   - net.ipv4.tcp_keepalive_probes=10
     volumes:
-      - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
+      - /run/:/run/ # make PGSQL socket available # #DARGSTACK-REMOVE
       - postgres_data:/var/lib/postgresql/data/
       - ../production/configurations/postgres/docker-entrypoint-initdb.d/additional-databases.sh:/docker-entrypoint-initdb.d/additional-databases.sh:ro
   prometheus:
@@ -432,7 +434,7 @@ services:
       placement:
         constraints:
           - node.role == manager
-    image: traefik:v3.3.3
+    image: traefik:v3.3.4
     ports: #DARGSTACK-REMOVE
       - mode: host #DARGSTACK-REMOVE
         protocol: tcp #DARGSTACK-REMOVE

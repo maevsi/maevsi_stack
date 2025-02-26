@@ -54,6 +54,18 @@
 
 * **postgres:** switch from alpine to debian variant ([#156](https://github.com/maevsi/maevsi_stack/issues/156)) ([2cf718c](https://github.com/maevsi/maevsi_stack/commit/2cf718c9d8880e7cbabdbc55177d0c8ec9f7080c))
 
+## [9.2.1](https://github.com/maevsi/maevsi_stack/compare/9.2.0...9.2.1) (2025-02-26)
+
+### Bug Fixes
+
+* **maevsi-beta:** readd vio environment ([0573451](https://github.com/maevsi/maevsi_stack/commit/05734512145f9b9e1e9544cc374845977dcfa71c))
+
+## [9.2.0](https://github.com/maevsi/maevsi_stack/compare/9.1.2...9.2.0) (2025-02-26)
+
+### Features
+
+* **postgres:** create roles in entrypoint ([c2be365](https://github.com/maevsi/maevsi_stack/commit/c2be365df2d69f819adc0b109964296753226ff2))
+
 ## [9.1.2](https://github.com/maevsi/maevsi_stack/compare/9.1.1...9.1.2) (2025-02-20)
 
 ### Bug Fixes
