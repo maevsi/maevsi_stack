@@ -1,3 +1,9 @@
+## [10.0.1](https://github.com/maevsi/maevsi_stack/compare/10.0.0...10.0.1) (2025-02-26)
+
+### Bug Fixes
+
+* **postgres:** disable grafana database creation ([bff3a2a](https://github.com/maevsi/maevsi_stack/commit/bff3a2afe8fcd69121baef9025e25dff281cd470))
+
 ## [10.0.0](https://github.com/maevsi/maevsi_stack/compare/9.2.1...10.0.0) (2025-02-26)
 
 ### ⚠ BREAKING CHANGES
