@@ -325,7 +325,7 @@ services:
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: quay.io/debezium/postgres:17 # alpine variant does not include PostGIS
+    image: postgis/postgis:17-3.5-alpine
     # # Expose ports (only) e.g. to generate a database graph image or similar.
     # ports:
     #   - 5432:5432
