@@ -1,3 +1,13 @@
+## [10.0.0-beta.5](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.4...10.0.0-beta.5) (2025-02-26)
+
+### Features
+
+* **postgres:** create roles in entrypoint ([c2be365](https://github.com/maevsi/maevsi_stack/commit/c2be365df2d69f819adc0b109964296753226ff2))
+
+### Bug Fixes
+
+* **maevsi-beta:** readd vio environment ([0573451](https://github.com/maevsi/maevsi_stack/commit/05734512145f9b9e1e9544cc374845977dcfa71c))
+
 ## [10.0.0-beta.4](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.3...10.0.0-beta.4) (2025-02-26)
 
 ### Bug Fixes
