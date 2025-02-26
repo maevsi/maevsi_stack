@@ -1,3 +1,9 @@
+## [10.0.0-beta.3](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.2...10.0.0-beta.3) (2025-02-26)
+
+### Bug Fixes
+
+* **postgres:** use official postgis image ([5499f64](https://github.com/maevsi/maevsi_stack/commit/5499f64c68fb78ae0539ff36572cfeebcb6718cd))
+
 ## [10.0.0-beta.2](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.1...10.0.0-beta.2) (2025-02-26)
 
 ### ⚠ BREAKING CHANGES
