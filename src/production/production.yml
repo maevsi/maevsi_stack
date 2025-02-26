@@ -88,9 +88,9 @@ services:
         target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
       - source: postgres_db
         target: /run/environment-variables/PGDATABASE
-      - source: postgres_role_maevsi-tusd_password
+      - source: postgres_role_maevsi_password
         target: /run/environment-variables/PGPASSWORD
-      - source: postgres_role_maevsi-tusd_username
+      - source: postgres_role_maevsi_username
         target: /run/environment-variables/PGUSER
     volumes:
       - ./configurations/postgraphile/jwtRS256.key.pub:/run/environment-variables/NUXT_PUBLIC_VIO_AUTH_JWT_PUBLIC_KEY:ro
