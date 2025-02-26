@@ -61,12 +61,12 @@ secrets:
   postgres_role_maevsi-postgraphile_username:
     # The `maevsi_postgraphile` database role's username.
     file: ./secrets/postgres/role_maevsi-postgraphile_username.secret
-  postgres_role_maevsi-tusd_password:
+  postgres_role_maevsi_password:
     # The `tusd` database role's password.
-    file: ./secrets/postgres/role_maevsi-tusd_password.secret
-  postgres_role_maevsi-tusd_username:
+    file: ./secrets/postgres/role_maevsi_password.secret
+  postgres_role_maevsi_username:
     # The `tusd` database role's password.
-    file: ./secrets/postgres/role_maevsi-tusd_username.secret
+    file: ./secrets/postgres/role_maevsi_username.secret
   postgres_user:
     # The database's default user.
     file: ./secrets/postgres/user.secret
@@ -211,9 +211,9 @@ services:
         target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
       - source: postgres_db
         target: /run/environment-variables/PGDATABASE
-      - source: postgres_role_maevsi-tusd_password
+      - source: postgres_role_maevsi_password
         target: /run/environment-variables/PGPASSWORD
-      - source: postgres_role_maevsi-tusd_username
+      - source: postgres_role_maevsi_username
         target: /run/environment-variables/PGUSER
     user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
@@ -319,13 +319,13 @@ services:
       - ../production/configurations/postgraphile/.postgraphilerc.js:/postgraphile/.postgraphilerc.js:ro
   postgres:
     # You can access the database via `adminer`.
-    command: -c maevsi.jwt_expiry_duration='1 month'
+    command: -c maevsi.jwt_expiry_duration='1 month' -c wal_level=logical
     environment:
       POSTGRES_ADDITIONAL_DBS: grafana
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
-    image: quay.io/debezium/postgres:17-alpine
+    image: postgis/postgis:17-3.5-alpine
     # # Expose ports (only) e.g. to generate a database graph image or similar.
     # ports:
     #   - 5432:5432
@@ -343,7 +343,7 @@ services:
     volumes:
       - /run/:/run/ # make PGSQL socket available # #DARGSTACK-REMOVE
       - postgres_data:/var/lib/postgresql/data/
-      - ../production/configurations/postgres/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:ro
+      - ../production/configurations/postgres/docker-entrypoint-initdb.d/additional-databases.sh:/docker-entrypoint-initdb.d/additional-databases.sh:ro
   prometheus:
     # You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
     deploy:
@@ -400,8 +400,8 @@ services:
       - postgres_role_grafana_username
       - postgres_role_maevsi-postgraphile_password
       - postgres_role_maevsi-postgraphile_username
-      - postgres_role_maevsi-tusd_password
-      - postgres_role_maevsi-tusd_username
+      - postgres_role_maevsi_password
+      - postgres_role_maevsi_username
       - sqitch_target
     volumes:
       - ../../../sqitch/:/srv/app/
