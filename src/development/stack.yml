@@ -341,7 +341,7 @@ services:
     volumes:
       - /run/:/run/ # Make PGSQL socket available. # #DARGSTACK-REMOVE
       - postgres_data:/var/lib/postgresql/data/
-      - ../production/configurations/postgres/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/:ro
+      - ../production/configurations/postgres/docker-entrypoint-initdb.d/additional-databases.sh:/docker-entrypoint-initdb.d/additional-databases.sh:ro
   prometheus:
     # You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
     deploy:
