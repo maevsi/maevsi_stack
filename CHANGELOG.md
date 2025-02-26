@@ -1,3 +1,21 @@
+## [10.0.0](https://github.com/maevsi/maevsi_stack/compare/9.2.1...10.0.0) (2025-02-26)
+
+### ⚠ BREAKING CHANGES
+
+* **postgres:** rename maevsi's role secret
+* **postgres:** switch from alpine to debian variant (#156)
+
+### Features
+
+* **postgres:** rename maevsi's role secret ([6ef446c](https://github.com/maevsi/maevsi_stack/commit/6ef446cdd9892433dc24d6cd763a118d28e59661))
+* **postgres:** switch from alpine to debian variant ([#156](https://github.com/maevsi/maevsi_stack/issues/156)) ([2cf718c](https://github.com/maevsi/maevsi_stack/commit/2cf718c9d8880e7cbabdbc55177d0c8ec9f7080c))
+
+### Bug Fixes
+
+* **postgres:** enable logical replication ([3aff283](https://github.com/maevsi/maevsi_stack/commit/3aff283ebf0f12506db107605713a61b2f04739a))
+* **postgres:** mount entrypoint as file ([a2a29f4](https://github.com/maevsi/maevsi_stack/commit/a2a29f49c307a704ea4b1a7ed0fc9291a2cee304))
+* **postgres:** use official postgis image ([5499f64](https://github.com/maevsi/maevsi_stack/commit/5499f64c68fb78ae0539ff36572cfeebcb6718cd))
+
 ## [10.0.0-beta.5](https://github.com/maevsi/maevsi_stack/compare/10.0.0-beta.4...10.0.0-beta.5) (2025-02-26)
 
 ### Features
