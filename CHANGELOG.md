@@ -1,3 +1,9 @@
+## [11.0.1](https://github.com/maevsi/maevsi_stack/compare/11.0.0...11.0.1) (2025-02-27)
+
+### Bug Fixes
+
+* **postgres:** enable grafana database creation ([a6d3a8c](https://github.com/maevsi/maevsi_stack/commit/a6d3a8c8c0f2c728a87136daafe0d5be825cdc92))
+
 ## [11.0.0](https://github.com/maevsi/maevsi_stack/compare/10.0.1...11.0.0) (2025-02-27)
 
 ### ⚠ BREAKING CHANGES
