@@ -1,3 +1,13 @@
+## [11.0.0](https://github.com/maevsi/maevsi_stack/compare/10.0.1...11.0.0) (2025-02-27)
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** upgrade ghcr.io/maevsi/sqitch to v5.0.1
+
+### Miscellaneous Chores
+
+* **deps:** upgrade ghcr.io/maevsi/sqitch to v5.0.1 ([a3c7594](https://github.com/maevsi/maevsi_stack/commit/a3c75944b44d37f07be99a41932ec3c5a7dcffda))
+
 ## [10.0.1](https://github.com/maevsi/maevsi_stack/compare/10.0.0...10.0.1) (2025-02-26)
 
 ### Bug Fixes
