@@ -321,7 +321,7 @@ services:
     # You can access the database via `adminer`.
     command: -c maevsi.jwt_expiry_duration='1 month' -c wal_level=logical
     environment:
-      # POSTGRES_ADDITIONAL_DBS: grafana
+      POSTGRES_ADDITIONAL_DBS: grafana
       POSTGRES_DB_FILE: /run/secrets/postgres_db
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
