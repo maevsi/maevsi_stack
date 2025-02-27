@@ -396,8 +396,6 @@ services:
     # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
     secrets:
-      - postgres_role_grafana_password
-      - postgres_role_grafana_username
       - postgres_role_maevsi-postgraphile_password
       - postgres_role_maevsi-postgraphile_username
       - postgres_role_maevsi_password
