@@ -1,3 +1,10 @@
+## [11.0.3](https://github.com/maevsi/maevsi_stack/compare/11.0.2...11.0.3) (2025-02-27)
+
+### Bug Fixes
+
+* **grafana:** source postgres datasource secrets from file ([5d8dffa](https://github.com/maevsi/maevsi_stack/commit/5d8dffa6c0ed3b2b1cce01288715cedcda2a7990))
+* **grafana:** update sql statement ([a71950b](https://github.com/maevsi/maevsi_stack/commit/a71950b4ba5c6eaf6041a2b0816fcd6495bbb542))
+
 ## [11.0.2](https://github.com/maevsi/maevsi_stack/compare/11.0.1...11.0.2) (2025-02-27)
 
 ### Bug Fixes
