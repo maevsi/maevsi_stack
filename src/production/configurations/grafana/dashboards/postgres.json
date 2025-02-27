@@ -213,7 +213,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT created as time, row_number() OVER (ORDER BY created) FROM maevsi_private.account",
+          "rawSql": "SELECT created_at as time, row_number() OVER (ORDER BY created_at) FROM maevsi_private.account",
           "refId": "A",
           "sql": {
             "columns": [

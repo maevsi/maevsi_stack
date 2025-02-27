@@ -2,7 +2,7 @@
 
 set -eu
 
-username="$(cat /run/secrets/postgres_user)"
+postgres_user="$(cat /run/secrets/postgres_user)"
 
 create_database_and_role() {
     db_name="$1"
@@ -24,7 +24,7 @@ create_database_and_role() {
 
     echo "[INFO] Creating user and database: '$db_name'"
 
-    psql -v ON_ERROR_STOP=1 --username "$username" --dbname "postgres" <<-EOSQL
+    psql -v ON_ERROR_STOP=1 --username "$postgres_user" --dbname "postgres" <<-EOSQL
         CREATE ROLE "$db_username" WITH LOGIN PASSWORD '$db_password';
         CREATE DATABASE "$db_name" OWNER "$db_username";
 EOSQL
