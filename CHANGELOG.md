@@ -1,3 +1,10 @@
+## [11.0.2](https://github.com/maevsi/maevsi_stack/compare/11.0.1...11.0.2) (2025-02-27)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/maevsi to v9.0.2 ([a4532b9](https://github.com/maevsi/maevsi_stack/commit/a4532b9a522d925643bb9e33564bd784faf4f847))
+* **deps:** update ghcr.io/maevsi/sqitch to v5.0.2 ([5fde2f8](https://github.com/maevsi/maevsi_stack/commit/5fde2f8e7dbc09222ff7afef13df68694ba96e0a))
+
 ## [11.0.1](https://github.com/maevsi/maevsi_stack/compare/11.0.0...11.0.1) (2025-02-27)
 
 ### Bug Fixes
