@@ -218,6 +218,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     You can access the metrics monitoring at [prometheus.localhost](https://prometheus.localhost/).
     
+ - ### `reccoom`
+    
+    You cannot access the recommendation service directly.
+    
  - ### `redpanda`
     
     You can access the event streaming platform's ui as described under `redpanda-console`.
