@@ -1,3 +1,9 @@
+## [11.2.0](https://github.com/maevsi/maevsi_stack/compare/11.1.0...11.2.0) (2025-03-04)
+
+### Features
+
+* revert "feat(services)!: remove reccoom" ([649d39f](https://github.com/maevsi/maevsi_stack/commit/649d39fb839a651dbddf5e616d591cd05e59958e))
+
 ## [11.1.0](https://github.com/maevsi/maevsi_stack/compare/11.0.3...11.1.0) (2025-03-04)
 
 ### Features
