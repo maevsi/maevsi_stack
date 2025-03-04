@@ -1,3 +1,9 @@
+## [11.1.0](https://github.com/maevsi/maevsi_stack/compare/11.0.3...11.1.0) (2025-03-04)
+
+### Features
+
+* **grafana:** add monthly active users and accounts stat ([913060f](https://github.com/maevsi/maevsi_stack/commit/913060fe62f621f33f31365cefc60f10f9ca7fd0))
+
 ## [11.0.3](https://github.com/maevsi/maevsi_stack/compare/11.0.2...11.0.3) (2025-02-27)
 
 ### Bug Fixes
