@@ -1,4 +1,4 @@
-# maevsi_stack
+# stack
 
 
 The Docker stack configuration for [maev.si](https://maev.si/).
