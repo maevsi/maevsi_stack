@@ -6,7 +6,7 @@ module.exports = {
     options: {
         appendPlugins: [postgisPlugin.default || postgisPlugin],
         connection: fs.readFileSync(process.env.POSTGRAPHILE_CONNECTION_FILE, 'utf8'),
-        defaultRole: 'maevsi_anonymous',
+        defaultRole: 'vibetype_anonymous',
         dynamicJson: true,
         enhanceGraphiql: true,
         extendedErrors: ['errcode'],
@@ -15,10 +15,10 @@ module.exports = {
         jwtPublicKey: fs.readFileSync(process.env.POSTGRAPHILE_JWT_PUBLIC_KEY_FILE, 'utf8'),
         jwtSecret: fs.readFileSync(process.env.POSTGRAPHILE_JWT_SECRET_KEY_FILE, 'utf8'),
         jwtSignOptions: { algorithm: 'RS256' },
-        jwtTokenIdentifier: 'maevsi.jwt',
+        jwtTokenIdentifier: 'vibetype.jwt',
         jwtVerifyAlgorithms: ['RS256'],
         ownerConnection: fs.readFileSync(process.env.POSTGRAPHILE_OWNER_CONNECTION_FILE, 'utf8'),
-        schema: ['maevsi'],
+        schema: ['vibetype'],
         setofFunctionsContainNulls: false,
         watch: true
     },
