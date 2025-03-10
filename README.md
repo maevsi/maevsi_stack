@@ -3,7 +3,7 @@
 
 The Docker stack configuration for [maev.si](https://maev.si/).
 
-This project is deployed in accordance to the [DargStack template](https://github.com/dargstack/dargstack_template/) to make deployment a breeze. It is closely related to [maevsi's source code](https://github.com/maevsi/maevsi/).
+This project is deployed in accordance to the [DargStack template](https://github.com/dargstack/dargstack_template/) to make deployment a breeze. It is closely related to [Vibetype's source code](https://github.com/maevsi/vibetype/).
 
 ## Table of Contents
 
@@ -46,26 +46,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's SMTP client configuration.
     
- - ### `maevsi_api-notification-secret`
-    
-    The notification endpoint's secret.
-    
- - ### `maevsi_aws-credentials`
-    
-    The cloud computing provider's user credentials.
-    
- - ### `maevsi_firebase-service-account-credentials`
-    
-    The notification provider's service account credentials.
-    
- - ### `maevsi_openai-api-key`
-    
-    The AI provider's API key.
-    
- - ### `maevsi_turnstile-key`
-    
-    The captcha provider's application key.
-    
  - ### `portainer_admin-password`
     
     The container manager's admin password.
@@ -96,25 +76,25 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
  - ### `postgres_role_grafana_password`
     
-    The `maevsi_grafana` database role's password.
+    The password of the observation dashboard's database role.
     
  - ### `postgres_role_grafana_username`
     
-    The `maevsi_grafana` database role's username.
+    The username of the observation dashboard's database role.
     
- - ### `postgres_role_maevsi-postgraphile_password`
+ - ### `postgres_role_postgraphile_password`
     
-    The `maevsi_postgraphile` database role's password.
+    The password of the GraphQL API database wrapper's database role.
     
- - ### `postgres_role_maevsi-postgraphile_username`
+ - ### `postgres_role_postgraphile_username`
     
-    The `maevsi_postgraphile` database role's username.
+    The username of the GraphQL API database wrapper's database role.
     
- - ### `postgres_role_maevsi_password`
+ - ### `postgres_role_vibetype_password`
     
     The `tusd` database role's password.
     
- - ### `postgres_role_maevsi_username`
+ - ### `postgres_role_vibetype_username`
     
     The `tusd` database role's password.
     
@@ -137,6 +117,26 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `tusd_aws`
     
     The upload service's s3 credentials file.
+    
+ - ### `vibetype_api-notification-secret`
+    
+    The notification endpoint's secret.
+    
+ - ### `vibetype_aws-credentials`
+    
+    The cloud computing provider's user credentials.
+    
+ - ### `vibetype_firebase-service-account-credentials`
+    
+    The notification provider's service account credentials.
+    
+ - ### `vibetype_openai-api-key`
+    
+    The AI provider's API key.
+    
+ - ### `vibetype_turnstile-key`
+    
+    The captcha provider's application key.
     
 
 ## services
@@ -180,14 +180,6 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `jobber`
     
     You cannot access the jobber via a web interface.
-    
- - ### `maevsi`
-    
-    You can access the main project's frontend at [localhost](https://localhost/).
-    
- - ### `maevsi_beta` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
-    
-    You can access the main project frontend's beta version at [beta.localhost](https://beta.localhost/).
     
  - ### `minio` ![development](https://img.shields.io/badge/-development-informational.svg?style=flat-square)
     
@@ -245,6 +237,14 @@ This project is deployed in accordance to the [DargStack template](https://githu
  - ### `tusd`
     
     You can access the upload service at [tusd.localhost](https://tusd.localhost/).
+    
+ - ### `vibetype`
+    
+    You can access the main project's frontend at [localhost](https://localhost/).
+    
+ - ### `vibetype_beta` ![production](https://img.shields.io/badge/-production-informational.svg?style=flat-square)
+    
+    You can access the main project frontend's beta version at [beta.localhost](https://beta.localhost/).
     
 
 ## volumes
