@@ -1,3 +1,9 @@
+## [11.2.6](https://github.com/maevsi/maevsi_stack/compare/11.2.5...11.2.6) (2025-03-11)
+
+### Bug Fixes
+
+* **secrets:** dissolve production ([ff07c24](https://github.com/maevsi/maevsi_stack/commit/ff07c246cd7046ff7f44a3236f0e42ba6189fd30))
+
 ## [11.2.5](https://github.com/maevsi/maevsi_stack/compare/11.2.4...11.2.5) (2025-03-10)
 
 ### Bug Fixes
