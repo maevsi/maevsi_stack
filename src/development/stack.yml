@@ -24,10 +24,10 @@ secrets:
     file: ./secrets/maevsi/aws-credentials.secret
   maevsi_firebase-service-account-credentials:
     # The notification provider's service account credentials.
-    file: ../production/secrets/maevsi/firebase-service-account-credentials.secret
+    file: ./secrets/maevsi/firebase-service-account-credentials.secret
   maevsi_openai-api-key:
     # The AI provider's API key.
-    file: ../production/secrets/maevsi/openai-api-key.secret
+    file: ./secrets/maevsi/openai-api-key.secret
   maevsi_turnstile-key:
     # The captcha provider's application key.
     file: ./secrets/maevsi/turnstile-key.secret
