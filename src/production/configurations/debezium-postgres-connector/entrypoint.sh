@@ -37,7 +37,7 @@ elif [ "$HTTP_STATUS" -eq 404 ]; then
             "database.server.name": "postgres",
             "database.user": "'"$POSTGRES_USER"'",
             "plugin.name": "pgoutput",
-            "topic.prefix" : "maevsi"
+            "topic.prefix" : "vibetype"
         }
     }'
 

@@ -1,7 +1,7 @@
 # maev.si
 # https://maev.si/
-# maevsi
-# https://github.com/maevsi/maevsi/
+# Vibetype
+# https://github.com/maevsi/vibetype/
 ---
 secrets:
   jobber_aliases:
@@ -16,21 +16,6 @@ secrets:
   jobber_msmtprc:
     # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
-  maevsi_api-notification-secret:
-    # The notification endpoint's secret.
-    file: ./secrets/maevsi/api-notification.secret
-  maevsi_aws-credentials:
-    # The cloud computing provider's user credentials.
-    file: ./secrets/maevsi/aws-credentials.secret
-  maevsi_firebase-service-account-credentials:
-    # The notification provider's service account credentials.
-    file: ./secrets/maevsi/firebase-service-account-credentials.secret
-  maevsi_openai-api-key:
-    # The AI provider's API key.
-    file: ./secrets/maevsi/openai-api-key.secret
-  maevsi_turnstile-key:
-    # The captcha provider's application key.
-    file: ./secrets/maevsi/turnstile-key.secret
   portainer_admin-password:
     # The container manager's admin password.
     file: ./secrets/portainer/admin-password.secret
@@ -50,23 +35,23 @@ secrets:
     # The database's password.
     file: ./secrets/postgres/password.secret
   postgres_role_grafana_password:
-    # The `maevsi_grafana` database role's password.
+    # The password of the observation dashboard's database role.
     file: ./secrets/postgres/role_grafana_password.secret
   postgres_role_grafana_username:
-    # The `maevsi_grafana` database role's username.
+    # The username of the observation dashboard's database role.
     file: ./secrets/postgres/role_grafana_username.secret
-  postgres_role_maevsi-postgraphile_password:
-    # The `maevsi_postgraphile` database role's password.
-    file: ./secrets/postgres/role_maevsi-postgraphile_password.secret
-  postgres_role_maevsi-postgraphile_username:
-    # The `maevsi_postgraphile` database role's username.
-    file: ./secrets/postgres/role_maevsi-postgraphile_username.secret
-  postgres_role_maevsi_password:
+  postgres_role_postgraphile_password:
+    # The password of the GraphQL API database wrapper's database role.
+    file: ./secrets/postgres/role_postgraphile_password.secret
+  postgres_role_postgraphile_username:
+    # The username of the GraphQL API database wrapper's database role.
+    file: ./secrets/postgres/role_postgraphile_username.secret
+  postgres_role_vibetype_password:
     # The `tusd` database role's password.
-    file: ./secrets/postgres/role_maevsi_password.secret
-  postgres_role_maevsi_username:
+    file: ./secrets/postgres/role_vibetype_password.secret
+  postgres_role_vibetype_username:
     # The `tusd` database role's password.
-    file: ./secrets/postgres/role_maevsi_username.secret
+    file: ./secrets/postgres/role_vibetype_username.secret
   postgres_user:
     # The database's default user.
     file: ./secrets/postgres/user.secret
@@ -76,6 +61,21 @@ secrets:
   tusd_aws:
     # The upload service's s3 credentials file.
     file: ./secrets/tusd/aws.secret
+  vibetype_api-notification-secret:
+    # The notification endpoint's secret.
+    file: ./secrets/vibetype/api-notification.secret
+  vibetype_aws-credentials:
+    # The cloud computing provider's user credentials.
+    file: ./secrets/vibetype/aws-credentials.secret
+  vibetype_firebase-service-account-credentials:
+    # The notification provider's service account credentials.
+    file: ./secrets/vibetype/firebase-service-account-credentials.secret
+  vibetype_openai-api-key:
+    # The AI provider's API key.
+    file: ./secrets/vibetype/openai-api-key.secret
+  vibetype_turnstile-key:
+    # The captcha provider's application key.
+    file: ./secrets/vibetype/turnstile-key.secret
 services:
   adminer:
     # You can access the database's frontend at [adminer.localhost](https://adminer.localhost/).
@@ -168,59 +168,6 @@ services:
       - ../production/backups/postgres/:/backups/
       - ./configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
       - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
-  maevsi:
-    # You can access the main project's frontend at [localhost](https://localhost/).
-    deploy:
-      labels:
-        - traefik.enable=true
-        - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowHeaders=authorization,hook-name
-        - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
-        - traefik.http.middlewares.maevsi_cors.headers.accessControlAllowOriginList=https://localhost:3000
-        - traefik.http.middlewares.maevsi_redirectregex.redirectregex.regex=^https?:\/\/www\.${STACK_DOMAIN}\/(.*)
-        - traefik.http.middlewares.maevsi_redirectregex.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
-        - traefik.http.routers.maevsi.entryPoints=web
-        - traefik.http.routers.maevsi.middlewares=redirectscheme #DARGSTACK-REMOVE
-        - traefik.http.routers.maevsi.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
-        - traefik.http.routers.maevsi.service=maevsi #DARGSTACK-REMOVE
-        - traefik.http.routers.maevsi_secure.entryPoints=web-secure
-        - traefik.http.routers.maevsi_secure.middlewares=maevsi_cors,maevsi_redirectregex
-        - traefik.http.routers.maevsi_secure.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
-        - traefik.http.routers.maevsi_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-        - traefik.http.routers.maevsi_secure.service=maevsi #DARGSTACK-REMOVE
-        - traefik.http.services.maevsi.loadbalancer.server.port=3000
-    environment:
-      AWS_REGION: ${MAEVSI_AWS_REGION}
-      CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
-      NUXT_PUBLIC_GTAG_ID: ${MAEVSI_NUXT_PUBLIC_GTAG_ID}
-      NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
-      NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H: ${MAEVSI_NUXT_PUBLIC_MAEVSI_EMAIL_LIMIT24H}
-      NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
-      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${MAEVSI_NUXT_PUBLIC_TURNSTILE_SITE_KEY}
-      PGHOST: ${MAEVSI_PGHOST}
-    image: maevsi/maevsi:dev
-    secrets:
-      - source: maevsi_api-notification-secret
-        target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
-      - source: maevsi_aws-credentials
-        target: /home/node/.aws/credentials # TODO: switch to user `node`
-      - source: maevsi_firebase-service-account-credentials
-        target: /run/environment-variables/FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
-      - source: maevsi_openai-api-key
-        target: /run/environment-variables/NUXT_PRIVATE_OPENAI_API_KEY
-      - source: maevsi_turnstile-key
-        target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
-      - source: postgres_db
-        target: /run/environment-variables/PGDATABASE
-      - source: postgres_role_maevsi_password
-        target: /run/environment-variables/PGPASSWORD
-      - source: postgres_role_maevsi_username
-        target: /run/environment-variables/PGUSER
-    user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
-    volumes:
-      - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
-      - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
-      - ../../../maevsi/:/srv/app/ #DARGSTACK-REMOVE
-      - ./configurations/postgraphile/jwtRS256.key.pub:/run/environment-variables/NUXT_PUBLIC_VIO_AUTH_JWT_PUBLIC_KEY:ro
   minio: #DARGSTACK-REMOVE
     # You can access the s3 console at [minio.localhost](https://minio.localhost/).
     # You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
@@ -293,7 +240,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://maevsi:3000/api/auth-proxy
+        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://vibetype:3000/api/auth-proxy
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,baggage,content-type,sentry-trace,x-turnstile-key
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
         - traefik.http.routers.postgraphile.middlewares=redirectscheme #DARGSTACK-REMOVE
@@ -319,7 +266,7 @@ services:
       - ../production/configurations/postgraphile/.postgraphilerc.js:/postgraphile/.postgraphilerc.js:ro
   postgres:
     # You can access the database via `adminer`.
-    command: -c maevsi.jwt_expiry_duration='1 month' -c wal_level=logical
+    command: -c vibetype.jwt_expiry_duration='1 month' -c wal_level=logical
     environment:
       POSTGRES_ADDITIONAL_DBS: grafana
       POSTGRES_DB_FILE: /run/secrets/postgres_db
@@ -401,10 +348,10 @@ services:
     # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
     secrets:
-      - postgres_role_maevsi-postgraphile_password
-      - postgres_role_maevsi-postgraphile_username
-      - postgres_role_maevsi_password
-      - postgres_role_maevsi_username
+      - postgres_role_postgraphile_password
+      - postgres_role_postgraphile_username
+      - postgres_role_vibetype_password
+      - postgres_role_vibetype_username
       - sqitch_target
     volumes:
       - ../../../sqitch/:/srv/app/
@@ -453,7 +400,7 @@ services:
       - ./configurations/traefik/dynamic.yml:/dynamic.yml:ro #DARGSTACK-REMOVE
   tusd:
     # You can access the upload service at [tusd.localhost](https://tusd.localhost/).
-    command: -behind-proxy --hooks-enabled-events pre-create,pre-finish,post-terminate --hooks-http http://maevsi:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${TUSD_BUCKET} -s3-endpoint ${TUSD_ENDPOINT}
+    command: -behind-proxy --hooks-enabled-events pre-create,pre-finish,post-terminate --hooks-http http://vibetype:3000/api/tusd -max-size ${TUSD_MAX_SIZE} -s3-bucket ${TUSD_BUCKET} -s3-endpoint ${TUSD_ENDPOINT}
     deploy:
       labels:
         - traefik.enable=true
@@ -470,6 +417,59 @@ services:
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
+  vibetype:
+    # You can access the main project's frontend at [localhost](https://localhost/).
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.middlewares.vibetype_cors.headers.accessControlAllowHeaders=authorization,hook-name
+        - traefik.http.middlewares.vibetype_cors.headers.accessControlAllowMethods=GET,POST,PUT,DELETE
+        - traefik.http.middlewares.vibetype_cors.headers.accessControlAllowOriginList=https://localhost:3000
+        - traefik.http.middlewares.vibetype_redirectregex.redirectregex.regex=^https?:\/\/www\.${STACK_DOMAIN}\/(.*)
+        - traefik.http.middlewares.vibetype_redirectregex.redirectregex.replacement=https://${STACK_DOMAIN}/$${2}
+        - traefik.http.routers.vibetype.entryPoints=web
+        - traefik.http.routers.vibetype.middlewares=redirectscheme #DARGSTACK-REMOVE
+        - traefik.http.routers.vibetype.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
+        - traefik.http.routers.vibetype.service=vibetype #DARGSTACK-REMOVE
+        - traefik.http.routers.vibetype_secure.entryPoints=web-secure
+        - traefik.http.routers.vibetype_secure.middlewares=vibetype_cors,vibetype_redirectregex
+        - traefik.http.routers.vibetype_secure.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
+        - traefik.http.routers.vibetype_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.routers.vibetype_secure.service=vibetype #DARGSTACK-REMOVE
+        - traefik.http.services.vibetype.loadbalancer.server.port=3000
+    environment:
+      AWS_REGION: ${VIBETYPE_AWS_REGION}
+      CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
+      NUXT_PUBLIC_GTAG_ID: ${VIBETYPE_NUXT_PUBLIC_GTAG_ID}
+      NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
+      NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H: ${VIBETYPE_NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H}
+      NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
+      NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${VIBETYPE_NUXT_PUBLIC_TURNSTILE_SITE_KEY}
+      PGHOST: ${VIBETYPE_PGHOST}
+    image: maevsi/vibetype:dev
+    secrets:
+      - source: vibetype_api-notification-secret
+        target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
+      - source: vibetype_aws-credentials
+        target: /home/node/.aws/credentials # TODO: switch to user `node`
+      - source: vibetype_firebase-service-account-credentials
+        target: /run/environment-variables/FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
+      - source: vibetype_openai-api-key
+        target: /run/environment-variables/NUXT_PRIVATE_OPENAI_API_KEY
+      - source: vibetype_turnstile-key
+        target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
+      - source: postgres_db
+        target: /run/environment-variables/PGDATABASE
+      - source: postgres_role_vibetype_password
+        target: /run/environment-variables/PGPASSWORD
+      - source: postgres_role_vibetype_username
+        target: /run/environment-variables/PGUSER
+    user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
+    volumes:
+      - ${PNPM_STORE_DIR}:/srv/.pnpm-store/ #DARGSTACK-REMOVE
+      - ./certificates/:/srv/certificates/ #DARGSTACK-REMOVE
+      - ../../../vibetype/:/srv/app/ #DARGSTACK-REMOVE
+      - ./configurations/postgraphile/jwtRS256.key.pub:/run/environment-variables/NUXT_PUBLIC_VIO_AUTH_JWT_PUBLIC_KEY:ro
 version: "3.7"
 volumes:
   grafana_data:
