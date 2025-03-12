@@ -1,3 +1,9 @@
+## [12.0.2](https://github.com/maevsi/stack/compare/12.0.1...12.0.2) (2025-03-12)
+
+### Bug Fixes
+
+* **grafana:** source database name from secret ([7291b0c](https://github.com/maevsi/stack/commit/7291b0cbd08845a45344f9e8cd3c179990b3dd4a))
+
 ## [12.0.1](https://github.com/maevsi/stack/compare/12.0.0...12.0.1) (2025-03-12)
 
 ### Bug Fixes
