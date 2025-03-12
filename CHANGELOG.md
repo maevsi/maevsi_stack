@@ -1,3 +1,10 @@
+## [12.0.0-beta.2](https://github.com/maevsi/stack/compare/12.0.0-beta.1...12.0.0-beta.2) (2025-03-12)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/vibetype docker tag to v8.6.0 ([2efb63b](https://github.com/maevsi/stack/commit/2efb63b2ed43c5aa95f333ac95852c7330cb52a7))
+* **secrets:** dissolve production ([ff07c24](https://github.com/maevsi/stack/commit/ff07c246cd7046ff7f44a3236f0e42ba6189fd30))
+
 ## [12.0.0-beta.1](https://github.com/maevsi/stack/compare/11.2.4...12.0.0-beta.1) (2025-03-12)
 
 ### ⚠ BREAKING CHANGES
