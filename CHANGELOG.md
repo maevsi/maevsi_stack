@@ -15,6 +15,18 @@
 * **deps:** upgrade maevsi/sqitch to v6 ([8266053](https://github.com/maevsi/stack/commit/82660537afb1c4d84faf3d58010c99488e182e88))
 * **deps:** upgrade maevsi/vibetype to v9 ([536e1a4](https://github.com/maevsi/stack/commit/536e1a466b9fc49ff7481a0e2d356ec0bd803f99))
 
+## [11.2.6](https://github.com/maevsi/maevsi_stack/compare/11.2.5...11.2.6) (2025-03-11)
+
+### Bug Fixes
+
+* **secrets:** dissolve production ([ff07c24](https://github.com/maevsi/maevsi_stack/commit/ff07c246cd7046ff7f44a3236f0e42ba6189fd30))
+
+## [11.2.5](https://github.com/maevsi/maevsi_stack/compare/11.2.4...11.2.5) (2025-03-10)
+
+### Bug Fixes
+
+* **deps:** update ghcr.io/maevsi/vibetype docker tag to v8.6.0 ([2efb63b](https://github.com/maevsi/maevsi_stack/commit/2efb63b2ed43c5aa95f333ac95852c7330cb52a7))
+
 ## [11.2.4](https://github.com/maevsi/maevsi_stack/compare/11.2.3...11.2.4) (2025-03-07)
 
 ### Bug Fixes
