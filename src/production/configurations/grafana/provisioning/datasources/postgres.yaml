@@ -3,7 +3,7 @@ apiVersion: 1
 datasources:
   - access: proxy
     jsonData:
-      database: vibetype
+      database: $__file{/run/secrets/postgres_db}
       postgresVersion: 1500
       sslmode: 'disable'
     name: PostgreSQL
