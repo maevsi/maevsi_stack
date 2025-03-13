@@ -335,7 +335,7 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.routers.redpanda.middlewares=redirectscheme
+        - traefik.http.routers.redpanda.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.redpanda.rule=Host(`redpanda.${STACK_DOMAIN}`)
         - traefik.http.routers.redpanda_secure.rule=Host(`redpanda.${STACK_DOMAIN}`)
         - traefik.http.routers.redpanda_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
