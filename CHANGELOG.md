@@ -1,3 +1,10 @@
+## [12.0.3](https://github.com/maevsi/stack/compare/12.0.2...12.0.3) (2025-03-13)
+
+### Bug Fixes
+
+* **portainer-agent:** remove cluster address environment variable ([df90a1b](https://github.com/maevsi/stack/commit/df90a1becaa055feb30ce19d5b5b368b0d718275))
+* **redpanda:** remove middleware for production ([ceb2a02](https://github.com/maevsi/stack/commit/ceb2a021449d5f8398996a662af7eaf38af7f48f))
+
 ## [12.0.2](https://github.com/maevsi/stack/compare/12.0.1...12.0.2) (2025-03-12)
 
 ### Bug Fixes
