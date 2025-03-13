@@ -1,3 +1,9 @@
+## [12.0.4](https://github.com/maevsi/stack/compare/12.0.3...12.0.4) (2025-03-13)
+
+### Bug Fixes
+
+* **traefik:** specify service for cloudflare tunneled production ([ac7e603](https://github.com/maevsi/stack/commit/ac7e603654019829c399b84afae1b4309c08cc7f))
+
 ## [12.0.3](https://github.com/maevsi/stack/compare/12.0.2...12.0.3) (2025-03-13)
 
 ### Bug Fixes
