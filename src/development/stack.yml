@@ -307,6 +307,10 @@ services:
   reccoom:
     # You cannot access the recommendation service directly.
     image: maevsi/reccoom:dev
+    secrets:
+      - postgres_db
+      - postgres_password
+      - postgres_user
     volumes:
       - ../../../reccoom/:/srv/app/
   redpanda:
