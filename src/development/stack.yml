@@ -430,12 +430,10 @@ services:
         - traefik.http.routers.vibetype.entryPoints=web
         - traefik.http.routers.vibetype.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.vibetype.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
-        - traefik.http.routers.vibetype.service=vibetype #DARGSTACK-REMOVE
         - traefik.http.routers.vibetype_secure.entryPoints=web-secure
         - traefik.http.routers.vibetype_secure.middlewares=vibetype_cors,vibetype_redirectregex
         - traefik.http.routers.vibetype_secure.rule=Host(`${STACK_DOMAIN}`) || Host(`www.${STACK_DOMAIN}`)
         - traefik.http.routers.vibetype_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
-        - traefik.http.routers.vibetype_secure.service=vibetype #DARGSTACK-REMOVE
         - traefik.http.services.vibetype.loadbalancer.server.port=3000
     environment:
       AWS_REGION: ${VIBETYPE_AWS_REGION}
