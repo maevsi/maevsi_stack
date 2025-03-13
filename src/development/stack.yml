@@ -375,6 +375,7 @@ services:
         - traefik.http.middlewares.redirectscheme.redirectscheme.scheme=https #DARGSTACK-REMOVE
         - traefik.http.routers.traefik.middlewares=redirectscheme #DARGSTACK-REMOVE
         - traefik.http.routers.traefik.rule=Host(`traefik.${STACK_DOMAIN}`)
+        - traefik.http.routers.traefik.service=api@internal
         - traefik.http.routers.traefik_secure.rule=Host(`traefik.${STACK_DOMAIN}`)
         - traefik.http.routers.traefik_secure.service=api@internal
         - traefik.http.routers.traefik_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
