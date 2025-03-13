@@ -1,7 +1,7 @@
 # vibetype_stack
 
 
-The Docker stack configuration for [maev.si](https://maev.si/).
+The Docker stack configuration for [vibetype.app](https://vibetype.app/).
 
 This project is deployed in accordance to the [DargStack template](https://github.com/dargstack/dargstack_template/) to make deployment a breeze. It is closely related to [Vibetype's source code](https://github.com/maevsi/vibetype/).
 
