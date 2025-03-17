@@ -81,7 +81,7 @@ services:
     image: ghcr.io/maevsi/reccoom:0.1.0
     volumes: (( prune ))
   sqitch:
-    image: ghcr.io/maevsi/sqitch:6.2.0
+    image: ghcr.io/maevsi/sqitch:7.0.0
     volumes: (( prune ))
   traefik:
     command:
@@ -165,9 +165,9 @@ services:
         target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
       - source: postgres_db
         target: /run/environment-variables/PGDATABASE
-      - source: postgres_role_vibetype_password
+      - source: postgres_role_service_vibetype_password
         target: /run/environment-variables/PGPASSWORD
-      - source: postgres_role_vibetype_username
+      - source: postgres_role_service_vibetype_username
         target: /run/environment-variables/PGUSER
     volumes:
       - ./configurations/postgraphile/jwtRS256.key.pub:/run/environment-variables/NUXT_PUBLIC_VIO_AUTH_JWT_PUBLIC_KEY:ro
