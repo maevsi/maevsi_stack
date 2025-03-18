@@ -1,3 +1,9 @@
+## [12.1.0](https://github.com/maevsi/stack/compare/12.0.7...12.1.0) (2025-03-18)
+
+### Features
+
+* **stack:** initialize traefik connection ([e1f1890](https://github.com/maevsi/stack/commit/e1f18906f5b6aa6ccbd62a3cd76284ce0edf8a1b))
+
 ## [12.0.7](https://github.com/maevsi/stack/compare/12.0.6...12.0.7) (2025-03-13)
 
 ### Bug Fixes
