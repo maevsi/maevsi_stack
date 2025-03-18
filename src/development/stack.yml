@@ -461,7 +461,7 @@ services:
       - source: vibetype_api-notification-secret
         target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
       - source: vibetype_aws-credentials
-        target: /home/node/.aws/credentials # TODO: switch to user `node`
+        target: /home/node/.aws/credentials
       - source: vibetype_firebase-service-account-credentials
         target: /run/environment-variables/FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
       - source: vibetype_openai-api-key
