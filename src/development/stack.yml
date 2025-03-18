@@ -306,6 +306,14 @@ services:
       - prometheus_data:/prometheus
   reccoom:
     # You cannot access the recommendation service directly.
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.reccoom.middlewares=redirectscheme #DARGSTACK-REMOVE
+        - traefik.http.routers.reccoom.rule=Host(`reccoom.${STACK_DOMAIN}`)
+        - traefik.http.routers.reccoom_secure.rule=Host(`reccoom.${STACK_DOMAIN}`)
+        - traefik.http.routers.reccoom_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
+        - traefik.http.services.reccoom.loadbalancer.server.port=8001
     image: maevsi/reccoom:dev
     secrets:
       - postgres_db
