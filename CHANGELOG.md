@@ -1,3 +1,9 @@
+## [12.1.2](https://github.com/maevsi/stack/compare/12.1.1...12.1.2) (2025-03-30)
+
+### Bug Fixes
+
+* schedule release ([a310288](https://github.com/maevsi/stack/commit/a310288dc439975dc7dab430f0d874a2a43b8cc6))
+
 ## [12.1.1](https://github.com/maevsi/stack/compare/12.1.0...12.1.1) (2025-03-19)
 
 ### Bug Fixes
