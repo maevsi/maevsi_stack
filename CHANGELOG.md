@@ -1,3 +1,9 @@
+## [12.1.3](https://github.com/maevsi/stack/compare/12.1.2...12.1.3) (2025-04-01)
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([e7cfadd](https://github.com/maevsi/stack/commit/e7cfadded475d7bf591d6a242aa34bfd53b054b3))
+
 ## [12.1.2](https://github.com/maevsi/stack/compare/12.1.1...12.1.2) (2025-03-30)
 
 ### Bug Fixes
