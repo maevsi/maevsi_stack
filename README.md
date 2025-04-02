@@ -74,27 +74,27 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The database's password.
     
- - ### `postgres_role_grafana_password`
+ - ### `postgres_role_service_grafana_password`
     
     The password of the observation dashboard's database role.
     
- - ### `postgres_role_grafana_username`
+ - ### `postgres_role_service_grafana_username`
     
     The username of the observation dashboard's database role.
     
- - ### `postgres_role_postgraphile_password`
+ - ### `postgres_role_service_postgraphile_password`
     
     The password of the GraphQL API database wrapper's database role.
     
- - ### `postgres_role_postgraphile_username`
+ - ### `postgres_role_service_postgraphile_username`
     
     The username of the GraphQL API database wrapper's database role.
     
- - ### `postgres_role_vibetype_password`
+ - ### `postgres_role_service_vibetype_password`
     
     The `tusd` database role's password.
     
- - ### `postgres_role_vibetype_username`
+ - ### `postgres_role_service_vibetype_username`
     
     The `tusd` database role's password.
     

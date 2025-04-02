@@ -8,7 +8,7 @@ datasources:
       sslmode: 'disable'
     name: PostgreSQL
     secureJsonData:
-      password: $__file{/run/secrets/postgres_role_grafana_password}
+      password: $__file{/run/secrets/postgres_role_service_grafana_password}
     type: grafana-postgresql-datasource
     url: postgres:5432
-    user: $__file{/run/secrets/postgres_role_grafana_username}
+    user: $__file{/run/secrets/postgres_role_service_grafana_username}
