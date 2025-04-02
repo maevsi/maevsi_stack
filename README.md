@@ -1,4 +1,4 @@
-# vibetype_stack
+# stack
 
 
 The Docker stack configuration for [vibetype.app](https://vibetype.app/).

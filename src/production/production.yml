@@ -81,7 +81,7 @@ services:
     image: ghcr.io/maevsi/reccoom:0.1.0
     volumes: (( prune ))
   sqitch:
-    image: ghcr.io/maevsi/sqitch:7.0.0-beta.2
+    image: ghcr.io/maevsi/sqitch:7.0.0-beta.9
     volumes: (( prune ))
   traefik:
     command:
@@ -127,7 +127,7 @@ services:
         - (( append ))
         - traefik.http.routers.vibetype.middlewares=vibetype_cors,vibetype_redirectregex
         - traefik.http.routers.vibetype_secure.tls.certresolver=default
-    image: ghcr.io/maevsi/vibetype:9.5.0
+    image: ghcr.io/maevsi/vibetype:9.8.1
     user: (( prune ))
   vibetype_beta:
     # You can access the main project frontend's beta version at [beta.localhost](https://beta.localhost/).
@@ -146,12 +146,12 @@ services:
       AWS_REGION: ${VIBETYPE_AWS_REGION}
       NUXT_PUBLIC_GTAG_ID: ${VIBETYPE_NUXT_PUBLIC_GTAG_ID}
       NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
-      NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H: ${VIBETYPE_NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H}
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
       NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${VIBETYPE_NUXT_PUBLIC_TURNSTILE_SITE_KEY}
+      NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H: ${VIBETYPE_NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H}
       NUXT_PUBLIC_VIO_ENVIRONMENT: beta
       PGHOST: ${VIBETYPE_PGHOST}
-    image: ghcr.io/maevsi/vibetype:9.5.0
+    image: ghcr.io/maevsi/vibetype:9.8.1
     secrets:
       - source: vibetype_api-notification-secret
         target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET

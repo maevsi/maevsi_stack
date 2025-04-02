@@ -98,7 +98,7 @@ services:
         - traefik.http.routers.adminer_secure.rule=Host(`adminer.${STACK_DOMAIN}`)
         - traefik.http.routers.adminer_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.adminer.loadbalancer.server.port=8080
-    image: adminer:5.0.6-standalone
+    image: adminer:5.1.0-standalone
     volumes:
       - ../production/configurations/adminer/adminer.css:/var/www/html/adminer.css:ro
   debezium:
@@ -143,7 +143,7 @@ services:
         - traefik.http.routers.grafana_secure.rule=Host(`grafana.${STACK_DOMAIN}`)
         - traefik.http.routers.grafana_secure.tls.options=mintls13@file #DARGSTACK-REMOVE
         - traefik.http.services.grafana.loadbalancer.server.port=3000
-    image: grafana/grafana:11.5.2
+    image: grafana/grafana:11.6.0
     secrets:
       - postgres_db
       - postgres_role_service_grafana_password
@@ -218,7 +218,7 @@ services:
         constraints:
           - node.role == manager
       replicas: 1
-    image: portainer/portainer-ce:2.27.1-alpine
+    image: portainer/portainer-ce:2.28.1-alpine
     secrets:
       - portainer_admin-password
     volumes:
@@ -230,7 +230,7 @@ services:
       placement:
         constraints:
           - node.platform.os == linux
-    image: portainer/agent:2.27.1
+    image: portainer/agent:2.28.1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /var/lib/docker/volumes:/var/lib/docker/volumes
@@ -239,7 +239,8 @@ services:
     deploy:
       labels:
         - traefik.enable=true
-        - traefik.http.middlewares.postgraphile_auth.plugin.body-forward-auth.AuthUrl=http://vibetype:3000/api/auth-proxy
+        - traefik.http.middlewares.postgraphile_auth.forwardauth.address=http://vibetype:3000/api/auth-proxy
+        - traefik.http.middlewares.postgraphile_auth.forwardauth.forwardBody=true
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowHeaders=authorization,baggage,content-type,sentry-trace,x-turnstile-key
         - traefik.http.middlewares.postgraphile_cors.headers.accessControlAllowOriginList=*
         - traefik.http.routers.postgraphile.middlewares=redirectscheme #DARGSTACK-REMOVE
@@ -335,7 +336,7 @@ services:
     #   timeout: 10s
     #   retries: 3
     #   start_period: 10s
-    image: redpandadata/redpanda:v24.3.7
+    image: redpandadata/redpanda:v24.3.9
     volumes:
       - redpanda_data:/var/lib/redpanda/data
   redpanda-console:
@@ -350,7 +351,7 @@ services:
         - traefik.http.services.redpanda.loadbalancer.server.port=8080
     environment:
       CONFIG_FILEPATH: /srv/app/redpanda-config.yaml
-    image: redpandadata/console:v2.8.4
+    image: redpandadata/console:v2.8.5
     volumes:
       - ../production/configurations/redpanda/config.yaml:/srv/app/redpanda-config.yaml:ro
   sqitch:
@@ -370,8 +371,6 @@ services:
       - --api=true
       - --entryPoints.web.address=:80
       - --entryPoints.web-secure.address=:443
-      - --experimental.plugins.body-forward-auth.moduleName=github.com/PatrickMi/body-forward-auth
-      - --experimental.plugins.body-forward-auth.version=v0.1.2
       - --providers.swarm=true
       - --providers.swarm.endpoint=unix:///var/run/docker.sock
       - --providers.swarm.exposedByDefault=false
@@ -393,7 +392,7 @@ services:
       placement:
         constraints:
           - node.role == manager
-    image: traefik:v3.3.4
+    image: traefik:v3.4.0-rc1
     ports: #DARGSTACK-REMOVE
       - mode: host #DARGSTACK-REMOVE
         protocol: tcp #DARGSTACK-REMOVE
@@ -422,7 +421,7 @@ services:
         - traefik.http.services.tusd.loadbalancer.server.port=8080
     environment:
       AWS_REGION: ${TUSD_REGION}
-    image: tusproject/tusd:v2.7.1
+    image: tusproject/tusd:v2.8.0
     secrets:
       - source: tusd_aws
         target: /home/tusd/.aws/credentials
@@ -449,16 +448,16 @@ services:
       CONSOLA_LEVEL: 4 # debug #DARGSTACK-REMOVE
       NUXT_PUBLIC_GTAG_ID: ${VIBETYPE_NUXT_PUBLIC_GTAG_ID}
       NUXT_PUBLIC_I18N_BASE_URL: https://${STACK_DOMAIN}
-      NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H: ${VIBETYPE_NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H}
       NUXT_PUBLIC_SITE_URL: https://${STACK_DOMAIN}
       NUXT_PUBLIC_TURNSTILE_SITE_KEY: ${VIBETYPE_NUXT_PUBLIC_TURNSTILE_SITE_KEY}
+      NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H: ${VIBETYPE_NUXT_PUBLIC_VIBETYPE_EMAIL_LIMIT24H}
       PGHOST: ${VIBETYPE_PGHOST}
     image: maevsi/vibetype:dev
     secrets:
       - source: vibetype_api-notification-secret
         target: /run/environment-variables/NUXT_PRIVATE_API_NOTIFICATION_SECRET
       - source: vibetype_aws-credentials
-        target: /home/node/.aws/credentials # TODO: switch to user `node`
+        target: /home/node/.aws/credentials
       - source: vibetype_firebase-service-account-credentials
         target: /run/environment-variables/FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
       - source: vibetype_openai-api-key
