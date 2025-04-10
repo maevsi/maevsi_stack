@@ -1,3 +1,13 @@
+## [13.0.0](https://github.com/maevsi/stack/compare/12.1.3...13.0.0) (2025-04-10)
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** upgrade sqitch to v7 (#180)
+
+### Miscellaneous Chores
+
+* **deps:** upgrade sqitch to v7 ([#180](https://github.com/maevsi/stack/issues/180)) ([4460f0a](https://github.com/maevsi/stack/commit/4460f0ad13757828ea40071372457a285e575aa9))
+
 ## [13.0.0-beta.1](https://github.com/maevsi/stack/compare/12.1.3...13.0.0-beta.1) (2025-04-10)
 
 ### ⚠ BREAKING CHANGES
