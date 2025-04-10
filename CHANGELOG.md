@@ -1,3 +1,9 @@
+## [13.0.1](https://github.com/maevsi/stack/compare/13.0.0...13.0.1) (2025-04-10)
+
+### Bug Fixes
+
+* schedule release ([1ac89f0](https://github.com/maevsi/stack/commit/1ac89f04c312222743930dfd19f9b76343006b2e))
+
 ## [13.0.0](https://github.com/maevsi/stack/compare/12.1.3...13.0.0) (2025-04-10)
 
 ### ⚠ BREAKING CHANGES
