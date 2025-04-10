@@ -34,24 +34,24 @@ secrets:
   postgres_password:
     # The database's password.
     file: ./secrets/postgres/password.secret
-  postgres_role_grafana_password:
+  postgres_role_service_grafana_password:
     # The password of the observation dashboard's database role.
-    file: ./secrets/postgres/role_grafana_password.secret
-  postgres_role_grafana_username:
+    file: ./secrets/postgres/role_service_grafana_password.secret
+  postgres_role_service_grafana_username:
     # The username of the observation dashboard's database role.
-    file: ./secrets/postgres/role_grafana_username.secret
-  postgres_role_postgraphile_password:
+    file: ./secrets/postgres/role_service_grafana_username.secret
+  postgres_role_service_postgraphile_password:
     # The password of the GraphQL API database wrapper's database role.
-    file: ./secrets/postgres/role_postgraphile_password.secret
-  postgres_role_postgraphile_username:
+    file: ./secrets/postgres/role_service_postgraphile_password.secret
+  postgres_role_service_postgraphile_username:
     # The username of the GraphQL API database wrapper's database role.
-    file: ./secrets/postgres/role_postgraphile_username.secret
-  postgres_role_vibetype_password:
+    file: ./secrets/postgres/role_service_postgraphile_username.secret
+  postgres_role_service_vibetype_password:
     # The `tusd` database role's password.
-    file: ./secrets/postgres/role_vibetype_password.secret
-  postgres_role_vibetype_username:
+    file: ./secrets/postgres/role_service_vibetype_password.secret
+  postgres_role_service_vibetype_username:
     # The `tusd` database role's password.
-    file: ./secrets/postgres/role_vibetype_username.secret
+    file: ./secrets/postgres/role_service_vibetype_username.secret
   postgres_user:
     # The database's default user.
     file: ./secrets/postgres/user.secret
@@ -146,8 +146,8 @@ services:
     image: grafana/grafana:11.6.0
     secrets:
       - postgres_db
-      - postgres_role_grafana_password
-      - postgres_role_grafana_username
+      - postgres_role_service_grafana_password
+      - postgres_role_service_grafana_username
     volumes:
       - ./configurations/grafana/grafana.ini:/etc/grafana/grafana.ini:ro
       - ../production/configurations/grafana/dashboards:/var/lib/grafana/dashboards:ro
@@ -273,14 +273,13 @@ services:
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       POSTGRES_USER_FILE: /run/secrets/postgres_user
     image: postgis/postgis:17-3.5-alpine
-    # # Expose ports (only) e.g. to generate a database graph image or similar.
-    # ports:
-    #   - 5432:5432
+    ports: #DARGSTACK-REMOVE
+      - 5432:5432 #DARGSTACK-REMOVE
     secrets:
       - postgres_db
       - postgres_password
-      - postgres_role_grafana_password
-      - postgres_role_grafana_username
+      - postgres_role_service_grafana_password
+      - postgres_role_service_grafana_username
       - postgres_user
     # sysctls:
     #   # Prevent Docker Swarm from killing connections (https://github.com/moby/moby/issues/31208)
@@ -288,7 +287,6 @@ services:
     #   - net.ipv4.tcp_keepalive_intvl=30
     #   - net.ipv4.tcp_keepalive_probes=10
     volumes:
-      - /run/:/run/ # make PGSQL socket available # #DARGSTACK-REMOVE
       - postgres_data:/var/lib/postgresql/data/
       - ../production/configurations/postgres/docker-entrypoint-initdb.d/additional-databases.sh:/docker-entrypoint-initdb.d/additional-databases.sh:ro
   prometheus:
@@ -360,14 +358,13 @@ services:
     # You cannot access the database migrations directly.
     image: maevsi/sqitch:dev
     secrets:
-      - postgres_role_postgraphile_password
-      - postgres_role_postgraphile_username
-      - postgres_role_vibetype_password
-      - postgres_role_vibetype_username
+      - postgres_role_service_postgraphile_password
+      - postgres_role_service_postgraphile_username
+      - postgres_role_service_vibetype_password
+      - postgres_role_service_vibetype_username
       - sqitch_target
     volumes:
       - ../../../sqitch/:/srv/app/
-      - /run/postgresql/:/run/postgresql/
   traefik:
     # You can access the reverse proxy's dashboard at [traefik.localhost](https://traefik.localhost/).
     command:
@@ -469,9 +466,9 @@ services:
         target: /run/environment-variables/NUXT_TURNSTILE_SECRET_KEY
       - source: postgres_db
         target: /run/environment-variables/PGDATABASE
-      - source: postgres_role_vibetype_password
+      - source: postgres_role_service_vibetype_password
         target: /run/environment-variables/PGPASSWORD
-      - source: postgres_role_vibetype_username
+      - source: postgres_role_service_vibetype_username
         target: /run/environment-variables/PGUSER
     user: node:node # files created inside a docker container, like node_modules by pnpm, gain correct permissions by setting the user to `node`
     volumes:
