@@ -70,6 +70,9 @@ secrets:
   vibetype_firebase-service-account-credentials:
     # The notification provider's service account credentials.
     file: ./secrets/vibetype/firebase-service-account-credentials.secret
+  vibetype_monday:
+    # The project management software's configuration.
+    file: ./secrets/vibetype/monday.secret
   vibetype_openai-api-key:
     # The AI provider's API key.
     file: ./secrets/vibetype/openai-api-key.secret
@@ -460,6 +463,8 @@ services:
         target: /home/node/.aws/credentials
       - source: vibetype_firebase-service-account-credentials
         target: /run/environment-variables/FIREBASE_SERVICE_ACCOUNT_CREDENTIALS
+      - source: vibetype_monday
+        target: /run/environment-variables/NUXT_PRIVATE_MONDAY
       - source: vibetype_openai-api-key
         target: /run/environment-variables/NUXT_PRIVATE_OPENAI_API_KEY
       - source: vibetype_turnstile-key
