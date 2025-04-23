@@ -1,3 +1,10 @@
+## [13.1.0](https://github.com/maevsi/stack/compare/13.0.5...13.1.0) (2025-04-23)
+
+### Features
+
+* **vibetype:** add monday configuration secret ([9fefe74](https://github.com/maevsi/stack/commit/9fefe74df9d2dcb2a78b64fdde7f3f52baaeb46c))
+* **vibetype:** add monday configuration secret ([#189](https://github.com/maevsi/stack/issues/189)) ([8e4a44b](https://github.com/maevsi/stack/commit/8e4a44b707ff508469f5ff3a55e9ff42135e0ab4))
+
 ## [13.0.5](https://github.com/maevsi/stack/compare/13.0.4...13.0.5) (2025-04-17)
 
 ### Bug Fixes
