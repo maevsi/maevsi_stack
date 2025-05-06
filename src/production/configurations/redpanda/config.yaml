@@ -1,9 +1,12 @@
 kafka:
-  brokers: ["redpanda:9092"]
-  schemaRegistry:
-    enabled: true
-    urls: ["http://redpanda:8081"]
+  brokers:
+  - redpanda:9092
 redpanda:
   adminApi:
     enabled: true
-    urls: ["http://redpanda:9644"]
+    urls:
+    - http://redpanda:9644
+schemaRegistry:
+  enabled: true
+  urls:
+  - http://redpanda:8081
