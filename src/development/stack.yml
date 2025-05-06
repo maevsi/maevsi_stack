@@ -119,6 +119,10 @@ services:
     #   retries: 3
     #   start_period: 20s
     image: quay.io/debezium/connect:3.2
+    volumes:
+      - debezium_kafka_configuration:/kafka/config
+      - debezium_kafka_data:/kafka/data
+      - debezium_kafka_logs:/kafka/logs
   debezium-postgres-connector:
     # You can check the database connector's setup logs using `portainer`.
     command: /entrypoint.sh
@@ -483,6 +487,15 @@ services:
       - ./configurations/postgraphile/jwtRS256.key.pub:/run/environment-variables/NUXT_PUBLIC_VIO_AUTH_JWT_PUBLIC_KEY:ro
 version: "3.7"
 volumes:
+  debezium_kafka_configuration:
+    # The change data capture's configuration.
+    {}
+  debezium_kafka_data:
+    # The change data capture's data.
+    {}
+  debezium_kafka_logs:
+    # The change data capture's logs.
+    {}
   grafana_data:
     # The observation dashboard's data.
     {}

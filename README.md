@@ -258,6 +258,18 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The reverse proxy's certificate data.
     
+ - ### `debezium_kafka_configuration`
+    
+    The change data capture's configuration.
+    
+ - ### `debezium_kafka_data`
+    
+    The change data capture's data.
+    
+ - ### `debezium_kafka_logs`
+    
+    The change data capture's logs.
+    
  - ### `grafana_data`
     
     The observation dashboard's data.
