@@ -6,8 +6,8 @@ postgres_user="$(cat /run/secrets/postgres_user)"
 
 create_database_and_role() {
     db_name="$1"
-    password_file="/run/secrets/postgres_role_${db_name}_password"
-    username_file="/run/secrets/postgres_role_${db_name}_username"
+    password_file="/run/secrets/postgres_role_service_${db_name}_password"
+    username_file="/run/secrets/postgres_role_service_${db_name}_username"
 
     if [ ! -f "$password_file" ]; then
         echo "[WARN] Password file for '$db_name' not found, skipping creation" >&2
