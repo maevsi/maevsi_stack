@@ -1,3 +1,9 @@
+## [13.1.3](https://github.com/maevsi/stack/compare/13.1.2...13.1.3) (2025-05-06)
+
+### Bug Fixes
+
+* **postgres:** correct service role prefix in initialization script ([b672776](https://github.com/maevsi/stack/commit/b672776d112ebdf1f224fd53e7c2ca48cd52b814))
+
 ## [13.1.2](https://github.com/maevsi/stack/compare/13.1.1...13.1.2) (2025-04-29)
 
 ### Bug Fixes
