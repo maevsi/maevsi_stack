@@ -1,3 +1,9 @@
+## [13.2.0](https://github.com/maevsi/stack/compare/13.1.3...13.2.0) (2025-05-06)
+
+### Features
+
+* **debezium:** specify volumes for data persistency ([2157c85](https://github.com/maevsi/stack/commit/2157c85b91c462ca0d88173c38f8d218ffabfa13))
+
 ## [13.1.3](https://github.com/maevsi/stack/compare/13.1.2...13.1.3) (2025-05-06)
 
 ### Bug Fixes
