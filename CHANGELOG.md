@@ -1,3 +1,9 @@
+## [13.3.0](https://github.com/maevsi/stack/compare/13.2.1...13.3.0) (2025-05-08)
+
+### Features
+
+* **jobber:** convert aws configuration to secret ([f2a235f](https://github.com/maevsi/stack/commit/f2a235ff3c8f8b9518aeee4538bd18c42ddfebbd))
+
 ## [13.2.1](https://github.com/maevsi/stack/compare/13.2.0...13.2.1) (2025-05-06)
 
 ### Bug Fixes
