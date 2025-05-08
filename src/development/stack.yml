@@ -13,6 +13,9 @@ secrets:
   jobber_aws-credentials:
     # The job scheduler's AWS credentials.
     file: ./secrets/jobber/aws-credentials.secret
+  jobber_aws-configuration:
+    # The job scheduler's AWS configuration.
+    file: ./secrets/jobber/aws-configuration.secret
   jobber_msmtprc:
     # The job scheduler's SMTP client configuration.
     file: ./secrets/jobber/msmtprc.secret
@@ -170,12 +173,13 @@ services:
         target: /etc/aliases
       - jobber_aws-bucket
       - jobber_aws-credentials
+      - source: jobber_aws-configuration
+        target: /home/jobberuser/.aws/config
       - source: jobber_msmtprc
         target: /etc/msmtprc
     volumes:
       - ../production/backups/postgres/:/backups/
       - ./configurations/jobber/.jobber:/home/jobberuser/.jobber:ro
-      - ./configurations/jobber/aws-config:/home/jobberuser/.aws/config:ro
   minio: #DARGSTACK-REMOVE
     # You can access the s3 console at [minio.localhost](https://minio.localhost/).
     # You can access the s3 api service at [s3.localhost](https://s3.localhost/) if you want to access via cli from outside the stack.
