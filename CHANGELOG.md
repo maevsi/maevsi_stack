@@ -1,3 +1,9 @@
+## [13.4.0](https://github.com/maevsi/stack/compare/13.3.0...13.4.0) (2025-05-08)
+
+### Features
+
+* **vibetype:** upgrade to v11.0.0-beta.1 ([601660a](https://github.com/maevsi/stack/commit/601660a4c9b52d829c938f5b9fb84b8df662f673))
+
 ## [13.3.0](https://github.com/maevsi/stack/compare/13.2.1...13.3.0) (2025-05-08)
 
 ### Features
