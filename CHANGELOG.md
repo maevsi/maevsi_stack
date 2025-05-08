@@ -1,3 +1,13 @@
+## [14.0.0-beta.1](https://github.com/maevsi/stack/compare/13.3.0...14.0.0-beta.1) (2025-05-08)
+
+### ⚠ BREAKING CHANGES
+
+* **vibetype-beta:** disable
+
+### Features
+
+* **vibetype-beta:** disable ([f46055e](https://github.com/maevsi/stack/commit/f46055e588a14c7750acd754b0a9326925d5d0da))
+
 ## [13.3.0](https://github.com/maevsi/stack/compare/13.2.1...13.3.0) (2025-05-08)
 
 ### Features
