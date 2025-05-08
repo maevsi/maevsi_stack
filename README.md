@@ -38,6 +38,10 @@ This project is deployed in accordance to the [DargStack template](https://githu
     
     The job scheduler's AWS bucket name.
     
+ - ### `jobber_aws-configuration`
+    
+    The job scheduler's AWS configuration.
+    
  - ### `jobber_aws-credentials`
     
     The job scheduler's AWS credentials.
