@@ -1,3 +1,9 @@
+## [13.4.2](https://github.com/maevsi/stack/compare/13.4.1...13.4.2) (2025-05-09)
+
+### Bug Fixes
+
+* **vibetype:** upgrade to v11.0.0-beta.2 ([2dba24a](https://github.com/maevsi/stack/commit/2dba24a3a1d4cd6e77cc7c3c78c57ab98ee9b4dd))
+
 ## [13.4.1](https://github.com/maevsi/stack/compare/13.4.0...13.4.1) (2025-05-09)
 
 ### Bug Fixes
